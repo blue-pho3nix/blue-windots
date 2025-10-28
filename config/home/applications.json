@@ -13,5 +13,9 @@
 				"matching_strategy": "Equals"
 			}
 		]
-	}
+	},
+        {
+                "id": "WindowsTerminal.exe",
+                "float": true
+        }
 }
