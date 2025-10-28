@@ -56,4 +56,4 @@ git clone blue-pho3nix/blue-windots
 
 ![](https://github.com/user-attachments/assets/7d2db809-dad4-41a5-93eb-c77b3f70d930)
 
-- Restart and follow these [instructions](https://www.deviantart.com/niivu/art/Installing-Windows-Themes-UPDATED-708835586) for more info.
+- Restart and follow these [instructions](https://www.deviantart.com/niivu/art/Installing-Windows-Themes-UPDATED-708835586) for extra info.
