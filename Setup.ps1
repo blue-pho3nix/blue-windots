@@ -25,7 +25,7 @@
 <#
 
 .DESCRIPTION
-	Setup script for Windows 11 Machine.
+	Configs script for Windows 11 Machine.
 
 #>
 Param()
@@ -237,21 +237,6 @@ function Install-ScoopApp {
     }
 }
 
-function Install-PowerShellModule {
-	param ([string]$Module, [string]$Version, [array]$AdditionalArgs)
-
-	if (!(Get-InstalledModule -Name $Module -ErrorAction SilentlyContinue)) {
-		$installModule = "Install-Module -Name $Module"
-		if ($null -ne $Version) { $installModule += " -RequiredVersion $Version" }
-		if ($AdditionalArgs.Count -ge 1) {
-			$addArgs = $AdditionalArgs -join ' '
-			$installModule = " $addArgs"
-		}
-		Invoke-Expression "$installModule"
-	} else {
-		Write-ColorText "{Blue}[module] {Magenta}pwsh: {Yellow}(exists) {Gray}$Module"
-	}
-}
 
 
 function Install-OnlineFile {
@@ -592,7 +577,7 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
         Write-Host "Creating autostart task for YASB..."
         try {
             # Use the official command to create the autostart scheduled task
-            & yasbc.exe enable-autostart --task -ErrorAction Stop
+            & yasbc.exe enable-autostart --task
             Write-Host "✅ YASB autostart task created." -ForegroundColor Green
         } catch {
             Write-Error "Failed to enable YASB autostart: $_"
@@ -670,6 +655,4 @@ Write-Host "│       ██║  ██║███████╗████�
 Write-Host "│       ╚═╝  ╚═╝╚══════╝╚══════╝    ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝ ╚═╝      │" -ForegroundColor "Green"
 Write-Host "│                                                                                │" -ForegroundColor "Green"
 Write-Host "└────────────────────────────────────────────────────────────────────────────────┘" -ForegroundColor "Green"
-
-Write-ColorText "`n`n{Grey}For next steps, please visit: {Blue}https://github.com/blue-pho3nix/blue-windots/tree/Huntress`n"
 

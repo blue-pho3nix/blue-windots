@@ -14,7 +14,7 @@
   "default_container_padding": 10,
   "border": true,
   "border_implementation": "Komorebi",
-  "border_width": 6,
+  "border_width": 3,
   "border_offset": -1,
   "border_style": "Rounded",
   "theme": {
@@ -34,7 +34,7 @@
     "mode": "OnStack",
     "tabs": {
       "width": 300,
-      "font_family": "FantasqueSansM Nerd Font",
+      "font_family": "0xProto Nerd Font",
       "font_size": 30
     }
   },
