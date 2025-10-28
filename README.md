@@ -30,7 +30,7 @@ git clone blue-pho3nix/blue-windots
 
 ![](https://github.com/user-attachments/assets/7d2db809-dad4-41a5-93eb-c77b3f70d930)
 
-- Click on `` in `Personalization > Themes > Desktop icon settings`
+- Click on `Allow themes to change desktop icons` in `Personalization > Themes > Desktop icon settings`
 
 ![](https://github.com/user-attachments/assets/81b96814-cb1a-4574-87d1-275a98001192)
 
