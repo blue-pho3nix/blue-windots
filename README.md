@@ -7,7 +7,8 @@ git clone blue-pho3nix/blue-windots
 ```
 - Open Powershell 7 as Administrator
 
-- `cd` into `blue-dots` and run `Setup.ps1`
+- `cd` into `blue-dots`
+- Run `Setup.ps1`
 ```
 .\Setup.ps1
 ```
