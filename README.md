@@ -5,7 +5,8 @@ My personal Windows 11 windots for a semi-automated [komorebi](https://github.co
 ```
 git clone blue-pho3nix/blue-windots
 ```
-- Open Powershell 7
+- Open Powershell 7 as Administrator
+
 - `cd` into `blue-dots` and run `Setup.ps1`
 ```
 .\Setup.ps1
