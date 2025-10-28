@@ -56,4 +56,8 @@ git clone blue-pho3nix/blue-windots
 
 ![](https://github.com/user-attachments/assets/7d2db809-dad4-41a5-93eb-c77b3f70d930)
 
+- Turn off `Show time and date in the System tray` at `Time & language > Date & time`
+
+![](https://github.com/user-attachments/assets/4968053b-24ae-4d6f-8d20-3046ca17990a)
+
 - Restart and follow these [instructions](https://www.deviantart.com/niivu/art/Installing-Windows-Themes-UPDATED-708835586) for extra info.
