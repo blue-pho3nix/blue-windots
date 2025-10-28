@@ -1,9 +1,5 @@
 {
-	// PLEASE MODIFY THIS FILE WITH YOUR PREFERRED APPLICATIONS / PACKAGES / TOOLS
-	// BEFORE RUNNING `Setup.ps` SCRIPT!! YOU CAN ADD OR REMOVE SPECIFIC SETTINGS BELOW:
 	"environmentVariable": [
-		// Modify the below key-pair values according to your paths
-		{ "commandName": "komorebic", "environmentKey": "KOMOREBI_CONFIG_HOME", "environmentValue": "C:\\Users\\jacki\\.config\\komorebi" }
 	],
 	"installSource": {
 		"winget": {
