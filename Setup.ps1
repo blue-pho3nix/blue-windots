@@ -577,7 +577,7 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
         Write-Host "Creating autostart task for YASB..."
         try {
             # Use the official command to create the autostart scheduled task
-            & yasbc.exe enable-autostart --task
+            yasbc enable-autostart --task
             Write-Host "✅ YASB autostart task created." -ForegroundColor Green
         } catch {
             Write-Error "Failed to enable YASB autostart: $_"
@@ -589,7 +589,7 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
     # 2. Start it for the current session if not running
     if (!(Get-Process -Name yasb -ErrorAction SilentlyContinue)) {
         Write-Host "Starting YASB for current session..."
-        try { & yasbc.exe start } catch { Write-Error $_ }
+        try { yasbc start } catch { Write-Error $_ }
     } else {
         Write-Host "✅ YASB is already running." -ForegroundColor Green
     }
@@ -598,43 +598,19 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
 }
 
 # --- KOMOREBI ---
+# Check if 'komorebic' command is available first
 if (Get-Command komorebic -ErrorAction SilentlyContinue) {
-    $regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run"
-    $regKeyName = "komorebi"
     
-    # Get the full path to the executable
-    $komorebiExePath = (Get-Command komorebic.exe).Source
-    
-    # This is the command that will be run at startup, hidden
-    $startupCommand = "powershell.exe -WindowStyle Hidden -Command `"$komorebiExePath start --ahk`""
+    # 1. Set up autostart using the built-in command
+    komorebic enable-autostart --ahk
 
-    # 1. Create the autostart registry key if it doesn't exist or is incorrect
-    $currentRegValue = Get-ItemProperty -Path $regPath -Name $regKeyName -ErrorAction SilentlyContinue
-    
-    if ($null -eq $currentRegValue -or $currentRegValue.$regKeyName -ne $startupCommand) {
-        Write-Host "Creating autostart registry key for Komorebi..."
-        try {
-            Set-ItemProperty -Path $regPath -Name $regKeyName -Value $startupCommand -Type String -Force -ErrorAction Stop
-            Write-Host "✅ Komorebi autostart key created." -ForegroundColor Green
-        } catch {
-            Write-Error "Failed to create Komorebi autostart key: $_"
-        }
-    } else {
-        Write-Host "✅ Komorebi autostart key already exists." -ForegroundColor Green
-    }
-
-    # 2. Start it for the current session if not running
+    # 2. Start Komorebi, but only if it's not already running
     if (!(Get-Process -Name komorebi -ErrorAction SilentlyContinue)) {
-        Write-Host "Starting Komorebi for current session..."
-        try { 
-            # Start the process using the same hidden window method
-            Start-Process "powershell.exe" -ArgumentList "-WindowStyle Hidden -Command `"$komorebiExePath start --ahk`"" 
-        } catch { Write-Error $_ }
-    } else {
-        Write-Host "✅ Komorebi is already running." -ForegroundColor Green
+        komorebic start --ahk
     }
+    
 } else {
-    Write-Warning "Command not found: komorebic."
+    Write-Warning "komorebic command not found. Could not configure."
 }
 
 
