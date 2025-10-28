@@ -1,0 +1,56 @@
+{
+	// PLEASE MODIFY THIS FILE WITH YOUR PREFERRED APPLICATIONS / PACKAGES / TOOLS
+	// BEFORE RUNNING `Setup.ps` SCRIPT!! YOU CAN ADD OR REMOVE SPECIFIC SETTINGS BELOW:
+	"environmentVariable": [
+		// Modify the below key-pair values according to your paths
+		{ "commandName": "komorebic", "environmentKey": "KOMOREBI_CONFIG_HOME", "environmentValue": "C:\\Users\\jacki\\.config\\komorebi" }
+	],
+	"installSource": {
+		"winget": {
+			"autoInstall": true,
+			"packageList": [
+
+				// Must-haves
+				{ "packageId": "Microsoft.PowerShell" },
+				{ "packageId": "Microsoft.WindowsTerminal.Preview" },
+
+				// Shell supports
+				{ "packageId": "JanDeDobbeleer.OhMyPosh" },
+
+
+				// Windows Tweak Managers
+				{ "packageId": "AmN.yasb" },
+				{ "packageId": "LGUG2Z.komorebi" },
+				{ "packageId": "LGUG2Z.whkd" }
+			],
+			"additionalArgs": ["--exact", "--silent", "--accept-package-agreements", "--accept-source-agreements"]
+		},
+		"scoop": {
+			"autoInstall": true,
+			"bucketList": [
+				// { "bucketName": "dorado", "bucketRepo": "https://github.com/chawyehsu/dorado" },
+				{ "bucketName": "extras" },
+				{ "bucketName": "sysinternals" }
+
+			],
+			"packageList": [
+				// Prerequisites of scoop (run `scoop checkup`)
+				{ "packageName": "aria2" },
+				{ "packageName": "cacert" },
+				{ "packageName": "innounp" },
+				{ "packageName": "wixtoolset" },
+			
+
+				// Scoop Extras
+				{ "packageName": "scoop-completion" },
+				{ "packageName": "scoop-search" },
+
+
+				// For Komorebi
+				{ "packageName": "autohotkey"}
+
+			],
+			"additionalArgs": []
+		}
+	}
+}

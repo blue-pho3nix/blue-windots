@@ -1,0 +1,156 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json",
+  "app_specific_configuration_path": "C:/Users/jacki/applications.json",
+  "animation": {
+    "enabled": true,
+    "duration": 400,
+    "style": "EaseOutBack",
+    "fps": 120
+  },
+  "window_hiding_behaviour": "Minimize",
+  "cross_monitor_move_behaviour": "Insert",
+  "mouse_follows_focus": false,
+  "default_workspace_padding": 10,
+  "default_container_padding": 10,
+  "border": true,
+  "border_implementation": "Komorebi",
+  "border_width": 6,
+  "border_offset": -1,
+  "border_style": "Rounded",
+  "theme": {
+    "name": "Chalk",
+    "palette": "Base16",
+    "unfocused_border": "Base02",
+    "single_border": "Base0D",
+    "monocle_border": "Base0D",
+    "floating_border": "Base0D",
+    "stack_border": "Base01",
+    "stackbar_background": "Base01",
+    "stackbar_unfocused_text": "Base04",
+    "stackbar_focused_text": "Base0D"
+  },
+  "stackbar": {
+    "height": 35,
+    "mode": "OnStack",
+    "tabs": {
+      "width": 300,
+      "font_family": "FantasqueSansM Nerd Font",
+      "font_size": 30
+    }
+  },
+  "transparency": true,
+  "ignore_rules": [
+    {
+      "kind": "Exe",
+      "id": "yasb.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "monitors": [
+    // monitor 1, index 0
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "BSP"
+        },
+        {
+          "name": "II",
+          "layout": "BSP"
+        },
+        {
+          "name": "III",
+          "layout": "BSP"
+        },
+        {
+          "name": "IV",
+          "layout": "BSP"
+        }
+      ]
+    },
+    // monitor 2, index 1
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "BSP"
+        },
+        {
+          "name": "II",
+          "layout": "BSP"
+        },
+        {
+          "name": "III",
+          "layout": "BSP"
+        },
+        {
+          "name": "IV",
+          "layout": "BSP"
+        }
+      ]
+    },
+    // monitor 3, index 2
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "BSP"
+        },
+        {
+          "name": "II",
+          "layout": "BSP"
+        },
+        {
+          "name": "III",
+          "layout": "BSP"
+        },
+        {
+          "name": "IV",
+          "layout": "BSP"
+        }
+      ]
+    },
+    // monitor 4, index 3
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "BSP"
+        },
+        {
+          "name": "II",
+          "layout": "BSP"
+        },
+        {
+          "name": "III",
+          "layout": "BSP"
+        },
+        {
+          "name": "IV",
+          "layout": "BSP"
+        }
+      ]
+    },
+    // monitor 5, index 4
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "BSP"
+        },
+        {
+          "name": "II",
+          "layout": "BSP"
+        },
+        {
+          "name": "III",
+          "layout": "BSP"
+        },
+        {
+          "name": "IV",
+          "layout": "BSP"
+        }
+      ]
+    }
+  ]
+}
