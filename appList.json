@@ -10,18 +10,12 @@
 			"autoInstall": true,
 			"packageList": [
 
-				// Must-haves
-				{ "packageId": "Microsoft.PowerShell" },
-				{ "packageId": "Microsoft.WindowsTerminal.Preview" },
-
 				// Shell supports
 				{ "packageId": "JanDeDobbeleer.OhMyPosh" },
 
-
 				// Windows Tweak Managers
 				{ "packageId": "AmN.yasb" },
-				{ "packageId": "LGUG2Z.komorebi" },
-				{ "packageId": "LGUG2Z.whkd" }
+				{ "packageId": "LGUG2Z.komorebi" }
 			],
 			"additionalArgs": ["--exact", "--silent", "--accept-package-agreements", "--accept-source-agreements"]
 		},
