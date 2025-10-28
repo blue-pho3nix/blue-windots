@@ -1,6 +1,5 @@
 {
-	"environmentVariable": [
-	],
+	"environmentVariable": [],
 	"installSource": {
 		"winget": {
 			"autoInstall": true,
