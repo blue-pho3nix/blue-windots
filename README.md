@@ -1,10 +1,11 @@
 # Windots 😊
 My personal Windows 11 windots for a semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 ## Run as Administrator in Powershell 7
+- Clone the repo
 ```
 git clone blue-pho3nix/blue-windots
 ```
-cd into `blue-dots` and run `Setup.ps1`
+- cd into `blue-dots` and run `Setup.ps1`
 ```
 .\Setup.ps1
 ```
