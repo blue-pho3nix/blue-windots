@@ -314,22 +314,6 @@ function Write-LockFile {
 	}
 }
 
-function New-SymbolicLinks {
-	param (
-		[string]$Source,
-		[string]$Destination,
-		[switch]$Recurse
-	)
-
-	Get-ChildItem $Source -Recurse:$Recurse | Where-Object { !$_.PSIsContainer } | ForEach-Object {
-		$destinationPath = $_.FullName -replace [regex]::Escape($Source), $Destination
-		if (!(Test-Path (Split-Path $destinationPath))) {
-			New-Item (Split-Path $destinationPath) -ItemType Directory -Force -ErrorAction SilentlyContinue | Out-Null
-		}
-		New-Item -ItemType SymbolicLink -Path $destinationPath -Target $($_.FullName) -Force -ErrorAction SilentlyContinue | Out-Null
-		Write-ColorText "{Blue}[symlink] {Green}$($_.FullName) {Yellow}--> {Gray}$destinationPath"
-	}
-}
 
 ########################################################################
 ###														MAIN SCRIPT 		  					 			 		 ###
@@ -526,13 +510,23 @@ if ($scoopInstall -eq $True) {
 }
 
 ####################################################################
-###															SYMLINKS 												 ###
+###															COPY FILES 												 ###
 ####################################################################
-# symlinks
-Write-TitleBox -Title "Add symbolic links for dotfiles"
-New-SymbolicLinks -Source "$PSScriptRoot\config\home" -Destination "$env:USERPROFILE" -Recurse
-New-SymbolicLinks -Source "$PSScriptRoot\config\AppData" -Destination "$env:USERPROFILE\AppData" -Recurse
-New-SymbolicLinks -Source "$PSScriptRoot\config\config" -Destination "$env:USERPROFILE\.config" -Recurse
+# Copy dotfiles
+Write-TitleBox -Title "Copy dotfiles to user profile"
+
+# Define source and destination
+$source = "$PSScriptRoot\config\home"
+$destination = "$env:USERPROFILE"
+
+# Copy all files and folders from the source to the destination
+Write-ColorText "{Blue}[copy] {Green}Copying all files from $source... {Yellow}to {Gray}$destination"
+
+# The \* copies the *contents* of the source folder, not the folder itself.
+Copy-Item -Path "$source\*" -Destination $destination -Recurse -Force -ErrorAction SilentlyContinue
+
+Write-ColorText "{Green}All files copied successfully."
+
 Refresh ($i++)
 
 
