@@ -18,12 +18,6 @@ git clone blue-pho3nix/blue-windots
 #### Control Panel Color Fix
 - Normal settings
 
-#### Taskbar tray system icon tweaks
-- Following settings
-
-![](https://github.com/user-attachments/assets/838cb6d0-16d8-4bf6-b915-a93b08823970)
-
-
 #### UXTheme hook
 - Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
 
@@ -43,9 +37,7 @@ git clone blue-pho3nix/blue-windots
 ![](https://github.com/user-attachments/assets/c07ed3c6-b1a0-4729-ab6f-b0442f4fe31d)
 
 #### Windows 11 Taskbar Styler
-- Select `RosePine` in Settings
-
-![](https://github.com/user-attachments/assets/fa320a04-5b3d-4cba-bfb7-dc299757411f)
+- Select `SimplyTransparent` in Settings
 
 
 #### Resource Redirect

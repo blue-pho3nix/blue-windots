@@ -1,6 +1,5 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
-    "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
         {
@@ -16,10 +15,6 @@
             "id": "User.paste"
         },
         {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
             "command": 
             {
                 "action": "splitPane",
@@ -27,15 +22,16 @@
                 "splitMode": "duplicate"
             },
             "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
         }
     ],
-    "centerOnLaunch": true,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "focusFollowMouse": true,
     "initialCols": 100,
-    "initialPosition": ",",
     "initialRows": 32,
     "keybindings": 
     [
@@ -56,6 +52,7 @@
             "keys": "alt+shift+d"
         }
     ],
+    "startOnUserLogin": false,
     "launchMode": "default",
     "newTabMenu": 
     [
@@ -71,34 +68,136 @@
             "colorScheme": "CyberPunk2077",
             "font": 
             {
-                "cellHeight": "1.3",
                 "face": "0xProto Nerd Font",
                 "size": 12
             },
             "opacity": 75,
             "padding": "10",
             "scrollbarState": "hidden",
-            "useAcrylic": false
+            "useAcrylic": true
         },
         "list": 
         [
             {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
-                "name": "Old Powershell"
+                "name": "Windows PowerShell"
             },
             {
-                "commandline": "cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "name": "Command Prompt",
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
                 "hidden": false,
-                "name": "Command Prompt"
             },
             {
-                "commandline": "pwsh.exe",
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
-                "name": "PowerShell 7",
+                "name": "PowerShell",
+                "commandline": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
                 "source": "Windows.Terminal.PowershellCore"
+            },
+            {
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "Git Bash",
+                "source": "Git"
+            },
+            {
+                "guid": "{b3cce841-dc88-555b-97df-a5830680a3f3}",
+                "hidden": true,
+                "name": "docker-desktop",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{e02ab78d-e8d3-5e6f-9075-d84d07af3a3c}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{9fa359d9-7a1e-580e-891f-bb85fc73235b}",
+                "hidden": false,
+                "name": "CentOS9-stream",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{c56c9b7c-2fdc-5ede-b57d-da8e81b6aadf}",
+                "hidden": false,
+                "name": "Arch",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{035f9ede-5629-5324-8466-f1b8e420fc68}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{14bcea03-ed07-5ac7-97c4-6edea9136edb}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{5abbce0a-d225-5773-b744-e4cdaf4e62e1}",
+                "hidden": false,
+                "name": "CentOS9-stream",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{3d86217d-f69d-5766-aab4-6f291a3062a4}",
+                "hidden": false,
+                "name": "Ubuntu-24.04",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{aaceb2da-a60f-5645-b5c3-bf9db1b6a8af}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{337f020e-6229-56a1-bb89-fc140cabf7cc}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{4b774d4d-0781-570f-8d13-30f64775ffe5}",
+                "hidden": false,
+                "name": "Debian",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{05530be3-a2be-59f3-915a-9726067453e6}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{d6d2a6ed-81f3-5736-a67d-e075811cb7f9}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{e636d57d-dd20-5a70-8ea6-d0ef336c62e7}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "guid": "{803cdcd2-ccb4-5c79-b0a8-42d65d631914}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
             }
         ]
     },
