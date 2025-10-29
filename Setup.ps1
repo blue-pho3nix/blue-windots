@@ -481,6 +481,53 @@ if ($scoopInstall -eq $True) {
 	Refresh ($i++)
 }
 
+##########################################################################
+###                                         OH MY POSH PERMANENT SETUP                                        ###
+##########################################################################
+Write-TitleBox -Title "Oh My Posh Configuration"
+
+# Verify Oh My Posh binary exists
+$ompCommand = Get-Command oh-my-posh -ErrorAction SilentlyContinue
+if ($null -eq $ompCommand) {
+    Write-ColorText "{Red}Oh My Posh executable not found in PATH. Skipping profile setup."
+    return
+}
+
+# Choose a theme (adjust this to your preference)
+$ompTheme = "smoothie"  
+
+# PowerShell user profile path
+$profilePath = $PROFILE
+
+# Ensure profile file exists
+if (!(Test-Path -Path $profilePath)) {
+    Write-ColorText "{Gray}PowerShell profile not found. Creating new one at:`n{Yellow}$profilePath"
+    New-Item -ItemType File -Path $profilePath -Force | Out-Null
+}
+
+# Define the initialization command
+$initLine = 'oh-my-posh init pwsh --config $ompTheme | Invoke-Expression'
+
+# Read existing content (if any)
+$profileContent = ""
+if (Test-Path -Path $profilePath) {
+    $profileContent = Get-Content -Path $profilePath -Raw -ErrorAction SilentlyContinue
+}
+
+# Add the init line only if it doesn't exist
+if ($profileContent -notmatch 'oh-my-posh init pwsh') {
+    Write-ColorText "{Blue}[profile] {Green}Adding Oh My Posh initialization to:`n{Gray}$profilePath"
+    Add-Content -Path $profilePath -Value "`n# >>> Oh My Posh Initialization >>>`n$initLine`n# <<< Oh My Posh Initialization <<<`n"
+    Write-ColorText "{Green}Oh My Posh will now load automatically in new PowerShell sessions."
+} else {
+    Write-ColorText "{Yellow}Oh My Posh initialization already exists in profile. Skipping."
+}
+
+# Suggest reload command
+Write-ColorText "{Gray}To apply changes now, run: {Green}. $PROFILE"
+Refresh ($i++)
+
+
 ######################################################################
 ###													NERD FONTS														 ###
 ######################################################################
