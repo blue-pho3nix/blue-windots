@@ -68,6 +68,7 @@
         "defaults": 
         {
             "antialiasingMode": "cleartype",
+            "colorScheme": "CyberPunk2077",
             "font": 
             {
                 "cellHeight": "1.3",
@@ -75,7 +76,6 @@
                 "size": 12
             },
             "opacity": 75,
-            "colorScheme": "CyberPunk2077",
             "padding": "10",
             "scrollbarState": "hidden",
             "useAcrylic": false
@@ -85,49 +85,47 @@
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
-                "name": "Old Powershell",
-                "icon": "ms-appdata:///Local/icons/shell-terminal.ico"
+                "name": "Old Powershell"
             },
             {
+                "commandline": "cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
-                "name": "Command Prompt123",
-                "source": "Windows.Terminal.Default",
-                "icon": "ms-appdata:///Local/icons/command-prompt.ico"
+                "name": "Command Prompt"
             },
             {
+                "commandline": "pwsh.exe",
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
                 "name": "PowerShell 7",
-                "commandline": "pwsh.exe",
-                "source": "Windows.Terminal.PowershellCore",
-                "icon": "ms-appdata:///Local/icons/shell-terminal.ico"
+                "source": "Windows.Terminal.PowershellCore"
             }
         ]
     },
-    "schemes": [
+    "schemes": 
+    [
         {
-            "name": "CyberPunk2077",
-            "black": "#272932",
-            "red": "#710000",
-            "green": "#1AC5B0",
-            "yellow": "#FDF500",
-            "blue": "#9381FF",
-            "purple": "#742D8B",
-            "cyan": "#00D0DB",
-            "white": "#D1C5C0",
-            "brightBlack": "#7b8097",
-            "brightRed": "#C71515",
-            "brightGreen": "#40FFE9",
-            "brightYellow": "#fff955",
-            "brightBlue": "#37EBF3",
-            "brightPurple": "#CB1DCD",
-            "brightCyan": "#37EBF3",
-            "brightWhite": "#C1DEFF",
             "background": "#272932",
+            "black": "#272932",
+            "blue": "#9381FF",
+            "brightBlack": "#7B8097",
+            "brightBlue": "#37EBF3",
+            "brightCyan": "#37EBF3",
+            "brightGreen": "#40FFE9",
+            "brightPurple": "#CB1DCD",
+            "brightRed": "#C71515",
+            "brightWhite": "#C1DEFF",
+            "brightYellow": "#FFF955",
+            "cursorColor": "#FDF500",
+            "cyan": "#00D0DB",
             "foreground": "#E455AE",
+            "green": "#1AC5B0",
+            "name": "CyberPunk2077",
+            "purple": "#742D8B",
+            "red": "#710000",
             "selectionBackground": "#742D8B",
-            "cursorColor": "#FDF500"
+            "white": "#D1C5C0",
+            "yellow": "#FDF500"
         }
     ],
     "themes": [],
