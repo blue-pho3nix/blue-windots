@@ -6,6 +6,7 @@
 			"packageList": [
 
 				// Shell supports
+				{ "packageId": "chrisant996.Clink" },
 				{ "packageId": "JanDeDobbeleer.OhMyPosh" },
 
 				// Windows Tweak Managers
