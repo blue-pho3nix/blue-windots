@@ -1,5 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
   "animation": {
     "enabled": true,
     "duration": 400,
