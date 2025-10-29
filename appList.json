@@ -8,7 +8,8 @@
 				// Shell supports
 				{ "packageId": "chrisant996.Clink" },
 				{ "packageId": "JanDeDobbeleer.OhMyPosh" },
-
+				{ "packageId": "Starship.Starship" }
+				
 				// Windows Tweak Managers
 				{ "packageId": "AmN.yasb" },
 				{ "packageId": "LGUG2Z.komorebi" }
