@@ -1,6 +1,5 @@
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json",
-  "app_specific_configuration_path": "C:/Users/jacki/applications.json",
   "animation": {
     "enabled": true,
     "duration": 400,
@@ -46,110 +45,69 @@
       "matching_strategy": "Equals"
     }
   ],
+  "floating_rules": [
+    {
+      "kind": "Exe",
+      "id": "WindowsTerminal.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "transparency_ignore_rules": [
+    {
+      "kind": "Exe",
+      "id": "msedge.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "msedgewebview2.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
   "monitors": [
     // monitor 1, index 0
     {
       "workspaces": [
-        {
-          "name": "I",
-          "layout": "BSP"
-        },
-        {
-          "name": "II",
-          "layout": "BSP"
-        },
-        {
-          "name": "III",
-          "layout": "BSP"
-        },
-        {
-          "name": "IV",
-          "layout": "BSP"
-        }
+        { "name": "I", "layout": "BSP" },
+        { "name": "II", "layout": "BSP" },
+        { "name": "III", "layout": "BSP" },
+        { "name": "IV", "layout": "BSP" }
       ]
     },
     // monitor 2, index 1
     {
       "workspaces": [
-        {
-          "name": "I",
-          "layout": "BSP"
-        },
-        {
-          "name": "II",
-          "layout": "BSP"
-        },
-        {
-          "name": "III",
-          "layout": "BSP"
-        },
-        {
-          "name": "IV",
-          "layout": "BSP"
-        }
+        { "name": "I", "layout": "BSP" },
+        { "name": "II", "layout": "BSP" },
+        { "name": "III", "layout": "BSP" },
+        { "name": "IV", "layout": "BSP" }
       ]
     },
     // monitor 3, index 2
     {
       "workspaces": [
-        {
-          "name": "I",
-          "layout": "BSP"
-        },
-        {
-          "name": "II",
-          "layout": "BSP"
-        },
-        {
-          "name": "III",
-          "layout": "BSP"
-        },
-        {
-          "name": "IV",
-          "layout": "BSP"
-        }
+        { "name": "I", "layout": "BSP" },
+        { "name": "II", "layout": "BSP" },
+        { "name": "III", "layout": "BSP" },
+        { "name": "IV", "layout": "BSP" }
       ]
     },
     // monitor 4, index 3
     {
       "workspaces": [
-        {
-          "name": "I",
-          "layout": "BSP"
-        },
-        {
-          "name": "II",
-          "layout": "BSP"
-        },
-        {
-          "name": "III",
-          "layout": "BSP"
-        },
-        {
-          "name": "IV",
-          "layout": "BSP"
-        }
+        { "name": "I", "layout": "BSP" },
+        { "name": "II", "layout": "BSP" },
+        { "name": "III", "layout": "BSP" },
+        { "name": "IV", "layout": "BSP" }
       ]
     },
     // monitor 5, index 4
     {
       "workspaces": [
-        {
-          "name": "I",
-          "layout": "BSP"
-        },
-        {
-          "name": "II",
-          "layout": "BSP"
-        },
-        {
-          "name": "III",
-          "layout": "BSP"
-        },
-        {
-          "name": "IV",
-          "layout": "BSP"
-        }
+        { "name": "I", "layout": "BSP" },
+        { "name": "II", "layout": "BSP" },
+        { "name": "III", "layout": "BSP" },
+        { "name": "IV", "layout": "BSP" }
       ]
     }
   ]
