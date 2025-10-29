@@ -345,34 +345,6 @@ Set-Location $PSScriptRoot
 $i = 1
 
 
-######################################################################
-###													NERD FONTS														 ###
-######################################################################
-# install nerd fonts
-Write-TitleBox -Title "Nerd Fonts Installation"
-Write-ColorText "{Green}The following fonts are highly recommended:`n{DarkGray}(Please skip this step if you already installed Nerd Fonts)`n`n  {red}● 0xProto Nerd Font`n"
-
-for ($count = 30; $count -ge 0; $count--) {
-	Write-ColorText "`r{Magenta}Install Nerd Fonts now? [y/N]: {DarkGray}(Exit in {Blue}$count {DarkGray}seconds) {Gray}" -NoNewLine
-
-	if ([System.Console]::KeyAvailable) {
-		$key = [System.Console]::ReadKey($false)
-		if ($key.Key -ne 'Y') {
-			Write-ColorText "`r{DarkGray}Skipped installing Nerd Fonts...                                                                 "
-			break
-		} else {
-			& ([scriptblock]::Create((Invoke-WebRequest 'https://to.loredo.me/Install-NerdFont.ps1'))) -Scope AllUsers -Confirm:$False
-			break
-		}
-	}
-	Start-Sleep -Seconds 1
-}
-Refresh ($i++)
-
-Clear-Host
-
-
-
 ########################################################################
 ###													WINGET PACKAGES 			 									 ###
 ########################################################################
@@ -508,6 +480,44 @@ if ($scoopInstall -eq $True) {
 	Write-LockFile -PackageSource scoop -FileName scoopfile.json
 	Refresh ($i++)
 }
+
+######################################################################
+###													NERD FONTS														 ###
+######################################################################
+# install nerd fonts
+Write-TitleBox -Title "Nerd Fonts Installation"
+
+# Check if Oh My Posh is installed and available in the PATH
+$omp = Get-Command oh-my-posh -ErrorAction SilentlyContinue
+
+if ($null -ne $omp) {
+	Write-ColorText "{Green}Found 'oh-my-posh'. Attempting to install '0xProto Nerd Font'..."
+	Write-ColorText "{Gray}(This may take a moment...)"
+
+	try {
+		# Execute the oh-my-posh font installer for 0xProto
+		# We add -ErrorAction Stop to catch errors in the 'catch' block
+		oh-my-posh font install 0xProto -ErrorAction Stop
+		
+		Write-ColorText "`n{Green}Successfully installed '0xProto Nerd Font'."
+		Write-ColorText "{Yellow}You MUST restart your terminal (e.g., Windows Terminal, VS Code) for the new font to be available."
+	}
+	catch {
+		Write-ColorText "{Red}An error occurred while installing the font:"
+		Write-ColorText "{Gray}$($_.Exception.Message)"
+	}
+}
+else {
+	Write-ColorText "{Red}Error: 'oh-my-posh.exe' not found in your $env:PATH."
+	Write-ColorText "{Yellow}Please ensure Oh My Posh is installed and accessible."
+	Write-ColorText "{Gray}Skipping Nerd Font installation..."
+}
+
+Refresh ($i++)
+
+Clear-Host
+
+
 
 ####################################################################
 ###															COPY FILES 												 ###
