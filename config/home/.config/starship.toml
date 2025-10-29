@@ -11,11 +11,9 @@ $python\
 $character"""
 
 [directory]
-# Uses your "blue" color ()
 style = "fg:#9381FF"
 
 [hostname]
-# You must add this block
 style = "fg:#1AC5B0"
 ssh_only = false 
 
@@ -51,4 +49,5 @@ style = "#FDF500"
 format = "[$virtualenv]($style) "
 style = "bright-black"
 detect_extensions = []
+
 detect_files = []
