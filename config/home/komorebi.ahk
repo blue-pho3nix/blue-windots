@@ -61,7 +61,7 @@ Komorebic(cmd) {
 ; Open Powershell ; win + enter
 #Enter::Run("wt.exe")  
 
-; Open Powershell as Administrator
+; Open Powershell as Administrator: shift + win + enter
 +#Enter:: {
 app := 'wt.exe'
 commandLine := '"' app '"'
