@@ -32,8 +32,8 @@ Komorebic(cmd) {
 #+=::Komorebic("resize-axis vertical increase")   ; win + shift + =
 #+-::Komorebic("resize-axis vertical decrease")   ; win + shift + -
 
-; Promote windows
-#Space::Komorebic("promote")  ; win + space
+; Promote windows: win + space
+#Space::Komorebic("promote")  
 
 ; Focus on Workspace
 #1::Komorebic("focus-workspace 0")  ; win + 1 (focus on workspace 1)
@@ -55,8 +55,37 @@ Komorebic(cmd) {
 ; Custom App/Link Hotkeys
 ; ==================================================================
 
-; Open Default Browser
-#w::Run("https://www.google.com")  ; win + w
+; Open Default Browser: win + w
+#w::Run("https://www.google.com") 
 
-; Open Default Terminal (Windows Terminal)
-#Enter::Run("wt.exe")  ; win + enter
+; Open Powershell ; win + enter
+#Enter::Run("wt.exe")  
+
+; Open Powershell as Administrator
++#Enter:: {
+app := 'wt.exe'
+commandLine := '"' app '"'
+Run '*RunAs ' commandLine
+
+}
+
+; Open Command Prompt: win + c
+#c::Run("wt.exe -p `"Command Prompt`"") 
+
+; Open Command Prompt as Administrator: shift + win + c
++#c:: {
+app := 'wt.exe -p `"Command Prompt`"'
+Run '*RunAs ' app
+}
+
+; Open File Explorer: win + f
+#f::Run("explorer.exe")
+
+; Close the focused window:  win + q
+#q:: {
+    hwnd := WinExist("A")
+    if hwnd
+        WinClose(hwnd)
+}
+
+
