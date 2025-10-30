@@ -1,6 +1,9 @@
 # Windots for Windows 11 😊
 My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
+![](https://github.com/user-attachments/assets/b19d1100-dc72-4919-bcba-cab7fb60126d)
+![](https://github.com/user-attachments/assets/990b0ea2-1b71-4a7b-9065-722bd1f93043)
+![](https://github.com/user-attachments/assets/16e02f09-bcbc-4d6c-a292-41bd87517eff)
 
 
 # Komorebi AutoHotkey v2 Hotkeys
