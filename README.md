@@ -1,5 +1,6 @@
 # Windots 😊
 My personal Windows 11 windots for a semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
+
 ## Install komorebi, yasb and setup config files
 - Clone the repo
 ```
@@ -13,12 +14,13 @@ git clone blue-pho3nix/blue-windots
 .\Setup.ps1
 ```
 
-## Install [Windhawk](https://windhawk.net/)
-### Install Mods
-#### Control Panel Color Fix
+## Install [Windhawk](https://windhawk.net/) 
+Install the following mods
+
+### Control Panel Color Fix
 - Normal settings
 
-#### Resource Redirect
+### Resource Redirect
 - Download the [Delta Icon theme](https://www.deviantart.com/niivu/art/DELTA-for-Windows-11-1250579496)
 
 - Put the `Windhawk Resource Redirect > Delta` folder somewhere like Documents. Then, list the path in theme paths.
@@ -26,7 +28,7 @@ git clone blue-pho3nix/blue-windots
 
 ![](https://github.com/user-attachments/assets/7d2db809-dad4-41a5-93eb-c77b3f70d930)
 
-#### UXTheme hook
+### UXTheme hook
 - Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
 
 ![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
@@ -43,12 +45,13 @@ git clone blue-pho3nix/blue-windots
 
 ![](https://github.com/user-attachments/assets/c07ed3c6-b1a0-4729-ab6f-b0442f4fe31d)
 
-#### Windows 11 Taskbar Styler
+### Windows 11 Taskbar Styler
 - Select `SimplyTransparent` in settings.
 
-### Other
+## Other
 - Change background images to images in `wallpaper`.
 - Turn off `Show time and date in the System tray` at `Time & language > Date & time`.
+  
 ![](https://github.com/user-attachments/assets/4968053b-24ae-4d6f-8d20-3046ca17990a)
 - Restart to see icon changes.
 - Follow these [instructions](https://www.deviantart.com/niivu/art/Installing-Windows-Themes-UPDATED-708835586) for extra options.
