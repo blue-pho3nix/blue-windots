@@ -152,4 +152,3 @@ Example:
 
 ![](https://github.com/user-attachments/assets/4968053b-24ae-4d6f-8d20-3046ca17990a)
 
-- Change [taskbar app icons](https://www.deviantart.com/dpcdpc11/journal/HOW-TO-CHANGE-THE-APP-ICONS-IN-THE-WINDOWS-TASKBAR-891158884).
