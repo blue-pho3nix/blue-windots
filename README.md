@@ -152,3 +152,6 @@ Example:
 
 ![](https://github.com/user-attachments/assets/4968053b-24ae-4d6f-8d20-3046ca17990a)
 
+---
+
+If anything doesn't work for you, ping me in #rice on [Discord](https://discord.gg/TujAjYXJjr) (Blue Pho3nix).
