@@ -18,6 +18,18 @@ git clone blue-pho3nix/blue-windots
 #### Control Panel Color Fix
 - Normal settings
 
+#### Resource Redirect
+- Download the [Delta Icon theme](https://www.deviantart.com/niivu/art/DELTA-for-Windows-11-1250579496)
+
+- Put the `Windhawk Resource Redirect > Delta` folder somewhere like Documents. Then, list the path in theme paths.
+<br> Example:
+
+![](https://github.com/user-attachments/assets/7d2db809-dad4-41a5-93eb-c77b3f70d930)
+
+- Turn off `Show time and date in the System tray` at `Time & language > Date & time`
+
+![](https://github.com/user-attachments/assets/4968053b-24ae-4d6f-8d20-3046ca17990a)
+
 #### UXTheme hook
 - Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
 
@@ -40,16 +52,4 @@ git clone blue-pho3nix/blue-windots
 - Select `SimplyTransparent` in Settings
 
 
-#### Resource Redirect
-- Download the [Delta Icon theme](https://www.deviantart.com/niivu/art/DELTA-for-Windows-11-1250579496)
-
-- Put the `Windhawk Resource Redirect > Delta` folder somewhere like Documents. Then, list the path in theme paths.
-<br> Example:
-
-![](https://github.com/user-attachments/assets/7d2db809-dad4-41a5-93eb-c77b3f70d930)
-
-- Turn off `Show time and date in the System tray` at `Time & language > Date & time`
-
-![](https://github.com/user-attachments/assets/4968053b-24ae-4d6f-8d20-3046ca17990a)
-
-- Restart and follow these [instructions](https://www.deviantart.com/niivu/art/Installing-Windows-Themes-UPDATED-708835586) for extra info.
+- Restart and follow these [instructions](https://www.deviantart.com/niivu/art/Installing-Windows-Themes-UPDATED-708835586) for extra options.
