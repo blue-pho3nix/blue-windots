@@ -522,7 +522,7 @@ if (-not (Select-String -Path $profilePath -Pattern 'starship init powershell' -
     Write-Host "Starship already configured in: $profilePath" -ForegroundColor Yellow
 }
 
-Write-Host "✅ Starship setup complete. Restart PowerShell to apply changes." -ForegroundColor Cyan
+Write-Host "Starship setup complete. Restart PowerShell to apply changes." -ForegroundColor Cyan
 
 
 
