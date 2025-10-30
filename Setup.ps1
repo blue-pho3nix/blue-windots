@@ -22,6 +22,9 @@
 #Requires -Version 7
 #Requires -RunAsAdministrator
 
+
+
+
 <#
 
 .DESCRIPTION
@@ -31,9 +34,11 @@
 Param()
 
 $VerbosePreference = "SilentlyContinue"
+$ErrorActionPreference = "Stop"
+$InformationPreference = "Continue"
 
 ########################################################################################################################
-###												  	HELPER FUNCTIONS												 ###
+###	HELPER FUNCTIONS										             ###
 ########################################################################################################################
 function Write-TitleBox {
 	param ([string]$Title, [string]$BorderChar = "*", [int]$Padding = 10)
@@ -178,71 +183,6 @@ function Install-WinGetApp {
 }
 
 
-function Install-ScoopApp {
-    param ([string]$Package, [switch]$Global, [array]$AdditionalArgs)
-
-    Write-Host "Checking if Scoop package '$Package' is already installed..." -ForegroundColor Cyan
-
-    # Check if package is installed using scoop list
-    $_packageExists = $false
-    Write-Host "Running: scoop list $Package" -ForegroundColor Gray
-    $listOutput = scoop list $Package 2>&1 # Capture potential errors too
-    if ($LASTEXITCODE -eq 0 -and $listOutput -notmatch "Couldn't find manifest for") {
-         Write-Host "Package '$Package' found." -ForegroundColor Green
-         $_packageExists = $true
-    } else {
-         Write-Host "Package '$Package' not found or 'scoop list' failed. Proceeding with install attempt..." -ForegroundColor Yellow
-         $_packageExists = $false
-    }
-
-    if ($_packageExists -eq $false) {
-        Write-Host "Preparing installation command for Scoop package '$Package'..." -ForegroundColor Yellow
-
-        # Build arguments for Start-Process
-        $scoopProcessArgs = @("install", $Package)
-
-        if ($Global) {
-            $scoopProcessArgs += "--global" # Use --global instead of -g for clarity
-        }
-        if ($AdditionalArgs.Count -ge 1) {
-             # Ensure --global/-g isn't duplicated
-             $FilteredArgs = $AdditionalArgs | Where-Object { $_ -ne "-g" -and $_ -ne "--global" }
-             $scoopProcessArgs += $FilteredArgs
-        }
-
-        $commandStringForDisplay = "scoop $($scoopProcessArgs -join ' ')"
-        Write-Host "Executing: $commandStringForDisplay" -ForegroundColor Magenta
-
-        try {
-            # Use Start-Process -Wait
-            $process = Start-Process scoop -ArgumentList $scoopProcessArgs -Wait -PassThru -ErrorAction Stop -NoNewWindow -Verbose:$false
-
-            # Check the Exit Code after waiting
-            if ($process.ExitCode -eq 0) {
-                Write-ColorText "{Blue}[package] {Magenta}scoop: {Green}(success) {Gray}$Package"
-            } else {
-                 # Report specific non-zero exit code
-                Write-ColorText "{Blue}[package] {Magenta}scoop: {Red}(failed - Exit Code $($process.ExitCode)) {Gray}$Package"
-                Write-Warning "Scoop failed for $Package. Exit Code: $($process.ExitCode). Check logs or try installing manually."
-            }
-        } catch {
-            # Catch errors if Start-Process itself fails
-            Write-Error "Failed to start scoop process for $Package`: $_"
-            Write-ColorText "{Blue}[package] {Magenta}scoop: {Red}(failed - Exception executing scoop) {Gray}$Package"
-        }
-
-    } else {
-        # Package already exists
-        Write-ColorText "{Blue}[package] {Magenta}scoop: {Yellow}(exists) {Gray}$Package"
-    }
-}
-
-
-
-function Install-OnlineFile {
-	param ([string]$OutputDir, [string]$Url)
-	Invoke-WebRequest -Uri $Url -OutFile $OutputDir
-}
 
 function Refresh ([int]$Time) {
     # Determine the suffix for the attempt number (optional, kept for consistency)
@@ -277,6 +217,8 @@ function Refresh ([int]$Time) {
 
     Write-Host "Environment variables refreshed for the current session." -ForegroundColor DarkGray
 }
+
+
 function Write-LockFile {
 	param (
 		[ValidateSet('winget', 'scoop', 'modules')]
@@ -292,7 +234,7 @@ function Write-LockFile {
 			if (!(Get-Command winget -ErrorAction SilentlyContinue)) { return }
 			winget export -o $dest | Out-Null
 			if ($LASTEXITCODE -eq 0) {
-				Write-ColorText "`n✔️  Packages installed by {Green}$PackageSource {Gray}are exported at {Red}$((Resolve-Path $dest).Path)"
+				Write-ColorText "`nPackages installed by {Green}$PackageSource {Gray}are exported at {Green}$((Resolve-Path $dest).Path)"
 			}
 			Start-Sleep -Seconds 1
 		}
@@ -300,14 +242,14 @@ function Write-LockFile {
 			if (!(Get-Command scoop -ErrorAction SilentlyContinue)) { return }
 			scoop export -c > $dest
 			if ($LASTEXITCODE -eq 0) {
-				Write-ColorText "`n✔️  Packages installed by {Green}$PackageSource {Gray}are exported at {Red}$((Resolve-Path $dest).Path)"
+				Write-ColorText "`nPackages installed by {Green}$PackageSource {Gray}are exported at {Red}$((Resolve-Path $dest).Path)"
 			}
 			Start-Sleep -Seconds 1
 		}
 		"modules" {
 			Get-InstalledModule | Select-Object -Property Name, Version | ConvertTo-Json -Depth 100 | Out-File $dest
 			if ($LASTEXITCODE -eq 0) {
-				Write-ColorText "`n✔️  {Green}PowerShell Modules {Gray}installed are exported at {Red}$((Resolve-Path $dest).Path)"
+				Write-ColorText "`n{Green}PowerShell Modules {Gray}installed are exported at {Red}$((Resolve-Path $dest).Path)"
 			}
 			Start-Sleep -Seconds 1
 		}
@@ -316,7 +258,7 @@ function Write-LockFile {
 
 
 ########################################################################
-###														MAIN SCRIPT 		  					 			 		 ###
+###		MAIN SCRIPT 		  			     ###
 ########################################################################
 # if not internet connection, then we will exit this script immediately
 $internetConnection = Test-NetConnection google.com -CommonTCPPort HTTP -InformationLevel Detailed -WarningAction SilentlyContinue
@@ -331,9 +273,9 @@ if ($internetAvailable -eq $False) {
 	exit
 }
 
-Write-Progress -Completed; Clear-Host
+Write-Progress -Completed
 
-Write-ColorText "`n✅ {Green}Internet Connection available.`n`n{DarkGray}Start running setup process..."
+Write-ColorText "`n{Green}Internet Connection available.`n`n{DarkGray}Start running setup process..."
 Start-Sleep -Seconds 3
 
 # set current working directory location
@@ -346,7 +288,7 @@ $i = 1
 
 
 ########################################################################
-###													WINGET PACKAGES 			 									 ###
+###	WINGET PACKAGES 			 		     ###
 ########################################################################
 # Retrieve information from json file
 $json = Get-Content "$PSScriptRoot\appList.json" -Raw | ConvertFrom-Json
@@ -408,130 +350,51 @@ if ($wingetInstall -eq $True) {
 		}
 	}
 	Write-LockFile -PackageSource winget -FileName wingetfile.json
-	Refresh ($i++)
-}
-
-########################################################################
-###														SCOOP PACKAGES 	 							 				 ###
-########################################################################
-# Scoop Packages
-Write-TitleBox -Title "Scoop Packages Installation"
-$scoopItem = $json.installSource.scoop
-$scoopBuckets = $scoopItem.bucketList
-$scoopPkgs = $scoopItem.packageList
-$scoopArgs = $scoopItem.additionalArgs
-$scoopInstall = $scoopItem.autoInstall
-
-if ($scoopInstall -eq $True) {
-	if (!(Get-Command scoop -ErrorAction SilentlyContinue)) {
-		# `scoop` is recommended to be installed from a non-administrative
-		# PowerShell terminal. However, since we are in administrative shell,
-		# it is required to invoke the installer with the `-RunAsAdmin` parameter.
-
-		# Source: - https://github.com/ScoopInstaller/Install#for-admin
-		Write-Verbose -Message "Installing scoop"
-		Invoke-Expression "& {$(Invoke-RestMethod get.scoop.sh)} -RunAsAdmin"
-	}
-
-	# Configure aria2
-	if (!(Get-Command aria2c -ErrorAction SilentlyContinue)) { scoop install aria2 }
-	if (!($(scoop config aria2-enabled) -eq $True)) { scoop config aria2-enabled true }
-	if (!($(scoop config aria2-warning-enabled) -eq $False)) { scoop config aria2-warning-enabled false }
-
-	# Create a scheduled task for aria2 so that it will always be active when we logon the machine
-	# Idea is from: - https://gist.github.com/mikepruett3/7ca6518051383ee14f9cf8ae63ba18a7
-	if (!(Get-ScheduledTaskInfo -TaskName "Aria2RPC" -ErrorAction Ignore)) {
-		try {
-			$scoopDir = (Get-Command scoop.ps1 -ErrorAction SilentlyContinue).Source | Split-Path | Split-Path
-			$Action = New-ScheduledTaskAction -Execute "$scoopDir\apps\aria2\current\aria2c.exe" -Argument "--enable-rpc --rpc-listen-all" -WorkingDirectory "$Env:USERPROFILE\Downloads"
-			$Trigger = New-ScheduledTaskTrigger -AtStartup
-			$Principal = New-ScheduledTaskPrincipal -UserID "$Env:USERDOMAIN\$Env:USERNAME" -LogonType S4U
-			$Settings = New-ScheduledTaskSettingsSet -ExecutionTimeLimit 0 -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
-			Register-ScheduledTask -TaskName "Aria2RPC" -Action $Action -Trigger $Trigger -Principal $Principal -Settings $Settings | Out-Null
-		} catch {
-			Write-Error "An error occurred: $_"
-		}
-	}
-
-	# Add scoop buckets
-	foreach ($bucket in $scoopBuckets) {
-		$bucketName = $bucket.bucketName
-		$bucketRepo = $bucket.bucketRepo
-		if ($null -ne $bucketRepo) {
-			Add-ScoopBucket -BucketName $bucketName -BucketRepo $bucketRepo
-		} else {
-			Add-ScoopBucket -BucketName $bucketName
-		}
-	}
-
-	''
-
-	# Install applications from scoop
-	foreach ($pkg in $scoopPkgs) {
-		$pkgName = $pkg.packageName
-		$pkgScope = $pkg.packageScope
-		if (($null -ne $pkgScope) -and ($pkgScope -eq "global")) { $Global = $True } else { $Global = $False }
-		if ($null -ne $scoopArgs) {
-			Install-ScoopApp -Package $pkgName -Global:$Global -AdditionalArgs $scoopArgs
-		} else {
-			Install-ScoopApp -Package $pkgName -Global:$Global
-		}
-	}
-	Write-LockFile -PackageSource scoop -FileName scoopfile.json
-	Refresh ($i++)
-}
-
-##########################################################################
-###                                         OH MY POSH PERMANENT SETUP                                        ###
-##########################################################################
-Write-TitleBox -Title "Oh My Posh Configuration"
-
-# Verify Oh My Posh binary exists
-$ompCommand = Get-Command oh-my-posh -ErrorAction SilentlyContinue
-if ($null -eq $ompCommand) {
-    Write-ColorText "{Red}Oh My Posh executable not found in PATH. Skipping profile setup."
-    Write-ColorText "{Yellow}Tip: Reopen PowerShell or run 'RefreshEnv' after installing via winget or scoop."
-} else {
-    # Choose a theme (adjust this to your preference)
-    $ompTheme = "smoothie"  
-
-    # PowerShell user profile path
-    $profilePath = $PROFILE
-
-    # Ensure profile file exists
-    if (!(Test-Path -Path $profilePath)) {
-        Write-ColorText "{Gray}PowerShell profile not found. Creating new one at:`n{Yellow}$profilePath"
-        New-Item -ItemType File -Path $profilePath -Force | Out-Null
-    }
-
-    # Define the initialization command
-    $initLine = 'oh-my-posh init pwsh --config $ompTheme | Invoke-Expression'
-
-    # Read existing content (if any)
-    $profileContent = ""
-    if (Test-Path -Path $profilePath) {
-        $profileContent = Get-Content -Path $profilePath -Raw -ErrorAction SilentlyContinue
-    }
-
-    # Add the init line only if it doesn't exist
-    if ($profileContent -notmatch 'oh-my-posh init pwsh') {
-        Write-ColorText "{Blue}[profile] {Green}Adding Oh My Posh initialization to:`n{Gray}$profilePath"
-        Add-Content -Path $profilePath -Value "`n# >>> Oh My Posh Initialization >>>`n$initLine`n# <<< Oh My Posh Initialization <<<`n"
-        Write-ColorText "{Green}Oh My Posh will now load automatically in new PowerShell sessions."
-    } else {
-        Write-ColorText "{Yellow}Oh My Posh initialization already exists in profile. Skipping."
-    }
-
-    # Suggest reload command
-    Write-ColorText "{Gray}To apply changes now, run: {Green}. $PROFILE"
 }
 
 Refresh ($i++)
 
 
+########################################################################
+###                   SCOOP PACKAGES INSTALLATION                   ###
+########################################################################
+Write-TitleBox -Title "Scoop Pacakages Installation"
+
+# Check if Scoop is installed
+if (!(Get-Command scoop -ErrorAction SilentlyContinue)) {
+    Write-Host "Scoop not found. Installing Scoop..." -ForegroundColor Cyan
+    # Run the installer and let all output show
+    iex "& { $(iwr 'https://get.scoop.sh') } -RunAsAdmin"
+}
+
+# Add Scoop shims to PATH immediately
+$ScoopShims = "$env:USERPROFILE\scoop\shims"
+if (-not ($env:PATH -like "*$ScoopShims*")) {
+    $env:PATH += ";$ScoopShims"
+}
+
+# Make sure extras bucket is added
+if (-not (scoop bucket list | Select-String "extras")) {
+    Write-Host "Adding 'extras' bucket..." -ForegroundColor Cyan
+    # Show all output
+    scoop bucket add extras | Write-Host
+}
+
+# Install AutoHotkey (only if not already installed)
+if (-not (scoop list | Select-String "autohotkey")) {
+    Write-Host "Installing AutoHotkey..." -ForegroundColor Cyan
+    # Use Start-Process to show live output
+    Start-Process -FilePath "scoop" -ArgumentList "install autohotkey" -NoNewWindow -Wait
+} else {
+    Write-Host "AutoHotkey is already installed." -ForegroundColor Green
+}
+
+Write-Host "Scoop + AutoHotkey installation complete." -ForegroundColor Green
+
+Refresh ($i++)
 
 ######################################################################
-###													NERD FONTS														 ###
+###		NERD FONTS					   ###
 ######################################################################
 # install nerd fonts
 Write-TitleBox -Title "Nerd Fonts Installation"
@@ -546,7 +409,7 @@ if ($null -ne $omp) {
 	try {
 		# Execute the oh-my-posh font installer for 0xProto
 		# We add -ErrorAction Stop to catch errors in the 'catch' block
-		oh-my-posh font install 0xProto -ErrorAction Stop
+		oh-my-posh font install 0xProto
 		
 		Write-ColorText "`n{Green}Successfully installed '0xProto Nerd Font'."
 		Write-ColorText "{Yellow}You MUST restart your terminal (e.g., Windows Terminal, VS Code) for the new font to be available."
@@ -562,14 +425,30 @@ else {
 	Write-ColorText "{Gray}Skipping Nerd Font installation..."
 }
 
+
+##########################################################################
+###                         CLINK CONFIGURATION                        ###
+##########################################################################
+Write-TitleBox -Title "Clink Configuration"
+
+# Disable Clink banner/logo
+Write-ColorText "{Cyan}Disabling Clink banner..."
+# Full path to Clink executable
+$clinkExe = "C:\Program Files (x86)\clink\clink_x64.exe"
+
+# Check if the executable exists
+if (Test-Path $clinkExe) {
+    & $clinkExe set clink.logo none
+    Write-ColorText "{Green}Clink banner disabled."
+} else {
+    Write-ColorText "{Yellow}Clink executable not found at $clinkExe. Skipping banner disable."
+}
+
 Refresh ($i++)
-
-Clear-Host
-
 
 
 ####################################################################
-###															COPY FILES 												 ###
+###	            COPY FILES 	                                 ###
 ####################################################################
 # Copy dotfiles
 Write-TitleBox -Title "Copy dotfiles to user profile"
@@ -586,11 +465,10 @@ Copy-Item -Path "$source\*" -Destination $destination -Recurse -Force -ErrorActi
 
 Write-ColorText "{Green}All files copied successfully."
 
-Refresh ($i++)
 
 
 ##########################################################################
-###													ENVIRONMENT VARIABLES											 ###
+###	ENVIRONMENT VARIABLES				               ###
 ##########################################################################
 Write-TitleBox -Title "Set Environment Variables"
 $envVars = $json.environmentVariable
@@ -613,7 +491,38 @@ foreach ($env in $envVars) {
 		}
 	}
 }
+
 Refresh ($i++)
+
+
+##########################################################################
+###                 STARSHIP SETUP                                     ###
+##########################################################################
+Write-TitleBox "Starship Setup"
+
+Write-Host "Configuring Starship for PowerShell..." -ForegroundColor Cyan
+
+# The line to add
+$initLine = 'Invoke-Expression (&starship init powershell)'
+
+# Get current user's PowerShell profile path
+$profilePath = $PROFILE
+
+# Make sure the profile file exists
+if (!(Test-Path -Path $profilePath)) {
+    Write-Host "Profile not found, creating: $profilePath" -ForegroundColor Yellow
+    New-Item -ItemType File -Path $profilePath -Force | Out-Null
+}
+
+# Add Starship initialization (avoid duplicates)
+if (-not (Select-String -Path $profilePath -Pattern 'starship init powershell' -Quiet)) {
+    Add-Content -Path $profilePath -Value "`n# >>> Starship Initialization >>>`n$initLine`n# <<< Starship Initialization <<<`n"
+    Write-Host "Starship initialization added to: $profilePath" -ForegroundColor Green
+} else {
+    Write-Host "Starship already configured in: $profilePath" -ForegroundColor Yellow
+}
+
+Write-Host "✅ Starship setup complete. Restart PowerShell to apply changes." -ForegroundColor Cyan
 
 
 
@@ -631,12 +540,12 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
         try {
             # Use the official command to create the autostart scheduled task
             yasbc enable-autostart --task
-            Write-Host "✅ YASB autostart task created." -ForegroundColor Green
+            Write-Host "YASB autostart task created." -ForegroundColor Green
         } catch {
             Write-Error "Failed to enable YASB autostart: $_"
         }
     } else {
-        Write-Host "✅ YASB autostart task already exists." -ForegroundColor Green
+        Write-Host "YASB autostart task already exists." -ForegroundColor Green
     }
 
     # 2. Start it for the current session if not running
@@ -644,7 +553,7 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
         Write-Host "Starting YASB for current session..."
         try { yasbc start } catch { Write-Error $_ }
     } else {
-        Write-Host "✅ YASB is already running." -ForegroundColor Green
+        Write-Host "YASB is already running." -ForegroundColor Green
     }
 } else {
     Write-Warning "Command not found: yasbc."
@@ -668,7 +577,7 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
 
 
 ######################################################################
-###													END SCRIPT														 ###
+###		       END SCRIPT				   ###
 ######################################################################
 Set-Location $currentLocation
 Start-Sleep -Seconds 5

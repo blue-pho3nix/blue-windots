@@ -4,44 +4,14 @@
 		"winget": {
 			"autoInstall": true,
 			"packageList": [
-
-				// Shell supports
+                                { "packageId": "Git.Git" },
 				{ "packageId": "chrisant996.Clink" },
 				{ "packageId": "JanDeDobbeleer.OhMyPosh" },
-				{ "packageId": "Starship.Starship" }
-				
-				// Windows Tweak Managers
+				{ "packageId": "Starship.Starship" },
 				{ "packageId": "AmN.yasb" },
 				{ "packageId": "LGUG2Z.komorebi" }
 			],
 			"additionalArgs": ["--exact", "--silent", "--accept-package-agreements", "--accept-source-agreements"]
-		},
-		"scoop": {
-			"autoInstall": true,
-			"bucketList": [
-				// { "bucketName": "dorado", "bucketRepo": "https://github.com/chawyehsu/dorado" },
-				{ "bucketName": "extras" },
-				{ "bucketName": "sysinternals" }
-
-			],
-			"packageList": [
-				// Prerequisites of scoop (run `scoop checkup`)
-				{ "packageName": "aria2" },
-				{ "packageName": "cacert" },
-				{ "packageName": "innounp" },
-				{ "packageName": "wixtoolset" },
-			
-
-				// Scoop Extras
-				{ "packageName": "scoop-completion" },
-				{ "packageName": "scoop-search" },
-
-
-				// For Komorebi
-				{ "packageName": "autohotkey"}
-
-			],
-			"additionalArgs": []
 		}
 	}
 }
