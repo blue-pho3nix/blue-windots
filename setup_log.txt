@@ -1,5 +1,0 @@
-[31;1mParentContainsErrorRecordException: [0m
-[31;1m[36;1mLine |[0m
-[31;1m[36;1m[36;1m   3 | [0m [36;1m$RawUI.CursorPosition = @{X=0;Y=0}[0m
-[31;1m[36;1m[36;1m[0m[36;1m[0m[36;1m     | [31;1m ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-[31;1m[36;1m[36;1m[0m[36;1m[0m[36;1m[31;1m[31;1m[36;1m     | [31;1mException setting "CursorPosition": "The handle is invalid."[0m
