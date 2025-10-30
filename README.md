@@ -116,6 +116,19 @@ Example:
 
 ---
 
+### Windows 11 Notification Center Styler
+- Select the `Matter` theme in settings.
+
+![](https://github.com/user-attachments/assets/d07f3aec-45a7-41ca-a908-5d30428a2009)
+
+---
+
+### Windows 11 Start Menu Styler
+#### 1. Select the `SideBySide` theme in settings.
+#### 2. Select Disable the new start menu layout
+
+![](https://github.com/user-attachments/assets/1f015452-fd6b-4ad9-859c-9259cbac4518)
+
 ## Change Mouse Pointer
 
 #### 1. Download [Catppuccin Cursors](https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705)
