@@ -4,6 +4,9 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 ![](https://github.com/user-attachments/assets/b19d1100-dc72-4919-bcba-cab7fb60126d)
 ![](https://github.com/user-attachments/assets/990b0ea2-1b71-4a7b-9065-722bd1f93043)
 ![](https://github.com/user-attachments/assets/16e02f09-bcbc-4d6c-a292-41bd87517eff)
+![](https://github.com/user-attachments/assets/9dfb0651-10c4-44cb-9695-ece71834e40d)
+![](https://github.com/user-attachments/assets/538eeeb4-8bc7-428d-9b77-390423a9a29c)
+![](https://github.com/user-attachments/assets/29a57724-c0f4-4e63-8de5-503c2f3175e6)
 
 
 # Komorebi AutoHotkey v2 Hotkeys
