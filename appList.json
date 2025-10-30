@@ -6,7 +6,6 @@
 			"packageList": [
                                 { "packageId": "Git.Git" },
 				{ "packageId": "chrisant996.Clink" },
-				{ "packageId": "JanDeDobbeleer.OhMyPosh" },
 				{ "packageId": "Starship.Starship" },
 				{ "packageId": "AmN.yasb" },
 				{ "packageId": "LGUG2Z.komorebi" }
