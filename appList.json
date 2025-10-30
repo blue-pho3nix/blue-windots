@@ -4,7 +4,7 @@
 		"winget": {
 			"autoInstall": true,
 			"packageList": [
-                                { "packageId": "Git.Git" },
+                { "packageId": "Git.Git" },
 				{ "packageId": "chrisant996.Clink" },
 				{ "packageId": "Starship.Starship" },
 				{ "packageId": "AmN.yasb" },
