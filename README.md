@@ -8,7 +8,7 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 
 # Komorebi AutoHotkey v2 Hotkeys
 
-Feel free to add more to ``. 
+Feel free to add more to `C:\Users\<your_username>\komorebi.ahk`. 
 
 | Hotkey | Action |
 |--------|--------|
