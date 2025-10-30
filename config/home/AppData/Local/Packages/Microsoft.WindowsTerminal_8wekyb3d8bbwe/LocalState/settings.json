@@ -71,10 +71,10 @@
                 "face": "0xProto Nerd Font",
                 "size": 12
             },
-            "opacity": 75,
+            "opacity": 80,
             "padding": "10",
             "scrollbarState": "hidden",
-            "useAcrylic": true
+            "useAcrylic": false
         },
         "list": 
         [
