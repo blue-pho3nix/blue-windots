@@ -111,21 +111,21 @@ Example:
 ### Windows 11 Taskbar Styler
 - Select the `Matter` theme in settings.
 
-![](https://github.com/user-attachments/assets/c22fa41a-a145-4939-907b-2eef3d69790e)
+![](https://github.com/user-attachments/assets/7018018e-cd38-44f2-811b-b88bf441bf8e)
 
 ---
 
 ### Windows 11 File Explorer Styler
 - Select the `Matter` theme in settings.
 
-![](https://github.com/user-attachments/assets/91090801-c968-4a98-997a-849ee4100520)
+![](https://github.com/user-attachments/assets/7864fbed-cd94-4e57-901a-acde8f11bab9)
 
 ---
 
 ### Windows 11 Notification Center Styler
 - Select the `Matter` theme in settings.
 
-![](https://github.com/user-attachments/assets/d07f3aec-45a7-41ca-a908-5d30428a2009)
+![](https://github.com/user-attachments/assets/d63c7a18-c601-4f51-8f8e-301e4c109183)
 
 ---
 
@@ -133,7 +133,7 @@ Example:
 #### 1. Select the `SideBySide` theme in settings.
 #### 2. Select Disable the new start menu layout
 
-![](https://github.com/user-attachments/assets/1f015452-fd6b-4ad9-859c-9259cbac4518)
+![](https://github.com/user-attachments/assets/a66599ef-b101-471d-9c2e-52977d3e640a)
 
 ## Change Mouse Pointer
 
