@@ -172,7 +172,8 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 ---
 
 ## Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
-This is so your terminal hotkeys work correctly
+- You need this for the terminal hotkeys.
+- Either install it or change the hotkeys in `C:\Users\<your_username>\komorebi.ahk`.
 
 ---
 
