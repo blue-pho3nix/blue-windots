@@ -639,7 +639,7 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
 ###            END SCRIPT                  ###
 ######################################################################
 Set-Location $currentLocation
-Start-Sleep -Seconds 5
+Start-Sleep -Seconds 10
 
 Write-Host "`n----------------------------------------------------------------------------------`n" -ForegroundColor DarkGray
 Write-Host "┌────────────────────────────────────────────────────────────────────────────────┐" -ForegroundColor "Green"
