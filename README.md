@@ -47,7 +47,8 @@ Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`.
 
 ## Install Instructions
 
-## Create a restore point
+## Create a restore point 
+...incase you want to go back to what you had before the install...
 
 ![](https://github.com/user-attachments/assets/fd7175f2-b3cd-45da-8cdb-1bebef62e955)
 
