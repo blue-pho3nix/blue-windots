@@ -171,6 +171,11 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 
 ---
 
+## Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
+This is so your terminal hotkeys work correctly
+
+---
+
 ## Other Changes You Can Make
 
 ### If you have fewer/more than 5 monitors
