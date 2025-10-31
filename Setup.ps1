@@ -36,7 +36,7 @@ $ErrorActionPreference = "Stop"
 $InformationPreference = "Continue"
 
 ########################################################################################################################
-### HELPER FUNCTIONS                                                     ###
+###                                             HELPER FUNCTIONS                                                     ###
 ########################################################################################################################
 function Write-TitleBox {
     param ([string]$Title, [string]$BorderChar = "*", [int]$Padding = 10)
@@ -248,7 +248,7 @@ function Write-LockFile {
 
 
 ########################################################################
-###     MAIN SCRIPT                                                  ###
+###                   MAIN SCRIPT                                    ###
 ########################################################################
 # if not internet connection, then we will exit this script immediately
 $internetConnection = Test-NetConnection google.com -CommonTCPPort HTTP -InformationLevel Detailed -WarningAction SilentlyContinue
@@ -278,7 +278,7 @@ $i = 1
 
 
 ########################################################################
-### WINGET PACKAGES                          ###
+###                        WINGET PACKAGES                           ###
 ########################################################################
 # Retrieve information from json file
 $json = Get-Content "$PSScriptRoot\appList.json" -Raw | ConvertFrom-Json
@@ -384,7 +384,7 @@ Write-Host "Scoop + AutoHotkey installation complete." -ForegroundColor Green
 Refresh ($i++)
 
 ######################################################################
-###     NERD FONTS                     ###
+###                         NERD FONTS                             ###
 ######################################################################
 # install nerd fonts
 Write-TitleBox -Title "Nerd Fonts Installation"
@@ -417,7 +417,7 @@ else {
 
 
 ################################################################################
-### Toggle OFF Time and Date in System Tray                   ###
+###                Toggle OFF Time and Date in System Tray                   ###
 ################################################################################
 Write-TitleBox -Title "Toggle OFF Time/Date in System Tray"
 
@@ -443,11 +443,11 @@ try {
 }
 
 ####################################################################
-###             COPY FILES                                   ###
+###                 COPY FILES                                   ###
 ####################################################################
 Write-TitleBox -Title "Copy Dotfiles and Theme Assets"
 
-# 1. Copy dotfiles to user profile (Original)
+# Copy dotfiles to user profile (Original)
 $sourceHome = "$PSScriptRoot\config\home"
 $destinationHome = "$env:USERPROFILE"
 
@@ -462,7 +462,7 @@ if (Test-Path $sourceHome) {
 }
 
 
-# 2. Copy Theme Files to Windows Resources
+# Copy Theme Files to Windows Resources
 $sourceTheme = "$PSScriptRoot\config\theme\"
 $destinationTheme = "C:\Windows\Resources\Themes\"
 
@@ -479,14 +479,14 @@ if (Test-Path $sourceTheme) {
 Start-Sleep -Seconds 5
 
 ##############################################################################  
-###                        Theme Setup                             ###
+###                          Theme Setup                                   ###
 ##############################################################################
 Write-TitleBox -Title "Theme Setup"
 Write-ColorText "{yellow}The Screen may flash."
 Write-ColorText "{yellow}This may take some time..."
 Start-Sleep -Seconds 2
 
-# --- Define Theme File Path ---
+# Define Theme File Path 
 $themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
 
 Write-Host "1. Unblocking theme file security tag..."
@@ -524,7 +524,7 @@ Refresh ($i++)
 
 
 ##########################################################################
-### ENVIRONMENT VARIABLES                              ###
+###                       ENVIRONMENT VARIABLES                        ###
 ##########################################################################
 Write-TitleBox -Title "Set Environment Variables"
 $envVars = $json.environmentVariable
