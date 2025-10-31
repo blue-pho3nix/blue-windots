@@ -11,7 +11,6 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 ![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
 
 
-
 # Hotkeys
 
 Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`. 
@@ -45,6 +44,31 @@ Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`.
 | `win` + `f` | Open File Explorer |
 | `win` + `q` | Close focused window |
 
+---
+
+## Changes 
+
+If you have fewer/more than 5 monitors, change the `1config/home/komorebi.json` to meet your needs.<br>I would do this before installation. But you can always update your komorebi later.
+
+### Edit `C:\Users\<your_username>\komorebi.json` after install
+#### 1. Open a regular powershell.
+#### a. Or open powerShell as administrator, if you want to run Komorebi with administrator privileges (This just makes it so apps that are admin use komorebi, but may cause issues if there is a vulnerability with komorebi).Stop
+#### 2. After your edits, save the file. 
+#### 3. Then, stop and start komorebic or reload the configuration.
+```
+komorebic stop --ahk
+```
+```
+komorebic start --ahk
+```
+^ Make sure to always use `--ahk` to keep the autohotkeys working.  When you stop/restart komorebi, you'll need to reload autohotkey.
+
+or
+```
+komorebic reload-configuration
+```
+---
+
 ## Install Instructions
 
 ## Create a restore point 
@@ -63,6 +87,15 @@ Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`.
 Install the following mods under `Explore`
 
 ![](https://github.com/user-attachments/assets/761804f9-4c03-4a09-aa10-bf51d34ee62d)
+
+---
+
+### Install UXTheme hook
+#### 1. Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
+
+![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
+
+#### 2. The theme will be installed via the script below (might as well just install the rest of the mods now tho).
 
 ---
 
@@ -110,15 +143,6 @@ Install the following mods under `Explore`
 #### 2. Select Disable the new start menu layout
 
 ![](https://github.com/user-attachments/assets/9aa0ca9b-db34-4da9-b0f7-90c72d483506)
-
----
-
-### Install UXTheme hook
-#### 1. Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
-
-![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
-
-#### 2. The theme will be installed via the script below (might as well just install the rest of the mods for now).
 
 ---
 
