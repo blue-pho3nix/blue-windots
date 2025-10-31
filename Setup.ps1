@@ -35,9 +35,10 @@ $VerbosePreference = "SilentlyContinue"
 $ErrorActionPreference = "Stop"
 $InformationPreference = "Continue"
 
-########################################################################################################################
-###                                             HELPER FUNCTIONS                                                     ###
-########################################################################################################################
+
+########################################################################
+###                     HELPER FUNCTIONS                             ###
+########################################################################
 function Write-TitleBox {
     param ([string]$Title, [string]$BorderChar = "*", [int]$Padding = 10)
 
@@ -248,7 +249,7 @@ function Write-LockFile {
 
 
 ########################################################################
-###                   MAIN SCRIPT                                    ###
+###                      MAIN SCRIPT                                 ###
 ########################################################################
 # if not internet connection, then we will exit this script immediately
 $internetConnection = Test-NetConnection google.com -CommonTCPPort HTTP -InformationLevel Detailed -WarningAction SilentlyContinue
@@ -280,6 +281,7 @@ $i = 1
 ########################################################################
 ###                        WINGET PACKAGES                           ###
 ########################################################################
+
 # Retrieve information from json file
 $json = Get-Content "$PSScriptRoot\appList.json" -Raw | ConvertFrom-Json
 
@@ -346,8 +348,9 @@ Refresh ($i++)
 
 
 ########################################################################
-###                   SCOOP PACKAGES INSTALLATION                   ###
+###                   SCOOP PACKAGES INSTALLATION                    ###
 ########################################################################
+
 Write-TitleBox -Title "Scoop Pacakages Installation"
 
 # Check if Scoop is installed
@@ -383,10 +386,11 @@ Write-Host "Scoop + AutoHotkey installation complete." -ForegroundColor Green
 
 Refresh ($i++)
 
-######################################################################
-###                         NERD FONTS                             ###
-######################################################################
-# install nerd fonts
+
+########################################################################
+###                     NERD FONTS                                   ###
+########################################################################
+
 Write-TitleBox -Title "Nerd Fonts Installation"
 
 # Check if Oh My Posh is installed and available in the PATH
@@ -416,9 +420,10 @@ else {
 }
 
 
-################################################################################
-###                Toggle OFF Time and Date in System Tray                   ###
-################################################################################
+
+########################################################################
+###            Toggle OFF Time and Date in System Tray               ###
+########################################################################
 Write-TitleBox -Title "Toggle OFF Time/Date in System Tray"
 
 # Path to the Advanced Explorer key
@@ -442,9 +447,11 @@ try {
     Write-Error "Failed to hide system tray clock: $($_.Exception.Message)"
 }
 
-####################################################################
-###                 COPY FILES                                   ###
-####################################################################
+
+########################################################################
+###                          Copy Files                              ###
+########################################################################
+
 Write-TitleBox -Title "Copy Dotfiles and Theme Assets"
 
 # Copy dotfiles to user profile (Original)
@@ -478,9 +485,11 @@ if (Test-Path $sourceTheme) {
 
 Start-Sleep -Seconds 5
 
-##############################################################################  
-###                          Theme Setup                                   ###
-##############################################################################
+
+########################################################################
+###                          Theme Setup                             ###
+########################################################################
+
 Write-TitleBox -Title "Theme Setup"
 Write-ColorText "{yellow}The Screen may flash."
 Write-ColorText "{yellow}This may take some time..."
@@ -502,9 +511,11 @@ taskkill /f /im explorer.exe; Start-Process explorer.exe
 
 Refresh ($i++)
 
-##########################################################################
-###                         CLINK CONFIGURATION                        ###
-##########################################################################
+
+########################################################################
+###                        Clink Configuration                       ###
+########################################################################
+
 Write-TitleBox -Title "Clink Configuration"
 
 # Disable Clink banner/logo
@@ -523,9 +534,10 @@ if (Test-Path $clinkExe) {
 Refresh ($i++)
 
 
-##########################################################################
-###                       ENVIRONMENT VARIABLES                        ###
-##########################################################################
+########################################################################
+###                       Environment Variables                      ###
+########################################################################
+
 Write-TitleBox -Title "Set Environment Variables"
 $envVars = $json.environmentVariable
 foreach ($env in $envVars) {
@@ -551,9 +563,10 @@ foreach ($env in $envVars) {
 Refresh ($i++)
 
 
-##########################################################################
-###                 STARSHIP SETUP                                     ###
-##########################################################################
+########################################################################
+###                         Starship Setup                           ###
+########################################################################
+
 Write-TitleBox "Starship Setup"
 
 Write-Host "Configuring Starship for PowerShell..." -ForegroundColor Cyan
@@ -581,26 +594,25 @@ if (-not (Select-String -Path $profilePath -Pattern 'starship init powershell' -
 Write-Host "Starship setup complete. Restart PowerShell to apply changes." -ForegroundColor Cyan
 
 
+########################################################################
+###                       Start Komorebi + Yasb                      ###
+########################################################################
 
-##########################################################################
-###                       START KOMOREBI + YASB (WITH AUTOSTART)       ###
-##########################################################################
 Write-TitleBox "Komorebi & Yasb Engines"
 
 # YASB
+# Check if the yasbc command is available
 if (Get-Command yasbc -ErrorAction SilentlyContinue) {
 
-    # Start it for the current session if not running
+    # Start it for the current session if it is not running
     if (!(Get-Process -Name yasb -ErrorAction SilentlyContinue)) {
         Write-Host "Starting YASB for current session..."
-        try { yasbc start } catch { Write-Error $_ }
+        try { yasbc start } catch { Write-Error "Failed to start YASB for current session: $_" }
     } else {
         Write-Host "YASB is already running." -ForegroundColor Green
     }
-} else {
-    Write-Warning "Command not found: yasbc."
-    # 1Create the autostart task if it doesn't exist
-    # 'yasb-autostart' is the default name yasb creates
+    
+    # 2. Check/Create autostart
     if (!(Get-ScheduledTask -TaskName "yasb-autostart" -ErrorAction SilentlyContinue)) {
         Write-Host "Creating autostart task for YASB..."
         try {
@@ -613,6 +625,10 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
     } else {
         Write-Host "YASB autostart task already exists." -ForegroundColor Green
     }
+    
+} else {
+    # This block is now only for when yasbc is genuinely NOT found (needs installation)
+    Write-Warning "Command not found: yasbc. Please install YASB."
 }
 
 # KOMOREBI 
@@ -635,13 +651,13 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
 }
 
 
-######################################################################
-###            END SCRIPT                  ###
-######################################################################
+########################################################################
+###                         End Script                               ###
+########################################################################
+
 Set-Location $currentLocation
 Start-Sleep -Seconds 10
 
-Write-Host "`n----------------------------------------------------------------------------------`n" -ForegroundColor DarkGray
 Write-Host "┌────────────────────────────────────────────────────────────────────────────────┐" -ForegroundColor "Green"
 Write-Host "│                                                                                │" -ForegroundColor "Green"
 Write-Host "│        █████╗ ██╗     ██╗         ██████╗  ██████╗ ███╗   ██╗███████╗ ██╗      │" -ForegroundColor "Green"
