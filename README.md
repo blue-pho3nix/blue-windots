@@ -48,7 +48,7 @@ Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`.
 
 ## Changes 
 
-If you have fewer/more than 5 monitors, change the `1config/home/komorebi.json` to meet your needs.<br>I would do this before installation. But you can always update your komorebi later.
+If you have fewer/more than 5 monitors, change the `blue-windots\config\home\komorebi.json` to meet your needs.<br>I would do this before installation. But you can always update your komorebi later.
 
 ### Edit `C:\Users\<your_username>\komorebi.json` after install
 #### 1. Open a regular powershell.
