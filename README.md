@@ -126,7 +126,7 @@ Install the following mods under `Explore`
 ---
 
 ## Install komorebi, yasb, setup config files, set theme, and other setups.
-> Note: Make sure you've installed `UXTheme hook` with the settings shown below.
+> Note: Make sure you've installed `UXTheme hook` with the `Advanced` settings shown below.
 
 ![](https://github.com/user-attachments/assets/ab975594-df63-4225-8c63-1273a6c4a601)
 ![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
