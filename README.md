@@ -52,14 +52,14 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 
 ![](https://github.com/user-attachments/assets/fd7175f2-b3cd-45da-8cdb-1bebef62e955)
 
-#### 1. Search for `Create a restore point`.
-#### 2. Goto `System Protection`.
-#### 2. Select `Configure`.
-#### 2. Select `Turn on system protection`.
-#### 3. Select `Apply` + `OK`.
-#### 4. Select `Create...`.
-#### 5. Type a description.
-#### 6. Select `Create`.
+1. Search for `Create a restore point`.
+2. Goto `System Protection`.
+3. Select `Configure`.
+4. Select `Turn on system protection`.
+5. Select `Apply` + `OK`.
+6. Select `Create...`.
+7. Type a description.
+8. Select `Create`.
 
 ## Install [Windhawk](https://windhawk.net/) 
 Install the following mods under `Explore`
@@ -69,38 +69,38 @@ Install the following mods under `Explore`
 ---
 
 ### Install UXTheme hook
-#### 1. Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
+1. Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
 
 ![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
 
-#### 2. The theme will be installed via the script below (might as well just install the rest of the mods now tho).
+2. The theme will be installed via the script below (might as well just install the rest of the mods now tho).
 
 ---
 
 ### Install Control Panel Color Fix
-#### Normal settings
+- Normal settings
 
 ![](https://github.com/user-attachments/assets/0efd5cad-3ccc-4cdb-b58e-063b38a496ca)
 
 ---
 
 ### Install Resource Redirect
-#### 1. Select the `Bonny` icon theme.
+1. Select the `Bonny` icon theme.
 
 ![](https://github.com/user-attachments/assets/83827f17-77ae-43ab-b884-37e776f9d833)
 
-#### 2. Click on yes when it asks to clear the icon cache.
+2. Click on yes when it asks to clear the icon cache.
 
 ![](https://github.com/user-attachments/assets/4e53a921-f5f8-4bdb-bb45-a1862715767b)
 
 ---
 
 ### Install Windows 11 Taskbar Styler
-#### 1. Select the `Matter` theme in settings.
+1. Select the `Matter` theme in settings.
 
 ![](https://github.com/user-attachments/assets/7018018e-cd38-44f2-811b-b88bf441bf8e)
 
-#### 2. (Optional) Hide search in `Personalization > Taskbar`.
+2. (Optional) Hide search in `Personalization > Taskbar`.
 ---
 
 ### Install Windows 11 File Explorer Styler
@@ -118,8 +118,8 @@ Install the following mods under `Explore`
 ---
 
 ### Install Windows 11 Start Menu Styler
-#### 1. Select the `Oversimplified$Accentuated` theme in settings.
-#### 2. Select Disable the new start menu layout
+1. Select the `Oversimplified$Accentuated` theme in settings.
+2. Select Disable the new start menu layout
 
 ![](https://github.com/user-attachments/assets/9aa0ca9b-db34-4da9-b0f7-90c72d483506)
 
@@ -131,22 +131,24 @@ Install the following mods under `Explore`
 ![](https://github.com/user-attachments/assets/ab975594-df63-4225-8c63-1273a6c4a601)
 ![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
 
-#### 1. Install Powershell 7
+1. Install Powershell 7
 ```
 winget install Microsoft.PowerShell
 ```
 
-#### 2. Open Windows terminal as `Administrator`
+2. Open Windows terminal as `Administrator`
 
 ![](https://github.com/user-attachments/assets/7fc94ff5-aad9-49b7-9820-1b60f710aafc)
 
-#### 3. Clone the repo using [GitHub Desktop](https://desktop.github.com/download/) or  `git`.
+3. Clone the repo using [GitHub Desktop](https://desktop.github.com/download/) or  `git`.
+
 ```
 git clone https://github.com/blue-pho3nix/blue-windots.git
 ```
 
-#### 4. `cd` into `blue-dots`
-#### 5. Run `Setup.ps1`
+4. `cd` into `blue-dots`
+5. Run `Setup.ps1`
+
 ```
 .\Setup.ps1
 ```
@@ -155,24 +157,27 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 
 ## Change Mouse Pointer
 
-#### 1. Right click `blue-windots\cursors\install.inf`
+1. Right click `blue-windots\cursors\install.inf`
 
 ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
 
-#### 2. Press win + R and enter `main.cpl`
+2. Press win + R and enter `main.cpl`
 
 ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
 
-#### 5. Goto `Pointers`
+3. Goto `Pointers`
 
-#### 6. Select `Catppuccin-Mocha-Lavender-Cursors`
+4. Select `Catppuccin-Mocha-Lavender-Cursors`
 
 ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
+
+5. Click `Apply` and `OK`.
 
 ---
 
 ## Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
-This is so your terminal hotkeys work correctly
+- You need this for the terminal hotkeys.
+- Either install it or change the hotkeys in `C:\Users\<your_username>\komorebi.ahk`.
 
 ---
 
@@ -181,24 +186,24 @@ This is so your terminal hotkeys work correctly
 ### If you have fewer/more than 5 monitors
 - Change the `blue-windots\config\home\komorebi.json` to meet your needs.
 
-### Edit `C:\Users\<your_username>\komorebi.json` after install
-#### 1. After your edits, save the file.  
-#### 2. Open a regular powershell.
-Or open powerShell as Administrator, if you want to run komorebi with Administrator privileges. (This just makes it so apps that have Administrator privs use komorebi, but may cause issues if there is a vulnerability with komorebi).
-#### 3. Stop and start komorebi or reload the configuration.
+#### Edit `C:\Users\<your_username>\komorebi.json` after install
+1. After your edits, save the file.  
+2. Open a regular powershell (`win + enter`).
+a. Or open powerShell as Administrator (`shift + win + enter`), if you want to run komorebi with Administrator privileges. (This just makes it so apps that have Administrator privs use komorebi, but may cause issues if there is a vulnerability with komorebi).
+3. Stop and start komorebi or reload the configuration.
+> Make sure to always use `--ahk` to keep the autohotkeys working.  When you stop/restart komorebi, you'll need to reload autohotkey. 
 ```
 komorebic stop --ahk
 ```
 ```
 komorebic start --ahk
 ```
-^ Make sure to always use `--ahk` to keep the autohotkeys working.  When you stop/restart komorebi, you'll need to reload autohotkey. <br>
 or
 ```
 komorebic reload-configuration
 ```
 
-#### If you want to change your Desktop image after install
+### If you want to change your Desktop image
 - There are 6 images in your `C:\Windows\Resources\Themes\One Dark Pro\Wallpapers` folder.<br>
 - You can preview the images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing... You can always edit them in your Git clone if you really want the diff background images to be auto-set during installation.
 
