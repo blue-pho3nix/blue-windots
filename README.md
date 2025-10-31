@@ -52,9 +52,9 @@ If you have fewer/more than 5 monitors, change the `blue-windots\config\home\kom
 
 ### Edit `C:\Users\<your_username>\komorebi.json` after install
 #### 1. Open a regular powershell.
-#### a. Or open powerShell as administrator, if you want to run Komorebi with administrator privileges (This just makes it so apps that are admin use komorebi, but may cause issues if there is a vulnerability with komorebi).Stop
+#### Or open powerShell as Administrator, if you want to run komorebi with Administrator privileges. (This just makes it so apps that have Administrator privs use komorebi, but may cause issues if there is a vulnerability with komorebi).
 #### 2. After your edits, save the file. 
-#### 3. Then, stop and start komorebic or reload the configuration.
+#### 3. Then, stop and start komorebi or reload the configuration.
 ```
 komorebic stop --ahk
 ```
