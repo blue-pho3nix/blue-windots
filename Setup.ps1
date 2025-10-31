@@ -370,11 +370,11 @@ if (-not (scoop bucket list | Select-String "extras")) {
     scoop bucket add extras | Write-Host
 }
 
+
 # Install AutoHotkey (only if not already installed)
 if (-not (scoop list | Select-String "autohotkey")) {
     Write-Host "Installing AutoHotkey..." -ForegroundColor Cyan
-    # Use Start-Process to show live output
-    Start-Process -FilePath "scoop" -ArgumentList "install autohotkey" -NoNewWindow -Wait
+    scoop install autohotkey
 } else {
     Write-Host "AutoHotkey is already installed." -ForegroundColor Green
 }
