@@ -135,13 +135,15 @@ Install the following mods under `Explore`
 ```
 winget install Microsoft.PowerShell
 ```
-#### 2. Clone the repo using [GitHub Desktop](https://desktop.github.com/download/) or  `git`.
+
+#### 2. Open Windows terminal as `Administrator`
+
+![](https://github.com/user-attachments/assets/7fc94ff5-aad9-49b7-9820-1b60f710aafc)
+
+#### 3. Clone the repo using [GitHub Desktop](https://desktop.github.com/download/) or  `git`.
 ```
 git clone https://github.com/blue-pho3nix/blue-windots.git
 ```
-#### 3. Open Windows terminal as `Administrator`
-
-![](https://github.com/user-attachments/assets/7fc94ff5-aad9-49b7-9820-1b60f710aafc)
 
 #### 4. `cd` into `blue-dots`
 #### 5. Run `Setup.ps1`
