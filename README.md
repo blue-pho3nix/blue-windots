@@ -186,7 +186,7 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 ### If you have fewer/more than 5 monitors
 - Change the `blue-windots\config\home\komorebi.json` to meet your needs.
 
-### Edit `C:\Users\<your_username>\komorebi.json` after install
+#### Edit `C:\Users\<your_username>\komorebi.json` after install
 1. After your edits, save the file.  
 2. Open a regular powershell (`win + enter`).
 a. Or open powerShell as Administrator (`shift + win + enter`), if you want to run komorebi with Administrator privileges. (This just makes it so apps that have Administrator privs use komorebi, but may cause issues if there is a vulnerability with komorebi).
