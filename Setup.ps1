@@ -426,6 +426,220 @@ else {
 }
 
 
+################################################################################
+###	Toggle OFF Time and Date in System Tray		              ###
+################################################################################
+Write-TitleBox -Title "Toggle OFF Time/Date in System Tray"
+
+# Path to the Advanced Explorer key
+$regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" 
+$regValueName = "ShowSystrayDateTimeValueName"
+
+Write-ColorText "{Cyan}Setting registry key to hide clock in system tray..."
+
+try {
+    # Setting the value to 0 (False) hides the clock.
+    # Note: If this key does not exist, the system might default to showing the clock.
+    # We use -Force to create it if it doesn't exist.
+    Set-ItemProperty -Path $regPath -Name $regValueName -Value 0 -Type DWord -Force -ErrorAction Stop
+    Write-ColorText "{Green}Clock is now hidden in the System Tray."
+    
+    # Restart Windows Explorer to apply the change immediately
+    Write-ColorText "{Green}Restarting Windows Explorer..."
+    taskkill /f /im explorer.exe; start explorer
+
+} catch {
+    Write-Error "Failed to hide system tray clock: $($_.Exception.Message)"
+}
+
+####################################################################
+###	            COPY FILES 	                                 ###
+####################################################################
+Write-TitleBox -Title "Copy Dotfiles and Theme Assets"
+
+# 1. Copy dotfiles to user profile (Original)
+$sourceHome = "$PSScriptRoot\config\home"
+$destinationHome = "$env:USERPROFILE"
+
+Write-ColorText "{Blue}[copy] {Green}Copying dotfiles from $sourceHome... {Yellow}to {Gray}$destinationHome"
+
+if (Test-Path $sourceHome) {
+    # The \* copies the *contents* of the source folder
+    Copy-Item -Path "$sourceHome\*" -Destination $destinationHome -Recurse -Force -ErrorAction SilentlyContinue
+    Write-ColorText "{Green}Dotfiles copied successfully."
+} else {
+    Write-ColorText "{Red}Warning: Source directory not found for dotfiles: {Gray}$sourceHome"
+}
+
+
+# 2. Copy Theme Files to Windows Resources
+$sourceTheme = "$PSScriptRoot\config\theme\"
+$destinationTheme = "C:\Windows\Resources\Themes\"
+
+Write-ColorText "{Blue}[copy] {Green}Copying theme files from $sourceTheme... {Yellow}to {Gray}$destinationTheme"
+
+if (Test-Path $sourceTheme) {
+    # Copying theme files and supporting folders (e.g., Catppuccin cursors, themes)
+    Copy-Item -Path "$sourceTheme\*" -Destination $destinationTheme -Recurse -Force -ErrorAction SilentlyContinue
+    Write-ColorText "{Green}Theme files copied successfully."
+} else {
+    Write-ColorText "{Red}Warning: Source directory not found for themes: {Gray}$sourceTheme"
+}
+
+
+#################################################################################	
+### Theme Setup			              ###
+##############################################################################
+Write-TitleBox -Title "Theme Setup"
+Write-ColorText "{yellow}The Screen may flash..."
+Start-Sleep -Seconds 2
+
+
+# Define Theme File Path
+$themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
+
+Write-Host "1. Unblocking theme file security tag..."
+# Unblock-File removes the 'Mark-of-the-Web' security tag
+Unblock-File -Path $themeFile
+
+Write-Host "2. Silently applying theme..."
+# Launch the theme application process silently, which should now run without a prompt
+Start-Process -FilePath $themeFile -WindowStyle Hidden 
+
+Write-Host "3. Restarting Windows Explorer to reload theme..."
+Start-Process explorer.exe
+
+Write-ColorText "{yellow}It may take a moment for explorer to start up..."
+
+Refresh ($i++)
+
+################################################################################
+###	Change Mouse Pointer (FULL AUTOMATED BLOCK) 🚀	               ###
+################################################################################
+Write-TitleBox -Title "Mouse Pointer Installation & Selection"
+
+$cursorThemeName = "Catppuccin-Mocha-Lavender-Cursors"
+$installInfPath = "$env:USERPROFILE\.config\cursors\install.inf"
+$pointerRegPath = "HKCU:\Control Panel\Cursors"
+
+# --- Define Windows API for System Refresh (WM_SETTINGCHANGE) ---
+$code = '[DllImport("user32.dll", SetLastError=true)] public static extern int SendMessageTimeout(int hwnd, int msg, int wParam, string lParam, int fuFlags, int uTimeout, out int lpdwResult);'
+$sync = Add-Type -MemberDefinition $code -Name "Win32API" -Namespace SendMessage -PassThru
+
+
+# 1. INSTALLATION STEP (Simulating Right-Click Install)
+if (Test-Path $installInfPath) {
+    Write-ColorText "{Cyan}Attempting installation of Catppuccin Cursors via Shell 'Install' verb..."
+    
+    try {
+        # Check if the scheme is ALREADY installed (to skip interactive part)
+        $installedSchemes = Get-ItemProperty -Path $pointerRegPath | Select-Object -ExpandProperty * | Where-Object { $_ -eq $cursorThemeName }
+        
+        if (-not $installedSchemes) {
+            # --- Perform Interactive Shell Installation ---
+            $shell = New-Object -ComObject Shell.Application
+            $dirPath = Split-Path $installInfPath
+            $folder = $shell.Namespace($dirPath)
+            $file = $folder.ParseName((Split-Path $installInfPath -Leaf))
+
+            # This will trigger the UAC and confirmation dialogs you accepted previously
+            $file.InvokeVerb("Install")
+            
+            Write-ColorText "{Green}Cursor installation command executed via Windows Shell."
+            Start-Sleep -Seconds 5 # Give time for installation dialogs to close/finish
+        } else {
+            Write-ColorText "{Yellow}Cursor scheme appears already installed. Skipping shell installation."
+        }
+
+    } catch {
+        Write-Error "Installation failed during shell execution. $(${$_}.Exception.Message)"
+        # Note: Installation failure doesn't stop us from trying to set the scheme, which might fix a partial install.
+    }
+    
+    # 2. SELECTION STEP (Setting the Active Scheme)
+    # 1. Set the correct registry value
+    Write-ColorText "{Cyan}Setting active cursor scheme to '$cursorThemeName' in the registry..."
+
+    try {
+        # Set the 'Scheme' value, which controls the active scheme
+        Set-ItemProperty -Path $pointerRegPath -Name "Scheme" -Value "$cursorThemeName" -Type String -Force -ErrorAction Stop
+    
+        Write-ColorText "{Green}Mouse pointer scheme set in Registry."
+    
+        # 2. FORCE ACTIVATION VIA CONTROL PANEL (Simulating Apply/OK Clicks)
+        Write-ColorText "{Cyan}Forcing control panel to load and apply the change (Simulates Apply/OK clicks)..."
+    
+        # a. Launch the Pointers tab of the Mouse Properties dialog
+        $mouseApp = Start-Process -FilePath "rundll32.exe" -ArgumentList "shell32.dll,Control_RunDLL main.cpl,Pointers" -PassThru -ErrorAction Stop
+    
+        # b. Give it time to open and load the settings
+        Start-Sleep -Seconds 1
+    
+        # c. Force it to close. Closing the dialog *after* a registry change is often the final trigger 
+        # to commit and load the new settings, equivalent to clicking 'OK' or 'Apply'.
+        Stop-Process -Id $mouseApp.Id -Force -ErrorAction SilentlyContinue
+    
+        Write-ColorText "{Green}Forced application sequence complete."
+
+        # 3. FINAL REFRESH
+        Write-ColorText "{Cyan}Issuing final system refresh..."
+        $null = $sync::SendMessageTimeout(0xFFFF, 0x001A, 0, "Windows.Settings", 0x0002, 1000, [ref]$null)
+
+        Write-ColorText "{Green}Cursor scheme successfully activated."
+
+    } catch {
+        Write-Error "Failed to set active cursor scheme: $(${$_}.Exception.Message)"
+    }
+} else {
+    Write-ColorText "{Red}Error: Cursor install.inf not found at: {Gray}$installInfPath"
+    Write-ColorText "{Yellow}Skipping mouse pointer installation and selection."
+}
+
+Refresh ($i++)
+
+# SELECTION STEP (Setting the Active Scheme)
+# --- Define Windows API for System Refresh (WM_SETTINGCHANGE) ---
+# (Kept for maximum compatibility, though the main fix is the Control Panel relaunch)
+$code = '[DllImport("user32.dll", SetLastError=true)] public static extern int SendMessageTimeout(int hwnd, int msg, int wParam, string lParam, int fuFlags, int uTimeout, out int lpdwResult);'
+$sync = Add-Type -MemberDefinition $code -Name "Win32API" -Namespace SendMessage -PassThru
+
+
+# 1. Set the correct registry value
+Write-ColorText "{Cyan}Setting active cursor scheme to '$cursorThemeName' in the registry..."
+
+try {
+    # Set the 'Scheme' value, which controls the active scheme
+    Set-ItemProperty -Path $pointerRegPath -Name "Scheme" -Value "$cursorThemeName" -Type String -Force -ErrorAction Stop
+    
+    Write-ColorText "{Green}Mouse pointer scheme set in Registry."
+    
+    # 2. FORCE ACTIVATION VIA CONTROL PANEL (Simulating Apply/OK Clicks)
+    Write-ColorText "{Cyan}Forcing control panel to load and apply the change (Simulates Apply/OK clicks)..."
+    
+    # a. Launch the Pointers tab of the Mouse Properties dialog
+    $mouseApp = Start-Process -FilePath "rundll32.exe" -ArgumentList "shell32.dll,Control_RunDLL main.cpl,Pointers" -PassThru -ErrorAction Stop
+    
+    # b. Give it time to open and load the settings
+    Start-Sleep -Seconds 1
+    
+    # c. Force it to close. Closing the dialog *after* a registry change is often the final trigger 
+    # to commit and load the new settings, equivalent to clicking 'OK' or 'Apply'.
+    Stop-Process -Id $mouseApp.Id -Force -ErrorAction SilentlyContinue
+    
+    Write-ColorText "{Green}Forced application sequence complete."
+        
+    # 3. FINAL REFRESH
+    Write-ColorText "{Cyan}Issuing final system refresh..."
+    $null = $sync::SendMessageTimeout(0xFFFF, 0x001A, 0, "Windows.Settings", 0x0002, 1000, [ref]$null)
+
+    Write-ColorText "{Green}Cursor scheme successfully activated."
+
+} catch {
+    Write-Error "Failed to set active cursor scheme: $(${$_}.Exception.Message)"
+}
+
+Refresh ($i++)
+
 ##########################################################################
 ###                         CLINK CONFIGURATION                        ###
 ##########################################################################
@@ -445,26 +659,6 @@ if (Test-Path $clinkExe) {
 }
 
 Refresh ($i++)
-
-
-####################################################################
-###	            COPY FILES 	                                 ###
-####################################################################
-# Copy dotfiles
-Write-TitleBox -Title "Copy dotfiles to user profile"
-
-# Define source and destination
-$source = "$PSScriptRoot\config\home"
-$destination = "$env:USERPROFILE"
-
-# Copy all files and folders from the source to the destination
-Write-ColorText "{Blue}[copy] {Green}Copying all files from $source... {Yellow}to {Gray}$destination"
-
-# The \* copies the *contents* of the source folder, not the folder itself.
-Copy-Item -Path "$source\*" -Destination $destination -Recurse -Force -ErrorAction SilentlyContinue
-
-Write-ColorText "{Green}All files copied successfully."
-
 
 
 ##########################################################################
@@ -531,7 +725,7 @@ Write-Host "Starship setup complete. Restart PowerShell to apply changes." -Fore
 ##########################################################################
 Write-TitleBox "Komorebi & Yasb Engines"
 
-# --- YASB ---
+# YASB
 if (Get-Command yasbc -ErrorAction SilentlyContinue) {
     # 1. Create the autostart task if it doesn't exist
     # 'yasb-autostart' is the default name yasb creates
@@ -559,7 +753,7 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
     Write-Warning "Command not found: yasbc."
 }
 
-# --- KOMOREBI ---
+# KOMOREBI 
 # Check if 'komorebic' command is available first
 if (Get-Command komorebic -ErrorAction SilentlyContinue) {
     
