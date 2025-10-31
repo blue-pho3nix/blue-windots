@@ -131,14 +131,17 @@ Install the following mods under `Explore`
 ![](https://github.com/user-attachments/assets/ab975594-df63-4225-8c63-1273a6c4a601)
 ![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
 
-#### 1. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701)
+#### 1. Install Powershell 7
+```
+winget install Microsoft.PowerShell
+```
 #### 2. Clone the repo using [GitHub Desktop](https://desktop.github.com/download/) or  `git`.
 ```
 git clone https://github.com/blue-pho3nix/blue-windots.git
 ```
 #### 3. Open Windows terminal as `Administrator`
 
-![](https://github.com/user-attachments/assets/a0397a54-bd11-410a-92e1-726867cbd94e)
+![](https://github.com/user-attachments/assets/7fc94ff5-aad9-49b7-9820-1b60f710aafc)
 
 #### 4. `cd` into `blue-dots`
 #### 5. Run `Setup.ps1`
