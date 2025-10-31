@@ -9,9 +9,9 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 ![](https://github.com/user-attachments/assets/29a57724-c0f4-4e63-8de5-503c2f3175e6)
 
 
-# Komorebi AutoHotkey v2 Hotkeys
+# Hotkeys
 
-Feel free to add more to `C:\Users\<your_username>\komorebi.ahk`. 
+Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`. 
 
 | Hotkey | Action |
 |--------|--------|
@@ -80,8 +80,6 @@ Example:
 
 #### 2. The theme will be installed via the script below (might as well just install the rest of the mods for now).
 
-![](https://github.com/user-attachments/assets/c07ed3c6-b1a0-4729-ab6f-b0442f4fe31d)
-
 ---
 
 ### Windows 11 Taskbar Styler
@@ -127,22 +125,17 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 .\Setup.ps1
 ```
 
+---
+
 ## Change Mouse Pointer
-#### 1. Cursors were installed by the script.
-#### 2. Open Control Panel
-#### 3. Select Large Icons (If not already selected)
-#### 4. Select Mouse 
-#### 5. Goto `Pointers`
-#### 6. Select `Catppuccin-Mocha-Dark-Cursors`
+#### 1. Open Control Panel
+#### 2. Select Large Icons (If not already selected)
+#### 3. Select Mouse 
+#### 4. Goto `Pointers`
+#### 5. Select `Catppuccin-Mocha-Dark-Cursors`
 
 ![](https://github.com/user-attachments/assets/5821d288-9392-4b71-a435-f4a9c3951122)
 
-
-## Other
-- Change background to images in `blue-windots\wallpaper`.
-- Turn off `Show time and date in the System tray` at `Time & language > Date & time`.
-
-![](https://github.com/user-attachments/assets/4968053b-24ae-4d6f-8d20-3046ca17990a)
 
 ---
 
