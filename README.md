@@ -76,12 +76,14 @@ komorebic reload-configuration
 
 ![](https://github.com/user-attachments/assets/fd7175f2-b3cd-45da-8cdb-1bebef62e955)
 
-#### 1. Select `Configure`
-#### 2. Select `Turn on system protection`
-#### 3. Select `Apply` + `OK`
-#### 4. Select `Create...`
-#### 5. Type a description
-#### 6. Select `Create`
+#### 1. Search for `Create a restore point`.
+#### 2. Goto `System Protection`.
+#### 2. Select `Configure`.
+#### 2. Select `Turn on system protection`.
+#### 3. Select `Apply` + `OK`.
+#### 4. Select `Create...`.
+#### 5. Type a description.
+#### 6. Select `Create`.
 
 ## Install [Windhawk](https://windhawk.net/) 
 Install the following mods under `Explore`
