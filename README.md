@@ -137,8 +137,15 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 ## Change Mouse Pointer
 #### 1. Open Control Panel
 #### 2. Select Large Icons (If not already selected)
+
+![](https://github.com/user-attachments/assets/d965ed28-baf7-4e89-9979-b9358631e2f8)
+
 #### 3. Select Mouse 
+
+![](https://github.com/user-attachments/assets/a327c231-dfc4-497e-86e8-148d709d0638)
+
 #### 4. Goto `Pointers`
+
 #### 5. Select `Catppuccin-Mocha-Dark-Cursors`
 
 ![](https://github.com/user-attachments/assets/5821d288-9392-4b71-a435-f4a9c3951122)
