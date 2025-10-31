@@ -12,8 +12,7 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 
 
 # Hotkeys
-
-Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`. 
+- Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`. 
 
 | Hotkey | Action |
 |--------|--------|
@@ -49,7 +48,7 @@ Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`.
 ## Install Instructions
 
 ## Create a restore point 
-...incase you want to go back to what you had before the install...
+- ...incase you want to go back to what you had before the install...
 
 ![](https://github.com/user-attachments/assets/fd7175f2-b3cd-45da-8cdb-1bebef62e955)
 
@@ -165,7 +164,7 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 ## Other Changes You Can Make
 
 ### If you have fewer/more than 5 monitors
-Change the `blue-windots\config\home\komorebi.json` to meet your needs.
+- Change the `blue-windots\config\home\komorebi.json` to meet your needs.
 
 ### Edit `C:\Users\<your_username>\komorebi.json` after install
 #### 1. After your edits, save the file.  
@@ -185,9 +184,9 @@ komorebic reload-configuration
 ```
 
 #### If you want to change your Desktop image after install
-There are 6 images in your `C:\Windows\Resources\Themes\One Dark Pro\Wallpapers` folder.<br>
-You can preview the images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing... You can always edit them in your Git clone if you really want the diff background images to be auto-set during installation.
+- There are 6 images in your `C:\Windows\Resources\Themes\One Dark Pro\Wallpapers` folder.<br>
+- You can preview the images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing... You can always edit them in your Git clone if you really want the diff background images to be auto-set during installation.
 
 ---
-
-If anything doesn't work for you, ping me in #rice on [Discord](https://discord.gg/TujAjYXJjr) (Blue Pho3nix).
+## Got Questions, Issues, or Suggestions?
+Ping me in #rice on [Discord](https://discord.gg/TujAjYXJjr) (Blue Pho3nix).
