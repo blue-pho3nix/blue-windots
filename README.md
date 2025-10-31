@@ -1,12 +1,15 @@
 # Windots for Windows 11 😊
 My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
-![](https://github.com/user-attachments/assets/b19d1100-dc72-4919-bcba-cab7fb60126d)
-![](https://github.com/user-attachments/assets/72238876-8daf-425f-b498-8c93e852a0f7)
-![](https://github.com/user-attachments/assets/16e02f09-bcbc-4d6c-a292-41bd87517eff)
+![](https://github.com/user-attachments/assets/e066d4de-a5d7-4814-a120-0d6c89ef5ea3)
+![](https://github.com/user-attachments/assets/e84b909d-a3e5-4a1a-9e1c-77ac08140aa7)
+![](https://github.com/user-attachments/assets/f226badf-40bc-48bc-93b9-101909dabddd)
 ![](https://github.com/user-attachments/assets/9dfb0651-10c4-44cb-9695-ece71834e40d)
 ![](https://github.com/user-attachments/assets/538eeeb4-8bc7-428d-9b77-390423a9a29c)
 ![](https://github.com/user-attachments/assets/29a57724-c0f4-4e63-8de5-503c2f3175e6)
+![](https://github.com/user-attachments/assets/23662d7f-ec4a-4a8a-b65d-564578d23e93)
+![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
+
 
 
 # Hotkeys
@@ -45,6 +48,9 @@ Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`.
 ## Install Instructions
 
 ## Create a restore point
+
+![](https://github.com/user-attachments/assets/fd7175f2-b3cd-45da-8cdb-1bebef62e955)
+
 #### 1. Select `Configure`
 #### 2. Select `Turn on system protection`
 #### 3. Select `Apply` + `OK`
@@ -135,21 +141,20 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 ---
 
 ## Change Mouse Pointer
-#### 1. Open Control Panel
-#### 2. Select Large Icons (If not already selected)
 
-![](https://github.com/user-attachments/assets/d965ed28-baf7-4e89-9979-b9358631e2f8)
+#### 1. Right click `blue-windots\cursors\install.inf`
 
-#### 3. Select Mouse 
+![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
 
-![](https://github.com/user-attachments/assets/a327c231-dfc4-497e-86e8-148d709d0638)
+#### 2. Press win + R and enter `main.cpl`
 
-#### 4. Goto `Pointers`
+![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
 
-#### 5. Select `Catppuccin-Mocha-Dark-Cursors`
+#### 5. Goto `Pointers`
 
-![](https://github.com/user-attachments/assets/5821d288-9392-4b71-a435-f4a9c3951122)
+#### 6. Select `Catppuccin-Mocha-Lavender-Cursors`
 
+![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
 
 ---
 
