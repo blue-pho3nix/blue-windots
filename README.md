@@ -85,21 +85,22 @@ Install the following mods under `Explore`
 ---
 
 ### Install Resource Redirect
-1. Select the `Bonny` icon theme.
+#### 1. Select the `Bonny` icon theme.
 
 ![](https://github.com/user-attachments/assets/83827f17-77ae-43ab-b884-37e776f9d833)
 
-3. Click on yes when it asks to clear the icon cache.
+#### 2. Click on yes when it asks to clear the icon cache.
 
 ![](https://github.com/user-attachments/assets/4e53a921-f5f8-4bdb-bb45-a1862715767b)
 
 ---
 
 ### Install Windows 11 Taskbar Styler
-- Select the `Matter` theme in settings.
+#### 1. Select the `Matter` theme in settings.
 
 ![](https://github.com/user-attachments/assets/7018018e-cd38-44f2-811b-b88bf441bf8e)
 
+#### 2. (Optional) Hide search in `Personalization > Taskbar`.
 ---
 
 ### Install Windows 11 File Explorer Styler
