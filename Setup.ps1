@@ -479,13 +479,14 @@ $destinationTheme = "C:\Windows\Resources\Themes\"
 Write-ColorText "{Blue}[copy] {Green}Copying theme files from $sourceTheme... {Yellow}to {Gray}$destinationTheme"
 
 if (Test-Path $sourceTheme) {
-    # Copying theme files and supporting folders (e.g., Catppuccin cursors, themes)
+    # Copying theme files and supporting folders
     Copy-Item -Path "$sourceTheme\*" -Destination $destinationTheme -Recurse -Force -ErrorAction SilentlyContinue
     Write-ColorText "{Green}Theme files copied successfully."
 } else {
     Write-ColorText "{Red}Warning: Source directory not found for themes: {Gray}$sourceTheme"
 }
 
+Start-Sleep -Seconds 5
 
 #################################################################################	
 ### Theme Setup			              ###
