@@ -46,34 +46,6 @@ Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`.
 
 ---
 
-## Other Changes You Can Make
-
-### If you have fewer/more than 5 monitors
-Change the `blue-windots\config\home\komorebi.json` to meet your needs.<br>I would do this before installation. But you can always update your komorebi after install.
-
-### Edit `C:\Users\<your_username>\komorebi.json` after install
-#### 1.  After your edits, save the file.  
-#### 2. Open a regular powershell.
-Or open powerShell as Administrator, if you want to run komorebi with Administrator privileges. (This just makes it so apps that have Administrator privs use komorebi, but may cause issues if there is a vulnerability with komorebi).
-#### 3. Stop and start komorebi or reload the configuration.
-```
-komorebic stop --ahk
-```
-```
-komorebic start --ahk
-```
-^ Make sure to always use `--ahk` to keep the autohotkeys working.  When you stop/restart komorebi, you'll need to reload autohotkey. <br>
-or
-```
-komorebic reload-configuration
-```
-
-#### If you want to change your Desktop image after install
-There are 6 options in your `C:\Windows\Resources\Themes\One Dark Pro\Wallpapers` folder.<br>
-You can change the desktop image by right clicking your desktop and selecting personalize. Then choose Background. 
-
----
-
 ## Install Instructions
 
 ## Create a restore point 
@@ -187,6 +159,34 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 #### 6. Select `Catppuccin-Mocha-Lavender-Cursors`
 
 ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
+
+---
+
+## Other Changes You Can Make
+
+### If you have fewer/more than 5 monitors
+Change the `blue-windots\config\home\komorebi.json` to meet your needs.
+
+### Edit `C:\Users\<your_username>\komorebi.json` after install
+#### 1. After your edits, save the file.  
+#### 2. Open a regular powershell.
+Or open powerShell as Administrator, if you want to run komorebi with Administrator privileges. (This just makes it so apps that have Administrator privs use komorebi, but may cause issues if there is a vulnerability with komorebi).
+#### 3. Stop and start komorebi or reload the configuration.
+```
+komorebic stop --ahk
+```
+```
+komorebic start --ahk
+```
+^ Make sure to always use `--ahk` to keep the autohotkeys working.  When you stop/restart komorebi, you'll need to reload autohotkey. <br>
+or
+```
+komorebic reload-configuration
+```
+
+#### If you want to change your Desktop image after install
+There are 6 images in your `C:\Windows\Resources\Themes\One Dark Pro\Wallpapers` folder.<br>
+You can preview the images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing... You can always edit them in your Git clone if you really want the diff background images to be auto-set during installation.
 
 ---
 
