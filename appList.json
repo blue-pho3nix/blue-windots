@@ -1,16 +1,17 @@
 {
-	"environmentVariable": [],
-	"installSource": {
-		"winget": {
-			"autoInstall": true,
-			"packageList": [
+    "environmentVariable": [],
+    "installSource": {
+        "winget": {
+            "autoInstall": true,
+            "packageList": [
+                { "packageId": "JanDeDobbeleer.OhMyPosh" },
                 { "packageId": "Git.Git" },
-				{ "packageId": "chrisant996.Clink" },
-				{ "packageId": "Starship.Starship" },
-				{ "packageId": "AmN.yasb" },
-				{ "packageId": "LGUG2Z.komorebi" }
-			],
-			"additionalArgs": ["--exact", "--silent", "--accept-package-agreements", "--accept-source-agreements"]
-		}
-	}
+                { "packageId": "chrisant996.Clink" },
+                { "packageId": "Starship.Starship" },
+                { "packageId": "AmN.yasb" },
+                { "packageId": "LGUG2Z.komorebi" }
+            ],
+            "additionalArgs": ["--exact", "--silent", "--accept-package-agreements", "--accept-source-agreements"]
+        }
+    }
 }

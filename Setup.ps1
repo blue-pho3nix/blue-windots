@@ -23,12 +23,10 @@
 #Requires -RunAsAdministrator
 
 
-
-
 <#
 
 .DESCRIPTION
-	Configs script for Windows 11 Machine.
+    Configs script for Windows 11 Machine.
 
 #>
 Param()
@@ -38,62 +36,62 @@ $ErrorActionPreference = "Stop"
 $InformationPreference = "Continue"
 
 ########################################################################################################################
-###	HELPER FUNCTIONS										             ###
+### HELPER FUNCTIONS                                                     ###
 ########################################################################################################################
 function Write-TitleBox {
-	param ([string]$Title, [string]$BorderChar = "*", [int]$Padding = 10)
+    param ([string]$Title, [string]$BorderChar = "*", [int]$Padding = 10)
 
-	$Title = $Title.ToUpper()
-	$titleLength = $Title.Length
-	$boxWidth = $titleLength + ($Padding * 2) + 2
+    $Title = $Title.ToUpper()
+    $titleLength = $Title.Length
+    $boxWidth = $titleLength + ($Padding * 2) + 2
 
-	$borderLine = $BorderChar * $boxWidth
-	$paddingLine = $BorderChar + (" " * ($boxWidth - 2)) + $BorderChar
-	$titleLine = $BorderChar + (" " * $Padding) + $Title + (" " * $Padding) + $BorderChar
+    $borderLine = $BorderChar * $boxWidth
+    $paddingLine = $BorderChar + (" " * ($boxWidth - 2)) + $BorderChar
+    $titleLine = $BorderChar + (" " * $Padding) + $Title + (" " * $Padding) + $BorderChar
 
-	''
-	Write-Host $borderLine -ForegroundColor Cyan
-	Write-Host $paddingLine -ForegroundColor Cyan
-	Write-Host $titleLine -ForegroundColor Cyan
-	Write-Host $paddingLine -ForegroundColor Cyan
-	Write-Host $borderLine -ForegroundColor Cyan
-	''
+    ''
+    Write-Host $borderLine -ForegroundColor Cyan
+    Write-Host $paddingLine -ForegroundColor Cyan
+    Write-Host $titleLine -ForegroundColor Cyan
+    Write-Host $paddingLine -ForegroundColor Cyan
+    Write-Host $borderLine -ForegroundColor Cyan
+    ''
 }
 
 # Source:
 # - https://stackoverflow.com/questions/2688547/multiple-foreground-colors-in-powershell-in-one-command
 function Write-ColorText {
-	param ([string]$Text, [switch]$NoNewLine)
+    param ([string]$Text, [switch]$NoNewLine)
 
-	$hostColor = $Host.UI.RawUI.ForegroundColor
+    $hostColor = $Host.UI.RawUI.ForegroundColor
 
-	$Text.Split( [char]"{", [char]"}" ) | ForEach-Object { $i = 0; } {
-		if ($i % 2 -eq 0) {	Write-Host $_ -NoNewline }
-		else {
-			if ($_ -in [enum]::GetNames("ConsoleColor")) {
-				$Host.UI.RawUI.ForegroundColor = ($_ -as [System.ConsoleColor])
-			}
-		}
-		$i++
-	}
+    $Text.Split( [char]"{", [char]"}" ) | ForEach-Object { $i = 0; } {
+        if ($i % 2 -eq 0) { Write-Host $_ -NoNewline }
+        else {
+            if ($_ -in [enum]::GetNames("ConsoleColor")) {
+                $Host.UI.RawUI.ForegroundColor = ($_ -as [System.ConsoleColor])
+            }
+        }
+        $i++
+    }
 
-	if (!$NoNewLine) { Write-Host }
-	$Host.UI.RawUI.ForegroundColor = $hostColor
+    if (!$NoNewLine) { Write-Host }
+    $Host.UI.RawUI.ForegroundColor = $hostColor
 }
 
 function Add-ScoopBucket {
-	param ([string]$BucketName, [string]$BucketRepo)
+    param ([string]$BucketName, [string]$BucketRepo)
 
-	$scoopDir = (Get-Command scoop.ps1 -ErrorAction SilentlyContinue).Source | Split-Path | Split-Path
-	if (!(Test-Path "$scoopDir\buckets\$BucketName" -PathType Container)) {
-		if ($BucketRepo) {
-			scoop bucket add $BucketName $BucketRepo
-		} else {
-			scoop bucket add $BucketName
-		}
-	} else {
-		Write-ColorText "{Blue}[bucket] {Magenta}scoop: {Yellow}(exists) {Gray}$BucketName"
-	}
+    $scoopDir = (Get-Command scoop.ps1 -ErrorAction SilentlyContinue).Source | Split-Path | Split-Path
+    if (!(Test-Path "$scoopDir\buckets\$BucketName" -PathType Container)) {
+        if ($BucketRepo) {
+            scoop bucket add $BucketName $BucketRepo
+        } else {
+            scoop bucket add $BucketName
+        }
+    } else {
+        Write-ColorText "{Blue}[bucket] {Magenta}scoop: {Yellow}(exists) {Gray}$BucketName"
+    }
 }
 
 
@@ -185,14 +183,6 @@ function Install-WinGetApp {
 
 
 function Refresh ([int]$Time) {
-    # Determine the suffix for the attempt number (optional, kept for consistency)
-    $suffix = switch -regex ($Time.ToString()) {
-        '1(1|2|3)$' { 'th'; break }
-        '.?1$' { 'st'; break }
-        '.?2$' { 'nd'; break }
-        '.?3$' { 'rd'; break }
-        default { 'th'; break }
-    }
 
     Write-Verbose -Message "Refreshing environment variables from registry ($Time$suffix attempt)"
 
@@ -220,57 +210,57 @@ function Refresh ([int]$Time) {
 
 
 function Write-LockFile {
-	param (
-		[ValidateSet('winget', 'scoop', 'modules')]
-		[Alias('s', 'p')][string]$PackageSource,
-		[Alias('f')][string]$FileName,
-		[Alias('o')][string]$OutputPath = "$PSScriptRoot\out"
-	)
+    param (
+        [ValidateSet('winget', 'scoop', 'modules')]
+        [Alias('s', 'p')][string]$PackageSource,
+        [Alias('f')][string]$FileName,
+        [Alias('o')][string]$OutputPath = "$PSScriptRoot\out"
+    )
 
-	$dest = "$OutputPath\$FileName"
+    $dest = "$OutputPath\$FileName"
 
-	switch ($PackageSource) {
-		"winget" {
-			if (!(Get-Command winget -ErrorAction SilentlyContinue)) { return }
-			winget export -o $dest | Out-Null
-			if ($LASTEXITCODE -eq 0) {
-				Write-ColorText "`nPackages installed by {Green}$PackageSource {Gray}are exported at {Green}$((Resolve-Path $dest).Path)"
-			}
-			Start-Sleep -Seconds 1
-		}
-		"scoop" {
-			if (!(Get-Command scoop -ErrorAction SilentlyContinue)) { return }
-			scoop export -c > $dest
-			if ($LASTEXITCODE -eq 0) {
-				Write-ColorText "`nPackages installed by {Green}$PackageSource {Gray}are exported at {Red}$((Resolve-Path $dest).Path)"
-			}
-			Start-Sleep -Seconds 1
-		}
-		"modules" {
-			Get-InstalledModule | Select-Object -Property Name, Version | ConvertTo-Json -Depth 100 | Out-File $dest
-			if ($LASTEXITCODE -eq 0) {
-				Write-ColorText "`n{Green}PowerShell Modules {Gray}installed are exported at {Red}$((Resolve-Path $dest).Path)"
-			}
-			Start-Sleep -Seconds 1
-		}
-	}
+    switch ($PackageSource) {
+        "winget" {
+            if (!(Get-Command winget -ErrorAction SilentlyContinue)) { return }
+            winget export -o $dest | Out-Null
+            if ($LASTEXITCODE -eq 0) {
+                Write-ColorText "`nPackages installed by {Green}$PackageSource {Gray}are exported at {Green}$((Resolve-Path $dest).Path)"
+            }
+            Start-Sleep -Seconds 1
+        }
+        "scoop" {
+            if (!(Get-Command scoop -ErrorAction SilentlyContinue)) { return }
+            scoop export -c > $dest
+            if ($LASTEXITCODE -eq 0) {
+                Write-ColorText "`nPackages installed by {Green}$PackageSource {Gray}are exported at {Red}$((Resolve-Path $dest).Path)"
+            }
+            Start-Sleep -Seconds 1
+        }
+        "modules" {
+            Get-InstalledModule | Select-Object -Property Name, Version | ConvertTo-Json -Depth 100 | Out-File $dest
+            if ($LASTEXITCODE -eq 0) {
+                Write-ColorText "`n{Green}PowerShell Modules {Gray}installed are exported at {Red}$((Resolve-Path $dest).Path)"
+            }
+            Start-Sleep -Seconds 1
+        }
+    }
 }
 
 
 ########################################################################
-###		MAIN SCRIPT 		  			     ###
+###     MAIN SCRIPT                                                  ###
 ########################################################################
 # if not internet connection, then we will exit this script immediately
 $internetConnection = Test-NetConnection google.com -CommonTCPPort HTTP -InformationLevel Detailed -WarningAction SilentlyContinue
 $internetAvailable = $internetConnection.TcpTestSucceeded
 if ($internetAvailable -eq $False) {
-	Write-Warning "NO INTERNET CONNECTION AVAILABLE!"
-	Write-Host "Please check your internet connection and re-run this script.`n"
-	for ($countdown = 3; $countdown -ge 0; $countdown--) {
-		Write-ColorText "`r{DarkGray}Automatically exit this script in {Blue}$countdown second(s){DarkGray}..." -NoNewLine
-		Start-Sleep -Seconds 1
-	}
-	exit
+    Write-Warning "NO INTERNET CONNECTION AVAILABLE!"
+    Write-Host "Please check your internet connection and re-run this script.`n"
+    for ($countdown = 3; $countdown -ge 0; $countdown--) {
+        Write-ColorText "`r{DarkGray}Automatically exit this script in {Blue}$countdown second(s){DarkGray}..." -NoNewLine
+        Start-Sleep -Seconds 1
+    }
+    exit
 }
 
 Write-Progress -Completed
@@ -288,7 +278,7 @@ $i = 1
 
 
 ########################################################################
-###	WINGET PACKAGES 			 		     ###
+### WINGET PACKAGES                          ###
 ########################################################################
 # Retrieve information from json file
 $json = Get-Content "$PSScriptRoot\appList.json" -Raw | ConvertFrom-Json
@@ -301,55 +291,55 @@ $wingetArgs = $wingetItem.additionalArgs
 $wingetInstall = $wingetItem.autoInstall
 
 if ($wingetInstall -eq $True) {
-	if (!(Get-Command winget -ErrorAction SilentlyContinue)) {
-		# Use external script to install WinGet and all of its requirements
-		# Source: - https://github.com/asheroto/winget-install
-		Write-Verbose -Message "Installing winget-cli"
-		&([ScriptBlock]::Create((Invoke-RestMethod asheroto.com/winget))) -Force
-	}
+    if (!(Get-Command winget -ErrorAction SilentlyContinue)) {
+        # Use external script to install WinGet and all of its requirements
+        # Source: - https://github.com/asheroto/winget-install
+        Write-Verbose -Message "Installing winget-cli"
+        &([ScriptBlock]::Create((Invoke-RestMethod asheroto.com/winget))) -Force
+    }
 
-	# Configure winget settings for BETTER PERFORMANCE
-	# Note that this will always overwrite existed winget settings file whenever you run this script
-	$settingsPath = "$env:LOCALAPPDATA\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json"
-	$settingsJson = @'
+    # Configure winget settings for BETTER PERFORMANCE
+    # Note that this will always overwrite existed winget settings file whenever you run this script
+    $settingsPath = "$env:LOCALAPPDATA\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json"
+    $settingsJson = @'
 {
-		"$schema": "https://aka.ms/winget-settings.schema.json",
+        "$schema": "https://aka.ms/winget-settings.schema.json",
 
-		// For documentation on these settings, see: https://aka.ms/winget-settings
-		// "source": {
-		//    "autoUpdateIntervalInMinutes": 5
-		// },
-		"visual": {
-				"enableSixels": true,
-				"progressBar": "rainbow"
-		},
-		"telemetry": {
-				"disable": true
-		},
-		"experimentalFeatures": {
-				"configuration03": true,
-				"configureExport": true,
-				"configureSelfElevate": true,
-				"experimentalCMD": true
-		},
-		"network": {
-				"downloader": "wininet"
-		}
+        // For documentation on these settings, see: https://aka.ms/winget-settings
+        // "source": {
+        //    "autoUpdateIntervalInMinutes": 5
+        // },
+        "visual": {
+                "enableSixels": true,
+                "progressBar": "rainbow"
+        },
+        "telemetry": {
+                "disable": true
+        },
+        "experimentalFeatures": {
+                "configuration03": true,
+                "configureExport": true,
+                "configureSelfElevate": true,
+                "experimentalCMD": true
+        },
+        "network": {
+                "downloader": "wininet"
+        }
 }
 '@
-	$settingsJson | Out-File $settingsPath -Encoding utf8
+    $settingsJson | Out-File $settingsPath -Encoding utf8
 
-	# Download packages from WinGet
-	foreach ($pkg in $wingetPkgs) {
-		$pkgId = $pkg.packageId
-		$pkgSource = $pkg.packageSource
-		if ($null -ne $pkgSource) {
-			Install-WinGetApp -PackageID $pkgId -AdditionalArgs $wingetArgs -Source $pkgSource
-		} else {
-			Install-WinGetApp -PackageID $pkgId -AdditionalArgs $wingetArgs
-		}
-	}
-	Write-LockFile -PackageSource winget -FileName wingetfile.json
+    # Download packages from WinGet
+    foreach ($pkg in $wingetPkgs) {
+        $pkgId = $pkg.packageId
+        $pkgSource = $pkg.packageSource
+        if ($null -ne $pkgSource) {
+            Install-WinGetApp -PackageID $pkgId -AdditionalArgs $wingetArgs -Source $pkgSource
+        } else {
+            Install-WinGetApp -PackageID $pkgId -AdditionalArgs $wingetArgs
+        }
+    }
+    Write-LockFile -PackageSource winget -FileName wingetfile.json
 }
 
 Refresh ($i++)
@@ -394,7 +384,7 @@ Write-Host "Scoop + AutoHotkey installation complete." -ForegroundColor Green
 Refresh ($i++)
 
 ######################################################################
-###		NERD FONTS					   ###
+###     NERD FONTS                     ###
 ######################################################################
 # install nerd fonts
 Write-TitleBox -Title "Nerd Fonts Installation"
@@ -403,28 +393,114 @@ Write-TitleBox -Title "Nerd Fonts Installation"
 $omp = Get-Command oh-my-posh -ErrorAction SilentlyContinue
 
 if ($null -ne $omp) {
-	Write-ColorText "{Green}Found 'oh-my-posh'. Attempting to install '0xProto Nerd Font'..."
-	Write-ColorText "{Gray}(This may take a moment...)"
+    Write-ColorText "{Green}Found 'oh-my-posh'. Attempting to install '0xProto Nerd Font'..."
+    Write-ColorText "{Gray}(This may take a moment...)"
 
-	try {
-		# Execute the oh-my-posh font installer for 0xProto
-		# We add -ErrorAction Stop to catch errors in the 'catch' block
-		oh-my-posh font install 0xProto
-		
-		Write-ColorText "`n{Green}Successfully installed '0xProto Nerd Font'."
-		Write-ColorText "{Yellow}You MUST restart your terminal (e.g., Windows Terminal, VS Code) for the new font to be available."
-	}
-	catch {
-		Write-ColorText "{Red}An error occurred while installing the font:"
-		Write-ColorText "{Gray}$($_.Exception.Message)"
-	}
+    try {
+        # Execute the oh-my-posh font installer for 0xProto
+        # We add -ErrorAction Stop to catch errors in the 'catch' block
+        oh-my-posh font install 0xProto
+        
+        Write-ColorText "`n{Green}Successfully installed '0xProto Nerd Font'."
+        Write-ColorText "{Yellow}You MUST restart your terminal (e.g., Windows Terminal, VS Code) for the new font to be available."
+    }
+    catch {
+        Write-ColorText "{Red}An error occurred while installing the font:"
+        Write-ColorText "{Gray}$($_.Exception.Message)"
+    }
 }
 else {
-	Write-ColorText "{Red}Error: 'oh-my-posh.exe' not found in your $env:PATH."
-	Write-ColorText "{Yellow}Please ensure Oh My Posh is installed and accessible."
-	Write-ColorText "{Gray}Skipping Nerd Font installation..."
+    Write-ColorText "{Red}Error: 'oh-my-posh.exe' not found in your $env:PATH."
+    Write-ColorText "{Yellow}Please ensure Oh My Posh is installed and accessible."
+    Write-ColorText "{Gray}Skipping Nerd Font installation..."
 }
 
+
+################################################################################
+### Toggle OFF Time and Date in System Tray                   ###
+################################################################################
+Write-TitleBox -Title "Toggle OFF Time/Date in System Tray"
+
+# Path to the Advanced Explorer key
+$regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" 
+$regValueName = "ShowSystrayDateTimeValueName"
+
+Write-ColorText "{Cyan}Setting registry key to hide clock in system tray..."
+
+try {
+    # Setting the value to 0 (False) hides the clock.
+    # Note: If this key does not exist, the system might default to showing the clock.
+    # We use -Force to create it if it doesn't exist.
+    Set-ItemProperty -Path $regPath -Name $regValueName -Value 0 -Type DWord -Force -ErrorAction Stop
+    Write-ColorText "{Green}Clock is now hidden in the System Tray."
+    
+    # Restart Windows Explorer to apply the change immediately
+    Write-ColorText "{Green}Restarting Windows Explorer..."
+    taskkill /f /im explorer.exe; start explorer
+
+} catch {
+    Write-Error "Failed to hide system tray clock: $($_.Exception.Message)"
+}
+
+####################################################################
+###             COPY FILES                                   ###
+####################################################################
+Write-TitleBox -Title "Copy Dotfiles and Theme Assets"
+
+# 1. Copy dotfiles to user profile (Original)
+$sourceHome = "$PSScriptRoot\config\home"
+$destinationHome = "$env:USERPROFILE"
+
+Write-ColorText "{Blue}[copy] {Green}Copying dotfiles from $sourceHome... {Yellow}to {Gray}$destinationHome"
+
+if (Test-Path $sourceHome) {
+    # The \* copies the *contents* of the source folder
+    Copy-Item -Path "$sourceHome\*" -Destination $destinationHome -Recurse -Force -ErrorAction SilentlyContinue
+    Write-ColorText "{Green}Dotfiles copied successfully."
+} else {
+    Write-ColorText "{Red}Warning: Source directory not found for dotfiles: {Gray}$sourceHome"
+}
+
+
+# 2. Copy Theme Files to Windows Resources
+$sourceTheme = "$PSScriptRoot\config\theme\"
+$destinationTheme = "C:\Windows\Resources\Themes\"
+
+Write-ColorText "{Blue}[copy] {Green}Copying theme files from $sourceTheme... {Yellow}to {Gray}$destinationTheme"
+
+if (Test-Path $sourceTheme) {
+    # Copying theme files and supporting folders
+    Copy-Item -Path "$sourceTheme\*" -Destination $destinationTheme -Recurse -Force -ErrorAction SilentlyContinue
+    Write-ColorText "{Green}Theme files copied successfully."
+} else {
+    Write-ColorText "{Red}Warning: Source directory not found for themes: {Gray}$sourceTheme"
+}
+
+Start-Sleep -Seconds 5
+
+##############################################################################  
+###                        Theme Setup                             ###
+##############################################################################
+Write-TitleBox -Title "Theme Setup"
+Write-ColorText "{yellow}The Screen may flash."
+Write-ColorText "{yellow}This may take some time..."
+Start-Sleep -Seconds 2
+
+# --- Define Theme File Path ---
+$themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
+
+Write-Host "1. Unblocking theme file security tag..."
+# Unblock-File removes the 'Mark-of-the-Web' security tag
+Unblock-File -Path $themeFile
+
+Write-Host "2. Silently applying theme..."
+# Launch the theme application process silently, which should now run without a prompt
+Start-Process -FilePath $themeFile -WindowStyle Hidden -Wait
+
+Write-Host "3. Restarting Windows Explorer to reload theme..."
+taskkill /f /im explorer.exe; Start-Process explorer.exe
+
+Refresh ($i++)
 
 ##########################################################################
 ###                         CLINK CONFIGURATION                        ###
@@ -447,49 +523,29 @@ if (Test-Path $clinkExe) {
 Refresh ($i++)
 
 
-####################################################################
-###	            COPY FILES 	                                 ###
-####################################################################
-# Copy dotfiles
-Write-TitleBox -Title "Copy dotfiles to user profile"
-
-# Define source and destination
-$source = "$PSScriptRoot\config\home"
-$destination = "$env:USERPROFILE"
-
-# Copy all files and folders from the source to the destination
-Write-ColorText "{Blue}[copy] {Green}Copying all files from $source... {Yellow}to {Gray}$destination"
-
-# The \* copies the *contents* of the source folder, not the folder itself.
-Copy-Item -Path "$source\*" -Destination $destination -Recurse -Force -ErrorAction SilentlyContinue
-
-Write-ColorText "{Green}All files copied successfully."
-
-
-
 ##########################################################################
-###	ENVIRONMENT VARIABLES				               ###
+### ENVIRONMENT VARIABLES                              ###
 ##########################################################################
 Write-TitleBox -Title "Set Environment Variables"
 $envVars = $json.environmentVariable
 foreach ($env in $envVars) {
-	$envCommand = $env.commandName
-	$envKey = $env.environmentKey
-	$envValue = $env.environmentValue
-	if (Get-Command $envCommand -ErrorAction SilentlyContinue) {
-		if (![System.Environment]::GetEnvironmentVariable("$envKey")) {
-			Write-Verbose "Set environment variable of $envCommand`: $envKey -> $envValue"
-			try {
-				[System.Environment]::SetEnvironmentVariable("$envKey", "$envValue", "User")
-				Write-ColorText "{Blue}[environment] {Green}(added) {Magenta}$envKey {Yellow}--> {Gray}$envValue"
-			} catch {
-				Write-Error -ErrorAction Stop "An error occurred: $_"
-			}
-		} else {
-			$value = [System.Environment]::GetEnvironmentVariable("$envKey")
-			Write-ColorText "{Blue}[environment] {Yellow}(exists) {Magenta}$envKey {Yellow}--> {Gray}$value"
-		}
-	}
+    $envCommand = $env.commandName
+    $envKey = $env.environmentKey
+    $envValue = $env.environmentValue
+    if (Get-Command $envCommand -ErrorAction SilentlyContinue) {
+        if (![System.Environment]::GetEnvironmentVariable("$envKey")) {
+            Write-Verbose "Set environment variable of $envCommand`: $envKey -> $envValue"
+            try {
+                [System.Environment]::SetEnvironmentVariable("$envKey", "$envValue", "User")
+                Write-ColorText "{Blue}[environment] {Green}(added) {Magenta}$envKey {Yellow}--> {Gray}$envValue"
+            } catch {
+                Write-Error -ErrorAction Stop "An error occurred: $_"
+            }
+        } else {
+            $value = [System.Environment]::GetEnvironmentVariable("$envKey")
+            Write-ColorText "{Blue}[environment] {Yellow}(exists) {Magenta}$envKey {Yellow}--> {Gray}$value"
+        }
+    }
 }
 
 Refresh ($i++)
@@ -531,9 +587,19 @@ Write-Host "Starship setup complete. Restart PowerShell to apply changes." -Fore
 ##########################################################################
 Write-TitleBox "Komorebi & Yasb Engines"
 
-# --- YASB ---
+# YASB
 if (Get-Command yasbc -ErrorAction SilentlyContinue) {
-    # 1. Create the autostart task if it doesn't exist
+
+    # Start it for the current session if not running
+    if (!(Get-Process -Name yasb -ErrorAction SilentlyContinue)) {
+        Write-Host "Starting YASB for current session..."
+        try { yasbc start } catch { Write-Error $_ }
+    } else {
+        Write-Host "YASB is already running." -ForegroundColor Green
+
+} else {
+    Write-Warning "Command not found: yasbc."
+    # 1Create the autostart task if it doesn't exist
     # 'yasb-autostart' is the default name yasb creates
     if (!(Get-ScheduledTask -TaskName "yasb-autostart" -ErrorAction SilentlyContinue)) {
         Write-Host "Creating autostart task for YASB..."
@@ -547,29 +613,22 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
     } else {
         Write-Host "YASB autostart task already exists." -ForegroundColor Green
     }
-
-    # 2. Start it for the current session if not running
-    if (!(Get-Process -Name yasb -ErrorAction SilentlyContinue)) {
-        Write-Host "Starting YASB for current session..."
-        try { yasbc start } catch { Write-Error $_ }
-    } else {
-        Write-Host "YASB is already running." -ForegroundColor Green
-    }
-} else {
-    Write-Warning "Command not found: yasbc."
 }
 
-# --- KOMOREBI ---
+# KOMOREBI 
 # Check if 'komorebic' command is available first
 if (Get-Command komorebic -ErrorAction SilentlyContinue) {
     
-    # 1. Set up autostart using the built-in command
-    komorebic enable-autostart --ahk
+    # Enable support for long paths in Windows
+    Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
 
-    # 2. Start Komorebi, but only if it's not already running
+    # Start Komorebi, but only if it's not already running
     if (!(Get-Process -Name komorebi -ErrorAction SilentlyContinue)) {
         komorebic start --ahk
     }
+
+    # Set up autostart using the built-in command
+    komorebic enable-autostart --ahk
     
 } else {
     Write-Warning "komorebic command not found. Could not configure."
@@ -577,7 +636,7 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
 
 
 ######################################################################
-###		       END SCRIPT				   ###
+###            END SCRIPT                  ###
 ######################################################################
 Set-Location $currentLocation
 Start-Sleep -Seconds 5

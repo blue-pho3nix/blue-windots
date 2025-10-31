@@ -1,17 +1,20 @@
 # Windots for Windows 11 😊
 My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
-![](https://github.com/user-attachments/assets/b19d1100-dc72-4919-bcba-cab7fb60126d)
-![](https://github.com/user-attachments/assets/72238876-8daf-425f-b498-8c93e852a0f7)
-![](https://github.com/user-attachments/assets/16e02f09-bcbc-4d6c-a292-41bd87517eff)
+![](https://github.com/user-attachments/assets/e066d4de-a5d7-4814-a120-0d6c89ef5ea3)
+![](https://github.com/user-attachments/assets/e84b909d-a3e5-4a1a-9e1c-77ac08140aa7)
+![](https://github.com/user-attachments/assets/f226badf-40bc-48bc-93b9-101909dabddd)
 ![](https://github.com/user-attachments/assets/9dfb0651-10c4-44cb-9695-ece71834e40d)
 ![](https://github.com/user-attachments/assets/538eeeb4-8bc7-428d-9b77-390423a9a29c)
 ![](https://github.com/user-attachments/assets/29a57724-c0f4-4e63-8de5-503c2f3175e6)
+![](https://github.com/user-attachments/assets/23662d7f-ec4a-4a8a-b65d-564578d23e93)
+![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
 
 
-# Komorebi AutoHotkey v2 Hotkeys
 
-Feel free to add more to `C:\Users\<your_username>\komorebi.ahk`. 
+# Hotkeys
+
+Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`. 
 
 | Hotkey | Action |
 |--------|--------|
@@ -44,7 +47,11 @@ Feel free to add more to `C:\Users\<your_username>\komorebi.ahk`.
 
 ## Install Instructions
 
-## Create a restore point
+## Create a restore point 
+...incase you want to go back to what you had before the install...
+
+![](https://github.com/user-attachments/assets/fd7175f2-b3cd-45da-8cdb-1bebef62e955)
+
 #### 1. Select `Configure`
 #### 2. Select `Turn on system protection`
 #### 3. Select `Apply` + `OK`
@@ -52,8 +59,71 @@ Feel free to add more to `C:\Users\<your_username>\komorebi.ahk`.
 #### 5. Type a description
 #### 6. Select `Create`
 
+## Install [Windhawk](https://windhawk.net/) 
+Install the following mods under `Explore`
 
-## Install komorebi, yasb and setup config files
+![](https://github.com/user-attachments/assets/761804f9-4c03-4a09-aa10-bf51d34ee62d)
+
+---
+
+### Install Control Panel Color Fix
+#### Normal settings
+
+![](https://github.com/user-attachments/assets/0efd5cad-3ccc-4cdb-b58e-063b38a496ca)
+
+---
+
+### Install Resource Redirect
+1. Select the `Bonny` icon theme.
+
+![](https://github.com/user-attachments/assets/83827f17-77ae-43ab-b884-37e776f9d833)
+
+3. Click on yes when it asks to clear the icon cache.
+
+![](https://github.com/user-attachments/assets/4e53a921-f5f8-4bdb-bb45-a1862715767b)
+
+---
+
+### Install Windows 11 Taskbar Styler
+- Select the `Matter` theme in settings.
+
+![](https://github.com/user-attachments/assets/7018018e-cd38-44f2-811b-b88bf441bf8e)
+
+---
+
+### Install Windows 11 File Explorer Styler
+- Select the `Matter` theme in settings.
+
+![](https://github.com/user-attachments/assets/7864fbed-cd94-4e57-901a-acde8f11bab9)
+
+---
+
+### Install Windows 11 Notification Center Styler
+- Select the `Matter` theme in settings.
+
+![](https://github.com/user-attachments/assets/d63c7a18-c601-4f51-8f8e-301e4c109183)
+
+---
+
+### Install Windows 11 Start Menu Styler
+#### 1. Select the `Oversimplified$Accentuated` theme in settings.
+#### 2. Select Disable the new start menu layout
+
+![](https://github.com/user-attachments/assets/9aa0ca9b-db34-4da9-b0f7-90c72d483506)
+
+---
+
+### Install UXTheme hook
+#### 1. Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
+
+![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
+
+#### 2. The theme will be installed via the script below (might as well just install the rest of the mods for now).
+
+---
+
+
+## Install komorebi, yasb, setup config files, set theme, and other setups.
 #### 1. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701)
 #### 2. Clone the repo using [GitHub Desktop](https://desktop.github.com/download/) or  `git`.
 ```
@@ -69,92 +139,23 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 .\Setup.ps1
 ```
 
-## Install [Windhawk](https://windhawk.net/) 
-Install the following mods
-
 ---
-
-### Control Panel Color Fix
-#### Normal settings
-
----
-
-### Resource Redirect
-#### 1. Download [Delta Icon theme](https://www.deviantart.com/niivu/art/DELTA-for-Windows-11-1250579496) or another theme...
-
-#### 2. Put the `Windhawk Resource Redirect > Delta` folder somewhere like Documents. Then, list the path in theme paths.
-Example:
-
-![](https://github.com/user-attachments/assets/26e68ee9-cea1-4ca2-a9ad-5372a2b67c77)
-
-
----
-
-### UXTheme hook
-#### 1. Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
-
-![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
-
-#### 2. Click on `Allow themes to change desktop icons` in `Personalization > Themes > Desktop icon settings`.
-
-![](https://github.com/user-attachments/assets/81b96814-cb1a-4574-87d1-275a98001192)
-
-#### 4. From [Delta Icon theme](https://www.deviantart.com/niivu/art/DELTA-for-Windows-11-1250579496), put the `.theme` files and `Delta/Delta2` folders in `Windows 11 Themes by niivu` into `C:\Windows\Resources\Themes` folder.
-#### 5. From [One Dark Pro Theme](https://www.deviantart.com/niivu/art/One-Dark-Pro-for-Windows-11-930312689), put the `.theme` files and `One Dark Pro` in `Windows 11 22H2 Themes` into `C:\Windows\Resources\Themes` folder.
-#### 6. Goto `Personalization > Themes` in settings.
-#### 7. Click on any of the `Delta` themes to set the desktop icons.
-#### 8. Click on `One Dark Pro (Night) - PAC` to set the pacman file explorer icons.
-
-![](https://github.com/user-attachments/assets/c07ed3c6-b1a0-4729-ab6f-b0442f4fe31d)
-
----
-
-### Windows 11 Taskbar Styler
-- Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/7018018e-cd38-44f2-811b-b88bf441bf8e)
-
----
-
-### Windows 11 File Explorer Styler
-- Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/7864fbed-cd94-4e57-901a-acde8f11bab9)
-
----
-
-### Windows 11 Notification Center Styler
-- Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/d63c7a18-c601-4f51-8f8e-301e4c109183)
-
----
-
-### Windows 11 Start Menu Styler
-#### 1. Select the `SideBySide` theme in settings.
-#### 2. Select Disable the new start menu layout
-
-![](https://github.com/user-attachments/assets/a66599ef-b101-471d-9c2e-52977d3e640a)
 
 ## Change Mouse Pointer
 
-#### 1. Download [Catppuccin Cursors](https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705)
-#### 2. Choose a color pointer (I chose `mocha > Catppuccin-Mocha-Dark-Cursors`)
-#### 3. Right click on install.inf and select install
-#### 4. Open Control Panel
-#### 5. Select Large Icons (If not already selected)
-#### 6. Select Mouse 
-#### 7. Goto `Pointers`
-#### 8. Select `Catppuccin-Mocha-Dark-Cursors`
+#### 1. Right click `blue-windots\cursors\install.inf`
 
-![](https://github.com/user-attachments/assets/5821d288-9392-4b71-a435-f4a9c3951122)
+![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
 
+#### 2. Press win + R and enter `main.cpl`
 
-## Other
-- Change background to images in `blue-windots\wallpaper`.
-- Turn off `Show time and date in the System tray` at `Time & language > Date & time`.
+![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
 
-![](https://github.com/user-attachments/assets/4968053b-24ae-4d6f-8d20-3046ca17990a)
+#### 5. Goto `Pointers`
+
+#### 6. Select `Catppuccin-Mocha-Lavender-Cursors`
+
+![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
 
 ---
 
