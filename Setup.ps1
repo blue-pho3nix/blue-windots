@@ -596,7 +596,7 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
         try { yasbc start } catch { Write-Error $_ }
     } else {
         Write-Host "YASB is already running." -ForegroundColor Green
-
+    }
 } else {
     Write-Warning "Command not found: yasbc."
     # 1Create the autostart task if it doesn't exist
