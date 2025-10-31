@@ -53,27 +53,60 @@ Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`.
 #### 6. Select `Create`
 
 ## Install [Windhawk](https://windhawk.net/) 
-Install the following mods
+Install the following mods under `Explore`
+
+![](https://github.com/user-attachments/assets/761804f9-4c03-4a09-aa10-bf51d34ee62d)
 
 ---
 
-### Control Panel Color Fix
+### Install Control Panel Color Fix
 #### Normal settings
 
----
-
-### Resource Redirect
-#### 1. Download [Delta Icon theme](https://www.deviantart.com/niivu/art/DELTA-for-Windows-11-1250579496) or another theme...
-
-#### 2. Put the `Windhawk Resource Redirect > Delta` folder somewhere like Documents. Then, list the path in theme paths.
-Example:
-
-![](https://github.com/user-attachments/assets/26e68ee9-cea1-4ca2-a9ad-5372a2b67c77)
-
+![](https://github.com/user-attachments/assets/0efd5cad-3ccc-4cdb-b58e-063b38a496ca)
 
 ---
 
-### UXTheme hook
+### Install Resource Redirect
+1. Select the `Bonny` icon theme.
+
+![](https://github.com/user-attachments/assets/83827f17-77ae-43ab-b884-37e776f9d833)
+
+3. Click on yes when it asks to clear the icon cache.
+
+![](https://github.com/user-attachments/assets/4e53a921-f5f8-4bdb-bb45-a1862715767b)
+
+---
+
+### Install Windows 11 Taskbar Styler
+- Select the `Matter` theme in settings.
+
+![](https://github.com/user-attachments/assets/7018018e-cd38-44f2-811b-b88bf441bf8e)
+
+---
+
+### Install Windows 11 File Explorer Styler
+- Select the `Matter` theme in settings.
+
+![](https://github.com/user-attachments/assets/7864fbed-cd94-4e57-901a-acde8f11bab9)
+
+---
+
+### Install Windows 11 Notification Center Styler
+- Select the `Matter` theme in settings.
+
+![](https://github.com/user-attachments/assets/d63c7a18-c601-4f51-8f8e-301e4c109183)
+
+---
+
+### Install Windows 11 Start Menu Styler
+#### 1. Select the `Oversimplified$Accentuated` theme in settings.
+#### 2. Select Disable the new start menu layout
+
+![](https://github.com/user-attachments/assets/9aa0ca9b-db34-4da9-b0f7-90c72d483506)
+
+---
+
+### Install UXTheme hook
 #### 1. Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
 
 ![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
@@ -82,32 +115,6 @@ Example:
 
 ---
 
-### Windows 11 Taskbar Styler
-- Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/7018018e-cd38-44f2-811b-b88bf441bf8e)
-
----
-
-### Windows 11 File Explorer Styler
-- Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/7864fbed-cd94-4e57-901a-acde8f11bab9)
-
----
-
-### Windows 11 Notification Center Styler
-- Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/d63c7a18-c601-4f51-8f8e-301e4c109183)
-
----
-
-### Windows 11 Start Menu Styler
-#### 1. Select the `SideBySide` theme in settings.
-#### 2. Select Disable the new start menu layout
-
-![](https://github.com/user-attachments/assets/a66599ef-b101-471d-9c2e-52977d3e640a)
 
 ## Install komorebi, yasb, setup config files, set theme, and other setups.
 #### 1. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701)
