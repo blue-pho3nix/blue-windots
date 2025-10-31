@@ -183,10 +183,10 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 - Change the `blue-windots\config\home\komorebi.json` to meet your needs.
 
 ### Edit `C:\Users\<your_username>\komorebi.json` after install
-#### 1. After your edits, save the file.  
-#### 2. Open a regular powershell.
-Or open powerShell as Administrator, if you want to run komorebi with Administrator privileges. (This just makes it so apps that have Administrator privs use komorebi, but may cause issues if there is a vulnerability with komorebi).
-#### 3. Stop and start komorebi or reload the configuration.
+1. After your edits, save the file.  
+2. Open a regular powershell.
+a. Or open powerShell as Administrator, if you want to run komorebi with Administrator privileges. (This just makes it so apps that have Administrator privs use komorebi, but may cause issues if there is a vulnerability with komorebi).
+3. Stop and start komorebi or reload the configuration.
 ```
 komorebic stop --ahk
 ```
@@ -199,7 +199,7 @@ or
 komorebic reload-configuration
 ```
 
-#### If you want to change your Desktop image after install
+### If you want to change your Desktop image
 - There are 6 images in your `C:\Windows\Resources\Themes\One Dark Pro\Wallpapers` folder.<br>
 - You can preview the images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing... You can always edit them in your Git clone if you really want the diff background images to be auto-set during installation.
 
