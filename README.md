@@ -52,23 +52,6 @@ Feel free to add more to `C:\Users\<your_username>\komorebi.ahk`.
 #### 5. Type a description
 #### 6. Select `Create`
 
-
-## Install komorebi, yasb and setup config files
-#### 1. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701)
-#### 2. Clone the repo using [GitHub Desktop](https://desktop.github.com/download/) or  `git`.
-```
-git clone https://github.com/blue-pho3nix/blue-windots.git
-```
-#### 3. Open Windows terminal as `Administrator`
-
-![](https://github.com/user-attachments/assets/a0397a54-bd11-410a-92e1-726867cbd94e)
-
-#### 4. `cd` into `blue-dots`
-#### 5. Run `Setup.ps1`
-```
-.\Setup.ps1
-```
-
 ## Install [Windhawk](https://windhawk.net/) 
 Install the following mods
 
@@ -95,15 +78,7 @@ Example:
 
 ![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
 
-#### 2. Click on `Allow themes to change desktop icons` in `Personalization > Themes > Desktop icon settings`.
-
-![](https://github.com/user-attachments/assets/81b96814-cb1a-4574-87d1-275a98001192)
-
-#### 4. From [Delta Icon theme](https://www.deviantart.com/niivu/art/DELTA-for-Windows-11-1250579496), put the `.theme` files and `Delta/Delta2` folders in `Windows 11 Themes by niivu` into `C:\Windows\Resources\Themes` folder.
-#### 5. From [One Dark Pro Theme](https://www.deviantart.com/niivu/art/One-Dark-Pro-for-Windows-11-930312689), put the `.theme` files and `One Dark Pro` in `Windows 11 22H2 Themes` into `C:\Windows\Resources\Themes` folder.
-#### 6. Goto `Personalization > Themes` in settings.
-#### 7. Click on any of the `Delta` themes to set the desktop icons.
-#### 8. Click on `One Dark Pro (Night) - PAC` to set the pacman file explorer icons.
+#### 2. The theme will be installed via the script below (might as well just install the rest of the mods for now).
 
 ![](https://github.com/user-attachments/assets/c07ed3c6-b1a0-4729-ab6f-b0442f4fe31d)
 
@@ -136,16 +111,29 @@ Example:
 
 ![](https://github.com/user-attachments/assets/a66599ef-b101-471d-9c2e-52977d3e640a)
 
-## Change Mouse Pointer
+## Install komorebi, yasb, setup config files, set theme, and other setups.
+#### 1. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701)
+#### 2. Clone the repo using [GitHub Desktop](https://desktop.github.com/download/) or  `git`.
+```
+git clone https://github.com/blue-pho3nix/blue-windots.git
+```
+#### 3. Open Windows terminal as `Administrator`
 
-#### 1. Download [Catppuccin Cursors](https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705)
-#### 2. Choose a color pointer (I chose `mocha > Catppuccin-Mocha-Dark-Cursors`)
-#### 3. Right click on install.inf and select install
-#### 4. Open Control Panel
-#### 5. Select Large Icons (If not already selected)
-#### 6. Select Mouse 
-#### 7. Goto `Pointers`
-#### 8. Select `Catppuccin-Mocha-Dark-Cursors`
+![](https://github.com/user-attachments/assets/a0397a54-bd11-410a-92e1-726867cbd94e)
+
+#### 4. `cd` into `blue-dots`
+#### 5. Run `Setup.ps1`
+```
+.\Setup.ps1
+```
+
+## Change Mouse Pointer
+#### 1. Cursors were installed by the script.
+#### 2. Open Control Panel
+#### 3. Select Large Icons (If not already selected)
+#### 4. Select Mouse 
+#### 5. Goto `Pointers`
+#### 6. Select `Catppuccin-Mocha-Dark-Cursors`
 
 ![](https://github.com/user-attachments/assets/5821d288-9392-4b71-a435-f4a9c3951122)
 
