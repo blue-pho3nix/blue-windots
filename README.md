@@ -125,8 +125,11 @@ Install the following mods under `Explore`
 
 ---
 
-
 ## Install komorebi, yasb, setup config files, set theme, and other setups.
+> Note: Make sure you've installed `UXTheme hook` with the settings [here](https://github.com/blue-pho3nix/blue-windots/edit/main/README.md#install-uxtheme-hook).
+
+![](https://github.com/user-attachments/assets/ab975594-df63-4225-8c63-1273a6c4a601)
+
 #### 1. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701)
 #### 2. Clone the repo using [GitHub Desktop](https://desktop.github.com/download/) or  `git`.
 ```
