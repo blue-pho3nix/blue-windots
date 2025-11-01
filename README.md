@@ -45,9 +45,19 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 
 ---
 
+## Pre Install
+
+### If you want to change your Desktop images
+- You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing... You can always edit them in your Git clone if you really want the diff background images to be auto-set to slideshow during installation.
+
+### If you have fewer/more than 5 monitors
+- Change the `blue-windots\config\home\komorebi.json` to meet your needs.
+
+---
+
 ## Install Instructions
 
-## Create a restore point 
+### 1. Create a restore point 
 - ...incase you want to go back to what you had before the install...
 
 ![](https://github.com/user-attachments/assets/fd7175f2-b3cd-45da-8cdb-1bebef62e955)
@@ -61,86 +71,40 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 7. Type a description.
 8. Select `Create`.
 
-## Install [Windhawk](https://windhawk.net/) 
-Install the following mods under `Explore`
+### 2. Install [Windhawk](https://windhawk.net/) 
+I want to script the entire install for windhawk, but it's not currently set up to do so... <br>
+At this point, you can install the mods, and the setup for each mod will be in the script below.
+
+### Install the following mods under `Explore`
 
 ![](https://github.com/user-attachments/assets/761804f9-4c03-4a09-aa10-bf51d34ee62d)
 
----
+- Control Panel Color Fix
+- Resource Redirect
+- UXTheme hook
+- Windows 11 File Explorer Styler
+- Windows 11 Notification Center Styler
+- Windows 11 Start Menu Styler
+- Windows 11 Taskbar Styler
 
-### Install UXTheme hook
-1. Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
+It should look like this:
 
-![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
-
-2. The theme will be installed via the script below (might as well just install the rest of the mods now tho).
-
----
-
-### Install Control Panel Color Fix
-- Normal settings
-
-![](https://github.com/user-attachments/assets/0efd5cad-3ccc-4cdb-b58e-063b38a496ca)
+![](https://github.com/user-attachments/assets/9006bdf4-dab3-41b7-95d5-9796e36aca2a)
 
 ---
 
-### Install Resource Redirect
-1. Select the `Bonny` icon theme.
-
-![](https://github.com/user-attachments/assets/83827f17-77ae-43ab-b884-37e776f9d833)
-
-2. Click on yes when it asks to clear the icon cache.
-
-![](https://github.com/user-attachments/assets/4e53a921-f5f8-4bdb-bb45-a1862715767b)
-
----
-
-### Install Windows 11 Taskbar Styler
-1. Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/7018018e-cd38-44f2-811b-b88bf441bf8e)
-
-2. (Optional) Hide search in `Personalization > Taskbar`.
----
-
-### Install Windows 11 File Explorer Styler
-- Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/7864fbed-cd94-4e57-901a-acde8f11bab9)
-
----
-
-### Install Windows 11 Notification Center Styler
-- Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/d63c7a18-c601-4f51-8f8e-301e4c109183)
-
----
-
-### Install Windows 11 Start Menu Styler
-1. Select the `Oversimplified$Accentuated` theme in settings.
-2. Select Disable the new start menu layout
-
-![](https://github.com/user-attachments/assets/9aa0ca9b-db34-4da9-b0f7-90c72d483506)
-
----
-
-## Install komorebi, yasb, setup config files, set theme, and other setups.
-> Note: Make sure you've installed `UXTheme hook` with the `Advanced` settings shown below.
-
-![](https://github.com/user-attachments/assets/ab975594-df63-4225-8c63-1273a6c4a601)
-![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
+## Install komorebi, yasb, copy over config files, set theme, setup windhawk, toggle off clock in taskbar.
 
 1. Install Powershell 7
 ```
 winget install Microsoft.PowerShell
 ```
 
-2. Open Windows terminal as `Administrator`
+2. Open Powershell 7 as `Administrator`
 
 ![](https://github.com/user-attachments/assets/7fc94ff5-aad9-49b7-9820-1b60f710aafc)
 
-3. Clone the repo using [GitHub Desktop](https://desktop.github.com/download/) or  `git`.
+3. Clone the repo using GitHub Desktop, `git`, or [download as a .zip](https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-windhawk-install-easier.zip) .
 
 ```
 git clone https://github.com/blue-pho3nix/blue-windots.git
@@ -181,15 +145,16 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 
 ---
 
-## Other Changes You Can Make
+## More Info
 
-### If you have fewer/more than 5 monitors
-- Change the `blue-windots\config\home\komorebi.json` to meet your needs.
+Let's say you want to edit you komorebi config file after install. <br>
 
-#### Edit `C:\Users\<your_username>\komorebi.json` after install
-1. After your edits, save the file.  
-2. Open a regular powershell window (`win + enter`).
-3. Stop and start komorebi or reload the configuration.
+### Here's how you can do it
+
+1. Edit `C:\Users\<your_username>\komorebi.json` 
+2. Save the file.  
+3. Open a regular powershell window (`win + enter`).
+4. Stop and start komorebi or reload the configuration.
 > Make sure to always use `--ahk` to keep the autohotkeys working.  When you stop/restart komorebi, you'll need to reload autohotkey. 
 ```
 komorebic stop --ahk
@@ -201,10 +166,6 @@ or
 ```
 komorebic reload-configuration
 ```
-
-### If you want to change your Desktop image
-- There are 6 images in your `C:\Windows\Resources\Themes\One Dark Pro\Wallpapers` folder.<br>
-- You can preview the images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing... You can always edit them in your Git clone if you really want the diff background images to be auto-set during installation.
 
 ---
 ## Got Questions, Issues, or Suggestions?
