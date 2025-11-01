@@ -45,40 +45,55 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 
 ---
 
-## Pre Install
+## Optional Pre-Install
 
-### If you want to change your Desktop images
-- You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing... You can always edit them in your Git clone if you really want the diff background images to be auto-set to slideshow during installation.
+### Change Your Mouse Pointer
+<details closed>
+  <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> </summary>
+  
+   1. Clone the repo using GitHub Desktop, `git`, or <a href="https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-windhawk-install-easier.zip" target="_blank">download as a .zip</a>.
+   ```
+   git clone https://github.com/blue-pho3nix/blue-windots.git
+   ```
+   2. Right click blue-windots\cursors\install.inf
+    
+  ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
+  
+  3. Press win + R and enter `main.cpl`
+  
+  ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
+  
+  4. Goto `Pointers`
+  5. Select `Catppuccin-Mocha-Lavender-Cursors`
+  
+  ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
+  
+  6. Click `Apply` and `OK`.
 
-### If you have fewer/more than 5 monitors
-- Change the `blue-windots\config\home\komorebi.json` to meet your needs.
+</details>
+
+
+### Create a <a href="https://support.microsoft.com/en-us/windows/system-protection-e9126e6e-fa64-4f5f-874d-9db90e57645a" target="_blank">restore point</a>
+> [!IMPORTANT]  
+> Optional, but recommended.
+
+### If You Want to Change the Desktop Images
+- You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing...
+- You can always edit them in your Git clone if you want the diff background images to be auto-set to slideshow during installation.
 
 ---
 
-## Install Instructions
+## Required Pre-Install
 
-### 1. Create a restore point 
-- ...incase you want to go back to what you had before the install...
+> [!TIP]
+> If You have **fewer/more than 5 monitors**, change the `blue-windots\config\home\komorebi.json` to meet your needs.
 
-![](https://github.com/user-attachments/assets/fd7175f2-b3cd-45da-8cdb-1bebef62e955)
+### 1. Install [Windhawk](https://windhawk.net/) 
+> [!NOTE]
+> I want to script the entire install for windhawk, but windhawk is not currently set up to do so... <br>
+> At this point, you can manually install the mods, and the setup for each mod will be in the script below.
 
-1. Search for `Create a restore point`.
-2. Goto `System Protection`.
-3. Select `Configure`.
-4. Select `Turn on system protection`.
-5. Select `Apply` + `OK`.
-6. Select `Create...`.
-7. Type a description.
-8. Select `Create`.
-
-### 2. Install [Windhawk](https://windhawk.net/) 
-I want to script the entire install for windhawk, but it's not currently set up to do so... <br>
-At this point, you can install the mods, and the setup for each mod will be in the script below.
-
-### Install the following mods under `Explore`
-
-![](https://github.com/user-attachments/assets/761804f9-4c03-4a09-aa10-bf51d34ee62d)
-
+#### Install the following mods under `Explore`
 - Control Panel Color Fix
 - Resource Redirect
 - UXTheme hook
@@ -87,31 +102,42 @@ At this point, you can install the mods, and the setup for each mod will be in t
 - Windows 11 Start Menu Styler
 - Windows 11 Taskbar Styler
 
-It should look like this:
+You Windhawk home should look like this:
 
 ![](https://github.com/user-attachments/assets/9006bdf4-dab3-41b7-95d5-9796e36aca2a)
 
----
+### 5. Install Windows Powershell
 
-## Install komorebi, yasb, copy over config files, set theme, setup windhawk, toggle off clock in taskbar.
 
-1. Install Powershell 7
+### 6. Install Powershell 7
 ```
 winget install Microsoft.PowerShell
 ```
 
-2. Open Powershell 7 as `Administrator`
+---
+
+## Install Instructions
+
+The script installs:
+- 
+
+Sets up: 
+
+
+Changes: 
+- komorebi, yasb, copies over config files, sets the theme, sets up windhawk, installs 0xProto Nerd Font toggles off clock in taskbar.
+
+1. Open Powershell 7 as `Administrator`
 
 ![](https://github.com/user-attachments/assets/7fc94ff5-aad9-49b7-9820-1b60f710aafc)
 
-3. Clone the repo using GitHub Desktop, `git`, or [download as a .zip](https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-windhawk-install-easier.zip) .
+2. Clone the repo using GitHub Desktop, `git`, or [download as a .zip](https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-windhawk-install-easier.zip) .
 
 ```
 git clone https://github.com/blue-pho3nix/blue-windots.git
 ```
-
-4. `cd` into `blue-dots`
-5. Run `Setup.ps1`
+3. `cd` into `blue-dots`
+4. Run `Setup.ps1`
 
 ```
 .\Setup.ps1
@@ -119,31 +145,6 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 
 ---
 
-## Change Mouse Pointer
-
-1. Right click `blue-windots\cursors\install.inf`
-
-![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
-
-2. Press win + R and enter `main.cpl`
-
-![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
-
-3. Goto `Pointers`
-
-4. Select `Catppuccin-Mocha-Lavender-Cursors`
-
-![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
-
-5. Click `Apply` and `OK`.
-
----
-
-## Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
-- You need this for the terminal hotkeys.
-- Either install it or change the hotkeys in `C:\Users\<your_username>\komorebi.ahk`.
-
----
 
 ## More Info
 
