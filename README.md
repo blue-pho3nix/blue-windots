@@ -110,11 +110,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ![](https://github.com/user-attachments/assets/9006bdf4-dab3-41b7-95d5-9796e36aca2a)
 
-### 2. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
-> [!NOTE]
-> You need this for the terminal hotkeys.
-
-### 3. Install Powershell 7
+### 2. Install Powershell 7
 ```
 winget install Microsoft.PowerShell
 ```
@@ -156,14 +152,14 @@ winget install Microsoft.PowerShell
 
 ## Install Instructions
 
-#### 1. Open Powershell 7 as `Administrator`
+#### 1. Open Powershell 7 as `Administrator`.
 #### 2. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
 
 ```
 git clone https://github.com/blue-pho3nix/blue-windots.git
 ```
-#### 3. `cd` into `blue-dots`
-#### 4. Run `Setup.ps1`
+#### 3. `cd` into the `blue-dots` directory.
+#### 4. Run `Setup.ps1`.
 
 ```
 .\Setup.ps1
