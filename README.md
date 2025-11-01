@@ -97,7 +97,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 ### 1. Install [Windhawk](https://windhawk.net/) and Mods
 > [!NOTE]
 > I want to script the entire install for Windhawk, but Windhawk is not currently set up to do so... <br>
-> At this point, you can manually install the mods, and the setup for each mod will be in the script below.
+> At this point, you can manually install the mods, and the setup for each mod (except UXTheme Hook) will be in the script below.
 
 #### Install the following mods under `Explore`
 - Control Panel Color Fix
@@ -109,7 +109,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 - UXTheme hook
 
 > [!IMPORTANT]
-> Make sure you include `winlogon.exe` and `logonui.exe` in windhawk's process inclusion list, in its advanced settings of `UXTheme hook`.
+> Make sure you include `winlogon.exe` and `logonui.exe` in windhawk's process inclusion list, in its advanced settings of UXTheme hook.
 > This is literally the only setting you need to set yourself...the script does the rest...
 
 ![](https://github.com/user-attachments/assets/b3ee62af-c2b6-43c8-9bde-e9309e875232)
