@@ -438,31 +438,6 @@ if (Test-Path $sourceTheme) {
 Start-Sleep -Seconds 5
 
 
-########################################################################
-###                          Theme Setup                             ###
-########################################################################
-
-Write-TitleBox -Title "Theme Setup"
-Write-ColorText "{yellow}The Screen may flash."
-Write-ColorText "{yellow}This may take some time..."
-Start-Sleep -Seconds 2
-
-# Define Theme File Path 
-$themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
-
-Write-Host "1. Unblocking theme file security tag..."
-# Unblock-File removes the 'Mark-of-the-Web' security tag
-Unblock-File -Path $themeFile
-
-Write-Host "2. Silently applying theme..."
-# Launch the theme application process silently, which should now run without a prompt
-Start-Process -FilePath $themeFile -WindowStyle Hidden -Wait
-
-Write-Host "3. Restarting Windows Explorer to reload theme..."
-taskkill /f /im explorer.exe; Start-Process explorer.exe
-
-Refresh ($i++)
-
 
 ########################################################################
 ###                        Windhawk Setup                            ###
@@ -473,27 +448,29 @@ $BaseRegistryPath = 'HKLM:\SOFTWARE\Windhawk\Engine\Mods\'
 $SilentInstallArgs = "/S" # Standard silent switch for many installers
 $EnableValue = 0 # 0 means ENABLED for the 'Disabled' registry key
 
-#  Mod Configuration Data 
+# In the Windhawk Setup section (around line 528 in your full script)
 $ModConfigurations = @(
-    # UXTheme hook Configuration
-    @{ Name = 'UXTheme hook'; Key = 'uxtheme-hook'; 
-       Settings = @{ 'ProcessInclusionList' = 'winlogon.exe`nlogonui.exe' } },
     # Control Panel Color Fix Configuration
     @{ Name = 'Control Panel Color Fix'; Key = 'control-panel-color-fix'; Settings = @{} },
+    
     # Resource Redirect Configuration (Bonny Icon Theme)
-    @{ Name = 'Resource Redirect'; Key = 'resource-redirect'; 
+    @{ Name = 'Resource Redirect'; Key = 'icon-resource-redirect'; 
        Settings = @{ 'IconTheme' = 'Bonny' } },
+    
     # Windows 11 Taskbar Styler Configuration (Matter Theme)
-    @{ Name = 'Windows 11 Taskbar Styler'; Key = 'taskbar-styler'; 
+    @{ Name = 'Windows 11 Taskbar Styler'; Key = 'windows-11-taskbar-styler'; 
        Settings = @{ 'Theme' = 'Matter' } },
+    
     # Windows 11 File Explorer Styler Configuration (Matter Theme)
-    @{ Name = 'Windows 11 File Explorer Styler'; Key = 'file-explorer-styler'; 
+    @{ Name = 'Windows 11 File Explorer Styler'; Key = 'windows-11-file-explorer-styler'; 
        Settings = @{ 'Theme' = 'Matter' } },
+    
     # Windows 11 Notification Center Styler Configuration (Matter Theme)
-    @{ Name = 'Windows 11 Notification Center Styler'; Key = 'notification-center-styler'; 
+    @{ Name = 'Windows 11 Notification Center Styler'; Key = 'windows-11-notification-center-styler'; 
        Settings = @{ 'Theme' = 'Matter' } },
+    
     # Windows 11 Start Menu Styler Configuration (Oversimplified$Accentuated Theme)
-    @{ Name = 'Windows 11 Start Menu Styler'; Key = 'start-menu-styler'; 
+    @{ Name = 'Windows 11 Start Menu Styler'; Key = 'windows-11-start-menu-styler'; 
        Settings = @{ 'Theme' = 'Oversimplified$Accentuated'; 'DisableNewLayout' = 1 } }
 )
 
@@ -547,13 +524,38 @@ foreach ($Mod in $ModConfigurations) {
     Write-Host "  - Updated SettingsChangeTime to trigger mod reload."
 }
 
-Write-Host "Windhawk has been installed."
-Write-Host "All specified mods have been explicitly **Enabled** and **configured**."
-
-# # Restarting Explorer is a common step to apply UI changes
-# Start-Process -FilePath 'powershell.exe' -ArgumentList '-Command', 'Stop-Process -Name explorer -Force; Start-Process explorer' -Verb RunAs -Wait
+Write-Host "All specified Winhawk mods have been **Enabled** and **configured**."
+Write-ColorText "{yellow}Reopen File Explorer to see the changes..."
 
 Refresh ($i++)
+
+
+########################################################################
+###                          Theme Setup                             ###
+########################################################################
+
+Write-TitleBox -Title "Theme Setup"
+Write-ColorText "{yellow}The Screen may flash."
+Write-ColorText "{yellow}This may take some time..."
+Start-Sleep -Seconds 2
+
+# Define Theme File Path 
+$themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
+
+Write-Host "1. Unblocking theme file security tag..."
+# Unblock-File removes the 'Mark-of-the-Web' security tag
+Unblock-File -Path $themeFile
+
+Write-Host "2. Silently applying theme..."
+# Launch the theme application process silently, which should now run without a prompt
+Start-Process -FilePath $themeFile -WindowStyle Hidden -Wait
+
+Write-Host "3. Restarting Windows Explorer to reload theme..."
+taskkill /f /im explorer.exe; Start-Process explorer.exe
+
+Refresh ($i++)
+
+
 
 ########################################################################
 ###                        Clink Configuration                       ###
@@ -696,7 +698,7 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
 ########################################################################
 
 Set-Location $currentLocation
-Start-Sleep -Seconds 10
+Start-Sleep -Seconds 15
 
 Write-Host "┌────────────────────────────────────────────────────────────────────────────────┐" -ForegroundColor "Green"
 Write-Host "│                                                                                │" -ForegroundColor "Green"
