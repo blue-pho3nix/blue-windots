@@ -132,14 +132,16 @@ winget install Microsoft.PowerShell
   <summary> The script does the following 💙...</summary>
   
   **Installs:**
-  - **Windhawk** 
-  - **Komorebi** 
-  - **yasb** 
-  - **0xProto Nerd Font** 
-  - **Winget-CLI** 
-  - **Scoop** 
-  - **Scoop 'extras' bucket** 
-  - **AutoHotkey** 
+  - **Winget-CLI** (This installs the applications)
+  - [Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701?hl=en-US&gl=US) (You need this for the terminal hotkeys).
+  - **[Komorebi](https://github.com/LGUG2Z/komorebi)** (Windows tiling manager).
+  - **[yasb](https://github.com/amnweb/yasb)** (Status bar at the top of the screen).
+  - **[OhMyPosh](https://ohmyposh.dev/)** (Just installed to make nerd font installation easier).  
+  - **[0xProto Nerd Font](https://www.programmingfonts.org/#oxproto)** (Used in the terminal and yasb).
+  - **[AutoHotkey](https://www.autohotkey.com/)** (Makes it possible to use the windown key in hotkeys).
+  - **[Clink](https://chrisant996.github.io/clink/clink.html)** (Makes it easy to use Starship in Command Prompt)
+  - **[Starship](https://starship.rs/)** (Makes your terminal pretty)
+ 
 
   **Sets up:**
   - **The theme** (Applies a theme `One Dark Pro (Night) - PAC.theme`...this give you packman icons in File Explorer...).
