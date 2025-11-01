@@ -121,7 +121,7 @@ winget install Microsoft.PowerShell
 
 ---
 
-## Install Instructions
+## What Does the Script Do?
 
 <details closed>
   <summary> The script does the following 💙...</summary>
@@ -152,17 +152,18 @@ winget install Microsoft.PowerShell
   - **Sets** the Long Paths Enabled registry key for Komorebi.
 </details>
 
-1. Open Powershell 7 as `Administrator`
+--- 
 
-![](https://github.com/user-attachments/assets/7fc94ff5-aad9-49b7-9820-1b60f710aafc)
+## Install Instructions
 
-2. Clone the repo using GitHub Desktop, `git`, or [download as a .zip](https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-Windhawk-install-easier.zip) .
+#### 1. Open Powershell 7 as `Administrator`
+#### 2. Clone the repo using GitHub Desktop, `git`, or [download as a .zip](https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-Windhawk-install-easier.zip) .
 
 ```
 git clone https://github.com/blue-pho3nix/blue-windots.git
 ```
-3. `cd` into `blue-dots`
-4. Run `Setup.ps1`
+#### 3. `cd` into `blue-dots`
+#### 4. Run `Setup.ps1`
 
 ```
 .\Setup.ps1
