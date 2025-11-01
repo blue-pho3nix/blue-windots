@@ -189,7 +189,6 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 #### Edit `C:\Users\<your_username>\komorebi.json` after install
 1. After your edits, save the file.  
 2. Open a regular powershell (`win + enter`).
-a. Or open powerShell as Administrator (`shift + win + enter`), if you want to run komorebi with Administrator privileges. (This just makes it so apps that have Administrator privs use komorebi, but may cause issues if there is a vulnerability with komorebi).
 3. Stop and start komorebi or reload the configuration.
 > Make sure to always use `--ahk` to keep the autohotkeys working.  When you stop/restart komorebi, you'll need to reload autohotkey. 
 ```
