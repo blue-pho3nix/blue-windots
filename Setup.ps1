@@ -80,21 +80,6 @@ function Write-ColorText {
     $Host.UI.RawUI.ForegroundColor = $hostColor
 }
 
-function Add-ScoopBucket {
-    param ([string]$BucketName, [string]$BucketRepo)
-
-    $scoopDir = (Get-Command scoop.ps1 -ErrorAction SilentlyContinue).Source | Split-Path | Split-Path
-    if (!(Test-Path "$scoopDir\buckets\$BucketName" -PathType Container)) {
-        if ($BucketRepo) {
-            scoop bucket add $BucketName $BucketRepo
-        } else {
-            scoop bucket add $BucketName
-        }
-    } else {
-        Write-ColorText "{Blue}[bucket] {Magenta}scoop: {Yellow}(exists) {Gray}$BucketName"
-    }
-}
-
 
 function Install-WinGetApp {
     param ([string]$PackageID, [array]$AdditionalArgs, [string]$Source)
@@ -212,7 +197,7 @@ function Refresh ([int]$Time) {
 
 function Write-LockFile {
     param (
-        [ValidateSet('winget', 'scoop', 'modules')]
+        [ValidateSet('winget')]
         [Alias('s', 'p')][string]$PackageSource,
         [Alias('f')][string]$FileName,
         [Alias('o')][string]$OutputPath = "$PSScriptRoot\out"
@@ -226,21 +211,6 @@ function Write-LockFile {
             winget export -o $dest | Out-Null
             if ($LASTEXITCODE -eq 0) {
                 Write-ColorText "`nPackages installed by {Green}$PackageSource {Gray}are exported at {Green}$((Resolve-Path $dest).Path)"
-            }
-            Start-Sleep -Seconds 1
-        }
-        "scoop" {
-            if (!(Get-Command scoop -ErrorAction SilentlyContinue)) { return }
-            scoop export -c > $dest
-            if ($LASTEXITCODE -eq 0) {
-                Write-ColorText "`nPackages installed by {Green}$PackageSource {Gray}are exported at {Red}$((Resolve-Path $dest).Path)"
-            }
-            Start-Sleep -Seconds 1
-        }
-        "modules" {
-            Get-InstalledModule | Select-Object -Property Name, Version | ConvertTo-Json -Depth 100 | Out-File $dest
-            if ($LASTEXITCODE -eq 0) {
-                Write-ColorText "`n{Green}PowerShell Modules {Gray}installed are exported at {Red}$((Resolve-Path $dest).Path)"
             }
             Start-Sleep -Seconds 1
         }
@@ -348,45 +318,6 @@ if ($wingetInstall -eq $True) {
 
 Refresh ($i++)
 
-
-########################################################################
-###                   Scoop Packages Installation                    ###
-########################################################################
-
-Write-TitleBox -Title "Scoop Pacakages Installation"
-
-# Check if Scoop is installed
-if (!(Get-Command scoop -ErrorAction SilentlyContinue)) {
-    Write-Host "Scoop not found. Installing Scoop..." -ForegroundColor Cyan
-    # Run the installer and let all output show
-    iex "& { $(iwr 'https://get.scoop.sh') } -RunAsAdmin"
-}
-
-# Add Scoop shims to PATH immediately
-$ScoopShims = "$env:USERPROFILE\scoop\shims"
-if (-not ($env:PATH -like "*$ScoopShims*")) {
-    $env:PATH += ";$ScoopShims"
-}
-
-# Make sure extras bucket is added
-if (-not (scoop bucket list | Select-String "extras")) {
-    Write-Host "Adding 'extras' bucket..." -ForegroundColor Cyan
-    # Show all output
-    scoop bucket add extras | Write-Host
-}
-
-
-# Install AutoHotkey (only if not already installed)
-if (-not (scoop list | Select-String "autohotkey")) {
-    Write-Host "Installing AutoHotkey..." -ForegroundColor Cyan
-    scoop install autohotkey
-} else {
-    Write-Host "AutoHotkey is already installed." -ForegroundColor Green
-}
-
-Write-Host "Scoop + AutoHotkey installation complete." -ForegroundColor Green
-
-Refresh ($i++)
 
 
 ########################################################################
