@@ -1,5 +1,5 @@
 # Windots for Windows 11 😊
-My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
+My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
 ![](https://github.com/user-attachments/assets/e066d4de-a5d7-4814-a120-0d6c89ef5ea3)
 ![](https://github.com/user-attachments/assets/e84b909d-a3e5-4a1a-9e1c-77ac08140aa7)
@@ -11,8 +11,12 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 ![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
 
 
-# Hotkeys
-- Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`. 
+## Hotkeys
+> [!NOTE]
+> Feel free to add more [AutoHotKeys](https://www.autohotkey.com/) to `C:\Users\<your_username>\Komorebi.ahk`. 
+
+<details closed>
+  <summary>View the cool hotkeys 🔥</summary>
 
 | Hotkey | Action |
 |--------|--------|
@@ -42,28 +46,35 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 | `win` + `shift` + `c` | Open Command Prompt as Administrator |
 | `win` + `f` | Open File Explorer |
 | `win` + `q` | Close focused window |
+</details>
+
+
 
 ---
 
 ## Optional Pre-Install
 
+### Create a [restore point](https://support.microsoft.com/en-us/windows/system-protection-e9126e6e-fa64-4f5f-874d-9db90e57645a)
+> [!IMPORTANT]  
+> Optional, but recommended.
+
 ### Change Your Mouse Pointer
 <details closed>
-  <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> </summary>
+  <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> 🖱️ </summary>
   
-   1. Clone the repo using GitHub Desktop, `git`, or <a href="https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-windhawk-install-easier.zip" target="_blank">download as a .zip</a>.
+   1. Clone the repo using GitHub Desktop, `git`, or [download as a .zip](https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-Windhawk-install-easier.zip).
    ```
    git clone https://github.com/blue-pho3nix/blue-windots.git
    ```
-   2. Right click blue-windots\cursors\install.inf
+   2. Right click blue-windots\cursors\install.inf.
     
   ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
   
-  3. Press win + R and enter `main.cpl`
+  3. Press `win + R` and enter `main.cpl`.
   
   ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
   
-  4. Goto `Pointers`
+  4. Goto `Pointers`.
   5. Select `Catppuccin-Mocha-Lavender-Cursors`
   
   ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
@@ -71,11 +82,6 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
   6. Click `Apply` and `OK`.
 
 </details>
-
-
-### Create a <a href="https://support.microsoft.com/en-us/windows/system-protection-e9126e6e-fa64-4f5f-874d-9db90e57645a" target="_blank">restore point</a>
-> [!IMPORTANT]  
-> Optional, but recommended.
 
 ### If You Want to Change the Desktop Images
 - You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing...
@@ -86,11 +92,11 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 ## Required Pre-Install
 
 > [!TIP]
-> If You have **fewer/more than 5 monitors**, change the `blue-windots\config\home\komorebi.json` to meet your needs.
+> If You have **fewer/more than 5 monitors**, change the `blue-windots\config\home\Komorebi.json` to meet your needs.
 
-### 1. Install [Windhawk](https://windhawk.net/) 
+### 1. Install [Windhawk](https://windhawk.net/) and Mods
 > [!NOTE]
-> I want to script the entire install for windhawk, but windhawk is not currently set up to do so... <br>
+> I want to script the entire install for Windhawk, but Windhawk is not currently set up to do so... <br>
 > At this point, you can manually install the mods, and the setup for each mod will be in the script below.
 
 #### Install the following mods under `Explore`
@@ -102,14 +108,13 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 - Windows 11 Start Menu Styler
 - Windows 11 Taskbar Styler
 
-You Windhawk home should look like this:
-
 ![](https://github.com/user-attachments/assets/9006bdf4-dab3-41b7-95d5-9796e36aca2a)
 
-### 5. Install Windows Powershell
+### 2. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
+> [!NOTE]
+> You need this for the terminal hotkeys.
 
-
-### 6. Install Powershell 7
+### 3. Install Powershell 7
 ```
 winget install Microsoft.PowerShell
 ```
@@ -118,20 +123,40 @@ winget install Microsoft.PowerShell
 
 ## Install Instructions
 
-The script installs:
-- 
+<details closed>
+  <summary> The script does the following 💙...</summary>
+  
+  **Installs:**
+  - **Windhawk** 
+  - **Komorebi** 
+  - **yasb** 
+  - **0xProto Nerd Font** 
+  - **Winget-CLI** 
+  - **Scoop** 
+  - **Scoop 'extras' bucket** 
+  - **AutoHotkey** 
 
-Sets up: 
-
-
-Changes: 
-- komorebi, yasb, copies over config files, sets the theme, sets up windhawk, installs 0xProto Nerd Font toggles off clock in taskbar.
+  **Sets up:**
+  - **The theme** (Applies a theme `One Dark Pro (Night) - PAC.theme`...this give you packman icons in File Explorer...).
+  - **Windhawk** (Configures mods).
+  - **Environment Variables** (Sets custom environment variables defined in `appList.json`).
+  - **Starship** (Adds the initialization line to the user's PowerShell profile).
+  - **Komorebi** (Starts the engine and enables autostart).
+  - **YASB** (Starts the engine and enables autostart).
+  - **Clink** (Disables the Clink banner/logo).
+  
+  **Other:**
+  - **copies over config files** (Copies dotfiles from `config\home` to `$env:USERPROFILE`).
+  - **copies over theme assets** (Copies files from `config\theme` to `C:\Windows\Resources\Themes`).
+  - **toggles off clock in taskbar** (Hides the taskbar clock).
+  - **Sets** the Long Paths Enabled registry key for Komorebi.
+</details>
 
 1. Open Powershell 7 as `Administrator`
 
 ![](https://github.com/user-attachments/assets/7fc94ff5-aad9-49b7-9820-1b60f710aafc)
 
-2. Clone the repo using GitHub Desktop, `git`, or [download as a .zip](https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-windhawk-install-easier.zip) .
+2. Clone the repo using GitHub Desktop, `git`, or [download as a .zip](https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-Windhawk-install-easier.zip) .
 
 ```
 git clone https://github.com/blue-pho3nix/blue-windots.git
@@ -145,29 +170,31 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 
 ---
 
-
 ## More Info
 
-Let's say you want to edit you komorebi config file after install. <br>
+<details closed>
+  <summary>Let's say you want to edit you Komorebi config file after install. Here's how you can do it. 🎉</summary>
 
-### Here's how you can do it
+1. Edit and save `C:\Users\<your_username>\Komorebi.json`   
+2. Open a regular powershell window (`win + enter`).
+3. Stop and start Komorebi or reload the configuration.
+> [!IMPORTANT]
+> Make sure to always use `--ahk` to keep the autohotkeys working.
+> When you stop/restart Komorebi, you'll need to reload autohotkey. 
 
-1. Edit `C:\Users\<your_username>\komorebi.json` 
-2. Save the file.  
-3. Open a regular powershell window (`win + enter`).
-4. Stop and start komorebi or reload the configuration.
-> Make sure to always use `--ahk` to keep the autohotkeys working.  When you stop/restart komorebi, you'll need to reload autohotkey. 
 ```
-komorebic stop --ahk
+Komorebic stop --ahk
 ```
 ```
-komorebic start --ahk
+Komorebic start --ahk
 ```
 or
 ```
-komorebic reload-configuration
+Komorebic reload-configuration
 ```
+</details>
 
 ---
+
 ## Got Questions, Issues, or Suggestions?
 Ping me in #rice on [Discord](https://discord.gg/TujAjYXJjr) (Blue Pho3nix).
