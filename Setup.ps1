@@ -318,6 +318,25 @@ if ($wingetInstall -eq $True) {
 
 Refresh ($i++)
 
+########################################################################
+###          Komorebi AutoHotkey PATH Configuration                  ###
+########################################################################
+
+Write-TitleBox -Title "Komorebi AHK Path Setup"
+
+# Set the KOMOREBI_AHK_EXE environment variable permanently for the current user.
+Write-Host "Setting KOMOREBI_AHK_EXE environment variable permanently..." -ForegroundColor Cyan
+[System.Environment]::SetEnvironmentVariable(
+    'KOMOREBI_AHK_EXE', 
+    "$Env:USERPROFILE\AppData\Local\Programs\AutoHotkey\v2\AutoHotkey64.exe", 
+    'User'
+)
+Write-Host "Path saved to registry for future sessions." -ForegroundColor Green
+
+# Force the current script session to  reload all User environment variables, 
+# including the KOMOREBI_AHK_EXE variable we just set.
+Write-Host "Applying environment changes to current script session." -ForegroundColor Yellow
+Refresh ($i++)
 
 
 ########################################################################
@@ -615,7 +634,7 @@ if (-not (Select-String -Path $profilePath -Pattern 'starship init powershell' -
     Write-Host "Starship already configured in: $profilePath" -ForegroundColor Yellow
 }
 
-Write-Host "Starship setup complete. Restart PowerShell to apply changes." -ForegroundColor Cyan
+Write-Host "Starship setup complete." -ForegroundColor Cyan
 
 
 ########################################################################
