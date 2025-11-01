@@ -58,31 +58,6 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 > [!IMPORTANT]  
 > Optional, but recommended.
 
-### Change Your Mouse Pointer
-<details closed>
-  <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> 🖱️ </summary>
-  
-   1. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
-   ```
-   git clone https://github.com/blue-pho3nix/blue-windots.git
-   ```
-   2. Right click blue-windots\cursors\install.inf.
-    
-  ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
-  
-  3. Press `win + R` and enter `main.cpl`.
-  
-  ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
-  
-  4. Goto `Pointers`.
-  5. Select `Catppuccin-Mocha-Lavender-Cursors`
-  
-  ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
-  
-  6. Click `Apply` and `OK`.
-
-</details>
-
 ### If You Want to Change the Desktop Images
 - You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing...
 - You can always edit them in your Git clone if you want the diff background images to be automatically set to slideshow during installation.
@@ -178,10 +153,36 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 
 ---
 
-## More Info
+## Post Install Fun
 
+### Change Your Mouse Pointer
 <details closed>
-  <summary>Let's say you want to edit you Komorebi config file after install. Here's how you can do it. 🎉</summary>
+  <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> 🖱️ </summary>
+  
+   1. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
+   ```
+   git clone https://github.com/blue-pho3nix/blue-windots.git
+   ```
+   2. Right click blue-windots\cursors\install.inf.
+    
+  ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
+  
+  3. Press `win + R` and enter `main.cpl`.
+  
+  ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
+  
+  4. Goto `Pointers`.
+  5. Select `Catppuccin-Mocha-Lavender-Cursors`
+  
+  ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
+  
+  6. Click `Apply` and `OK`.
+
+</details>
+
+### Let's say you want to edit you Komorebi config file after install.
+<details closed>
+  <summary>Here's how you can do it. 🎉</summary>
 
 1. Edit and save `C:\Users\<your_username>\Komorebi.json`   
 2. Open a regular powershell window (`win + enter`).
