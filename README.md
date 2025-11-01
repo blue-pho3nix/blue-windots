@@ -102,11 +102,18 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 #### Install the following mods under `Explore`
 - Control Panel Color Fix
 - Resource Redirect
-- UXTheme hook
 - Windows 11 File Explorer Styler
 - Windows 11 Notification Center Styler
 - Windows 11 Start Menu Styler
 - Windows 11 Taskbar Styler
+- UXTheme hook
+
+> [!IMPORTANT]
+> Make sure you include winlogon.exe and logonui.exe in windhawk's process inclusion list, in its advanced settings of `UXTheme hook`.
+> This is literally the only setting you need to set yourself...the script does the rest...
+
+![](https://github.com/user-attachments/assets/b3ee62af-c2b6-43c8-9bde-e9309e875232)
+
 
 ![](https://github.com/user-attachments/assets/9006bdf4-dab3-41b7-95d5-9796e36aca2a)
 
