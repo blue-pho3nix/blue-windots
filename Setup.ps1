@@ -249,7 +249,7 @@ function Write-LockFile {
 
 
 ########################################################################
-###                      MAIN SCRIPT                                 ###
+###                      Main Script                                 ###
 ########################################################################
 # if not internet connection, then we will exit this script immediately
 $internetConnection = Test-NetConnection google.com -CommonTCPPort HTTP -InformationLevel Detailed -WarningAction SilentlyContinue
@@ -279,7 +279,7 @@ $i = 1
 
 
 ########################################################################
-###                        WINGET PACKAGES                           ###
+###                Winget Packages Installation                      ###
 ########################################################################
 
 # Retrieve information from json file
@@ -348,7 +348,7 @@ Refresh ($i++)
 
 
 ########################################################################
-###                   SCOOP PACKAGES INSTALLATION                    ###
+###                   Scoop Packages Installation                    ###
 ########################################################################
 
 Write-TitleBox -Title "Scoop Pacakages Installation"
@@ -388,7 +388,7 @@ Refresh ($i++)
 
 
 ########################################################################
-###                     NERD FONTS                                   ###
+###                     Nerd Fonts                                   ###
 ########################################################################
 
 Write-TitleBox -Title "Nerd Fonts Installation"
@@ -511,6 +511,97 @@ taskkill /f /im explorer.exe; Start-Process explorer.exe
 
 Refresh ($i++)
 
+
+########################################################################
+###                        Windhawk Setup                            ###
+########################################################################
+Write-TitleBox -Title "Windhawk Mod Setup"
+
+$BaseRegistryPath = 'HKLM:\SOFTWARE\Windhawk\Engine\Mods\'
+$SilentInstallArgs = "/S" # Standard silent switch for many installers
+$EnableValue = 0 # 0 means ENABLED for the 'Disabled' registry key
+
+#  Mod Configuration Data 
+$ModConfigurations = @(
+    # UXTheme hook Configuration
+    @{ Name = 'UXTheme hook'; Key = 'uxtheme-hook'; 
+       Settings = @{ 'ProcessInclusionList' = 'winlogon.exe`nlogonui.exe' } },
+    # Control Panel Color Fix Configuration
+    @{ Name = 'Control Panel Color Fix'; Key = 'control-panel-color-fix'; Settings = @{} },
+    # Resource Redirect Configuration (Bonny Icon Theme)
+    @{ Name = 'Resource Redirect'; Key = 'resource-redirect'; 
+       Settings = @{ 'IconTheme' = 'Bonny' } },
+    # Windows 11 Taskbar Styler Configuration (Matter Theme)
+    @{ Name = 'Windows 11 Taskbar Styler'; Key = 'taskbar-styler'; 
+       Settings = @{ 'Theme' = 'Matter' } },
+    # Windows 11 File Explorer Styler Configuration (Matter Theme)
+    @{ Name = 'Windows 11 File Explorer Styler'; Key = 'file-explorer-styler'; 
+       Settings = @{ 'Theme' = 'Matter' } },
+    # Windows 11 Notification Center Styler Configuration (Matter Theme)
+    @{ Name = 'Windows 11 Notification Center Styler'; Key = 'notification-center-styler'; 
+       Settings = @{ 'Theme' = 'Matter' } },
+    # Windows 11 Start Menu Styler Configuration (Oversimplified$Accentuated Theme)
+    @{ Name = 'Windows 11 Start Menu Styler'; Key = 'start-menu-styler'; 
+       Settings = @{ 'Theme' = 'Oversimplified$Accentuated'; 'DisableNewLayout' = 1 } }
+)
+
+
+# Configure mods via registry including enabling
+
+Write-Host "`n--- 2. Configuring and Enabling Installed Mods via Registry ---" -ForegroundColor Green
+Write-Host "NOTE: The mods MUST be installed via the Windhawk app first for these settings to apply correctly."
+
+foreach ($Mod in $ModConfigurations) {
+    $ModKey = $Mod.Key
+    $ModName = $Mod.Name
+    $ModSettings = $Mod.Settings
+    $ModRegistryPath = $BaseRegistryPath + $ModKey
+    $SettingsPath = $ModRegistryPath + '\Settings'
+
+    Write-Host "`n- Configuring '$ModName' ($ModKey)..."
+
+    # Check if the mod's main key exists (i.e., the mod is installed)
+    if (-not (Test-Path $ModRegistryPath)) {
+        Write-Host "  [SKIPPED] Mod key not found. Please ensure '$ModName' is installed in Windhawk." -ForegroundColor Red
+        continue
+    }
+
+    # Enable the mod
+    Set-ItemProperty -Path $ModRegistryPath -Name 'Disabled' -Value $EnableValue -Type DWord -Force
+    Write-Host "  - Set 'Disabled' to 0 (Mod Enabled)."
+
+    # Ensure the Settings key exists
+    if (-not (Test-Path $SettingsPath)) {
+        New-Item -Path $SettingsPath -Force | Out-Null
+        Write-Host "  - Created Settings key for mod."
+    }
+
+    # Set the custom settings
+    foreach ($SettingName in $ModSettings.Keys) {
+        $SettingValue = $ModSettings[$SettingName]
+        $Type = [Microsoft.Win32.RegistryValueKind]::String
+        
+        if ($SettingValue -is [int]) {
+            $Type = [Microsoft.Win32.RegistryValueKind]::DWord
+        }
+        
+        Set-ItemProperty -Path $SettingsPath -Name $SettingName -Value $SettingValue -Type $Type -Force
+        Write-Host "  - Set $SettingName ($Type) to '$SettingValue'"
+    }
+
+    # Force Windhawk to reload settings by updating SettingsChangeTime
+    $CurrentTicks = [System.DateTime]::UtcNow.Ticks
+    Set-ItemProperty -Path $ModRegistryPath -Name 'SettingsChangeTime' -Value $CurrentTicks -Type QWord -Force
+    Write-Host "  - Updated SettingsChangeTime to trigger mod reload."
+}
+
+Write-Host "Windhawk has been installed."
+Write-Host "All specified mods have been explicitly **Enabled** and **configured**."
+
+# # Restarting Explorer is a common step to apply UI changes
+# Start-Process -FilePath 'powershell.exe' -ArgumentList '-Command', 'Stop-Process -Name explorer -Force; Start-Process explorer' -Verb RunAs -Wait
+
+Refresh ($i++)
 
 ########################################################################
 ###                        Clink Configuration                       ###
