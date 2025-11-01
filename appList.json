@@ -4,6 +4,7 @@
         "winget": {
             "autoInstall": true,
             "packageList": [
+                { "packageId": "9N0DX20HK701" },
                 { "packageId": "JanDeDobbeleer.OhMyPosh" },
                 { "packageId": "Git.Git" },
                 { "packageId": "chrisant996.Clink" },
