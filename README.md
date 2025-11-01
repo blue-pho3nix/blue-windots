@@ -187,9 +187,8 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 1. Edit and save `C:\Users\<your_username>\Komorebi.json`   
 2. Open a regular powershell window (`win + enter`).
 3. Stop and start Komorebi or reload the configuration.
-> [!IMPORTANT]
-> Make sure to always use `--ahk` to keep the autohotkeys working.
-> When you stop/restart Komorebi, you'll need to reload autohotkey. 
+> Make sure to always use `--ahk` to keep the autohotkeys working. <br>
+> When you stop/restart Komorebi, you'll need to reload AutoHotKey. 
 
 ```
 Komorebic stop --ahk
