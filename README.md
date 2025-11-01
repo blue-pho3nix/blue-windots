@@ -85,7 +85,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ### If You Want to Change the Desktop Images
 - You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing...
-- You can always edit them in your Git clone if you want the diff background images to be auto-set to slideshow during installation.
+- You can always edit them in your Git clone if you want the diff background images to be automatically set to slideshow during installation.
 
 ---
 
@@ -97,24 +97,29 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 ### 1. Install [Windhawk](https://windhawk.net/) and Mods
 > [!NOTE]
 > I want to script the entire install for Windhawk, but Windhawk is not currently set up to do so... <br>
-> At this point, you can manually install the mods, and the setup for each mod will be in the script below.
+> At this point, you can manually install the mods, and the setup for each mod (except UXTheme Hook) will be in the script below.
 
 #### Install the following mods under `Explore`
 - Control Panel Color Fix
 - Resource Redirect
-- UXTheme hook
 - Windows 11 File Explorer Styler
 - Windows 11 Notification Center Styler
 - Windows 11 Start Menu Styler
 - Windows 11 Taskbar Styler
+- UXTheme hook
+
+> [!IMPORTANT]
+> Make sure you include `winlogon.exe` and `logonui.exe` in windhawk's process inclusion list, in its advanced settings of UXTheme hook.
+> This is literally the only setting you need to set yourself...the script does the rest...
+
+![](https://github.com/user-attachments/assets/b3ee62af-c2b6-43c8-9bde-e9309e875232)
+
+
+This is what your home will look like...
 
 ![](https://github.com/user-attachments/assets/9006bdf4-dab3-41b7-95d5-9796e36aca2a)
 
-### 2. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
-> [!NOTE]
-> You need this for the terminal hotkeys.
-
-### 3. Install Powershell 7
+### 2. Install Powershell 7
 ```
 winget install Microsoft.PowerShell
 ```
@@ -127,14 +132,16 @@ winget install Microsoft.PowerShell
   <summary> The script does the following 💙...</summary>
   
   **Installs:**
-  - **Windhawk** 
-  - **Komorebi** 
-  - **yasb** 
-  - **0xProto Nerd Font** 
-  - **Winget-CLI** 
-  - **Scoop** 
-  - **Scoop 'extras' bucket** 
-  - **AutoHotkey** 
+  - **Winget-CLI** (This installs the applications)
+  - [Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701?hl=en-US&gl=US) (You need this for the terminal hotkeys).
+  - **[Komorebi](https://github.com/LGUG2Z/komorebi)** (Windows tiling manager).
+  - **[yasb](https://github.com/amnweb/yasb)** (Status bar at the top of the screen).
+  - **[OhMyPosh](https://ohmyposh.dev/)** (Just installed to make nerd font installation easier).  
+  - **[0xProto Nerd Font](https://www.programmingfonts.org/#oxproto)** (Used in the terminal and yasb).
+  - **[AutoHotkey](https://www.autohotkey.com/)** (Makes it possible to use the windown key in hotkeys).
+  - **[Clink](https://chrisant996.github.io/clink/clink.html)** (Makes it easy to use Starship in Command Prompt)
+  - **[Starship](https://starship.rs/)** (Makes your terminal pretty)
+ 
 
   **Sets up:**
   - **The theme** (Applies a theme `One Dark Pro (Night) - PAC.theme`...this give you packman icons in File Explorer...).
@@ -156,14 +163,14 @@ winget install Microsoft.PowerShell
 
 ## Install Instructions
 
-#### 1. Open Powershell 7 as `Administrator`
+#### 1. Open Powershell 7 as `Administrator`.
 #### 2. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
 
 ```
 git clone https://github.com/blue-pho3nix/blue-windots.git
 ```
-#### 3. `cd` into `blue-dots`
-#### 4. Run `Setup.ps1`
+#### 3. `cd` into the `blue-dots` directory.
+#### 4. Run `Setup.ps1`.
 
 ```
 .\Setup.ps1
