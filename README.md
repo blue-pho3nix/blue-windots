@@ -62,7 +62,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 <details closed>
   <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> 🖱️ </summary>
   
-   1. Clone the repo using GitHub Desktop, `git`, or [download as a .zip](https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-Windhawk-install-easier.zip).
+   1. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
    ```
    git clone https://github.com/blue-pho3nix/blue-windots.git
    ```
@@ -157,7 +157,7 @@ winget install Microsoft.PowerShell
 ## Install Instructions
 
 #### 1. Open Powershell 7 as `Administrator`
-#### 2. Clone the repo using GitHub Desktop, `git`, or [download as a .zip](https://github.com/blue-pho3nix/blue-windots/archive/refs/heads/make-Windhawk-install-easier.zip) .
+#### 2. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
 
 ```
 git clone https://github.com/blue-pho3nix/blue-windots.git
