@@ -85,7 +85,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ### If You Want to Change the Desktop Images
 - You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing...
-- You can always edit them in your Git clone if you want the diff background images to be auto-set to slideshow during installation.
+- You can always edit them in your Git clone if you want the diff background images to be automatically set to slideshow during installation.
 
 ---
 
