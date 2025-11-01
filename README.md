@@ -72,7 +72,9 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 ### 1. Install [Windhawk](https://windhawk.net/) and Mods
 > [!NOTE]
 > I want to script the entire install for Windhawk, but Windhawk is not currently set up to do so... <br>
-> At this point, you can manually install the mods, and the setup for each mod (except UXTheme Hook) will be in the script below.
+> At this point, you can manually install the mods, and the setup for each mod will be in the script below. <br><br>
+> Also, you don't need `winlogon.exe` and `logonui.exe`  in UXTheme hook's advanced settings. <br>
+> The theme doesn't really have settings for the login/lock screen.
 
 #### Install the following mods under `Explore`
 - Control Panel Color Fix
@@ -83,8 +85,6 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 - Windows 11 Taskbar Styler
 - UXTheme hook
 
-> [!NOTE]
-> You don't need to ensure `winlogon.exe` and `logonui.exe`  are in windhawk's process inclusion list, in its advanced settings of UXTheme hook. The theme doesn't really have settings for the login/lock screen.
 
 ![](https://github.com/user-attachments/assets/9006bdf4-dab3-41b7-95d5-9796e36aca2a)
 
