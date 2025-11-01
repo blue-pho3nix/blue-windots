@@ -281,6 +281,8 @@ $i = 1
 ########################################################################
 ###                Winget Packages Installation                      ###
 ########################################################################
+# Enable support for long paths before installing Komorebi
+Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
 
 # Retrieve information from json file
 $json = Get-Content "$PSScriptRoot\appList.json" -Raw | ConvertFrom-Json
@@ -725,9 +727,6 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
 # KOMOREBI 
 # Check if 'komorebic' command is available first
 if (Get-Command komorebic -ErrorAction SilentlyContinue) {
-    
-    # Enable support for long paths in Windows
-    Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
 
     # Start Komorebi, but only if it's not already running
     if (!(Get-Process -Name komorebi -ErrorAction SilentlyContinue)) {
