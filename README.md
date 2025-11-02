@@ -99,14 +99,13 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
 ---
 
-## What Does the Script Do?
+## What Does the Setup.ps1 Do?
 
 <details closed>
   <summary> The script does the following 💙...</summary>
   
   **Installs:**
   - **Winget-CLI** (This installs the applications)
-  - [Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701?hl=en-US&gl=US) (You need this for the terminal hotkeys).
   - **[Komorebi](https://github.com/LGUG2Z/komorebi)** (Windows tiling manager).
   - **[yasb](https://github.com/amnweb/yasb)** (Status bar at the top of the screen).
   - **[OhMyPosh](https://ohmyposh.dev/)** (Just installed to make nerd font installation easier).  
