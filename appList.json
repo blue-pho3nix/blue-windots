@@ -5,6 +5,7 @@
             "autoInstall": true,
             "packageList": [
                 { "packageId": "9N0DX20HK701" },
+                { "packageId": "Git.Git" },
                 { "packageId": "JanDeDobbeleer.OhMyPosh" },
                 { "packageId": "chrisant996.Clink" },
                 { "packageId": "Starship.Starship" },
