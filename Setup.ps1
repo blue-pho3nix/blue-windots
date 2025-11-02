@@ -40,23 +40,73 @@ $InformationPreference = "Continue"
 ###                     HELPER FUNCTIONS                             ###
 ########################################################################
 function Write-TitleBox {
-    param ([string]$Title, [string]$BorderChar = "*", [int]$Padding = 10)
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$Title,
+        [string]$BorderChar = "█", # Using a solid block character for a modern look
+        [int]$HorizontalPadding = 5,
+        [int]$VerticalPadding = 1,
+        [ConsoleColor]$BorderColor = 'Green', # Added color parameter
+        [ConsoleColor]$TitleColor = 'Yellow'
+    )
 
-    $Title = $Title.ToUpper()
-    $titleLength = $Title.Length
-    $boxWidth = $titleLength + ($Padding * 2) + 2
+    # Input validation
+    if ($Title -eq "") {
+        Write-Error "Title cannot be empty."
+        return
+    }
+    if ($HorizontalPadding -lt 1 -or $VerticalPadding -lt 0) {
+        Write-Error "Padding values must be non-negative."
+        return
+    }
 
-    $borderLine = $BorderChar * $boxWidth
-    $paddingLine = $BorderChar + (" " * ($boxWidth - 2)) + $BorderChar
-    $titleLine = $BorderChar + (" " * $Padding) + $Title + (" " * $Padding) + $BorderChar
+    $TitleText = $Title.ToUpper()
+    $TitleLength = $TitleText.Length
 
-    ''
-    Write-Host $borderLine -ForegroundColor Cyan
-    Write-Host $paddingLine -ForegroundColor Cyan
-    Write-Host $titleLine -ForegroundColor Cyan
-    Write-Host $paddingLine -ForegroundColor Cyan
-    Write-Host $borderLine -ForegroundColor Cyan
-    ''
+    # Calculate the total width of the box
+    # Total width = Title length + Left padding + Right padding + 2 (for the border chars)
+    $BoxWidth = $TitleLength + ($HorizontalPadding * 2) + 2
+
+    # --- Title Line Construction ---
+    # Smart Padding: If HorizontalPadding is odd, the extra space goes to the right side
+    $LeftPaddingSpaces = " " * $HorizontalPadding
+    $RightPaddingSpaces = " " * $HorizontalPadding
+
+    $TitleLine = "$BorderChar$LeftPaddingSpaces$TitleText$RightPaddingSpaces$BorderChar"
+
+    # --- Border and Vertical Padding Line Construction ---
+    $BorderLine = $BorderChar * $BoxWidth
+    
+    # Vertical Padding Line: BorderChar + spaces + BorderChar
+    $InternalSpaces = " " * ($BoxWidth - 2)
+    $PaddingLine = "$BorderChar$InternalSpaces$BorderChar"
+
+    # --- Output ---
+    
+    # Top Border
+    Write-Host ""
+    Write-Host $BorderLine -ForegroundColor $BorderColor
+
+    # Top Vertical Padding
+    1..$VerticalPadding | ForEach-Object {
+        Write-Host $PaddingLine -ForegroundColor $BorderColor
+    }
+
+    # Title Line
+    Write-Host -NoNewline "$BorderChar" -ForegroundColor $BorderColor
+    Write-Host -NoNewline "$LeftPaddingSpaces" -ForegroundColor $TitleColor
+    Write-Host -NoNewline "$TitleText" -ForegroundColor $TitleColor
+    Write-Host -NoNewline "$RightPaddingSpaces" -ForegroundColor $TitleColor
+    Write-Host "$BorderChar" -ForegroundColor $BorderColor # Ends the TitleLine with a newline
+
+    # Bottom Vertical Padding
+    1..$VerticalPadding | ForEach-Object {
+        Write-Host $PaddingLine -ForegroundColor $BorderColor
+    }
+
+    # Bottom Border
+    Write-Host $BorderLine -ForegroundColor $BorderColor
+    Write-Host ""
 }
 
 # Source:
@@ -78,6 +128,43 @@ function Write-ColorText {
 
     if (!$NoNewLine) { Write-Host }
     $Host.UI.RawUI.ForegroundColor = $hostColor
+}
+
+
+function Write-EndText {
+    param (
+        [string]$Message = "Operation Complete",
+        [string]$UnderlineChar = "=",
+        [int]$HorizontalPadding = 5,
+        [ConsoleColor]$MessageColor = 'Cyan',
+        [ConsoleColor]$UnderlineColor = 'DarkGray'
+    )
+
+    $MessageText = $Message.ToUpper()
+    $MessageLength = $MessageText.Length
+    
+    # Calculate the total width based on the message and padding
+    $BoxWidth = $MessageLength + ($HorizontalPadding * 2)
+    
+    # Create the underline based on the calculated width
+    $Underline = $UnderlineChar * $BoxWidth
+    
+    # Create the left and right padding spaces
+    $PaddingSpaces = " " * $HorizontalPadding
+    
+    # Output 
+    
+    Write-Host ""
+    
+    # Print the centered message with padding in the specified color
+    Write-Host -NoNewline "$PaddingSpaces"
+    Write-Host -NoNewline "$MessageText" -ForegroundColor $MessageColor
+    Write-Host "$PaddingSpaces"
+    
+    # Print the underline in the specified color
+    Write-Host $Underline -ForegroundColor $UnderlineColor
+    
+    Write-Host ""
 }
 
 
@@ -192,6 +279,9 @@ function Refresh ([int]$Time) {
 
     Write-ColorText "{DarkGray}Environment variables refreshed for the current session."
 }
+
+
+
 
 
 ########################################################################
@@ -369,6 +459,11 @@ try {
     Write-Error "Failed to hide system tray clock: $($_.Exception.Message)"
 }
 
+# Write-Host "Restarting Windows Explorer to reload theme..."
+taskkill /f /im explorer.exe; Start-Process explorer.exe
+
+Refresh ($i++)
+
 
 ########################################################################
 ###                          Copy Files                              ###
@@ -420,16 +515,16 @@ Start-Sleep -Seconds 2
 # Define Theme File Path 
 $themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
 
-Write-Host "1. Unblocking theme file security tag..."
+Write-Host "Unblocking theme file security tag..."
 # Unblock-File removes the 'Mark-of-the-Web' security tag
 Unblock-File -Path $themeFile
 
-Write-Host "2. Silently applying theme..."
+Write-Host "Silently applying theme..."
 # Launch the theme application process silently, which should now run without a prompt
 Start-Process -FilePath $themeFile -WindowStyle Hidden -Wait
 
-# Write-Host "3. Restarting Windows Explorer to reload theme..."
-# taskkill /f /im explorer.exe; Start-Process explorer.exe
+# Write-Host "Restarting Windows Explorer to reload theme..."
+taskkill /f /im explorer.exe; Start-Process explorer.exe
 
 Refresh ($i++)
 
@@ -535,7 +630,10 @@ $ModConfigurations = @(
     
     # Resource Redirect Configuration (Bonny Icon Theme)
     @{ Name = 'Resource Redirect'; Key = 'icon-resource-redirect'; 
-       Settings = @{ 'IconTheme' = 'Bonny (by niivu)' } },
+       Settings = @{ 'iconTheme' = 'Bonny|themes/icons/niivu/bonny%20by%20niivu.zip';
+       'ClearCacheOnUpdate' = 0 
+    } 
+},
     
     # Windows 11 Taskbar Styler Configuration (Matter Theme)
     @{ Name = 'Windows 11 Taskbar Styler'; Key = 'windows-11-taskbar-styler'; 
@@ -630,19 +728,15 @@ foreach ($Mod in $ModConfigurations) {
         Set-ItemProperty -Path $SettingsPath -Name $SettingName -Value $SettingValue -Type $Type -Force
         Write-ColorText "{Green}  - Set $SettingName to '$SettingValue'"
     }
-
     # Force Windhawk to reload settings by updating SettingsChangeTime
     $CurrentTicks = [System.DateTime]::UtcNow.Ticks
     Set-ItemProperty -Path $ModRegistryPath -Name 'SettingsChangeTime' -Value $CurrentTicks -Type QWord -Force
-    Write-Host "  - Updated SettingsChangeTime to trigger mod reload."
 }
 
-Write-Host "All specified Winhawk mods have been **configured**."
+Write-Host "All specified Winhawk mods have been configured."
 Write-ColorText "{yellow}Reopen File Explorer to see the changes..."
 
 Refresh ($i++)
-
-Start-Sleep -Seconds 10
 
 
 ########################################################################
@@ -725,4 +819,4 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
 Set-Location $currentLocation
 Start-Sleep -Seconds 15
 
-
+Write-EndText -Message "Great work... It's done!" -UnderlineChar "─" -MessageColor Yellow
