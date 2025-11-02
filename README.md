@@ -58,31 +58,6 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 > [!IMPORTANT]  
 > Optional, but recommended.
 
-### Change Your Mouse Pointer
-<details closed>
-  <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> 🖱️ </summary>
-  
-   1. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
-   ```
-   git clone https://github.com/blue-pho3nix/blue-windots.git
-   ```
-   2. Right click blue-windots\cursors\install.inf.
-    
-  ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
-  
-  3. Press `win + R` and enter `main.cpl`.
-  
-  ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
-  
-  4. Goto `Pointers`.
-  5. Select `Catppuccin-Mocha-Lavender-Cursors`
-  
-  ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
-  
-  6. Click `Apply` and `OK`.
-
-</details>
-
 ### If You Want to Change the Desktop Images
 - You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing...
 - You can always edit them in your Git clone if you want the diff background images to be automatically set to slideshow during installation.
@@ -97,7 +72,9 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 ### 1. Install [Windhawk](https://windhawk.net/) and Mods
 > [!NOTE]
 > I want to script the entire install for Windhawk, but Windhawk is not currently set up to do so... <br>
-> At this point, you can manually install the mods, and the setup for each mod (except UXTheme Hook) will be in the script below.
+> At this point, you can manually install the mods, and the setup for each mod will be in the script below. <br><br>
+> Also, you don't need `winlogon.exe` and `logonui.exe`  in UXTheme hook's advanced settings. <br>
+> The theme doesn't really have settings for the login/lock screen.
 
 #### Install the following mods under `Explore`
 - Control Panel Color Fix
@@ -108,14 +85,6 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 - Windows 11 Taskbar Styler
 - UXTheme hook
 
-> [!IMPORTANT]
-> Make sure you include `winlogon.exe` and `logonui.exe` in windhawk's process inclusion list, in its advanced settings of UXTheme hook.
-> This is literally the only setting you need to set yourself...the script does the rest...
-
-![](https://github.com/user-attachments/assets/b3ee62af-c2b6-43c8-9bde-e9309e875232)
-
-
-This is what your home will look like...
 
 ![](https://github.com/user-attachments/assets/9006bdf4-dab3-41b7-95d5-9796e36aca2a)
 
@@ -178,17 +147,42 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 
 ---
 
-## More Info
+## Post Install Fun
 
+### Change Your Mouse Pointer
 <details closed>
-  <summary>Let's say you want to edit you Komorebi config file after install. Here's how you can do it. 🎉</summary>
+  <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> 🖱️ </summary>
+  
+   1. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
+   ```
+   git clone https://github.com/blue-pho3nix/blue-windots.git
+   ```
+   2. Right click blue-windots\cursors\install.inf.
+    
+  ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
+  
+  3. Press `win + R` and enter `main.cpl`.
+  
+  ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
+  
+  4. Goto `Pointers`.
+  5. Select `Catppuccin-Mocha-Lavender-Cursors`
+  
+  ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
+  
+  6. Click `Apply` and `OK`.
+
+</details>
+
+### Let's say you want to edit you Komorebi config file after install.
+<details closed>
+  <summary>Here's how you can do it. 🎉</summary>
 
 1. Edit and save `C:\Users\<your_username>\Komorebi.json`   
 2. Open a regular powershell window (`win + enter`).
 3. Stop and start Komorebi or reload the configuration.
-> [!IMPORTANT]
-> Make sure to always use `--ahk` to keep the autohotkeys working.
-> When you stop/restart Komorebi, you'll need to reload autohotkey. 
+> Make sure to always use `--ahk` to keep the autohotkeys working. <br>
+> When you stop/restart Komorebi, you'll need to reload AutoHotKey. 
 
 ```
 Komorebic stop --ahk
