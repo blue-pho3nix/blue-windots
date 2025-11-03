@@ -200,10 +200,10 @@ function Install-WinGetApp {
             # Check the Exit Code after waiting
             if ($process.ExitCode -eq 0) {
                 Write-ColorText "{Blue}[package] {Magenta}winget: {Green}(success) {Gray}$PackageID"
-            } else {
-                # Report specific non-zero exit code
-                Write-ColorText "{Blue}[package] {Magenta}winget: {Red}(failed - Exit Code $($process.ExitCode)) {Gray}$PackageID"
-                Write-Warning "Winget failed for $PackageID. Exit Code: $($process.ExitCode). Check logs or try installing manually."
+           } else {
+                Write-ColorText "{Blue}[package] {Magenta}winget: {Red}(FAILURE - Exit Code $($process.ExitCode)) {Gray}$PackageID"
+                Write-Error "Winget failed for $PackageID. Exit Code: $($process.ExitCode). Run the script again..."
+                exit 1 
             }
         } catch {
             # Catch errors if Start-Process itself fails (e.g., winget not found)
@@ -304,7 +304,7 @@ if ($wingetInstall -eq $True) {
         # Exit the WinGet setup block entirely since it's already there
         # We still run Refresh later, but no installation is needed.
     } else {
-        Write-TitleBox -Title "Installing WinGet" -BorderColor 'Green'
+        Write-ColorText "Installing WinGet..."
         Write-Host "WinGet not found. Proceeding with installation/update..."
         
         # Define file paths and URI
@@ -352,6 +352,8 @@ if ($wingetInstall -eq $True) {
     }
 
     
+    winget source update
+
     # Download packages from WinGet
     foreach ($pkg in $wingetPkgs) {
         $pkgId = $pkg.packageId
@@ -641,30 +643,42 @@ Start-Sleep -Seconds 10
 
 
 ########################################################################
-###                     Theme Setup                                  ###
+###                   Theme Setup                                    ###
 ########################################################################
 
 Write-TitleBox -Title "Theme Setup"
 Write-ColorText "{yellow}Applying Theme..."
 Start-Sleep -Seconds 2
 
-# Define Theme File Path 
+# Define Theme File Path. Ensure the file extension is exact.
 $themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
+$ThemeName = "One Dark Pro (Night) - PAC"
 
 Write-Host "Unblocking theme file security tag..."
 # Unblock-File removes the 'Mark-of-the-Web' security tag
 Unblock-File -Path $themeFile -ErrorAction SilentlyContinue
 
-Write-Host "Silently applying theme..."
-# Launch the theme application process. We remove -Wait as it can be unreliable.
-Start-Process -FilePath $themeFile -WindowStyle Hidden
+Write-Host "Applying theme via Control Panel command..."
+
+# Use control.exe to apply the theme
+# The command structure is: control /name Microsoft.Personalization /page pageTheme /action selectTheme <Theme Name>
+# However, the simplest way is to directly launch the file via control.exe
+# We use -PassThru to suppress unnecessary output and -Wait to ensure execution completes
+$null = Start-Process -FilePath control.exe -ArgumentList "color" -PassThru -Wait
+Start-Process -FilePath $themeFile -WindowStyle Hidden -ErrorAction SilentlyContinue
+
+# Alternative, more robust method (uncomment if the above fails):
+# Note: This is usually for .themepack files, but sometimes works on .theme files in the system folder.
+# $null = Start-Process -FilePath $themeFile -PassThru -Wait
 
 # Give the theme process a moment to execute
-Write-Host "Waiting 10 seconds for the theme to start applying..."
-Start-Sleep -Seconds 10 
+Write-Host "Waiting 3 seconds for the theme to start applying..."
+Start-Sleep -Seconds 3
+
+# No need to refresh environment variables again if the theme applied.
+# Environment variables refreshed for the current session.
 
 Refresh ($i++)
-
 
 ########################################################################
 ###                        Clink Configuration                       ###
