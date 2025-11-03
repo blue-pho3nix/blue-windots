@@ -1,5 +1,5 @@
 # Windots for Windows 11 😊
-My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
+My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
 ![](https://github.com/user-attachments/assets/e066d4de-a5d7-4814-a120-0d6c89ef5ea3)
 ![](https://github.com/user-attachments/assets/e84b909d-a3e5-4a1a-9e1c-77ac08140aa7)
@@ -11,8 +11,12 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 ![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
 
 
-# Hotkeys
-- Feel free to add more hotkeys to `C:\Users\<your_username>\komorebi.ahk`. 
+## Hotkeys
+> [!NOTE]
+> Feel free to add more [AutoHotKeys](https://www.autohotkey.com/) to `C:\Users\<your_username>\Komorebi.ahk`. 
+
+<details closed>
+  <summary>View the cool hotkeys 🔥</summary>
 
 | Hotkey | Action |
 |--------|--------|
@@ -42,170 +46,161 @@ My semi-automated [komorebi](https://github.com/LGUG2Z/komorebi) + [yasb](https:
 | `win` + `shift` + `c` | Open Command Prompt as Administrator |
 | `win` + `f` | Open File Explorer |
 | `win` + `q` | Close focused window |
+</details>
+
+
 
 ---
+
+## Optional Pre-Install
+
+### Create a [restore point](https://support.microsoft.com/en-us/windows/system-protection-e9126e6e-fa64-4f5f-874d-9db90e57645a)
+> [!IMPORTANT]  
+> Optional, but recommended.
+
+### If You Want to Change the Desktop Images
+- You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing...
+- You can always edit them in your Git clone if you want the diff background images to be automatically set to slideshow during installation.
+
+---
+
+## Required Pre-Install
+
+> [!TIP]
+> If You have **fewer/more than 5 monitors**, change the `blue-windots\config\home\Komorebi.json` to meet your needs.
+
+### 1. Install [Windhawk](https://windhawk.net/) and Mods
+> [!NOTE]
+> I want to script the entire install for Windhawk, but Windhawk is not currently set up to do so... <br>
+> At this point, you can manually install the mods, and the setup for each mod will be in the script below. <br><br>
+> Also, you don't need `winlogon.exe` and `logonui.exe`  in UXTheme hook's advanced settings. <br>
+> The theme doesn't really have settings for the login/lock screen.
+
+#### Install the following mods under `Explore`
+- Control Panel Color Fix
+- Resource Redirect
+- Windows 11 File Explorer Styler
+- Windows 11 Notification Center Styler
+- Windows 11 Start Menu Styler
+- Windows 11 Taskbar Styler
+- UXTheme hook
+
+
+![](https://github.com/user-attachments/assets/9006bdf4-dab3-41b7-95d5-9796e36aca2a)
+
+### 2. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
+
+### 3. Install [Powershell 7](https://apps.microsoft.com/detail/9MZ1SNWT0N5D?hl=en-us&gl=US&ocid=pdpshare)
+
+### 4. Install [Scoop](https://scoop.sh/) in a PowerShell terminal 
+```
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+---
+
+## What Does the Setup.ps1 Do?
+
+<details closed>
+  <summary> The script does the following 💙...</summary>
+  
+  **Installs:**
+  - **[Winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/)** (This installs the applications)
+  - **[Komorebi](https://github.com/LGUG2Z/komorebi)** (Windows tiling manager).
+  - **[yasb](https://github.com/amnweb/yasb)** (Status bar at the top of the screen).
+  - **[OhMyPosh](https://ohmyposh.dev/)** (Just installed to make nerd font installation easier).  
+  - **[0xProto Nerd Font](https://www.programmingfonts.org/#oxproto)** (Used in the terminal and yasb).
+  - **[AutoHotkey](https://www.autohotkey.com/)** (Makes it possible to use the windown key in hotkeys).
+  - **[Clink](https://chrisant996.github.io/clink/clink.html)** (Makes it easy to use Starship in Command Prompt)
+  - **[Starship](https://starship.rs/)** (Makes your terminal pretty)
+ 
+
+  **Sets up:**
+  - **The theme** (Applies a theme `One Dark Pro (Night) - PAC.theme`...this give you packman icons in File Explorer...).
+  - **Windhawk** (Configures mods).
+  - **Environment Variables** (Sets custom environment variables defined in `appList.json`).
+  - **Starship** (Adds the initialization line to the user's PowerShell profile).
+  - **Komorebi** (Starts the engine and enables autostart).
+  - **YASB** (Starts the engine and enables autostart).
+  - **Clink** (Disables the Clink banner/logo).
+  
+  **Other:**
+  - **copies over config files** (Copies dotfiles from `config\home` to `$env:USERPROFILE`).
+  - **copies over theme assets** (Copies files from `config\theme` to `C:\Windows\Resources\Themes`).
+  - **toggles off clock in taskbar** (Hides the taskbar clock).
+  - **Sets** the Long Paths Enabled registry key for Komorebi.
+</details>
+
+--- 
 
 ## Install Instructions
 
-## Create a restore point 
-- ...incase you want to go back to what you had before the install...
-
-![](https://github.com/user-attachments/assets/fd7175f2-b3cd-45da-8cdb-1bebef62e955)
-
-1. Search for `Create a restore point`.
-2. Goto `System Protection`.
-3. Select `Configure`.
-4. Select `Turn on system protection`.
-5. Select `Apply` + `OK`.
-6. Select `Create...`.
-7. Type a description.
-8. Select `Create`.
-
-## Install [Windhawk](https://windhawk.net/) 
-Install the following mods under `Explore`
-
-![](https://github.com/user-attachments/assets/761804f9-4c03-4a09-aa10-bf51d34ee62d)
-
----
-
-### Install UXTheme hook
-1. Put `winlogon.exe` and `logonui.exe` in the custom process inclusion list.
-
-![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
-
-2. The theme will be installed via the script below (might as well just install the rest of the mods now tho).
-
----
-
-### Install Control Panel Color Fix
-- Normal settings
-
-![](https://github.com/user-attachments/assets/0efd5cad-3ccc-4cdb-b58e-063b38a496ca)
-
----
-
-### Install Resource Redirect
-1. Select the `Bonny` icon theme.
-
-![](https://github.com/user-attachments/assets/83827f17-77ae-43ab-b884-37e776f9d833)
-
-2. Click on yes when it asks to clear the icon cache.
-
-![](https://github.com/user-attachments/assets/4e53a921-f5f8-4bdb-bb45-a1862715767b)
-
----
-
-### Install Windows 11 Taskbar Styler
-1. Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/7018018e-cd38-44f2-811b-b88bf441bf8e)
-
-2. (Optional) Hide search in `Personalization > Taskbar`.
----
-
-### Install Windows 11 File Explorer Styler
-- Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/7864fbed-cd94-4e57-901a-acde8f11bab9)
-
----
-
-### Install Windows 11 Notification Center Styler
-- Select the `Matter` theme in settings.
-
-![](https://github.com/user-attachments/assets/d63c7a18-c601-4f51-8f8e-301e4c109183)
-
----
-
-### Install Windows 11 Start Menu Styler
-1. Select the `Oversimplified$Accentuated` theme in settings.
-2. Select Disable the new start menu layout
-
-![](https://github.com/user-attachments/assets/9aa0ca9b-db34-4da9-b0f7-90c72d483506)
-
----
-
-## Install komorebi, yasb, setup config files, set theme, and other setups.
-> Note: Make sure you've installed `UXTheme hook` with the `Advanced` settings shown below.
-
-![](https://github.com/user-attachments/assets/ab975594-df63-4225-8c63-1273a6c4a601)
-![](https://github.com/user-attachments/assets/5a86b125-9009-4780-bde0-cfd271ea937c)
-
-1. Install Powershell 7
-```
-winget install Microsoft.PowerShell
-```
-
-2. Open Windows terminal as `Administrator`
-
-![](https://github.com/user-attachments/assets/7fc94ff5-aad9-49b7-9820-1b60f710aafc)
-
-3. Clone the repo using [GitHub Desktop](https://desktop.github.com/download/) or  `git`.
+#### 1. Open Powershell 7 as `Administrator`.
+#### 2. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
 
 ```
 git clone https://github.com/blue-pho3nix/blue-windots.git
 ```
-
-4. `cd` into `blue-dots`
-5. Run `Setup.ps1`
-
+#### 3. `cd` into the `blue-dots` directory.
+#### 4. Run `Setup.ps1`.
+> [!NOTE]
+> If `winget` hangs for a long time, stop the script and restart it.
 ```
 .\Setup.ps1
 ```
 
 ---
 
-## Change Mouse Pointer
+## Post Install Fun
 
-1. Right click `blue-windots\cursors\install.inf`
+### Change Your Mouse Pointer
+<details closed>
+  <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> 🖱️ </summary>
+  
+   1. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
+   ```
+   git clone https://github.com/blue-pho3nix/blue-windots.git
+   ```
+   2. Right click blue-windots\cursors\install.inf.
+    
+  ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
+  
+  3. Press `win + R` and enter `main.cpl`.
+  
+  ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
+  
+  4. Goto `Pointers`.
+  5. Select `Catppuccin-Mocha-Lavender-Cursors`
+  
+  ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
+  
+  6. Click `Apply` and `OK`.
 
-![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
+</details>
 
-2. Press win + R and enter `main.cpl`
+### Let's say you want to edit you Komorebi config file after install.
+<details closed>
+  <summary>Here's how you can do it. 🎉</summary>
 
-![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
-
-3. Goto `Pointers`
-
-4. Select `Catppuccin-Mocha-Lavender-Cursors`
-
-![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
-
-5. Click `Apply` and `OK`.
-
----
-
-## Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
-- You need this for the terminal hotkeys.
-- Either install it or change the hotkeys in `C:\Users\<your_username>\komorebi.ahk`.
-
----
-
-## Other Changes You Can Make
-
-### If you have fewer/more than 5 monitors
-- Change the `blue-windots\config\home\komorebi.json` to meet your needs.
-
-#### Edit `C:\Users\<your_username>\komorebi.json` after install
-1. After your edits, save the file.  
+1. Edit and save `C:\Users\<your_username>\Komorebi.json`   
 2. Open a regular powershell window (`win + enter`).
-3. Stop and start komorebi or reload the configuration.
-> Make sure to always use `--ahk` to keep the autohotkeys working.  When you stop/restart komorebi, you'll need to reload autohotkey. 
+3. Stop and start Komorebi or reload the configuration.
+> Make sure to always use `--ahk` to keep the autohotkeys working. <br>
+> When you stop/restart Komorebi, you'll need to reload AutoHotKey. 
+
 ```
-komorebic stop --ahk
+Komorebic stop --ahk
 ```
 ```
-komorebic start --ahk
+Komorebic start --ahk
 ```
 or
 ```
-komorebic reload-configuration
+Komorebic reload-configuration
 ```
-
-### If you want to change your Desktop image
-- There are 6 images in your `C:\Windows\Resources\Themes\One Dark Pro\Wallpapers` folder.<br>
-- You can preview the images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing... You can always edit them in your Git clone if you really want the diff background images to be auto-set during installation.
+</details>
 
 ---
+
 ## Got Questions, Issues, or Suggestions?
 Ping me in #rice on [Discord](https://discord.gg/TujAjYXJjr) (Blue Pho3nix).

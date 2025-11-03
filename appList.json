@@ -4,8 +4,8 @@
         "winget": {
             "autoInstall": true,
             "packageList": [
-                { "packageId": "JanDeDobbeleer.OhMyPosh" },
                 { "packageId": "Git.Git" },
+                { "packageId": "JanDeDobbeleer.OhMyPosh" },
                 { "packageId": "chrisant996.Clink" },
                 { "packageId": "Starship.Starship" },
                 { "packageId": "AmN.yasb" },

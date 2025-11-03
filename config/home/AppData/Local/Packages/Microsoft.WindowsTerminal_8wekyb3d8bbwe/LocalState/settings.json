@@ -74,21 +74,21 @@
         "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
         "hidden": false,
         "name": "Windows PowerShell",
-	"elevate": false
+        "elevate": false
       },
       {
         "commandline": "C:\\Windows\\system32\\cmd.exe",
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
         "hidden": false,
         "name": "Command Prompt",
-	"elevate": false
+        "elevate": false
       },
       {
         "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
         "hidden": false,
         "name": "Azure Cloud Shell",
         "source": "Windows.Terminal.Azure",
-	"elevate": false
+        "elevate": false
       },
       {
         "commandline": "pwsh.exe",
@@ -96,7 +96,7 @@
         "hidden": false,
         "name": "PowerShell",
         "source": "Windows.Terminal.PowershellCore",
-	"elevate": false
+        "elevate": false
       }
     ]
   },
