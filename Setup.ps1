@@ -143,16 +143,14 @@ function Install-WinGetApp {
 
     # Run winget list and check exit code
     Write-ColorText "{Gray}Running: winget list --exact --id $PackageID"
-    $listResult = winget list --exact --id $PackageID # Using --id is sometimes more reliable
-
-    # Check the exit code of the list command explicitly
-    if ($LASTEXITCODE -ne 0) {
-        # It failed OR the package wasn't found (winget list exits with non-zero if not found)
+    $listProcess = Start-Process winget -ArgumentList "list", "--exact", "--id", $PackageID -Wait -PassThru -NoNewWindow -ErrorAction Stop
+    if ($listProcess.ExitCode -ne 0) {
+    # It failed OR the package wasn't found (ExitCode 1 typically means not found)
         Write-ColorText "{Yellow}Package '$PackageID' not found or 'winget list' failed. Proceeding with install attempt..."
         $_packageExists = $false
     } else {
-        # Package exists
-        Write-ColorText "{Green}Package '$PackageID' found."
+         # Package exists
+         Write-ColorText "{Green}Package '$PackageID' found."
         $_packageExists = $true
     }
 
@@ -170,25 +168,23 @@ function Install-WinGetApp {
 
         # Add source argument
         if ($Source -eq "msstore") {
-            $wingetProcessArgs += "--source", "msstore"
+        # Keep the package agreement here as it's specific to msstore
+        $wingetProcessArgs += "--source", "msstore", "--accept-package-agreements" 
+        Write-Verbose "Adding --accept-package-agreements for $PackageID (MS Store)"
         } else {
-            # Default to winget source if not specified or not msstore
-            $wingetProcessArgs += "--source", "winget"
+        # Only add the source name for the winget repository
+        $wingetProcessArgs += "--source", "winget"     
         }
 
         # Ensure required arguments for silent install are present
         if (!($wingetProcessArgs -contains "--accept-package-agreements")) {
-            $wingetProcessArgs += "--accept-package-agreements"
-            Write-Verbose "Adding --accept-package-agreements for $PackageID"
+        $wingetProcessArgs += "--accept-package-agreements"
+        Write-Verbose "Adding --accept-package-agreements for $PackageID"
         }
+
         if (!($wingetProcessArgs -contains "--accept-source-agreements")) {
-            $wingetProcessArgs += "--accept-source-agreements"
-             Write-Verbose "Adding --accept-source-agreements for $PackageID"
-        }
-        # Double-check for --silent, although it should be in your AppList.json
-        if (!($wingetProcessArgs -contains "--silent")) {
-             Write-Warning "The --silent argument seems missing for $PackageID. Installation might require user interaction."
-             # Consider forcing it if necessary: $wingetProcessArgs += "--silent"
+        $wingetProcessArgs += "--accept-source-agreements" 
+        Write-Verbose "Adding --accept-source-agreements for $PackageID"
         }
 
         $commandStringForDisplay = "winget $($wingetProcessArgs -join ' ')"
@@ -343,7 +339,7 @@ if ($wingetInstall -eq $True) {
             Write-ColorText "{Green}WinGet (App Installer) installed successfully."
             
         } catch {
-            #  FATAL FAILURE EXIT 
+            # Failure and Exit
             Write-Error "Failed to install App Installer (WinGet). Package installation cannot proceed."
             Write-Host "Error Details: $($_.Exception.Message)"
             Write-Host "Exiting script due to WinGet failure."
@@ -352,6 +348,14 @@ if ($wingetInstall -eq $True) {
     }
 
     
+    # Add a delay to allow the App Execution Alias to stabilize
+    Write-Host "Waiting a few seconds for WinGet background services to start..."
+    Start-Sleep -Seconds 5 
+
+    # The WinGet client may be too new and needs a source refresh/init 
+    Write-Host "Forcing an initial WinGet source refresh..."
+    # Use an explicit reset/update combination for robustness
+    winget source reset --force
     winget source update
 
     # Download packages from WinGet
