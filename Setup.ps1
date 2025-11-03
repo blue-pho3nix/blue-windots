@@ -777,14 +777,14 @@ try {
     # Define the command that yasbc would run
     $Action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument '-NoProfile -NonInteractive -Command "yasbc start"'
 
-    # 5. Register/create the task
+    # Register/create the task
     Register-ScheduledTask -TaskName $TaskName `
         -TaskPath $TaskPath `
         -Principal $Principal `
         -Action $Action `
         -Trigger $Trigger `
             
-    Write-Host "Scheduled Task '$TaskName' successfully created."
+    Write-ColorText "{Green}Scheduled Task '$TaskName' successfully created."
     
 } catch {
     Write-Error "Failed to configure YASB autostart: $($_.Exception.Message)"
@@ -798,7 +798,7 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
         komorebic enable-autostart --ahk
         Write-Host "Waiting 10 seconds for Komorebi..."
         Start-Sleep -Seconds 10
-        Write-Host "Komorerbi autostart successfully started."
+        Write-ColorText "{Green}Komorerbi autostart successfully started."
     } catch {
         Write-Error "Failed to enable Komorebi autostart: $_"
     } 
