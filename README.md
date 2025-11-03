@@ -127,10 +127,10 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
   - **Clink** (Disables the Clink banner/logo).
   
   **Other:**
-  - **copies over config files** (Copies dotfiles from `config\home` to `$env:USERPROFILE`).
-  - **copies over theme assets** (Copies files from `config\theme` to `C:\Windows\Resources\Themes`).
-  - **toggles off clock in taskbar** (Hides the taskbar clock).
-  - **Sets** the Long Paths Enabled registry key for Komorebi.
+  - **Copies over config files** (Copies dotfiles from `config\home` to `$env:USERPROFILE`).
+  - **Copies over theme assets** (Copies files from `config\theme` to `C:\Windows\Resources\Themes`).
+  - **Toggles off clock in taskbar** (Hides the taskbar clock).
+  - **Sets the Long Paths Enabled registry key** (For Komorebi).
 </details>
 
 --- 
