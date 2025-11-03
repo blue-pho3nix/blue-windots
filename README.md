@@ -146,9 +146,9 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 #### 3. `cd` into the `blue-dots` directory.
 #### 4. Run `Setup.ps1`.
 > [!NOTE]
-> You may need to accept msstore agreements. The default msstore source includes packages in the Microsoft Store.<br>
-> You don't need to refresh cache for Windhawk Resource Redirect. <br>
-> After the install, make sure to reboot.
+> 1. You may need to accept msstore agreements. The default msstore source includes packages in the Microsoft Store.<br>
+> 2. You don't need to refresh cache for Windhawk Resource Redirect. <br>
+> 3. After the install, make sure to reboot.
 ```
 .\Setup.ps1
 ```
