@@ -161,24 +161,20 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 <details closed>
   <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> 🖱️ </summary>
   
-   1. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
-   ```
-   git clone https://github.com/blue-pho3nix/blue-windots.git
-   ```
-   2. Right click blue-windots\cursors\install.inf.
+   1. Right click blue-windots\cursors\install.inf.
     
   ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
   
-  3. Press `win + R` and enter `main.cpl`.
+  2. Press `win + R` and enter `main.cpl`.
   
   ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
   
-  4. Goto `Pointers`.
-  5. Select `Catppuccin-Mocha-Lavender-Cursors`
+  3. Goto `Pointers`.
+  4. Select `Catppuccin-Mocha-Lavender-Cursors`
   
   ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
   
-  6. Click `Apply` and `OK`.
+  5. Click `Apply` and `OK`.
 
 </details>
 
