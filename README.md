@@ -110,6 +110,8 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
   - **[yasb](https://github.com/amnweb/yasb)** (Status bar at the top of the screen).
   - **[OhMyPosh](https://ohmyposh.dev/)** (Just installed to make nerd font installation easier).  
   - **[0xProto Nerd Font](https://www.programmingfonts.org/#oxproto)** (Used in the terminal and yasb).
+  - **[Git](https://git-scm.com/install/windows)** (Used by Scoop)
+  - **[Scoop](https://scoop.sh/)** (Puts AutoHotKey on PATH)
   - **[AutoHotkey](https://www.autohotkey.com/)** (Makes it possible to use the windown key in hotkeys).
   - **[Clink](https://chrisant996.github.io/clink/clink.html)** (Makes it easy to use Starship in Command Prompt)
   - **[Starship](https://starship.rs/)** (Makes your terminal pretty)
