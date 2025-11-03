@@ -762,28 +762,22 @@ $TaskName = "YASB Reborn"
 $TaskPath = "\" 
     
 try {
-    # 1. CLEANUP: Remove the potentially corrupted existing task.
+    # Remove the potentially corrupted existing task.
     Write-Host "Cleaning up existing task before re-registration..."
     Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue 
 
-    # 2. DEFINE THE PRINCIPAL (The "Run As" Group for interactive sessions)
+    # The "Run As" Group for interactive sessions
     $Principal = New-ScheduledTaskPrincipal -GroupId "BUILTIN\Users" -RunLevel Limited
-
-    # 3. DEFINE THE TRIGGER (At Log On + 30-second delay)
-    # CRITICAL FIX: Use -RandomDelay or -ExecutionTimeLimit directly on the trigger.
-    # The simplest fix is to use the dedicated trigger parameter: -RandomDelay or set the delay on the object.
-    
-    # We will define the time span first, and use it in the trigger
-    $DelayTimeSpan = New-TimeSpan -Seconds 30
-    
+   
     # Define the trigger with the delay using the dedicated cmdlet parameter (most compatible)
+    $DelayTimeSpan = New-TimeSpan -Seconds 30
     $Trigger = New-ScheduledTaskTrigger -AtLogOn -RandomDelay $DelayTimeSpan
     Write-Host "30-second delay set on the 'At log on' trigger."
     
-    # 4. DEFINE THE ACTION (The command that yasbc would run)
+    # Define the command that yasbc would run
     $Action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument '-NoProfile -NonInteractive -Command "yasbc start"'
 
-    # 5. REGISTER/CREATE THE TASK 
+    # 5. Register/create the task
     Register-ScheduledTask -TaskName $TaskName `
         -TaskPath $TaskPath `
         -Principal $Principal `
@@ -804,6 +798,7 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
         komorebic enable-autostart --ahk
         Write-Host "Waiting 10 seconds for Komorebi..."
         Start-Sleep -Seconds 10
+        Write-Host "Komorerbi autostart successfully started."
     } catch {
         Write-Error "Failed to enable Komorebi autostart: $_"
     } 
@@ -818,5 +813,4 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
 ########################################################################
 
 Set-Location $currentLocation
-
 Write-TitleBox -Title "SETUP COMPLETE! RESTART REQUIRED."
