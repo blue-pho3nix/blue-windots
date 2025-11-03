@@ -793,7 +793,7 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
         Write-Host "30-second delay set on the 'At log on' trigger."
     
         # Define the command that yasbc would run
-        $Action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument '-NoProfile -NonInteractive -Command "yasbc start"'
+        $Action = New-ScheduledTaskAction -Execute "yasb.exe"
 
         # Register/create the task
         Register-ScheduledTask -TaskName $TaskName `
