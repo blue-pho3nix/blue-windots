@@ -756,38 +756,40 @@ Write-TitleBox "Komorebi & Yasb Engines"
 
 # YASB
 # Check if the yasbc command is available
-# YASB Block - Start
-
-$TaskName = "YASB Reborn"
-$TaskPath = "\" 
+if (Get-Command yasbc -ErrorAction SilentlyContinue) {
+    Write-Host "Creating autostart task for yasb..."
+    $TaskName = "YASB Reborn"
+    $TaskPath = "\" 
     
-try {
-    # Remove the potentially corrupted existing task.
-    Write-Host "Cleaning up existing task before re-registration..."
-    Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue 
+    try {
+        # Remove the potentially corrupted existing task.
+        Write-Host "Cleaning up existing task before re-registration..."
+        Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue 
 
-    # The "Run As" Group for interactive sessions
-    $Principal = New-ScheduledTaskPrincipal -GroupId "BUILTIN\Users" -RunLevel Limited
+        # The "Run As" Group for interactive sessions
+        $Principal = New-ScheduledTaskPrincipal -GroupId "BUILTIN\Users" -RunLevel Limited
    
-    # Define the trigger with the delay using the dedicated cmdlet parameter (most compatible)
-    $DelayTimeSpan = New-TimeSpan -Seconds 30
-    $Trigger = New-ScheduledTaskTrigger -AtLogOn -RandomDelay $DelayTimeSpan
-    Write-Host "30-second delay set on the 'At log on' trigger."
+        # Define the trigger with the delay using the dedicated cmdlet parameter (most compatible)
+        $DelayTimeSpan = New-TimeSpan -Seconds 30
+        $Trigger = New-ScheduledTaskTrigger -AtLogOn -RandomDelay $DelayTimeSpan
+        Write-Host "30-second delay set on the 'At log on' trigger."
     
-    # Define the command that yasbc would run
-    $Action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument '-NoProfile -NonInteractive -Command "yasbc start"'
+        # Define the command that yasbc would run
+        $Action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument '-NoProfile -NonInteractive -Command "yasbc start"'
 
-    # Register/create the task
-    Register-ScheduledTask -TaskName $TaskName `
-        -TaskPath $TaskPath `
-        -Principal $Principal `
-        -Action $Action `
-        -Trigger $Trigger `
+        # Register/create the task
+        Register-ScheduledTask -TaskName $TaskName `
+            -TaskPath $TaskPath `
+            -Principal $Principal `
+            -Action $Action `
+            -Trigger $Trigger `
             
-    Write-ColorText "{Green}Scheduled Task '$TaskName' successfully created."
-    
-} catch {
-    Write-Error "Failed to configure YASB autostart: $($_.Exception.Message)"
+        Write-ColorText "{Green}Scheduled Task '$TaskName' successfully created."
+    } catch {
+        Write-Error "Failed to configure YASB autostart: $($_.Exception.Message)"
+    }
+} else {
+    Write-Warning "komorebic command not found. Please install komorebi"
 }
 
 # KOMOREBI 
