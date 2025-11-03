@@ -67,21 +67,21 @@ function Write-TitleBox {
     # Total width = Title length + Left padding + Right padding + 2 (for the border chars)
     $BoxWidth = $TitleLength + ($HorizontalPadding * 2) + 2
 
-    # --- Title Line Construction ---
+    # Title Line Construction
     # Smart Padding: If HorizontalPadding is odd, the extra space goes to the right side
     $LeftPaddingSpaces = " " * $HorizontalPadding
     $RightPaddingSpaces = " " * $HorizontalPadding
 
     $TitleLine = "$BorderChar$LeftPaddingSpaces$TitleText$RightPaddingSpaces$BorderChar"
 
-    # --- Border and Vertical Padding Line Construction ---
+    # Border and Vertical Padding Line Construction
     $BorderLine = $BorderChar * $BoxWidth
     
     # Vertical Padding Line: BorderChar + spaces + BorderChar
     $InternalSpaces = " " * ($BoxWidth - 2)
     $PaddingLine = "$BorderChar$InternalSpaces$BorderChar"
 
-    # --- Output ---
+    # Output
     
     # Top Border
     Write-Host ""
@@ -131,41 +131,6 @@ function Write-ColorText {
 }
 
 
-function Write-EndText {
-    param (
-        [string]$Message = "Operation Complete",
-        [string]$UnderlineChar = "=",
-        [int]$HorizontalPadding = 5,
-        [ConsoleColor]$MessageColor = 'Cyan',
-        [ConsoleColor]$UnderlineColor = 'DarkGray'
-    )
-
-    $MessageText = $Message.ToUpper()
-    $MessageLength = $MessageText.Length
-    
-    # Calculate the total width based on the message and padding
-    $BoxWidth = $MessageLength + ($HorizontalPadding * 2)
-    
-    # Create the underline based on the calculated width
-    $Underline = $UnderlineChar * $BoxWidth
-    
-    # Create the left and right padding spaces
-    $PaddingSpaces = " " * $HorizontalPadding
-    
-    # Output 
-    
-    Write-Host ""
-    
-    # Print the centered message with padding in the specified color
-    Write-Host -NoNewline "$PaddingSpaces"
-    Write-Host -NoNewline "$MessageText" -ForegroundColor $MessageColor
-    Write-Host "$PaddingSpaces"
-    
-    # Print the underline in the specified color
-    Write-Host $Underline -ForegroundColor $UnderlineColor
-    
-    Write-Host ""
-}
 
 
 function Install-WinGetApp {
@@ -333,21 +298,60 @@ $wingetArgs = $wingetItem.additionalArgs
 $wingetInstall = $wingetItem.autoInstall
 
 if ($wingetInstall -eq $True) {
-    # Ensure App Installer (includes WinGet) is installed
-    $appInstaller = Get-AppxPackage -Name Microsoft.DesktopAppInstaller -AllUsers -ErrorAction SilentlyContinue
-    if (-not $appInstaller) {
-        Write-Host "Installing or updating App Installer (includes WinGet)..."
-        $wingetBundle = "$env:TEMP\AppInstaller.appxbundle"
-        Invoke-WebRequest -Uri "https://aka.ms/getwinget" -OutFile $wingetBundle -UseBasicParsing
-        Add-AppxPackage -Path $wingetBundle
+    # Check 1: Does the 'winget' command exist?
+    if (Get-Command winget -ErrorAction SilentlyContinue) {
+        Write-ColorText "{Green}WinGet is already installed and available. Skipping update/install."
+        # Exit the WinGet setup block entirely since it's already there
+        # We still run Refresh later, but no installation is needed.
     } else {
-        Write-Host "WinGet (App Installer) already installed or up to date."
+        Write-TitleBox -Title "Installing WinGet" -BorderColor 'Yellow'
+        Write-Host "WinGet not found. Proceeding with installation/update..."
+        
+        # Define file paths and URI
+        $wingetUri = "https://aka.ms/getwinget"
+        $wingetBundle = "$env:TEMP\AppInstaller.appxbundle"
+
+        try {
+            # 1. Download the latest bundle 
+            Write-Host "Downloading latest App Installer bundle..."
+            Invoke-WebRequest -Uri $wingetUri -OutFile $wingetBundle -UseBasicParsing -ErrorAction Stop
+
+            # 2. UNBLOCK THE FILE 
+            Write-Host "Unblocking downloaded file security tag..."
+            Unblock-File -Path $wingetBundle -ErrorAction SilentlyContinue
+
+            # 3. CHECK & INSTALL VCLibs DEPENDENCY (Critical for side-loaded App Installer)
+            Write-Host "Ensuring Microsoft VCLibs runtime dependency is installed..."
+            $VCLibsPackageName = "Microsoft.VCLibs.140.00"
+            
+            if (-not (Get-AppxPackage -Name $VCLibsPackageName -AllUsers -ErrorAction SilentlyContinue)) {
+                Write-Warning "VCLibs Runtime not found. Attempting to install required dependency..."
+                $VCLibsUri = "https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx"
+                $VCLibsBundle = "$env:TEMP\VCLibs.appx"
+                
+                Invoke-WebRequest -Uri $VCLibsUri -OutFile $VCLibsBundle -UseBasicParsing -ErrorAction Stop
+                Unblock-File -Path $VCLibsBundle -ErrorAction SilentlyContinue
+                
+                Add-AppxPackage -Path $VCLibsBundle -ErrorAction Stop
+                Write-Host "VCLibs Runtime installed successfully."
+            }
+            
+            # 4. Apply the App Installer bundle 
+            Write-Host "Installing App Installer..."
+            Add-AppxPackage -Path $wingetBundle -ErrorAction Stop
+            
+            Write-ColorText "{Green}WinGet (App Installer) installed successfully."
+            
+        } catch {
+            # --- FATAL FAILURE EXIT ---
+            Write-Error "🔴 FATAL: Failed to install App Installer (WinGet). Package installation cannot proceed."
+            Write-Host "Error Details: $($_.Exception.Message)"
+            Write-Host "Exiting script due to WinGet failure."
+            exit 1
+        }
     }
 
-    # Verify WinGet command
-    if (!(Get-Command winget -ErrorAction SilentlyContinue)) {
-        Write-Warning "WinGet not found in PATH. A logoff or reboot might be required."
-    }
+    
     # Download packages from WinGet
     foreach ($pkg in $wingetPkgs) {
         $pkgId = $pkg.packageId
@@ -359,6 +363,9 @@ if ($wingetInstall -eq $True) {
         }
     }
 }
+  
+    
+  
 
 Refresh ($i++)
 
@@ -369,14 +376,20 @@ Refresh ($i++)
 
 Write-TitleBox -Title "Scoop Pacakages Installation"
 
-# Check if Scoop is installed
+#  Check for if scoop is installed
 if (!(Get-Command scoop -ErrorAction SilentlyContinue)) {
-    Write-ColorText "{Cyan}Scoop not found. Installing Scoop..."
-    # Run the installer and let all output show
-    iex "& { $(iwr 'https://get.scoop.sh') } -RunAsAdmin"
+    Write-ColorText "{Red}The 'scoop' command was not found."
+    Write-Host "Please install Scoop manually by running the following command in a NON-ADMIN PowerShell terminal:"
+    Write-ColorText "{Yellow}Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser; Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression"
+    Write-Host ""
+    Write-Host "Exiting script. Please install Scoop and re-run."
+    exit 1
+} else {
+    Write-ColorText "{Green}Scoop is already installed."
 }
 
-# Add Scoop shims to PATH immediately
+
+# Add Scoop shims to PATH
 $ScoopShims = "$env:USERPROFILE\scoop\shims"
 if (-not ($env:PATH -like "*$ScoopShims*")) {
     $env:PATH += ";$ScoopShims"
@@ -433,182 +446,6 @@ else {
     Write-ColorText "{Yellow}Please ensure Oh My Posh is installed and accessible."
     Write-ColorText "{Gray}Skipping Nerd Font installation..." 
 }
-
-
-
-########################################################################
-###            Toggle OFF Time and Date in System Tray               ###
-########################################################################
-
-Write-TitleBox -Title "Toggle OFF Time/Date in System Tray"
-
-# Path to the Advanced Explorer key
-$regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" 
-$regValueName = "ShowSystrayDateTimeValueName"
-
-Write-ColorText "{Cyan}Setting registry key to hide clock in system tray..."
-
-try {
-    # Setting the value to 0 (False) hides the clock.
-    # Note: If this key does not exist, the system might default to showing the clock.
-    # We use -Force to create it if it doesn't exist.
-    Set-ItemProperty -Path $regPath -Name $regValueName -Value 0 -Type DWord -Force -ErrorAction Stop
-    Write-ColorText "{Green}Clock is now hidden in the System Tray."
-
-} catch {
-    Write-Error "Failed to hide system tray clock: $($_.Exception.Message)"
-}
-
-# Write-Host "Restarting Windows Explorer to reload theme..."
-taskkill /f /im explorer.exe; Start-Process explorer.exe
-
-Refresh ($i++)
-
-
-########################################################################
-###                          Copy Files                              ###
-########################################################################
-
-Write-TitleBox -Title "Copy Dotfiles and Theme Assets"
-
-# Copy dotfiles to user profile (Original)
-$sourceHome = "$PSScriptRoot\config\home"
-$destinationHome = "$env:USERPROFILE"
-
-Write-ColorText "{Blue}[copy] {Green}Copying dotfiles from $sourceHome... {Yellow}to {Gray}$destinationHome"
-
-if (Test-Path $sourceHome) {
-    # The \* copies the *contents* of the source folder
-    Copy-Item -Path "$sourceHome\*" -Destination $destinationHome -Recurse -Force -ErrorAction SilentlyContinue
-    Write-ColorText "{Green}Dotfiles copied successfully."
-} else {
-    Write-ColorText "{Red}Warning: Source directory not found for dotfiles: {Gray}$sourceHome"
-}
-
-
-# Copy Theme Files to Windows Resources
-$sourceTheme = "$PSScriptRoot\config\theme\"
-$destinationTheme = "C:\Windows\Resources\Themes\"
-
-Write-ColorText "{Blue}[copy] {Green}Copying theme files from $sourceTheme... {Yellow}to {Gray}$destinationTheme"
-
-if (Test-Path $sourceTheme) {
-    # Copying theme files and supporting folders
-    Copy-Item -Path "$sourceTheme\*" -Destination $destinationTheme -Recurse -Force -ErrorAction SilentlyContinue
-    Write-ColorText "{Green}Theme files copied successfully."
-} else {
-    Write-ColorText "{Red}Warning: Source directory not found for themes: {Gray}$sourceTheme"
-}
-
-Start-Sleep -Seconds 5
-
-
-########################################################################
-###                          Theme Setup                             ###
-########################################################################
-
-Write-TitleBox -Title "Theme Setup"
-Write-ColorText "{yellow}The Screen may flash."
-Write-ColorText "{yellow}This may take some time..."
-Start-Sleep -Seconds 2
-
-# Define Theme File Path 
-$themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
-
-Write-Host "Unblocking theme file security tag..."
-# Unblock-File removes the 'Mark-of-the-Web' security tag
-Unblock-File -Path $themeFile
-
-Write-Host "Silently applying theme..."
-# Launch the theme application process silently, which should now run without a prompt
-Start-Process -FilePath $themeFile -WindowStyle Hidden -Wait
-
-# Write-Host "Restarting Windows Explorer to reload theme..."
-taskkill /f /im explorer.exe; Start-Process explorer.exe
-
-Refresh ($i++)
-
-
-########################################################################
-###                        Clink Configuration                       ###
-########################################################################
-
-Write-TitleBox -Title "Clink Configuration"
-
-# Disable Clink banner/logo
-Write-ColorText "{Cyan}Disabling Clink banner..."
-# Full path to Clink executable
-$clinkExe = "C:\Program Files (x86)\clink\clink_x64.exe"
-
-# Check if the executable exists
-if (Test-Path $clinkExe) {
-    & $clinkExe set clink.logo none
-    Write-ColorText "{Green}Clink banner disabled."
-} else {
-    Write-ColorText "{Yellow}Clink executable not found at $clinkExe. Skipping banner disable."
-}
-
-Refresh ($i++)
-
-
-########################################################################
-###                       Environment Variables                      ###
-########################################################################
-
-Write-TitleBox -Title "Set Environment Variables"
-$envVars = $json.environmentVariable
-foreach ($env in $envVars) {
-    $envCommand = $env.commandName
-    $envKey = $env.environmentKey
-    $envValue = $env.environmentValue
-    if (Get-Command $envCommand -ErrorAction SilentlyContinue) {
-        if (![System.Environment]::GetEnvironmentVariable("$envKey")) {
-            Write-Verbose "Set environment variable of $envCommand`: $envKey -> $envValue"
-            try {
-                [System.Environment]::SetEnvironmentVariable("$envKey", "$envValue", "User")
-                Write-ColorText "{Blue}[environment] {Green}(added) {Magenta}$envKey {Yellow}--> {Gray}$envValue"
-            } catch {
-                Write-Error -ErrorAction Stop "An error occurred: $_"
-            }
-        } else {
-            $value = [System.Environment]::GetEnvironmentVariable("$envKey")
-            Write-ColorText "{Blue}[environment] {Yellow}(exists) {Magenta}$envKey {Yellow}--> {Gray}$value"
-        }
-    }
-}
-
-Refresh ($i++)
-
-
-########################################################################
-###                         Starship Setup                           ###
-########################################################################
-
-Write-TitleBox "Starship Setup"
-
-Write-ColorText "{Cyan}Configuring Starship for PowerShell..."
-
-# The line to add
-$initLine = 'Invoke-Expression (&starship init powershell)'
-
-# Get current user's PowerShell profile path
-$profilePath = $PROFILE
-
-# Make sure the profile file exists
-if (!(Test-Path -Path $profilePath)) {
-    Write-ColorText "{Yellow}Profile not found, creating: $profilePath"
-    New-Item -ItemType File -Path $profilePath -Force | Out-Null
-}
-
-# Add Starship initialization (avoid duplicates)
-if (-not (Select-String -Path $profilePath -Pattern 'starship init powershell' -Quiet)) {
-    Add-Content -Path $profilePath -Value "`n# >>> Starship Initialization >>>`n$initLine`n# <<< Starship Initialization <<<`n"
-    Write-ColorText "{Green}Starship initialization added to: $profilePath"
-} else {
-    Write-ColorText "{Yellow}Starship already configured in: $profilePath"
-}
-
-Write-ColorText "{Cyan}Starship setup complete."
 
 
 ########################################################################
@@ -734,10 +571,189 @@ foreach ($Mod in $ModConfigurations) {
 }
 
 Write-Host "All specified Winhawk mods have been configured."
-Write-ColorText "{yellow}Reopen File Explorer to see the changes..."
 
 Refresh ($i++)
 
+
+
+########################################################################
+###            Toggle OFF Time and Date in System Tray               ###
+########################################################################
+
+Write-TitleBox -Title "Toggle OFF Time/Date in System Tray"
+
+# Path to the Advanced Explorer key
+$regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" 
+$regValueName = "ShowSystrayDateTimeValueName"
+
+Write-ColorText "{Cyan}Setting registry key to hide clock in system tray..."
+
+try {
+    # Setting the value to 0 (False) hides the clock.
+    # Note: If this key does not exist, the system might default to showing the clock.
+    # We use -Force to create it if it doesn't exist.
+    Set-ItemProperty -Path $regPath -Name $regValueName -Value 0 -Type DWord -Force -ErrorAction Stop
+    Write-ColorText "{Green}Clock is now hidden in the System Tray."
+
+} catch {
+    Write-Error "Failed to hide system tray clock: $($_.Exception.Message)"
+}
+
+# Write-Host "Restarting Windows Explorer to reload theme..."
+taskkill /f /im explorer.exe; Start-Process explorer.exe
+
+Refresh ($i++)
+
+
+########################################################################
+###                          Copy Files                              ###
+########################################################################
+
+Write-TitleBox -Title "Copy Dotfiles and Theme Assets"
+
+# Copy dotfiles to user profile (Original)
+$sourceHome = "$PSScriptRoot\config\home"
+$destinationHome = "$env:USERPROFILE"
+
+Write-ColorText "{Blue}[copy] {Green}Copying dotfiles from $sourceHome... {Yellow}to {Gray}$destinationHome"
+
+if (Test-Path $sourceHome) {
+    # The \* copies the *contents* of the source folder
+    Copy-Item -Path "$sourceHome\*" -Destination $destinationHome -Recurse -Force -ErrorAction SilentlyContinue
+    Write-ColorText "{Green}Dotfiles copied successfully."
+} else {
+    Write-ColorText "{Red}Warning: Source directory not found for dotfiles: {Gray}$sourceHome"
+}
+
+
+# Copy Theme Files to Windows Resources
+$sourceTheme = "$PSScriptRoot\config\theme\"
+$destinationTheme = "C:\Windows\Resources\Themes\"
+
+Write-ColorText "{Blue}[copy] {Green}Copying theme files from $sourceTheme... {Yellow}to {Gray}$destinationTheme"
+
+if (Test-Path $sourceTheme) {
+    # Copying theme files and supporting folders
+    Copy-Item -Path "$sourceTheme\*" -Destination $destinationTheme -Recurse -Force -ErrorAction SilentlyContinue
+    Write-ColorText "{Green}Theme files copied successfully."
+} else {
+    Write-ColorText "{Red}Warning: Source directory not found for themes: {Gray}$sourceTheme"
+}
+
+Start-Sleep -Seconds 5
+
+
+
+########################################################################
+###                        Clink Configuration                       ###
+########################################################################
+
+Write-TitleBox -Title "Clink Configuration"
+
+# Disable Clink banner/logo
+Write-ColorText "{Cyan}Disabling Clink banner..."
+# Full path to Clink executable
+$clinkExe = "C:\Program Files (x86)\clink\clink_x64.exe"
+
+# Check if the executable exists
+if (Test-Path $clinkExe) {
+    & $clinkExe set clink.logo none
+    Write-ColorText "{Green}Clink banner disabled."
+} else {
+    Write-ColorText "{Yellow}Clink executable not found at $clinkExe. Skipping banner disable."
+}
+
+Refresh ($i++)
+
+
+########################################################################
+###                       Environment Variables                      ###
+########################################################################
+
+Write-TitleBox -Title "Set Environment Variables"
+$envVars = $json.environmentVariable
+foreach ($env in $envVars) {
+    $envCommand = $env.commandName
+    $envKey = $env.environmentKey
+    $envValue = $env.environmentValue
+    if (Get-Command $envCommand -ErrorAction SilentlyContinue) {
+        if (![System.Environment]::GetEnvironmentVariable("$envKey")) {
+            Write-Verbose "Set environment variable of $envCommand`: $envKey -> $envValue"
+            try {
+                [System.Environment]::SetEnvironmentVariable("$envKey", "$envValue", "User")
+                Write-ColorText "{Blue}[environment] {Green}(added) {Magenta}$envKey {Yellow}--> {Gray}$envValue"
+            } catch {
+                Write-Error -ErrorAction Stop "An error occurred: $_"
+            }
+        } else {
+            $value = [System.Environment]::GetEnvironmentVariable("$envKey")
+            Write-ColorText "{Blue}[environment] {Yellow}(exists) {Magenta}$envKey {Yellow}--> {Gray}$value"
+        }
+    }
+}
+
+Refresh ($i++)
+
+
+########################################################################
+###                         Starship Setup                           ###
+########################################################################
+
+Write-TitleBox "Starship Setup"
+
+Write-ColorText "{Cyan}Configuring Starship for PowerShell..."
+
+# The line to add
+$initLine = 'Invoke-Expression (&starship init powershell)'
+
+# Get current user's PowerShell profile path
+$profilePath = $PROFILE
+
+# Make sure the profile file exists
+if (!(Test-Path -Path $profilePath)) {
+    Write-ColorText "{Yellow}Profile not found, creating: $profilePath"
+    New-Item -ItemType File -Path $profilePath -Force | Out-Null
+}
+
+# Add Starship initialization (avoid duplicates)
+if (-not (Select-String -Path $profilePath -Pattern 'starship init powershell' -Quiet)) {
+    Add-Content -Path $profilePath -Value "`n# >>> Starship Initialization >>>`n$initLine`n# <<< Starship Initialization <<<`n"
+    Write-ColorText "{Green}Starship initialization added to: $profilePath"
+} else {
+    Write-ColorText "{Yellow}Starship already configured in: $profilePath"
+}
+
+Write-ColorText "{Cyan}Starship setup complete."
+
+########################################################################
+###             Theme Setup (Revised)                                ###
+########################################################################
+
+Write-TitleBox -Title "Theme Setup"
+Write-ColorText "{yellow}Applying Theme..."
+Start-Sleep -Seconds 2
+
+# Define Theme File Path 
+$themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
+
+Write-Host "Unblocking theme file security tag..."
+# Unblock-File removes the 'Mark-of-the-Web' security tag
+Unblock-File -Path $themeFile -ErrorAction SilentlyContinue
+
+Write-Host "Silently applying theme..."
+# Launch the theme application process. We remove -Wait as it can be unreliable.
+Start-Process -FilePath $themeFile -WindowStyle Hidden
+
+# Give the theme process a moment to execute
+Write-Host "Waiting 5 seconds for the theme to start applying..."
+Start-Sleep -Seconds 5 
+
+# Force a final Explorer restart to make Windows load the newly applied theme
+# This is often the final kick needed for third-party themes to take effect.
+Write-Host "Restarting Windows Explorer to finalize theme application..."
+taskkill /f /im explorer.exe; Start-Process explorer.exe
+
+Refresh ($i++)
 
 ########################################################################
 ###                       Start Komorebi + Yasb                      ###
@@ -749,15 +765,7 @@ Write-TitleBox "Komorebi & Yasb Engines"
 # Check if the yasbc command is available
 if (Get-Command yasbc -ErrorAction SilentlyContinue) {
 
-    # Start it for the current session if it is not running
-    if (!(Get-Process -Name yasb -ErrorAction SilentlyContinue)) {
-        Write-Host "Starting YASB for current session..."
-        try { yasbc start } catch { Write-Error "Failed to start YASB for current session: $_" }
-    } else {
-        Write-ColorText "{Green}YASB is already running."
-    }
-    
-    # 2. Check/Create autostart
+    # Check/Create autostart
     if (!(Get-ScheduledTask -TaskName "yasb-autostart" -ErrorAction SilentlyContinue)) {
         Write-Host "Creating autostart task for YASB..."
         try {
@@ -779,20 +787,6 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
 # KOMOREBI 
 # Check if 'komorebic' command is available first
 if (Get-Command komorebic -ErrorAction SilentlyContinue) {
-
-    # Start Komorebi, but only if it's not already running
-    if (!(Get-Process -Name komorebi -ErrorAction SilentlyContinue)) {
-        Write-Host "Starting Komorebi..."
-        try {
-            komorebic start --ahk
-            Write-ColorText "{Green}Komorebi started."
-        } catch {
-            Write-Error "Failed to start Komorebi: $_"
-        }
-    } else {
-        # Komorebi is already running
-        Write-ColorText "{Green}Komorebi is already running." 
-    }
 
     # Set up autostart using the built-in command
     if (!(Get-ScheduledTask -TaskName "komorebi-autostart" -ErrorAction SilentlyContinue)) {
@@ -819,4 +813,4 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
 Set-Location $currentLocation
 Start-Sleep -Seconds 15
 
-Write-EndText -Message "Great work... It's done!" -UnderlineChar "─" -MessageColor Yellow
+Write-TitleBox -Title "SETUP COMPLETE! RESTART REQUIRED."
