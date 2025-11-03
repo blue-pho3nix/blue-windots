@@ -143,7 +143,8 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 ```
 #### 3. `cd` into the `blue-dots` directory.
 #### 4. Run `Setup.ps1`.
-
+> [!NOTE]
+> If winget hangs for a while stop the script and restart it.
 ```
 .\Setup.ps1
 ```
