@@ -568,7 +568,8 @@ foreach ($Mod in $ModConfigurations) {
     Set-ItemProperty -Path $ModRegistryPath -Name 'SettingsChangeTime' -Value $CurrentTicks -Type QWord -Force
 }
 
-Write-Host "All specified Winhawk mods have been configured."
+Write-Host "Waiting 10 seconds for the Windhawk to finish configurations..."
+Start-Sleep -Seconds 10 
 
 Refresh ($i++)
 
@@ -596,9 +597,6 @@ try {
 } catch {
     Write-Error "Failed to hide system tray clock: $($_.Exception.Message)"
 }
-
-# Write-Host "Restarting Windows Explorer..."
-taskkill /f /im explorer.exe; Start-Process explorer.exe
 
 Refresh ($i++)
 
@@ -641,6 +639,31 @@ if (Test-Path $sourceTheme) {
 
 Start-Sleep -Seconds 5
 
+
+########################################################################
+###                     Theme Setup                                  ###
+########################################################################
+
+Write-TitleBox -Title "Theme Setup"
+Write-ColorText "{yellow}Applying Theme..."
+Start-Sleep -Seconds 2
+
+# Define Theme File Path 
+$themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
+
+Write-Host "Unblocking theme file security tag..."
+# Unblock-File removes the 'Mark-of-the-Web' security tag
+Unblock-File -Path $themeFile -ErrorAction SilentlyContinue
+
+Write-Host "Silently applying theme..."
+# Launch the theme application process. We remove -Wait as it can be unreliable.
+Start-Process -FilePath $themeFile -WindowStyle Hidden
+
+# Give the theme process a moment to execute
+Write-Host "Waiting 10 seconds for the theme to start applying..."
+Start-Sleep -Seconds 10 
+
+Refresh ($i++)
 
 
 ########################################################################
@@ -726,32 +749,6 @@ Write-ColorText "{Cyan}Starship setup complete."
 
 
 ########################################################################
-###                     Theme Setup                                  ###
-########################################################################
-
-Write-TitleBox -Title "Theme Setup"
-Write-ColorText "{yellow}Applying Theme..."
-Start-Sleep -Seconds 2
-
-# Define Theme File Path 
-$themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
-
-Write-Host "Unblocking theme file security tag..."
-# Unblock-File removes the 'Mark-of-the-Web' security tag
-Unblock-File -Path $themeFile -ErrorAction SilentlyContinue
-
-Write-Host "Silently applying theme..."
-# Launch the theme application process. We remove -Wait as it can be unreliable.
-Start-Process -FilePath $themeFile -WindowStyle Hidden
-
-# Give the theme process a moment to execute
-Write-Host "Waiting 10 seconds for the theme to start applying..."
-Start-Sleep -Seconds 10 
-
-Refresh ($i++)
-
-
-########################################################################
 ###                       Start Komorebi + Yasb                      ###
 ########################################################################
 
@@ -762,9 +759,10 @@ Write-TitleBox "Komorebi & Yasb Engines"
 if (Get-Command yasbc -ErrorAction SilentlyContinue) {
     Write-Host "Creating autostart task for YASB..."
     try {
-        # Use the official command to create the autostart scheduled task
+        # Use the official command to create the autostart scheduled task\
         yasbc enable-autostart --task
-        Write-ColorText "{Green}yasb autostart task created."
+        Write-Host "Waiting 5 seconds for yasb..."
+        Start-Sleep -Seconds 5
     } catch {
         Write-Error "Failed to enable YASB autostart: $_"
     }
@@ -779,13 +777,17 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
     Write-Host "Creating autostart task for Komorebi..."
     try {
         komorebic enable-autostart --ahk
-        Write-ColorText "{Green}Komorebi autostart task created."
+        Write-Host "Waiting 5 seconds for Komorebi..."
+        Start-Sleep -Seconds 5
     } catch {
         Write-Error "Failed to enable Komorebi autostart: $_"
     } 
 } else {
     Write-Warning "komorebic command not found. Please install komorebi"
 } 
+
+
+
 
 
 ########################################################################
