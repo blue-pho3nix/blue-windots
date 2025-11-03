@@ -304,7 +304,7 @@ if ($wingetInstall -eq $True) {
         # Exit the WinGet setup block entirely since it's already there
         # We still run Refresh later, but no installation is needed.
     } else {
-        Write-TitleBox -Title "Installing WinGet" -BorderColor 'Yellow'
+        Write-TitleBox -Title "Installing WinGet" -BorderColor 'Green'
         Write-Host "WinGet not found. Proceeding with installation/update..."
         
         # Define file paths and URI
@@ -312,15 +312,15 @@ if ($wingetInstall -eq $True) {
         $wingetBundle = "$env:TEMP\AppInstaller.appxbundle"
 
         try {
-            # 1. Download the latest bundle 
+            # Download the latest bundle 
             Write-Host "Downloading latest App Installer bundle..."
             Invoke-WebRequest -Uri $wingetUri -OutFile $wingetBundle -UseBasicParsing -ErrorAction Stop
 
-            # 2. UNBLOCK THE FILE 
+            # Unblock the file
             Write-Host "Unblocking downloaded file security tag..."
             Unblock-File -Path $wingetBundle -ErrorAction SilentlyContinue
 
-            # 3. CHECK & INSTALL VCLibs DEPENDENCY (Critical for side-loaded App Installer)
+            # Check and install VCLibs Dependency 
             Write-Host "Ensuring Microsoft VCLibs runtime dependency is installed..."
             $VCLibsPackageName = "Microsoft.VCLibs.140.00"
             
@@ -336,15 +336,15 @@ if ($wingetInstall -eq $True) {
                 Write-Host "VCLibs Runtime installed successfully."
             }
             
-            # 4. Apply the App Installer bundle 
+            # Apply the App Installer bundle 
             Write-Host "Installing App Installer..."
             Add-AppxPackage -Path $wingetBundle -ErrorAction Stop
             
             Write-ColorText "{Green}WinGet (App Installer) installed successfully."
             
         } catch {
-            # --- FATAL FAILURE EXIT ---
-            Write-Error "🔴 FATAL: Failed to install App Installer (WinGet). Package installation cannot proceed."
+            #  FATAL FAILURE EXIT 
+            Write-Error "Failed to install App Installer (WinGet). Package installation cannot proceed."
             Write-Host "Error Details: $($_.Exception.Message)"
             Write-Host "Exiting script due to WinGet failure."
             exit 1
@@ -364,8 +364,6 @@ if ($wingetInstall -eq $True) {
     }
 }
   
-    
-  
 
 Refresh ($i++)
 
@@ -374,7 +372,7 @@ Refresh ($i++)
 ###                   SCOOP PACKAGES INSTALLATION                    ###
 ########################################################################
 
-Write-TitleBox -Title "Scoop Pacakages Installation"
+Write-TitleBox -Title "Scoop Packages Installation"
 
 #  Check for if scoop is installed
 if (!(Get-Command scoop -ErrorAction SilentlyContinue)) {
@@ -599,10 +597,11 @@ try {
     Write-Error "Failed to hide system tray clock: $($_.Exception.Message)"
 }
 
-# Write-Host "Restarting Windows Explorer to reload theme..."
+# Write-Host "Restarting Windows Explorer..."
 taskkill /f /im explorer.exe; Start-Process explorer.exe
 
 Refresh ($i++)
+
 
 
 ########################################################################
@@ -725,8 +724,9 @@ if (-not (Select-String -Path $profilePath -Pattern 'starship init powershell' -
 
 Write-ColorText "{Cyan}Starship setup complete."
 
+
 ########################################################################
-###             Theme Setup (Revised)                                ###
+###                     Theme Setup                                  ###
 ########################################################################
 
 Write-TitleBox -Title "Theme Setup"
@@ -745,15 +745,11 @@ Write-Host "Silently applying theme..."
 Start-Process -FilePath $themeFile -WindowStyle Hidden
 
 # Give the theme process a moment to execute
-Write-Host "Waiting 5 seconds for the theme to start applying..."
-Start-Sleep -Seconds 5 
-
-# Force a final Explorer restart to make Windows load the newly applied theme
-# This is often the final kick needed for third-party themes to take effect.
-Write-Host "Restarting Windows Explorer to finalize theme application..."
-taskkill /f /im explorer.exe; Start-Process explorer.exe
+Write-Host "Waiting 10 seconds for the theme to start applying..."
+Start-Sleep -Seconds 10 
 
 Refresh ($i++)
+
 
 ########################################################################
 ###                       Start Komorebi + Yasb                      ###
@@ -764,46 +760,32 @@ Write-TitleBox "Komorebi & Yasb Engines"
 # YASB
 # Check if the yasbc command is available
 if (Get-Command yasbc -ErrorAction SilentlyContinue) {
-
-    # Check/Create autostart
-    if (!(Get-ScheduledTask -TaskName "yasb-autostart" -ErrorAction SilentlyContinue)) {
-        Write-Host "Creating autostart task for YASB..."
-        try {
-            # Use the official command to create the autostart scheduled task
-            yasbc enable-autostart --task
-            Write-ColorText "{Green}YASB autostart task created."
-        } catch {
-            Write-Error "Failed to enable YASB autostart: $_"
-        }
-    } else {
-        Write-ColorText "{Green}YASB autostart task already exists."
+    Write-Host "Creating autostart task for YASB..."
+    try {
+        # Use the official command to create the autostart scheduled task
+        yasbc enable-autostart --task
+        Write-ColorText "{Green}yasb autostart task created."
+    } catch {
+        Write-Error "Failed to enable YASB autostart: $_"
     }
-    
 } else {
-    # This block is now only for when yasbc is genuinely NOT found (needs installation)
-    Write-Warning "Command not found: yasbc. Please install YASB."
+    # yasbc is not found
+    Write-Warning "Command not found: yasbc. Please install yasb."
 }
 
 # KOMOREBI 
 # Check if 'komorebic' command is available first
 if (Get-Command komorebic -ErrorAction SilentlyContinue) {
-
-    # Set up autostart using the built-in command
-    if (!(Get-ScheduledTask -TaskName "komorebi-autostart" -ErrorAction SilentlyContinue)) {
-        Write-Host "Creating autostart task for Komorebi..."
-        try {
-            komorebic enable-autostart --ahk
-            Write-ColorText "{Green}Komorebi autostart task created."
-        } catch {
-            Write-Error "Failed to enable Komorebi autostart: $_"
-        }
-    } else {
-        Write-ColorText "{Green}Komorebi autostart task already exists."
-    }
-    
+    Write-Host "Creating autostart task for Komorebi..."
+    try {
+        komorebic enable-autostart --ahk
+        Write-ColorText "{Green}Komorebi autostart task created."
+    } catch {
+        Write-Error "Failed to enable Komorebi autostart: $_"
+    } 
 } else {
-    Write-Warning "komorebic command not found. Could not configure."
-}
+    Write-Warning "komorebic command not found. Please install komorebi"
+} 
 
 
 ########################################################################
