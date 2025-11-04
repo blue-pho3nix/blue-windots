@@ -201,7 +201,7 @@ Komorebic reload-configuration
 ```
 4. Reload scripts in AutoHotKey (right click AutoHotKey and click `Reload Scripts`).
 
-![](https://github.com/user-attachments/assets/01786306-e35f-4a29-bf1b-f11bb6cb8cf6)
+![](https://github.com/user-attachments/assets/62340ca3-c9a4-4d4b-b6ad-102978f32fa5)
 
 </details>
 
