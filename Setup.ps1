@@ -436,7 +436,7 @@ if ($null -ne $omp) {
     try {
         # Execute the oh-my-posh font installer for 0xProto
         # We add -ErrorAction Stop to catch errors in the 'catch' block
-        oh-my-posh font install 0xProto
+        oh-my-posh font install JetBrainsMono
         
         Write-ColorText "`n{Green}Successfully installed '0xProto Nerd Font'."
     }
