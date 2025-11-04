@@ -171,7 +171,7 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
   
   ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
   
-  3. Goto `Pointers`.
+  3. Go to `Pointers`.
   4. Select `Catppuccin-Mocha-Lavender-Cursors`
   
   ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
@@ -188,7 +188,7 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 2. Open a regular powershell window (`win + enter`).
 3. Stop and start Komorebi or reload the configuration.
 > Make sure to always use `--ahk` to keep the autohotkeys working. <br>
-> When you stop/restart Komorebi, you'll need to reload AutoHotKey. 
+> When you stop/restart Komorebi, you'll need to `Reload Scripts` in AutoHotKey. 
 
 ```
 Komorebic stop --ahk
