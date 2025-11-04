@@ -114,18 +114,18 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
   - **[0xProto Nerd Font](https://www.programmingfonts.org/#oxproto)** (Used in the terminal and yasb).
   - **[Git](https://git-scm.com/install/windows)** (Used by Scoop)
   - **[Scoop](https://scoop.sh/)** (Puts AutoHotKey on PATH)
-  - **[AutoHotkey](https://www.autohotkey.com/)** (Makes it possible to use the windown key in hotkeys).
+  - **[AutoHotkey](https://www.autohotkey.com/)** (Makes it possible to use the window key in hotkeys).
   - **[Clink](https://chrisant996.github.io/clink/clink.html)** (Makes it easy to use Starship in Command Prompt)
   - **[Starship](https://starship.rs/)** (Makes your terminal pretty)
  
 
   **Sets up:**
-  - **The theme** (Applies a theme `One Dark Pro (Night) - PAC.theme`...this give you packman icons in File Explorer...).
+  - **The [theme](https://www.deviantart.com/niivu/art/One-Dark-Pro-for-Windows-11-930312689)** (Applies a theme `One Dark Pro (Night) - PAC.theme`...this give you pacman icons in File Explorer...).
   - **Windhawk** (Configures mods).
   - **Environment Variables** (Sets custom environment variables defined in `appList.json`).
   - **Starship** (Adds the initialization line to the user's PowerShell profile).
-  - **Komorebi** (Starts the engine and enables autostart).
-  - **YASB** (Starts the engine and enables autostart).
+  - **Komorebi** (Enables autostart).
+  - **YASB** (Enables autostart).
   - **Clink** (Disables the Clink banner/logo).
   
   **Other:**
