@@ -1,14 +1,6 @@
 # Windots for Windows 11 😊
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
-![](https://github.com/user-attachments/assets/e066d4de-a5d7-4814-a120-0d6c89ef5ea3)
-![](https://github.com/user-attachments/assets/e84b909d-a3e5-4a1a-9e1c-77ac08140aa7)
-![](https://github.com/user-attachments/assets/f226badf-40bc-48bc-93b9-101909dabddd)
-![](https://github.com/user-attachments/assets/9dfb0651-10c4-44cb-9695-ece71834e40d)
-![](https://github.com/user-attachments/assets/538eeeb4-8bc7-428d-9b77-390423a9a29c)
-![](https://github.com/user-attachments/assets/29a57724-c0f4-4e63-8de5-503c2f3175e6)
-![](https://github.com/user-attachments/assets/23662d7f-ec4a-4a8a-b65d-564578d23e93)
-![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
 
 
 ## Hotkeys
@@ -18,34 +10,40 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 <details closed>
   <summary>View the cool hotkeys 🔥</summary>
 
-| Hotkey | Action |
-|--------|--------|
-| `win` + `Left` | Focus window to the left |
-| `win` + `Right` | Focus window to the right |
-| `win` + `Up` | Focus window upward |
-| `win` + `Down` | Focus window downward |
-| `win` + `=` | Increase window width (horizontal) |
-| `win` + `-` | Decrease window width (horizontal) |
-| `win` + `shift` + `=` | Increase window height (vertical) |
-| `win` + `shift` + `-` | Decrease window height (vertical) |
-| `win` + `Space` | Promote focused window |
-| `win` + `1` | Focus workspace 1 |
-| `win` + `2` | Focus workspace 2 |
-| `win` + `3` | Focus workspace 3 |
-| `win` + `4` | Focus workspace 4 |
-| `win` + `shift` + `1` | Move window to workspace 1 |
-| `win` + `shift` + `2` | Move window to workspace 2 |
-| `win` + `shift` + `3` | Move window to workspace 3 |
-| `win` + `shift` + `4` | Move window to workspace 4 |
-| `win` + `shift` + `Left` | Move window left (includes monitors) |
-| `win` + `shift` + `Right` | Move window right (includes monitors) |
-| `win` + `w` | Open default browser (Google) |
-| `win` + `Enter` | Open PowerShell |
-| `win` + `shift` + `Enter` | Open PowerShell as Administrator |
-| `win` + `c` | Open Command Prompt |
-| `win` + `shift` + `c` | Open Command Prompt as Administrator |
-| `win` + `f` | Open File Explorer |
-| `win` + `q` | Close focused window |
+| Shortcut                      | Action                                 |
+| ----------------------------- | -------------------------------------- |
+| `alt` + `r`                   | Reload WHKD configuration              |
+| `alt` + `q`                   | Close window                           |
+| `alt` + `m`                   | Minimize window                        |
+| `alt` + `left`                | Focus window to the left               |
+| `alt` + `right`               | Focus window to the right              |
+| `alt` + `down`                | Focus window below                     |
+| `alt` + `up`                  | Focus window above                     |
+| `alt` + `oem_plus`            | Resize window horizontally (increase)  |
+| `alt` + `oem_minus`           | Resize window horizontally (decrease)  |
+| `alt` + `shift` + `oem_plus`  | Resize window vertically (increase)    |
+| `alt` + `shift` + `oem_minus` | Resize window vertically (decrease)    |
+| `alt` + `t`                   | Toggle floating window                 |
+| `alt` + `shift` + `f`         | Toggle monocle mode                    |
+| `alt` + `shift` + `left`      | Move window left                       |
+| `alt` + `shift` + `right`     | Move window right                      |
+| `alt` + `shift` + `down`      | Move window down                       |
+| `alt` + `shift` + `up`        | Move window up                         |
+| `alt` + `space`               | Promote window                         |
+| `alt` + `1`                   | Focus workspace 1                      |
+| `alt` + `2`                   | Focus workspace 2                      |
+| `alt` + `3`                   | Focus workspace 3                      |
+| `alt` + `shift` + `1`         | Move window to workspace 1             |
+| `alt` + `shift` + `2`         | Move window to workspace 2             |
+| `alt` + `shift` + `3`         | Move window to workspace 3             |
+| `alt` + `w`                   | Focus or open Chrome                   |
+| `alt` + `return`              | Open Windows Terminal                  |
+| `alt` + `shift` + `return`    | Open Windows Terminal as Administrator |
+| `alt` + `c`                   | Open Command Prompt                    |
+| `alt` + `shift` + `c`         | Open Command Prompt as Administrator   |
+| `alt` + `f`                   | Open File Explorer                     |
+| `alt` + `0`                   | Restart computer                       |
+
 </details>
 
 
@@ -92,13 +90,6 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ### 3. Install [Powershell 7](https://apps.microsoft.com/detail/9MZ1SNWT0N5D?hl=en-us&gl=US&ocid=pdpshare)
 
-### 4. Install [Scoop](https://scoop.sh/) in a PowerShell terminal 
-> [!NOTE]
-> This is just done manually because you shouldn't install `scoop` in an elevated termin.
-```
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
-```
 ---
 
 ## What Does the Setup.ps1 Do?
@@ -113,12 +104,9 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
   - **[OhMyPosh](https://ohmyposh.dev/)** (Just installed to make nerd font installation easier).  
   - **[0xProto Nerd Font](https://www.programmingfonts.org/#oxproto)** (Used in the terminal and yasb).
   - **[Git](https://git-scm.com/install/windows)** (Used by Scoop)
-  - **[Scoop](https://scoop.sh/)** (Puts AutoHotKey on PATH)
-  - **[AutoHotkey](https://www.autohotkey.com/)** (Makes it possible to use the window key in hotkeys).
   - **[Clink](https://chrisant996.github.io/clink/clink.html)** (Makes it easy to use Starship in Command Prompt)
   - **[Starship](https://starship.rs/)** (Makes your terminal pretty)
  
-
   **Sets up:**
   - **The [theme](https://www.deviantart.com/niivu/art/One-Dark-Pro-for-Windows-11-930312689)** (Applies a theme `One Dark Pro (Night) - PAC.theme`...this give you pacman icons in File Explorer...).
   - **Windhawk** (Configures mods).
@@ -158,27 +146,6 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 ---
 
 ## Post Install Fun
-
-### Change Your Mouse Pointer
-<details closed>
-  <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> 🖱️ </summary>
-  
-   1. Right click blue-windots\cursors\install.inf.
-    
-  ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
-  
-  2. Press `win + R` and enter `main.cpl`.
-  
-  ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
-  
-  3. Go to `Pointers`.
-  4. Select `Catppuccin-Mocha-Lavender-Cursors`
-  
-  ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
-  
-  5. Click `Apply` and `OK`.
-
-</details>
 
 ### Let's say you want to edit you Komorebi config file after install.
 <details closed>
