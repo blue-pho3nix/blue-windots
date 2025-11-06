@@ -5,7 +5,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ## Hotkeys
 > [!NOTE]
-> Feel free to add more hot keys to `C:\Users\<your_username>\.config\whkdrc`. 
+> Feel free to add more hot keys to `C:\Users\<your_username>\.config\whkdrc` after install. 
 
 <details closed>
   <summary>View the cool hotkeys 🔥</summary>
