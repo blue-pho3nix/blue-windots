@@ -1,13 +1,12 @@
 :root {
-  --transparent: rgba(9, 35, 54, 0.62);
-  --main: #70c4bd;
-  --mainLight: #a0f4ed;
-  --overlay2: #9399b2;
-  --surface2: #585b70;
-  --surface1: #45475a;
-  --mantle: rgba(24, 24, 37, 0.5);
-  --crust: rgba(17, 17, 27, 0.2);
-  --widget-background: #bc8bf7;
+  --transparent: rgba(11, 174, 255, 0.123);
+  --main: rgba(3, 214, 189, 0.918);
+  --mainLight: rgba(23, 251, 224, 0.91);
+  --overlay2: #555e70;
+  --surface2: #383a47;
+  --surface1: #3c3f4c;
+  --mantle: rgba(23, 25, 30, 0.776);
+  --crust: rgba(34, 38, 45, 0.712);
 }
 
 .context-menu {
@@ -65,22 +64,19 @@
 }
 
 * {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--main);
   font-weight: 400;
   font-family: "JetBrainsMono NFP";
   margin: 0;
   padding: 0;
 }
+
 .yasb-bar {
-  padding: 0 -2px;
+  padding: 0;
   margin: 0;
   border-radius: 8px;
-  margin-left: 9px;
-  margin-right: 9px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  background: rgba(0, 0, 0, 0.01);
+  background: var(--transparent);
 }
 .widget {
   padding: 0 2px;
@@ -91,22 +87,6 @@
 }
 .widget .label {
   padding: 0px 2px;
-}
-.clock-widget .widget-container,
-.volume-widget .widget-container,
-.weather-widget .widget-container,
-.notification-widget .widget-container,
-.power-menu-widget .widget-container,
-.memory-widget .widget-container,
-.cpu-widget .widget-container,
-.active-window-widget .widget-container,
-.language-widget .widget-container,
-.taskbar-widget .widget-container,
-.wifi-widget .widget-container,
-.systray-widget .widget-container .komorebi-workspaces .widget-container {
-  background-color: rgba(0, 0, 0, 0);
-  margin: 0px 0 0px 0;
-  border-radius: 6px;
 }
 
 .media-widget .widget-container {
@@ -600,7 +580,7 @@
   background: rgba(0, 0, 0, 0.01);
 }
 .media-widget .btn:hover {
-  color: #babfd3;
+  color: var(--mainLight);
 }
 .media-widget .btn.play {
   font-size: 17px;
@@ -677,28 +657,47 @@
   margin-top: 20px;
   min-width: 100px;
 }
+/* Wi-Fi / Media Progress Slider — Launchpad Theme */
+.wifi-menu .progress-slider,
 .media-menu .progress-slider {
-  height: 10px;
-  margin: 5px 4px;
+  height: 6px;
+  margin: 6px 10px;
   border-radius: 3px;
-  color: var(--main);
-}
-.media-menu .progress-slider::groove {
   background: transparent;
+}
+
+/* Track (groove) */
+.wifi-menu .progress-slider::groove,
+.media-menu .progress-slider::groove {
   height: 2px;
   border-radius: 3px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08); /* faint track */
 }
+
+/* Hover effect for the track */
+.wifi-menu .progress-slider::groove:hover,
 .media-menu .progress-slider::groove:hover {
-  background: transparent;
-  height: 6px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  height: 3px;
 }
+
+/* Filled portion (progress) */
+.wifi-menu .progress-slider::sub-page,
 .media-menu .progress-slider::sub-page {
   background: var(--main);
   border-radius: 3px;
-  height: 4px;
+  height: 2px;
+  box-shadow: 0 0 6px var(--main); /* glow */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Optional thumb handle hidden for a cleaner line */
+.wifi-menu .progress-slider::handle,
+.media-menu .progress-slider::handle {
+  background: none;
+  border: none;
+  width: 0;
+  height: 0;
 }
 
 /* NOTIFICATION Settings */
@@ -754,11 +753,14 @@
 /* Todo Menu Styles */
 .todo-menu {
   background-color: var(--transparent);
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 500px;
-  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* force children to fill width */
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
+
 .todo-menu .header {
   margin: 16px 10px;
 }
@@ -871,7 +873,7 @@
   color: #7f8c8d;
 }
 
-/* Todo Widget (matching Pomodoro style) */
+/* Todo Widget */
 .todo-widget {
   padding: 0 6px;
 }
@@ -888,17 +890,6 @@
 .todo-widget .label.completed {
   color: var(--mainLight);
   font-weight: 600;
-}
-
-/* Todo Menu (matching Pomodoro menu styling) */
-.todo-menu {
-  background-color: var(--transparent);
-  border-radius: 8px;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 500px;
-  max-height: 500px;
-  color: var(--mainLight);
 }
 
 /* Header buttons */
@@ -918,9 +909,15 @@
   font-weight: 500;
   font-family: "JetBrainsMono NFP";
 }
-.todo-menu .header .add-task-button:hover,
-.todo-menu .header .tab-buttons:hover {
+
+.todo-menu .header .add-task-button:hover {
   background-color: var(--main);
+}
+
+.todo-menu .header .tab-buttons:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* subtle light overlay */
+  color: var(--mainLight); /* keep text readable */
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Task items */
@@ -995,6 +992,7 @@
   font-family: "JetBrainsMono NFP";
   color: var(--mainLight);
   transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
 }
 
 .todo-menu .app-dialog .title-field,
@@ -1049,15 +1047,6 @@
   transform: translateY(-1px);
 }
 
-/* Optional smoother layout for the row of category buttons */
-.todo-menu .app-dialog .category-button-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 10px;
-}
-
 /* Base style for both buttons */
 .todo-menu .task-item .edit-task-button,
 .todo-menu .task-item .delete-task-button {
@@ -1082,6 +1071,19 @@
   border: 1px solid var(--mainLight);
   transform: translateY(-1px);
   box-shadow: 0 0 6px var(--main);
+}
+
+/* Improve tab visibility and active state */
+.todo-menu .header .tab-buttons {
+  background: transparent;
+  color: var(--mainLight); /* ensure readable text */
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.todo-menu .header .tab-buttons:hover {
+  color: var(--main);
+  opacity: 1;
 }
 
 .pomodoro-widget {
@@ -1247,45 +1249,6 @@
   background-color: rgba(22, 23, 23, 0.5);
   border: 1px solid rgba(35, 37, 37, 0.4);
   border-radius: 8px;
-}
-
-.systray {
-  padding-right: 8px;
-  border: none;
-  background-color: transparent;
-  border-radius: 12px;
-}
-.systray .pinned-container {
-  background: transparent;
-}
-.systray .pinned-container[forceshow="true"] {
-  background: var(--surface2);
-}
-.systray .button {
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.01);
-  padding: 6px 3px;
-  color: var(--mainLight);
-}
-.systray .button:hover {
-  background-color: rgba(69, 71, 90, 0.1);
-  border-radius: 6px;
-}
-.systray .button[dragging="true"] {
-  background: var(--main);
-  border-color: var(--main);
-}
-.systray .unpinned-visibility-btn {
-  border-radius: 4px;
-  height: 20px;
-  width: 16px;
-}
-
-.systray .unpinned-visibility-btn:hover {
-}
-
-.systray .unpinned-visibility-btn:checked {
-  margin-left: 8px;
 }
 
 /* Widget style */
@@ -1515,4 +1478,343 @@
   padding: 0;
   margin: 0;
   color: var(--main);
+}
+
+.taskbar-widget .app-container {
+  margin: 4px 2px;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+.taskbar-widget .app-container.foreground {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.taskbar-widget .app-container.flashing {
+  background-color: var(--main);
+}
+.taskbar-widget .app-container .app-title {
+  padding-left: 4px;
+}
+
+.taskbar-preview .header {
+  padding-bottom: 12px;
+  padding-top: 4px;
+}
+.taskbar-preview .header .title {
+  color: #d6d6d6;
+  font-family: "Segoe UI";
+  font-weight: 600;
+  font-size: 13px;
+}
+.systray {
+  background: transparent;
+  border: none;
+  margin: 0;
+}
+
+.systray .unpinned-container {
+  background: transparent;
+  border-radius: 8px;
+}
+
+.systray .pinned-container {
+  background: transparent;
+}
+
+.systray .pinned-container[forceshow="true"] {
+  background: transparent;
+}
+
+.systray .button {
+  border-radius: 4px;
+  padding: 2px 2px;
+}
+
+.systray .button:hover {
+  background: transparent;
+}
+
+.systray .unpinned-visibility-btn {
+  border-radius: 4px;
+  height: 20px;
+  width: 16px;
+}
+
+.systray .unpinned-visibility-btn:checked {
+  background: transparent;
+}
+
+/* Clean Bluetooth Widget */
+.bluetooth-widget {
+  padding: 0 6px;
+  background: none;
+  border: none;
+}
+
+.bluetooth-widget.your_class {
+  background: none;
+  border: none;
+}
+
+/* Widget Container */
+.bluetooth-widget .widget-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Label Styling */
+.bluetooth-widget .label {
+  color: var(--main);
+  font-family: "JetBrainsMono NFP";
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.bluetooth-widget .label.alt {
+  color: var(--mainLight);
+  opacity: 0.8;
+}
+
+/* Icon Styling */
+.bluetooth-widget .icon {
+  font-size: 14px;
+  color: var(--main);
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.bluetooth-widget .icon:hover {
+  color: var(--mainLight);
+}
+
+/* Optional connection states */
+.bluetooth-widget.connected .icon {
+  color: var(--mainLight);
+}
+
+.bluetooth-widget.disconnected .icon,
+.bluetooth-widget.disconnected .label {
+  color: rgba(148, 148, 148, 0.5);
+}
+
+/* Wi-Fi Menu — Refined Launchpad Look */
+.wifi-menu {
+  font-family: "JetBrainsMono NFP";
+  background-color: var(--transparent);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  min-width: 440px;
+  min-height: 440px;
+  max-height: 520px;
+  overflow: hidden;
+  color: var(--mainLight);
+}
+
+/* Header */
+.wifi-menu .header {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--main);
+  letter-spacing: 0.6px;
+  padding: 14px 16px;
+  background-color: rgba(17, 17, 27, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Wi-Fi List */
+.wifi-menu .wifi-list {
+  background-color: transparent;
+  overflow-y: auto;
+  padding: 8px;
+  scrollbar-width: thin;
+}
+
+/* Wi-Fi Item */
+.wifi-menu .wifi-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px 16px;
+  margin: 8px 6px;
+  border-radius: 10px;
+  background-color: rgba(17, 17, 27, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease-in-out;
+}
+
+.wifi-menu .wifi-item:hover {
+  background-color: rgba(17, 17, 27, 0.5);
+  border-color: var(--main);
+  box-shadow: 0 0 6px var(--main);
+}
+
+.wifi-menu .wifi-item[active="true"] {
+  background-color: rgba(17, 17, 27, 0.6);
+  border: 1px solid var(--main);
+  box-shadow: 0 0 10px var(--main);
+}
+
+/* Row Layout */
+.wifi-menu .wifi-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Icon + Name alignment */
+.wifi-menu .wifi-item .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wifi-menu .wifi-item .icon {
+  font-size: 22px;
+  color: var(--main);
+  flex-shrink: 0;
+  font-family: "JetBrainsMono NFP";
+}
+
+.wifi-menu .wifi-item .name {
+  padding-left: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mainLight);
+}
+
+/* Status and Strength */
+.wifi-menu .wifi-item .status {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wifi-menu .wifi-item .strength {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--main);
+}
+
+/* Action Button */
+.wifi-menu .wifi-item .connect,
+.wifi-menu .wifi-item .disconnect {
+  background-color: var(--main);
+  color: rgba(18, 19, 19, 0.949);
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 18px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.wifi-menu .wifi-item .connect:hover,
+.wifi-menu .wifi-item .disconnect:hover {
+  background-color: var(--mainLight);
+  box-shadow: 0 0 6px var(--main);
+}
+
+.wifi-menu .wifi-item .connect:active,
+.wifi-menu .wifi-item .disconnect:active {
+  transform: scale(0.97);
+  background-color: var(--main);
+  color: rgba(18, 19, 19, 0.949);
+}
+
+/* Footer */
+.wifi-menu .footer {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 16px;
+  color: var(--main);
+  background-color: rgba(17, 17, 27, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.wifi-menu .footer .settings-button,
+.wifi-menu .footer .refresh-icon {
+  background-color: transparent;
+  border: none;
+  color: var(--mainLight);
+  font-size: 16px;
+  padding: 4px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.wifi-menu .footer .settings-button:hover,
+.wifi-menu .footer .refresh-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--main);
+}
+
+/* Wi-Fi Password Field — Launchpad Style */
+.wifi-menu .wifi-item .password {
+  background-color: rgba(17, 17, 27, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-family: "JetBrainsMono NFP";
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mainLight);
+  outline: none;
+  width: 100%;
+  margin-top: 8px;
+  transition: all 0.25s ease-in-out;
+}
+
+.wifi-menu .wifi-item .password::placeholder {
+  color: rgba(180, 220, 230, 0.4); /* softer cyan hint */
+  font-weight: 500;
+}
+
+.wifi-menu .wifi-item .password:hover {
+  background-color: rgba(17, 17, 27, 0.35);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.wifi-menu .wifi-item .password:focus {
+  border-color: var(--main);
+  background-color: rgba(17, 17, 27, 0.4);
+  box-shadow: 0 0 6px var(--main);
+  color: var(--mainLight);
+}
+
+/* ACTIVE WINDOW Settings */
+.active-window-widget .icon {
+  color: var(--mainLight);
+  display: inline-flex;
+  align-items: center;
+}
+
+.active-window-widget .label {
+  color: var(--mainLight);
+  background: rgba(0, 0, 0, 0.01);
+  font-weight: bold;
+}
+
+.active-window-widget {
+  padding-right: 0;
+}
+.active-window-widget .widget-container {
+  padding: auto;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
 }

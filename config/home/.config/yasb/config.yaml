@@ -1,6 +1,6 @@
 watch_stylesheet: true
 watch_config: true
-debug: false
+debug: true
 komorebi:
   stop_command: "komorebic stop --whkd"
   start_command: "komorebic start --whkd"
@@ -21,7 +21,7 @@ bars:
       acrylic: false
       dark_mode: true
       round_corners: false
-      #border_color: None
+      border_color: None
     window_flags:
       auto_hide: false
       hide_on_fullscreen: true
@@ -38,7 +38,16 @@ bars:
     widgets:
       left: ["launchpad", "whkd", "komorebi_workspaces", "media"]
       center: ["pomodoro", "todo", "clock"]
-      right: ["systray", "notifications", "update_check", "power_menu"]
+      right:
+        [
+          "systray",
+          "taskbar",
+          "bluetooth",
+          "wifi",
+          "notifications",
+          "update_check",
+          "power_menu",
+        ]
     layouts:
       left:
         alignment: "left"
@@ -127,8 +136,8 @@ widgets:
   media:
     type: "yasb.media.MediaWidget"
     options:
-      label: "{title} - {artist}"
-      label_alt: "{title}"
+      label: "{title}"
+      label_alt: "| {title} - {artist}"
       max_field_size:
         label: 17
         label_alt: 24
@@ -148,7 +157,7 @@ widgets:
         enabled: true
         update_interval_ms: 30
         style: "left" # can be "left", "right", "bounce", "bounce-ease"
-        separator: " | "
+        separator: ""
         label_padding: 1
         # Easing curve params: https://www.desmos.com/calculator/j7eamemxzi
         ease_slope: 20
@@ -186,7 +195,7 @@ widgets:
       callbacks:
         on_left: "toggle_media_menu"
         on_middle: "none"
-        on_right: "none"
+        on_right: "toggle_label"
   clock:
     type: "yasb.clock.ClockWidget"
     options:
@@ -251,16 +260,17 @@ widgets:
     type: "yasb.systray.SystrayWidget"
     options:
       class_name: "systray"
-      label_collapsed: "▼"
-      label_expanded: "▶"
+      label_collapsed: ""
+      label_expanded: ""
       label_position: "left" # Can be "left" or "right"
-      icon_size: 16 # Can be any integer between 8 and 64
+      icon_size: 14 # Can be any integer between 8 and 64
       pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
       show_unpinned: false
       show_unpinned_button: true
       show_battery: false
       show_volume: false
       show_network: false
+      tooltip: false
       btn_shadow:
         enabled: true
         color: "black"
@@ -394,8 +404,8 @@ widgets:
     options:
       shortcuts:
         add_app: "Ctrl+N"
-        edit_app: "F2"
-        show_context_menu: "Ctrl+L"
+        edit_app: "Ctrl+E"
+        show_context_menu: "Alt+L"
         delete_app: "Delete"
       label: ""
       search_placeholder: "Search apps..."
@@ -425,3 +435,90 @@ widgets:
         color: "#00000090"
         offset: [0, 2]
         radius: 8
+  bluetooth:
+    type: "yasb.bluetooth.BluetoothWidget"
+    options:
+      label: "<span>{icon}</span> {device_count}"
+      label_no_device: "No devices connected"
+      label_device_separator: ", "
+      max_length: 10
+      max_length_ellipsis: "..."
+      icons:
+        bluetooth_on: "\udb80\udcaf"
+        bluetooth_off: "\udb80\udcb2"
+        bluetooth_connected: "\udb80\udcb1"
+      device_aliases:
+        - name: "T5.0"
+          alias: "\uf025"
+      callbacks:
+        on_left: "exec cmd.exe /c start ms-settings:bluetooth"
+        on_right: "none"
+        on_middle: "none"
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+  wifi:
+    type: "yasb.wifi.WifiWidget"
+    options:
+      label: "<span>{wifi_icon}</span>"
+      label_alt: "{wifi_name} {wifi_strength}%"
+      update_interval: 5000
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "exec cmd.exe /c start ms-settings:network"
+        on_right: "toggle_label"
+      ethernet_label: "<span>{wifi_icon}</span>"
+      ethernet_label_alt: "<span>{wifi_icon}</span>{ip_addr}"
+      ethernet_icon: "\ueba9"
+      get_exact_wifi_strength: false # Optional. Will require location access permission if true.
+      wifi_icons: [
+          "\udb82\udd2e", # Icon for 0% strength
+          "\udb82\udd1f", # Icon for 1-24% strength
+          "\udb82\udd22", # Icon for 25-49% strength
+          "\udb82\udd25", # Icon for 50-74% strength
+          "\udb82\udd28", # Icon for 75-100% strength
+        ]
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+      menu_config:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        wifi_icons_secured: ["\ue670", "\ue671", "\ue672", "\ue673"]
+        wifi_icons_unsecured: ["\uec3c", "\uec3d", "\uec3e", "\uec3f"]
+  taskbar:
+    type: "yasb.taskbar.TaskbarWidget"
+    options:
+      icon_size: 14
+      tooltip: true
+      show_only_visible: true
+      strict_filtering: true
+      monitor_exclusive: false
+      tooltip: false
+      animation:
+        enabled: true
+      preview:
+        enabled: false
+        width: 240
+        delay: 400
+        padding: 8
+        margin: 8
+      title_label:
+        enabled: false
+        show: "always"
+        min_length: 10
+        max_length: 30
+      ignore_apps:
+        processes: []
+        titles: ["Mattermost Desktop App", "yasb - File Explorer", "TIDAL"]
+        classes: []
