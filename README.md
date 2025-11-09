@@ -152,7 +152,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 #### 2. Clone the repo **BRANCH: Neon** using GitHub Desktop or `git`.
 **Using `git`**
 ```
-git clone -b Pastels --single-branch  https://github.com/blue-pho3nix/blue-windots.git
+git clone -b Pastels https://github.com/blue-pho3nix/blue-windots.git
 ```
 **Using Github Desktop**
 - File > clone repo > URL `https://github.com/blue-pho3nix/blue-windots.git`
