@@ -31,7 +31,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ---
 
-## Neon
+## Pastels
 ![](https://github.com/user-attachments/assets/e066d4de-a5d7-4814-a120-0d6c89ef5ea3)
 ![](https://github.com/user-attachments/assets/e84b909d-a3e5-4a1a-9e1c-77ac08140aa7)
 ![](https://github.com/user-attachments/assets/f226badf-40bc-48bc-93b9-101909dabddd)
