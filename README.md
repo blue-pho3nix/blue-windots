@@ -25,6 +25,6 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ![](https://github.com/user-attachments/assets/7e349a28-5d72-4ef5-bde3-8996ce87ca46)
 
-### Windots and Installation script: [Here](https://github.com/blue-pho3nix/blue-windots/tree/Andromeda)
+### Windots and Installation script: [Here <3](https://github.com/blue-pho3nix/blue-windots/tree/Andromeda#optional-pre-install)
 
 ---
