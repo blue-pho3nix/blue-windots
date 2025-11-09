@@ -184,15 +184,6 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ### 3. Install [Powershell 7](https://apps.microsoft.com/detail/9MZ1SNWT0N5D?hl=en-us&gl=US&ocid=pdpshare)
 
-### 4. Hide the Taskbar
-- `win` + `r` and run `ms-settings:taskbar`
-
-![](https://github.com/user-attachments/assets/ffd39e42-348b-451d-8811-2f7dad6672c8)
-
-- Turn on "Automatically hide the taskbar"
-
-![](https://github.com/user-attachments/assets/80abbafa-091f-4fdc-ae1c-d185a322bc5c)
-
 ---
 
 ## What Does the Setup.ps1 Do?
@@ -252,6 +243,15 @@ git clone -b Andromeda --single-branch  https://github.com/blue-pho3nix/blue-win
 ```
 .\Setup.ps1
 ```
+
+### 5. Automatically Hide the Taskbar
+- `win` + `r` and run `ms-settings:taskbar`
+
+![](https://github.com/user-attachments/assets/ffd39e42-348b-451d-8811-2f7dad6672c8)
+
+- Turn on "Automatically hide the taskbar"
+
+![](https://github.com/user-attachments/assets/80abbafa-091f-4fdc-ae1c-d185a322bc5c)
 
 ---
 
