@@ -152,13 +152,14 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 #### 2. Clone the repo **BRANCH: Neon** using GitHub Desktop or `git`.
 **Using `git`**
 ```
-git clone -b Neon --single-branch  https://github.com/blue-pho3nix/blue-windots.git
+git clone -b Pastels --single-branch  https://github.com/blue-pho3nix/blue-windots.git
 ```
 **Using Github Desktop**
 - File > clone repo > URL `https://github.com/blue-pho3nix/blue-windots.git`
-- Change branch to Neon
+- Change branch to Pastels
 
-![](https://github.com/user-attachments/assets/9c9afef9-3920-4dae-9df4-e3ff5eb2f2b6)
+![](https://github.com/user-attachments/assets/3d0fc3df-f623-4229-ab9c-7690542d0512)
+
 
 #### 3. `cd` into the `blue-dots` directory.
 #### 4. Run `Setup.ps1`.
