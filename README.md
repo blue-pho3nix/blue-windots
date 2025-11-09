@@ -47,5 +47,5 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 #### Media
 ![](https://github.com/user-attachments/assets/9dfb0651-10c4-44cb-9695-ece71834e40d)
 
-### Windots and Installation script: [Here <3](https://github.com/blue-pho3nix/blue-windots/blob/Neon/README.md#optional-pre-install)
+### Windots and Installation script: [Here <3](https://github.com/blue-pho3nix/blue-windots/blob/Pastels/README.md#optional-pre-install)
 
