@@ -1,5 +1,6 @@
-# Windots for Windows 11 😊
+# Andromeda Windots for Windows 11 😊
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/7aa48f7b-0145-40c2-823a-23672567071b)
 
 
 
@@ -131,7 +132,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 > Optional, but recommended.
 
 ### If You Want to Change the Desktop Images
-- You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing...
+- You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/Andromeda/config/theme/Andromeda/Wallpapers) before installing...
 - You can always edit them in your Git clone if you want the diff background images to be automatically set to slideshow during installation.
 
 ---
