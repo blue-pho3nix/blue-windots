@@ -149,11 +149,17 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ## Install Instructions
 
 #### 1. Open Powershell 7 as `Administrator`.
-#### 2. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
+#### 2. Clone the repo **BRANCH: Neon** using GitHub Desktop or `git`.
+**Using `git`**
+```
+git clone -b Neon --single-branch  https://github.com/blue-pho3nix/blue-windots.git
+```
+**Using Github Desktop**
+- File > clone repo > URL `https://github.com/blue-pho3nix/blue-windots.git`
+- Change branch to Neon
 
-```
-git clone https://github.com/blue-pho3nix/blue-windots.git
-```
+![](https://github.com/user-attachments/assets/9c9afef9-3920-4dae-9df4-e3ff5eb2f2b6)
+
 #### 3. `cd` into the `blue-dots` directory.
 #### 4. Run `Setup.ps1`.
 > [!NOTE]
