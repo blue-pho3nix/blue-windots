@@ -10,39 +10,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 <details closed>
   <summary>View the cool hotkeys 🔥</summary>
 
-| Shortcut                      | Action                                 |
-| ----------------------------- | -------------------------------------- |
-| `alt` + `r`                   | Reload WHKD configuration              |
-| `alt` + `q`                   | Close window                           |
-| `alt` + `m`                   | Minimize window                        |
-| `alt` + `left`                | Focus window to the left               |
-| `alt` + `right`               | Focus window to the right              |
-| `alt` + `down`                | Focus window below                     |
-| `alt` + `up`                  | Focus window above                     |
-| `alt` + `oem_plus`            | Resize window horizontally (increase)  |
-| `alt` + `oem_minus`           | Resize window horizontally (decrease)  |
-| `alt` + `shift` + `oem_plus`  | Resize window vertically (increase)    |
-| `alt` + `shift` + `oem_minus` | Resize window vertically (decrease)    |
-| `alt` + `t`                   | Toggle floating window                 |
-| `alt` + `shift` + `f`         | Toggle monocle mode                    |
-| `alt` + `shift` + `left`      | Move window left                       |
-| `alt` + `shift` + `right`     | Move window right                      |
-| `alt` + `shift` + `down`      | Move window down                       |
-| `alt` + `shift` + `up`        | Move window up                         |
-| `alt` + `space`               | Promote window                         |
-| `alt` + `1`                   | Focus workspace 1                      |
-| `alt` + `2`                   | Focus workspace 2                      |
-| `alt` + `3`                   | Focus workspace 3                      |
-| `alt` + `shift` + `1`         | Move window to workspace 1             |
-| `alt` + `shift` + `2`         | Move window to workspace 2             |
-| `alt` + `shift` + `3`         | Move window to workspace 3             |
-| `alt` + `w`                   | Focus or open Chrome                   |
-| `alt` + `return`              | Open Windows Terminal                  |
-| `alt` + `shift` + `return`    | Open Windows Terminal as Administrator |
-| `alt` + `c`                   | Open Command Prompt                    |
-| `alt` + `shift` + `c`         | Open Command Prompt as Administrator   |
-| `alt` + `f`                   | Open File Explorer                     |
-| `alt` + `0`                   | Restart computer                       |
+
 
 </details>
 
@@ -75,20 +43,27 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 > The theme doesn't really have settings for the login/lock screen.
 
 #### Install the following mods under `Explore`
-- Control Panel Color Fix
 - Resource Redirect
 - Windows 11 File Explorer Styler
 - Windows 11 Notification Center Styler
-- Windows 11 Start Menu Styler
 - Windows 11 Taskbar Styler
 - UXTheme hook
 
+![](https://github.com/user-attachments/assets/3445ab9d-db6a-4ef8-a90f-0e5818025f3d)
 
-![](https://github.com/user-attachments/assets/9006bdf4-dab3-41b7-95d5-9796e36aca2a)
 
 ### 2. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
 
 ### 3. Install [Powershell 7](https://apps.microsoft.com/detail/9MZ1SNWT0N5D?hl=en-us&gl=US&ocid=pdpshare)
+
+### 4. Hide the Taskbar
+- `win` + `r` and run `ms-settings:taskbar`
+
+![](https://github.com/user-attachments/assets/ffd39e42-348b-451d-8811-2f7dad6672c8)
+
+- Turn on "Automatically hide the taskbar"
+
+![](https://github.com/user-attachments/assets/80abbafa-091f-4fdc-ae1c-d185a322bc5c)
 
 ---
 
@@ -102,13 +77,13 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
   - **[Komorebi](https://github.com/LGUG2Z/komorebi)** (Windows tiling manager).
   - **[yasb](https://github.com/amnweb/yasb)** (Status bar at the top of the screen).
   - **[OhMyPosh](https://ohmyposh.dev/)** (Just installed to make nerd font installation easier).  
-  - **[0xProto Nerd Font](https://www.programmingfonts.org/#oxproto)** (Used in the terminal and yasb).
-  - **[Git](https://git-scm.com/install/windows)** (Used by Scoop)
+  - **[JetBrainsMono](https://www.programmingfonts.org/#jetbrainsmono)** (Used in the terminal and yasb).
   - **[Clink](https://chrisant996.github.io/clink/clink.html)** (Makes it easy to use Starship in Command Prompt)
   - **[Starship](https://starship.rs/)** (Makes your terminal pretty)
+  - **[whkd](https://github.com/LGUG2Z/whkd)** (Makes hot keys work)
  
   **Sets up:**
-  - **The [theme](https://www.deviantart.com/niivu/art/One-Dark-Pro-for-Windows-11-930312689)** (Applies a theme `One Dark Pro (Night) - PAC.theme`...this give you pacman icons in File Explorer...).
+  - **The [theme](https://www.deviantart.com/niivu/art/Andromeda-11-999859470)** (Applies a theme `Andromeda - Night.theme`...this give you pacman icons in File Explorer...).
   - **Windhawk** (Configures mods).
   - **Environment Variables** (Sets custom environment variables defined in `appList.json`).
   - **Starship** (Adds the initialization line to the user's PowerShell profile).
