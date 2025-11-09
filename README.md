@@ -271,6 +271,7 @@ git clone -b Andromeda --single-branch  https://github.com/blue-pho3nix/blue-win
 
 1. Edit and save  `C:\Users\<your_username\.config\yasb\config.yaml` and/or `C:\Users\<your_username\.config\yasb\styles.css` 
 </details>
+
 ---
 
 ## Got Questions, Issues, or Suggestions?
