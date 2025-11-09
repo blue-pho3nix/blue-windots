@@ -544,11 +544,11 @@ Refresh ($i++)
 ###                         Hide Search Bar                          ###
 ########################################################################
 
-Write-TitleBox -Title "Hide Search Bar"
+Write-TitleBox -Title "Hide Taskbar Search Bar"
 
+Write-ColorText "{Green}`n Hiding the taskbar search bar..."
 
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 0
-
 
 
 
