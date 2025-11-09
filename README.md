@@ -10,8 +10,114 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 <details closed>
   <summary>View the cool hotkeys 🔥</summary>
 
+### Reload Komorebi Configuration
+| Keys | Command |
+|------|----------|
+| `Alt + R` | `komorebic stop --whkd && komorebic start --whkd` |
 
+---
 
+### Close and Minimize Windows
+| Keys | Command |
+|------|----------|
+| `Alt + Q` | `komorebic close` |
+| `Alt + M` | `komorebic minimize` |
+
+---
+
+### Focus on Windows
+| Keys | Command |
+|------|----------|
+| `Alt + ←` | `komorebic focus left` |
+| `Alt + →` | `komorebic focus right` |
+| `Alt + ↓` | `komorebic focus down` |
+| `Alt + ↑` | `komorebic focus up` |
+
+---
+
+### Resize Windows
+| Keys | Command |
+|------|----------|
+| `Alt + =` | `komorebic resize-axis horizontal increase` |
+| `Alt + -` | `komorebic resize-axis horizontal decrease` |
+| `Alt + Shift + =` | `komorebic resize-axis vertical increase` |
+| `Alt + Shift + -` | `komorebic resize-axis vertical decrease` |
+
+---
+
+### Manipulate Windows
+| Keys | Command |
+|------|----------|
+| `Alt + T` | `komorebic toggle-float` |
+| `Alt + Shift + F` | `komorebic toggle-monocle` |
+
+---
+
+### Move Windows
+| Keys | Command |
+|------|----------|
+| `Alt + Shift + ←` | `komorebic move left` |
+| `Alt + Shift + →` | `komorebic move right` |
+| `Alt + Shift + ↓` | `komorebic move down` |
+| `Alt + Shift + ↑` | `komorebic move up` |
+| `Alt + Space` | `komorebic promote` |
+
+---
+
+### Focus on Workspaces
+| Keys | Command |
+|------|----------|
+| `Alt + 1` | `komorebic focus-workspace 0` |
+| `Alt + 2` | `komorebic focus-workspace 1` |
+| `Alt + 3` | `komorebic focus-workspace 2` |
+
+---
+
+## Move Windows Across Workspaces
+| Keys | Command |
+|------|----------|
+| `Alt + Shift + 1` | `komorebic move-to-workspace 0` |
+| `Alt + Shift + 2` | `komorebic move-to-workspace 1` |
+| `Alt + Shift + 3` | `komorebic move-to-workspace 2` |
+
+---
+
+### Open Chrome
+| Keys | Command |
+|------|----------|
+| `Alt + W` | `start chrome` |
+
+---
+
+### Open Terminals as User and Administrator
+| Keys | Command |
+|------|----------|
+| `Alt + Return` | `start wt.exe` |
+| `Alt + Shift + Return` | `start wt.exe -Verb RunAs` |
+| `Alt + C` | `start cmd.exe` |
+| `Alt + Shift + C` | `start cmd.exe -Verb RunAs` |
+
+---
+
+### Open File Explorer
+| `Alt + F` | `start explorer.exe` |
+
+---
+
+### Open VMWare
+| `Alt + V` | `start vmware.exe` |
+
+---
+
+### Open Obsidian
+| `Alt + N` | `cmd /c start "" "%LOCALAPPDATA%\Programs\Obsidian\Obsidian.exe"` |
+
+---
+
+### Restart Computer
+| Keys | Command |
+|------|----------|
+| `Alt + 0` | `shutdown /r /t 0` |
 </details>
 
 
@@ -103,11 +209,18 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 ## Install Instructions
 
 #### 1. Open Powershell 7 as `Administrator`.
-#### 2. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
+#### 2. Clone the repo **BRANCH: Andromeda** using GitHub Desktop or `git`.
+**Using `git`**
+```
+git clone -b Andromeda --single-branch  https://github.com/blue-pho3nix/blue-windots.git
+```
+**Using Github Desktop**
+- File > clone repo > URL `https://github.com/blue-pho3nix/blue-windots.git`
+- Change branch to Andromeda
 
-```
-git clone https://github.com/blue-pho3nix/blue-windots.git
-```
+![](https://github.com/user-attachments/assets/b5445d31-a748-4c0f-a9c0-e9d3f1b683a6)
+
+
 #### 3. `cd` into the `blue-dots` directory.
 #### 4. Run `Setup.ps1`.
 > [!NOTE]
@@ -122,31 +235,20 @@ git clone https://github.com/blue-pho3nix/blue-windots.git
 
 ## Post Install Fun
 
-### Let's say you want to edit you Komorebi config file after install.
+### Let's say you want to edit you Komorebi or WHKD after install.
 <details closed>
   <summary>Here's how you can do it. 🎉</summary>
 
-1. Edit and save `C:\Users\<your_username>\Komorebi.json`   
-2. Open a regular powershell window (`win + enter`).
-3. Stop and start Komorebi or reload the configuration.
-> Make sure to always use `--ahk` to keep the autohotkeys working. <br>
-
-```
-Komorebic stop --ahk
-```
-```
-Komorebic start --ahk
-```
-or
-```
-Komorebic reload-configuration
-```
-4. Reload scripts in AutoHotKey (right click AutoHotKey and click `Reload Scripts`).
-
-![](https://github.com/user-attachments/assets/62340ca3-c9a4-4d4b-b6ad-102978f32fa5)
-
+1. Edit and save `C:\Users\<your_username>\Komorebi.json` or `C:\Users\<your_username\.config\whkdrc` 
+2. Run `alt` + `r` to restart Komorebi
 </details>
 
+### Let's say you want to edit your yasb status bar after install
+<details closed>
+  <summary>Here's how you can do it. 🎉</summary>
+
+1. Edit and save  `C:\Users\<your_username\.config\yasb\config.yaml` and/or `C:\Users\<your_username\.config\yasb\styles.css` 
+</details>
 ---
 
 ## Got Questions, Issues, or Suggestions?
