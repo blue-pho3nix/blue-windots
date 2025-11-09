@@ -43,8 +43,8 @@ alt + shift + 2         : komorebic move-to-workspace 1
 alt + shift + 3         : komorebic move-to-workspace 2
 
 
-## Focus On or Open Chrome
-alt + w                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
+## Open Chrome
+alt + w                 : start chrome
 
 ## Open Terminals
 alt + return            : start wt.exe 
@@ -54,6 +54,12 @@ alt + shift + c         : start cmd.exe -Verb RunAs
 
 ## Open File Explorer
 alt + f                 : start explorer.exe
+
+## Open VMWare
+alt + v                 : start vmware.exe
+
+## Open Obsidian
+alt + n                 : cmd /c start "" "%LOCALAPPDATA%\Programs\Obsidian\Obsidian.exe"
 
 ## Restart Computer
 alt + 0                 : shutdown /r /t 0

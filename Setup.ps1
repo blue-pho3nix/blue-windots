@@ -369,53 +369,6 @@ if ($wingetInstall -eq $True) {
         }
     }
 }
-  
-
-Refresh ($i++)
-
-
-########################################################################
-###                   SCOOP PACKAGES INSTALLATION                    ###
-########################################################################
-
-Write-TitleBox -Title "Scoop Packages Installation"
-
-#  Check for if scoop is installed
-if (!(Get-Command scoop -ErrorAction SilentlyContinue)) {
-    Write-ColorText "{Red}The 'scoop' command was not found."
-    Write-Host "Please install Scoop manually by running the following command in a NON-ADMIN PowerShell terminal:"
-    Write-ColorText "{Yellow}Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser; Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression"
-    Write-Host ""
-    Write-Host "Exiting script. Please install Scoop and re-run."
-    exit 1
-} else {
-    Write-ColorText "{Green}Scoop is already installed."
-}
-
-
-# Add Scoop shims to PATH
-$ScoopShims = "$env:USERPROFILE\scoop\shims"
-if (-not ($env:PATH -like "*$ScoopShims*")) {
-    $env:PATH += ";$ScoopShims"
-}
-
-# Make sure extras bucket is added
-if (-not (scoop bucket list | Select-String "extras")) {
-    Write-ColorText "{Cyan}Adding 'extras' bucket..."
-    # Show all output
-    scoop bucket add extras | Write-Host
-}
-
-
-# Install AutoHotkey (only if not already installed)
-if (-not (scoop list | Select-String "autohotkey")) {
-    Write-ColorText "{Cyan}Installing AutoHotkey..."
-    scoop install autohotkey
-} else {
-    Write-ColorText "{Green}AutoHotkey is already installed."
-}
-
-Write-ColorText "{Green}Scoop + AutoHotkey installation complete."
 
 Refresh ($i++)
 
@@ -430,7 +383,7 @@ Write-TitleBox -Title "Nerd Fonts Installation"
 $omp = Get-Command oh-my-posh -ErrorAction SilentlyContinue
 
 if ($null -ne $omp) {
-    Write-ColorText "{Green}Found 'oh-my-posh'. Attempting to install '0xProto Nerd Font'..."
+    Write-ColorText "{Green}Found 'oh-my-posh'. Attempting to install 'JetBrainsMono'..."
     Write-ColorText "{Gray}(This may take a moment...)"
 
     try {
@@ -438,7 +391,7 @@ if ($null -ne $omp) {
         # We add -ErrorAction Stop to catch errors in the 'catch' block
         oh-my-posh font install JetBrainsMono
         
-        Write-ColorText "`n{Green}Successfully installed '0xProto Nerd Font'."
+        Write-ColorText "`n{Green}Successfully installed 'JetBrainsMono'."
     }
     catch {
         Write-ColorText "{Red}An error occurred while installing the font:"
@@ -465,9 +418,6 @@ $EnableValue = 0 # 0 means ENABLED for the 'Disabled' registry key
 $ModConfigurations = @(
     # UXTheme Hook Configuration
     @{ Name = 'UXTheme Hook'; Key = 'uxtheme-hook'; Settings = @{} }
-
-    # Control Panel Color Fix Configuration
-    @{ Name = 'Control Panel Color Fix'; Key = 'control-panel-color-fix'; Settings = @{} },
     
     # Resource Redirect Configuration (Bonny Icon Theme)
     @{ Name = 'Resource Redirect'; Key = 'icon-resource-redirect'; 
@@ -476,21 +426,31 @@ $ModConfigurations = @(
     } 
 },
     
-    # Windows 11 Taskbar Styler Configuration (Matter Theme)
-    @{ Name = 'Windows 11 Taskbar Styler'; Key = 'windows-11-taskbar-styler'; 
-       Settings = @{ 'Theme' = 'Matter' } },
+    # Windows 11 Taskbar Styler Configuration (Hide Taskbar)
+    @{ 
+    Name = 'Windows 11 Taskbar Styler'; 
+    Key = 'windows-11-taskbar-styler'; 
+    Settings = @{ 
+        'theme' = 'SimplyTransparent';
+        'controlStyles[0].target' = 'Taskbar.TaskListButtonPanel';
+        'controlStyles[0].styles[0]' = 'Visibility=Collapsed';
+        'styleConstants[0]' = '';
+        'resourceVariables[0].variableKey' = '';
+        'resourceVariables[0].value' = '';
+        'controlStyles[1].target' = 'Taskbar.TaskListLabeledButtonPanel';
+        'controlStyles[1].styles[0]' = 'Visibility=Collapsed';
+        'controlStyles[2].target' = 'SystemTray.OmniButton';
+        'controlStyles[2].styles[0]' = 'Visibility=Collapsed';
+    } 
+},
     
     # Windows 11 File Explorer Styler Configuration (Matter Theme)
     @{ Name = 'Windows 11 File Explorer Styler'; Key = 'windows-11-file-explorer-styler'; 
        Settings = @{ 'Theme' = 'Matter' } },
     
-    # Windows 11 Notification Center Styler Configuration (Matter Theme)
+    # Windows 11 Notification Center Styler Configuration (WindowGlass Theme)
     @{ Name = 'Windows 11 Notification Center Styler'; Key = 'windows-11-notification-center-styler'; 
-       Settings = @{ 'Theme' = 'Matter' } },
-    
-    # Windows 11 Start Menu Styler Configuration (Oversimplified$Accentuated Theme)
-    @{ Name = 'Windows 11 Start Menu Styler'; Key = 'windows-11-start-menu-styler'; 
-       Settings = @{ 'Theme' = 'Oversimplified$Accentuated'; 'DisableNewLayout' = 1 } }
+       Settings = @{ 'Theme' = 'WindowGlass' } }
 )
 
 
@@ -580,31 +540,15 @@ Start-Sleep -Seconds 10
 Refresh ($i++)
 
 
-
 ########################################################################
-###            Toggle OFF Time and Date in System Tray               ###
+###                         Hide Search Bar                          ###
 ########################################################################
 
-Write-TitleBox -Title "Toggle OFF Time/Date in System Tray"
+Write-TitleBox -Title "Hide Search Bar"
 
-# Path to the Advanced Explorer key
-$regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" 
-$regValueName = "ShowSystrayDateTimeValueName"
 
-Write-ColorText "{Cyan}Setting registry key to hide clock in system tray..."
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 0
 
-try {
-    # Setting the value to 0 (False) hides the clock.
-    # Note: If this key does not exist, the system might default to showing the clock.
-    # We use -Force to create it if it doesn't exist.
-    Set-ItemProperty -Path $regPath -Name $regValueName -Value 0 -Type DWord -Force -ErrorAction Stop
-    Write-ColorText "{Green}Clock is now hidden in the System Tray."
-
-} catch {
-    Write-Error "Failed to hide system tray clock: $($_.Exception.Message)"
-}
-
-Refresh ($i++)
 
 
 
@@ -655,8 +599,8 @@ Write-ColorText "{yellow}Applying Theme..."
 Start-Sleep -Seconds 2
 
 # Define Theme File Path. Ensure the file extension is exact.
-$themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
-$ThemeName = "One Dark Pro (Night) - PAC"
+$themeFile = "C:\Windows\Resources\Themes\Andromeda - Night.theme"
+$ThemeName = "Andromeda - Night"
 
 Write-Host "Unblocking theme file security tag..."
 # Unblock-File removes the 'Mark-of-the-Web' security tag
@@ -815,7 +759,7 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
 if (Get-Command komorebic -ErrorAction SilentlyContinue) {
     Write-Host "Creating autostart task for Komorebi..."
     try {
-        komorebic enable-autostart --ahk
+        komorebic enable-autostart --whkd
         Write-Host "Waiting 10 seconds for Komorebi..."
         Start-Sleep -Seconds 10
         Write-ColorText "{Green}Komorerbi autostart successfully started."

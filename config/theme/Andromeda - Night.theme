@@ -1,0 +1,72 @@
+; Copyright � niivu DESIGNS 2023.
+
+[Theme]
+; Windows - IDS_THEME_DISPLAYNAME_Andromeda - Night
+DisplayName=Andromeda - Night
+SetLogonBackground=0
+
+; Computer - SHIDI_SERVER
+[CLSID\{20D04FE0-3AEA-1069-A2D8-08002B30309D}\DefaultIcon]
+DefaultValue=%SystemRoot%\System32\imageres.dll,-109
+
+; UsersFiles - SHIDI_USERFILES
+[CLSID\{59031A47-3F72-44A7-89C5-5595FE6B30EE}\DefaultIcon]
+DefaultValue=%SystemRoot%\System32\imageres.dll,-123
+
+; Network - SHIDI_MYNETWORK
+[CLSID\{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}\DefaultIcon]
+DefaultValue=%SystemRoot%\System32\imageres.dll,-25
+
+; Recycle Bin - SHIDI_RECYCLERFULL SHIDI_RECYCLER
+[CLSID\{645FF040-5081-101B-9F08-00AA002F954E}\DefaultIcon]
+Full=%SystemRoot%\System32\imageres.dll,-54
+Empty=%SystemRoot%\System32\imageres.dll,-55
+
+[Control Panel\Cursors]
+AppStarting=%ResourceDir%\Themes\Andromeda\cursors\busy.ani
+Arrow=%ResourceDir%\Themes\Andromeda\cursors\arrow.cur
+Crosshair=%ResourceDir%\Themes\Andromeda\cursors\cross.cur
+Hand=%ResourceDir%\Themes\Andromeda\cursors\link.cur
+Help=%ResourceDir%\Themes\Andromeda\cursors\helpsel.cur
+IBeam=%ResourceDir%\Themes\Andromeda\cursors\ibeam.cur
+No=%ResourceDir%\Themes\Andromeda\cursors\unavail.cur
+NWPen=%ResourceDir%\Themes\Andromeda\cursors\pen.cur
+SizeAll=%ResourceDir%\Themes\Andromeda\cursors\move.cur
+SizeNESW=%ResourceDir%\Themes\Andromeda\cursors\nesw.cur
+SizeNS=%ResourceDir%\Themes\Andromeda\cursors\ns.cur
+SizeNWSE=%ResourceDir%\Themes\Andromeda\cursors\nwse.cur
+SizeWE=%ResourceDir%\Themes\Andromeda\cursors\ew.cur
+UpArrow=%ResourceDir%\Themes\Andromeda\cursors\up.cur
+Wait=%ResourceDir%\Themes\Andromeda\cursors\wait.ani
+DefaultValue=Windows Default
+DefaultValue.MUI=@main.cpl,-1020
+
+[Control Panel\Desktop]
+Wallpaper=%SystemRoot%\Resources\Themes\Andromeda\Previews\Andromeda - Dark.png
+TileWallpaper=0
+WallpaperStyle=10
+Pattern=
+
+[VisualStyles]
+Path=%ResourceDir%\Themes\Andromeda\Andromeda - Night.msstyles
+ColorStyle=NormalColor
+Size=NormalSize
+AutoColorization=0
+ColorizationColor=3288381379
+SystemMode=Dark
+AppMode=Dark
+
+[boot]
+SCRNSAVE.EXE=
+
+[MasterThemeSelector]
+MTSM=RJSPBS
+
+[Sounds]
+; IDS_SCHEME_DEFAULT
+SchemeName=@%SystemRoot%\System32\mmres.dll,-800
+
+[Slideshow]
+Interval=1000000
+Shuffle=1
+ImagesRootPath=%SystemRoot%\Resources\Themes\Andromeda\Wallpapers\
