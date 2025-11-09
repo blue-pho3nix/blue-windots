@@ -225,7 +225,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 #### 2. Clone the repo **BRANCH: Andromeda** using GitHub Desktop or `git`.
 **Using `git`**
 ```
-git clone -b Andromeda --single-branch  https://github.com/blue-pho3nix/blue-windots.git
+git clone -b Andromeda  https://github.com/blue-pho3nix/blue-windots.git
 ```
 **Using Github Desktop**
 - File > clone repo > URL `https://github.com/blue-pho3nix/blue-windots.git`
