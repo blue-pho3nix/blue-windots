@@ -94,7 +94,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
   **Other:**
   - **Copies over config files** (Copies dotfiles from `config\home` to `$env:USERPROFILE`).
   - **Copies over theme assets** (Copies files from `config\theme` to `C:\Windows\Resources\Themes`).
-  - **Toggles off clock in taskbar** (Hides the taskbar clock).
+  - **Taskbar** (Hides the Windows taskbar).
   - **Sets the Long Paths Enabled registry key** (For Komorebi).
 </details>
 
