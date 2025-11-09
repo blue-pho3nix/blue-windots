@@ -1,211 +1,30 @@
 # Windots for Windows 11 😊
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
-![](https://github.com/user-attachments/assets/e066d4de-a5d7-4814-a120-0d6c89ef5ea3)
-![](https://github.com/user-attachments/assets/e84b909d-a3e5-4a1a-9e1c-77ac08140aa7)
-![](https://github.com/user-attachments/assets/f226badf-40bc-48bc-93b9-101909dabddd)
-![](https://github.com/user-attachments/assets/9dfb0651-10c4-44cb-9695-ece71834e40d)
-![](https://github.com/user-attachments/assets/538eeeb4-8bc7-428d-9b77-390423a9a29c)
-![](https://github.com/user-attachments/assets/29a57724-c0f4-4e63-8de5-503c2f3175e6)
-![](https://github.com/user-attachments/assets/23662d7f-ec4a-4a8a-b65d-564578d23e93)
-![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
+## Andromeda 
 
+![](https://github.com/user-attachments/assets/03b9cbc6-a34f-4c75-ac5f-672ed6e1b5b1)
 
-## Hotkeys
-> [!NOTE]
-> Feel free to add more [AutoHotKeys](https://www.autohotkey.com/) to `C:\Users\<your_username>\Komorebi.ahk`. 
+![](https://github.com/user-attachments/assets/50962a26-84de-4dd3-b2c1-c465591c9f2d)
 
-<details closed>
-  <summary>View the cool hotkeys 🔥</summary>
+![](https://github.com/user-attachments/assets/d3e1d331-d9a6-4a48-bf85-ff665b8704f7)
 
-| Hotkey | Action |
-|--------|--------|
-| `win` + `Left` | Focus window to the left |
-| `win` + `Right` | Focus window to the right |
-| `win` + `Up` | Focus window upward |
-| `win` + `Down` | Focus window downward |
-| `win` + `=` | Increase window width (horizontal) |
-| `win` + `-` | Decrease window width (horizontal) |
-| `win` + `shift` + `=` | Increase window height (vertical) |
-| `win` + `shift` + `-` | Decrease window height (vertical) |
-| `win` + `Space` | Promote focused window |
-| `win` + `1` | Focus workspace 1 |
-| `win` + `2` | Focus workspace 2 |
-| `win` + `3` | Focus workspace 3 |
-| `win` + `4` | Focus workspace 4 |
-| `win` + `shift` + `1` | Move window to workspace 1 |
-| `win` + `shift` + `2` | Move window to workspace 2 |
-| `win` + `shift` + `3` | Move window to workspace 3 |
-| `win` + `shift` + `4` | Move window to workspace 4 |
-| `win` + `shift` + `Left` | Move window left (includes monitors) |
-| `win` + `shift` + `Right` | Move window right (includes monitors) |
-| `win` + `w` | Open default browser (Google) |
-| `win` + `Enter` | Open PowerShell |
-| `win` + `shift` + `Enter` | Open PowerShell as Administrator |
-| `win` + `c` | Open Command Prompt |
-| `win` + `shift` + `c` | Open Command Prompt as Administrator |
-| `win` + `f` | Open File Explorer |
-| `win` + `q` | Close focused window |
-</details>
+![](https://github.com/user-attachments/assets/7ed348bd-3b2e-4f7b-9724-4f57e2678f35)
 
+### Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
 
+#### Pomodoro
+
+![](https://github.com/user-attachments/assets/d3ca9eb1-12c5-4728-a8d9-d5d0455f95ed)
+
+#### To Do List
+
+![](https://github.com/user-attachments/assets/30db3cc7-946c-4779-b0ba-8ec015593cb9)
+
+#### Launchpad
+
+![](https://github.com/user-attachments/assets/7e349a28-5d72-4ef5-bde3-8996ce87ca46)
+
+### Windots and Installation script: [Here](https://github.com/blue-pho3nix/blue-windots/tree/Andromeda)
 
 ---
-
-## Optional Pre-Install
-
-### Create a [restore point](https://support.microsoft.com/en-us/windows/system-protection-e9126e6e-fa64-4f5f-874d-9db90e57645a)
-> [!IMPORTANT]  
-> Optional, but recommended.
-
-### If You Want to Change the Desktop Images
-- You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/main/config/theme/One%20Dark%20Pro/Wallpapers) before installing...
-- You can always edit them in your Git clone if you want the diff background images to be automatically set to slideshow during installation.
-
----
-
-## Required Pre-Install
-
-> [!TIP]
-> If You have **fewer/more than 5 monitors**, change the `blue-windots\config\home\Komorebi.json` to meet your needs.
-
-### 1. Install [Windhawk](https://windhawk.net/) and Mods
-> [!NOTE]
-> I want to script the entire install for Windhawk, but Windhawk is not currently set up to do so... <br>
-> At this point, you can manually install the mods, and the setup for each mod will be in the script below. <br><br>
-> Also, you don't need `winlogon.exe` and `logonui.exe`  in UXTheme hook's advanced settings. <br>
-> The theme doesn't really have settings for the login/lock screen.
-
-#### Install the following mods under `Explore`
-- Control Panel Color Fix
-- Resource Redirect
-- Windows 11 File Explorer Styler
-- Windows 11 Notification Center Styler
-- Windows 11 Start Menu Styler
-- Windows 11 Taskbar Styler
-- UXTheme hook
-
-
-![](https://github.com/user-attachments/assets/9006bdf4-dab3-41b7-95d5-9796e36aca2a)
-
-### 2. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
-
-### 3. Install [Powershell 7](https://apps.microsoft.com/detail/9MZ1SNWT0N5D?hl=en-us&gl=US&ocid=pdpshare)
-
-### 4. Install [Scoop](https://scoop.sh/) in a PowerShell terminal 
-> [!NOTE]
-> This is just done manually because you shouldn't install `scoop` in an elevated termin.
-```
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
-```
----
-
-## What Does the Setup.ps1 Do?
-
-<details closed>
-  <summary> The script does the following 💙...</summary>
-  
-  **Installs:**
-  - **[Winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/)** (This installs the applications)
-  - **[Komorebi](https://github.com/LGUG2Z/komorebi)** (Windows tiling manager).
-  - **[yasb](https://github.com/amnweb/yasb)** (Status bar at the top of the screen).
-  - **[OhMyPosh](https://ohmyposh.dev/)** (Just installed to make nerd font installation easier).  
-  - **[0xProto Nerd Font](https://www.programmingfonts.org/#oxproto)** (Used in the terminal and yasb).
-  - **[Git](https://git-scm.com/install/windows)** (Used by Scoop)
-  - **[Scoop](https://scoop.sh/)** (Puts AutoHotKey on PATH)
-  - **[AutoHotkey](https://www.autohotkey.com/)** (Makes it possible to use the window key in hotkeys).
-  - **[Clink](https://chrisant996.github.io/clink/clink.html)** (Makes it easy to use Starship in Command Prompt)
-  - **[Starship](https://starship.rs/)** (Makes your terminal pretty)
- 
-
-  **Sets up:**
-  - **The [theme](https://www.deviantart.com/niivu/art/One-Dark-Pro-for-Windows-11-930312689)** (Applies a theme `One Dark Pro (Night) - PAC.theme`...this give you pacman icons in File Explorer...).
-  - **Windhawk** (Configures mods).
-  - **Environment Variables** (Sets custom environment variables defined in `appList.json`).
-  - **Starship** (Adds the initialization line to the user's PowerShell profile).
-  - **Komorebi** (Enables autostart).
-  - **YASB** (Enables autostart).
-  - **Clink** (Disables the Clink banner/logo).
-  
-  **Other:**
-  - **Copies over config files** (Copies dotfiles from `config\home` to `$env:USERPROFILE`).
-  - **Copies over theme assets** (Copies files from `config\theme` to `C:\Windows\Resources\Themes`).
-  - **Toggles off clock in taskbar** (Hides the taskbar clock).
-  - **Sets the Long Paths Enabled registry key** (For Komorebi).
-</details>
-
---- 
-
-## Install Instructions
-
-#### 1. Open Powershell 7 as `Administrator`.
-#### 2. Clone the repo using GitHub Desktop, `git`, or download as a .zip.
-
-```
-git clone https://github.com/blue-pho3nix/blue-windots.git
-```
-#### 3. `cd` into the `blue-dots` directory.
-#### 4. Run `Setup.ps1`.
-> [!NOTE]
-> 1. You may need to accept msstore agreements. The default msstore source includes packages in the Microsoft Store.<br>
-> 2. You don't need to refresh cache for Windhawk Resource Redirect. <br>
-> 3. After the install, make sure to reboot.
-```
-.\Setup.ps1
-```
-
----
-
-## Post Install Fun
-
-### Change Your Mouse Pointer
-<details closed>
-  <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> 🖱️ </summary>
-  
-   1. Right click blue-windots\cursors\install.inf.
-    
-  ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
-  
-  2. Press `win + R` and enter `main.cpl`.
-  
-  ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
-  
-  3. Go to `Pointers`.
-  4. Select `Catppuccin-Mocha-Lavender-Cursors`
-  
-  ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
-  
-  5. Click `Apply` and `OK`.
-
-</details>
-
-### Let's say you want to edit you Komorebi config file after install.
-<details closed>
-  <summary>Here's how you can do it. 🎉</summary>
-
-1. Edit and save `C:\Users\<your_username>\Komorebi.json`   
-2. Open a regular powershell window (`win + enter`).
-3. Stop and start Komorebi or reload the configuration.
-> Make sure to always use `--ahk` to keep the autohotkeys working. <br>
-
-```
-Komorebic stop --ahk
-```
-```
-Komorebic start --ahk
-```
-or
-```
-Komorebic reload-configuration
-```
-4. Reload scripts in AutoHotKey (right click AutoHotKey and click `Reload Scripts`).
-
-![](https://github.com/user-attachments/assets/62340ca3-c9a4-4d4b-b6ad-102978f32fa5)
-
-</details>
-
----
-
-## Got Questions, Issues, or Suggestions?
-Ping me in #rice on [Discord](https://discord.gg/TujAjYXJjr) (Blue Pho3nix).
