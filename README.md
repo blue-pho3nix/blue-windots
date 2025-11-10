@@ -256,7 +256,7 @@ git clone -b Andromeda  https://github.com/blue-pho3nix/blue-windots.git
 
 - Turn off "Hide icon menu"
 
-![](https://github.com/user-attachments/assets/19dc32f3-c9d9-4d11-af9a-fd96f1557e3c)
+![](https://github.com/user-attachments/assets/8b64d0cb-83c9-4f56-822c-3e65f8fe43aa)
 
 ---
 
