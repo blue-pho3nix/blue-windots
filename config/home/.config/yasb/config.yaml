@@ -37,9 +37,9 @@ bars:
       center:
         - "clock"
       right:
+        - "systray"
         - "todo"
         - "pomodoro"
-        - "systray"
         - "notifications"
         - "update_check"
         - "power_menu"

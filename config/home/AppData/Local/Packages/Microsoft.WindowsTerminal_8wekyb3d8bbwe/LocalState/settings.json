@@ -58,7 +58,7 @@
   "profiles": {
     "defaults": {
       "antialiasingMode": "cleartype",
-      "colorScheme": "Galaxy",
+      "colorScheme": "Nordish",
       "font": {
         "face": "Cascadia Mono",
         "size": 12
@@ -102,27 +102,27 @@
   },
   "schemes": [
     {
-      "name": "Galaxy",
-      "black": "#000000",
-      "red": "#f9555f",
-      "green": "#21b089",
-      "yellow": "#fef02a",
-      "blue": "#589df6",
-      "purple": "#944d95",
-      "cyan": "#1f9ee7",
-      "white": "#bbbbbb",
-      "brightBlack": "#555555",
-      "brightRed": "#fa8c8f",
-      "brightGreen": "#35bb9a",
-      "brightYellow": "#ffff55",
-      "brightBlue": "#589df6",
-      "brightPurple": "#e75699",
-      "brightCyan": "#3979bc",
+      "name": "Nordish",
+      "black": "#1c1c2a",
+      "red": "#ec8e50",
+      "green": "#50ecdc",
+      "yellow": "#fffeec",
+      "blue": "#50aeec",
+      "purple": "#a472f0",
+      "cyan": "#c6c7f8",
+      "white": "#e5f0f8",
+      "brightBlack": "#8b8ca3",
+      "brightRed": "#ee87c6",
+      "brightGreen": "#64f0e4",
+      "brightYellow": "#fffad1",
+      "brightBlue": "#66baff",
+      "brightPurple": "#b684ff",
+      "brightCyan": "#d5d6ff",
       "brightWhite": "#ffffff",
-      "background": "#1d2837",
-      "foreground": "#ffffff",
-      "selectionBackground": "#b5d5ff",
-      "cursorColor": "#bbbbbb"
+      "background": "#000018",
+      "foreground": "#eaf3fa",
+      "selectionBackground": "#50aeec",
+      "cursorColor": "#fffeec"
     }
   ],
   "themes": [],
