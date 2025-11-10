@@ -1,27 +1,11 @@
-# Andromeda Windots for Windows 11 😊
+# Nordish Windots for Windows 11 😊
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
-![](https://github.com/user-attachments/assets/03b9cbc6-a34f-4c75-ac5f-672ed6e1b5b1)
-
-![](https://github.com/user-attachments/assets/50962a26-84de-4dd3-b2c1-c465591c9f2d)
-
-![](https://github.com/user-attachments/assets/d3e1d331-d9a6-4a48-bf85-ff665b8704f7)
-
-![](https://github.com/user-attachments/assets/7ed348bd-3b2e-4f7b-9724-4f57e2678f35)
+<pics>
 
 ## Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
 
-### Pomodoro
-
-![](https://github.com/user-attachments/assets/d3ca9eb1-12c5-4728-a8d9-d5d0455f95ed)
-
-### To Do List
-
-![](https://github.com/user-attachments/assets/30db3cc7-946c-4779-b0ba-8ec015593cb9)
-
-### Launchpad
-
-![](https://github.com/user-attachments/assets/7e349a28-5d72-4ef5-bde3-8996ce87ca46)
+<pics>
 
 ---
 
@@ -153,7 +137,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 > Optional, but recommended.
 
 ### If You Want to Change the Desktop Images
-- You can preview the current desktop images [here](https://github.com/blue-pho3nix/blue-windots/tree/Andromeda/config/theme/Andromeda/Wallpapers) before installing...
+- You can preview the current desktop images [here]<link> before installing...
 - You can always edit them in your Git clone if you want the diff background images to be automatically set to slideshow during installation.
 
 ---
@@ -225,14 +209,13 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 #### 2. Clone the repo **BRANCH: Andromeda** using GitHub Desktop or `git`.
 **Using `git`**
 ```
-git clone -b Andromeda  https://github.com/blue-pho3nix/blue-windots.git
+git clone -b Nordish  https://github.com/blue-pho3nix/blue-windots.git
 ```
 **Using Github Desktop**
 - File > clone repo > URL `https://github.com/blue-pho3nix/blue-windots.git`
-- Change branch to Andromeda
+- Change branch to Nordish
 
-![](https://github.com/user-attachments/assets/b5445d31-a748-4c0f-a9c0-e9d3f1b683a6)
-
+<image>
 
 #### 3. `cd` into the `blue-dots` directory.
 #### 4. Run `Setup.ps1`.
