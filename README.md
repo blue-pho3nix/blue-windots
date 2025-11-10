@@ -1,11 +1,11 @@
 # Nordish Windots for Windows 11 😊
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
-<pics>
+`[images]`
 
 ## Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
 
-<pics>
+`[images]`
 
 ---
 
@@ -162,7 +162,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 - Windows 11 Taskbar Styler
 - UXTheme hook
 
-<image>
+`[image]`
 
 
 ### 2. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
@@ -216,7 +216,7 @@ git clone -b Nordish  https://github.com/blue-pho3nix/blue-windots.git
 - File > clone repo > URL `https://github.com/blue-pho3nix/blue-windots.git`
 - Change branch to Nordish
 
-<image>
+![](https://github.com/user-attachments/assets/106e1687-1a4c-40f8-a39f-b287ff4413ed)
 
 #### 3. `cd` into the `blue-dots` directory.
 #### 4. Run `Setup.ps1`.
@@ -236,6 +236,10 @@ git clone -b Nordish  https://github.com/blue-pho3nix/blue-windots.git
 - Turn on "Automatically hide the taskbar"
 
 ![](https://github.com/user-attachments/assets/80abbafa-091f-4fdc-ae1c-d185a322bc5c)
+
+- Turn off "Hide icon menu"
+
+![](https://github.com/user-attachments/assets/8b64d0cb-83c9-4f56-822c-3e65f8fe43aa)
 
 ---
 
