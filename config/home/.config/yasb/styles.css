@@ -1,162 +1,79 @@
 :root {
-  --transparent: rgba(1, 20, 30, 0.55);
-  --main: rgba(54, 238, 254, 0.848);
-  --mainLight: rgba(44, 237, 255, 0.979);
-  --overlay2: #555e70;
-  --surface2: #383a47;
-  --surface1: #3c3f4c;
-  --mantle: rgba(23, 25, 30, 0.776);
-  --crust: rgba(34, 38, 45, 0.712);
+  --background-color: #010136;
+  --foreground-color: #e5f0f8;
+  --border-color: #616161;
+  --highlight-color: #fffeec;
+  --blue-color: #50aeec;
+  --pink-color: #ee87c6;
+  --analogous-color: #50ecdc;
+  --yellow-color: #ec8e50;
+  --other-analogous-color: #c6c7f8;
+  --purple-color: #a472f0;
+  --font-family: "JetBrainsMono NFP";
 }
-
-.context-menu {
-  padding: 4px 4px;
-  background-color: rgba(17, 17, 27, 0.6);
-  border-radius: 9px;
-}
-
-.context-menu::icon:checked {
-  width: 0px;
-  height: 0px;
-}
-
-.context-menu::item:selected {
-  background-color: rgba(17, 17, 27, 0.3);
-  color: var(--mainLight);
-}
-
-.menu-checkbox {
-  color: var(--main);
-  background-color: rgba(17, 17, 27, 0.6);
-}
-
-.menu-checkbox:hover {
-  background-color: rgba(17, 17, 27, 0.3);
-  color: var(--mainLight);
-}
-
-.context-menu::item,
-.context-menu .menu-checkbox {
-  border: none;
-  background-color: transparent;
-  padding: 6px 12px;
-  margin: 2px 6px;
+QToolTip {
+  margin: 6px;
+  color: var(--foreground-color);
+  font-size: 12px;
+  background-color: var(--background-color);
+  border: 0px solid var(--border-color);
   border-radius: 6px;
-  min-width: 100px;
 }
-
-.context-menu .menu-checkbox .checkbox {
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
-
-.context-menu .menu-checkbox:hover {
-  color: var(--mainLight);
-}
-
-.tooltip {
-  padding: 6px;
-  color: var(--mainLight);
-  font-size: 14px;
-  background-color: var(--transparent);
-  border: 0px solid #313244;
-  border-radius: 9px;
-}
-
 * {
   font-size: 16px;
-  color: var(--main);
-  font-weight: 600;
-  font-family: "JetBrainsMono NFP";
+  color: var(--foreground-color);
+  font-weight: 400;
+  font-family: var(--font-family);
   margin: 0;
   padding: 0;
 }
-
 .yasb-bar {
-  padding: 0;
+  padding: 0 8px;
   margin: 0;
-  background: var(--transparent);
-  backdrop-filter: blur(8px) saturate(170%);
-  box-shadow: 0 0 6px rgba(0, 255, 255, 0.15);
+  background-color: var(--background-color);
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.4);
 }
 .widget {
-  padding: 0 2px;
+  padding: 0 8px;
   margin: 0;
 }
-.icon {
-  font-size: 18px;
-}
-.widget .label {
-  padding: 0px 2px;
-}
-
-.media-widget .widget-container {
-  background-color: rgba(0, 0, 0, 0);
-  margin: 0px 0 0px 0;
-  border-radius: 6px;
-}
-
-/* WORKSPACE Setting */
-.komorebi-workspaces .offline-status {
-  color: var(--overlay2);
-  padding: 0 4px;
-  font-size: 12px;
-  font-weight: 600;
-}
-.komorebi-workspaces .ws-btn {
-  border: none;
-  background-color: var(--main);
-  margin: 0px 4px;
-  padding: 0;
-  color: rgba(0, 0, 0, 0);
-  border-radius: 5px;
-  height: 10px;
-  width: 10px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
-}
-.komorebi-workspaces .ws-btn:hover {
-  background-color: var(--mainLight);
-}
-.komorebi-workspaces .ws-btn.populated {
-  background-color: var(--main);
-}
-.komorebi-workspaces .ws-btn.active {
-  background-color: var(--main);
-  width: 36px;
-  height: 10px;
-  border-radius: 5px;
-}
-
-/* CLOCK and CALENDAR Settings */
-.clock-widget .icon {
-  background: rgba(0, 0, 0, 0.01);
-  color: var(--main);
-  margin-right: 4px;
-}
-
+/* Clock widget */
 .clock-widget .label {
-  background: rgba(0, 0, 0, 0.01);
-  color: var(--mainLight);
-  font-weight: bold;
+  font-weight: 900;
+  background-color: var(--blue-color);
+  margin: 0;
+  padding: 0;
+  color: var(--background-color);
 }
-
+.clock-widget .icon {
+  font-size: 50px;
+  margin: 0 -1px;
+  padding: 0;
+  font-weight: 600;
+  color: var(--blue-color);
+}
+.clock-widget {
+  border-top-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  padding: 0 20px;
+}
 .calendar {
-  background-color: rgba(17, 17, 27, 0.5);
+  background-color: var(--background-color);
 }
 .calendar .calendar-table,
 .calendar .calendar-table::item {
   background-color: rgba(17, 17, 27, 0);
-  color: var(--mainLight);
-  font-family: "JetBrainsMono NFP";
+  color: rgba(162, 177, 196, 0.85);
+  font-family: "Segoe UI";
   margin: 0;
   padding: 0;
   border: none;
   outline: none;
 }
 .calendar .calendar-table::item:selected {
-  color: var(--surface1);
-  border-radius: 8px;
-  background-color: var(--main);
+  color: rgb(255, 255, 255);
+  background-color: var(--highlight-color);
+  border-radius: 12px;
 }
 .calendar .day-label {
   margin-top: 20px;
@@ -164,10 +81,10 @@
 .calendar .day-label,
 .calendar .month-label,
 .calendar .date-label {
-  font-family: "JetBrainsMono NFP";
+  font-family: "Segoe UI";
   font-size: 16px;
-  color: var(--mainLight);
-  font-weight: 700;
+  color: var(--foreground-color);
+  font-weight: 600;
   min-width: 180px;
   max-width: 180px;
 }
@@ -177,213 +94,310 @@
 .calendar .date-label {
   font-size: 88px;
   font-weight: 900;
-  color: var(--mainLight);
+  color: #ffffff;
   margin-top: -20px;
 }
+/* Home menu widget */
+.home-widget .icon {
+  color: var(--yellow-color);
+  font-size: 20px;
+}
+.home-widget .icon:hover {
+  color: var(--highlight-color);
+}
+.home-menu {
+  background-color: var(--background-color);
+}
+.home-menu .menu-item {
+  padding: 8px 48px 9px 16px;
+  font-size: 14px;
+  font-family: "Segoe UI";
+  color: var(--foreground-color);
+  font-weight: 700;
+}
+.home-menu .menu-item:hover {
+  background-color: var(--yellow-color);
+  color: var(--background-color);
+}
+.home-menu .separator {
+  max-height: 1px;
+  background-color: var(--border-color);
+}
 
-/* POWER Settings */
+/*  Sleek Power Menu  */
 .power-menu-widget .label {
-  background: rgba(0, 0, 0, 0.01);
-  color: var(--main);
-  font-family: "JetBrainsMono NFP";
+  color: var(--pink-color);
 }
-
-/* Popup container */
 .power-menu-popup {
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 24px;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 18px;
+  border-radius: 16px;
+
+  /* Glassmorphism background (semi-transparent) */
+  background: rgba(
+    1,
+    1,
+    54,
+    0.35
+  ); /* matches --background-color, semi-transparent */
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(229, 240, 248, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+
+  transition: all 0.25s ease-in-out;
 }
 
-/* Power buttons */
+/*  Buttons  */
 .power-menu-popup .button {
-  width: 160px;
-  height: 200px;
-  border-radius: 10px;
-  background-color: rgba(17, 17, 27, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.05);
-  color: var(--mainLight);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s ease-in-out;
+
+  width: 160px;
+  height: 120px;
+  border-radius: 12px;
+
+  /* Semi-transparent button surface */
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(229, 240, 248, 0.1);
+  color: var(--foreground-color);
+
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-align: center;
+
+  transition: all 0.25s ease;
   cursor: pointer;
 }
 
-/* Default icons and text */
-.power-menu-popup .button .icon {
-  font-size: 42px;
-  color: var(--main);
-  margin-bottom: 10px;
-  transition: color 0.2s ease;
-}
-.power-menu-popup .button .label {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--mainLight);
-  transition: color 0.2s ease;
-}
-
-/* Hover and focus effects */
+/* Hover effect */
 .power-menu-popup .button:hover {
-  background-color: rgba(17, 17, 27, 0.5);
-  border-color: var(--main);
-  box-shadow: 0 0 10px var(--main);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(229, 240, 248, 0.3);
+  box-shadow: 0 0 14px rgba(80, 174, 236, 0.6);
   transform: translateY(-2px);
 }
+
+/*  Icon  */
+.power-menu-popup .button .icon {
+  font-size: 38px;
+  color: var(--blue-color);
+  margin-bottom: 10px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
 .power-menu-popup .button:hover .icon {
-  color: var(--mainLight);
-}
-.power-menu-popup .button:hover .label {
-  color: var(--mainLight);
+  color: var(--highlight-color);
+  transform: scale(1.1);
 }
 
-/* Cancel button */
-.power-menu-popup .button.cancel {
-  width: 200px;
-  height: 48px;
-  background-color: rgba(189, 45, 20, 0.2);
-  border: 1px solid rgba(189, 45, 20, 0.4);
-}
-.power-menu-popup .button.cancel .icon,
-.power-menu-popup .button.cancel .label {
-  color: var(--mainLight);
+/*  Label  */
+.power-menu-popup .button .label {
   font-size: 16px;
-}
-.power-menu-popup .button.cancel:hover {
-  background-color: rgba(189, 45, 20, 0.5);
-  border-color: rgba(189, 45, 20, 0.8);
-  box-shadow: 0 0 8px rgba(189, 45, 20, 0.6);
+  font-weight: bold;
+  color: var(--foreground-color);
+  opacity: 0.85;
 }
 
-/* Uptime label */
+/*  Uptime text  */
 .uptime {
-  font-size: 16px;
-  margin-top: 12px;
-  color: var(--overlay2);
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #7f849c;
   font-weight: 600;
-  text-align: center;
-  font-family: "JetBrainsMono NFP";
 }
 
-.audio-menu .volume-slider::sub-page {
-  background: var(--main);
-  border-radius: 2px;
-  height: 5px;
-}
-.audio-menu {
-  background-color: rgba(17, 17, 27, 0.5);
-}
-.audio-container .device {
-  color: var(--mainLight);
-  background-color: transparent;
-  border: none;
-  padding: 6px 8px 6px 4px;
-  margin: 2px 0;
+.komorebi-control-menu .footer .text {
   font-size: 12px;
-  font-weight: bold;
-  border-radius: 4px;
+  color: var(--border-color);
 }
-.audio-container .device.selected {
-  background-color: rgba(255, 255, 255, 0.15);
+/* Komorebi Workspace Widget */
+.komorebi-workspaces .ws-btn {
+  border: none;
+  color: transparent;
+  margin: 0 3px;
+  border-radius: 8px;
+  font-size: 1px;
+  background-color: var(--border-color);
+  height: 16px;
+  width: 16px;
 }
-.audio-container .device:hover {
-  background-color: rgba(255, 255, 255, 0.17);
+.komorebi-workspaces .ws-btn:hover {
+  background-color: var(--blue-color);
+}
+.komorebi-workspaces .ws-btn.populated {
+  background-color: #b4befe;
+}
+.komorebi-workspaces .ws-btn.active {
+  width: 46px;
+  max-width: 46px;
+  background-color: var(--blue-color);
+}
+.komorebi-workspaces .float-override {
+  color: #a6e3a1;
+  padding-left: 6px;
+}
+.komorebi-workspaces .workspace-layer {
+  padding-left: 6px;
+}
+.komorebi-workspaces .workspace-layer.tiling {
+  color: #a6e3a1;
+}
+.komorebi-workspaces .workspace-layer.floating {
+  color: #eba0ac;
+}
+/* Notifications Widget */
+.notification-widget .icon {
+  padding-right: 4px;
+}
+.notification-widget .icon.new-notification {
+  color: var(--other-analogous-color);
+}
+.notification-widget .label.new-notification {
+  color: var(--other-analogous-color);
 }
 
-/* ACTIVE WINDOW Settings */
-.active-window-widget .icon {
-  padding: 0 9px;
-}
-
-.active-window-widget .label {
-  color: var(--mainLight);
-  background: rgba(0, 0, 0, 0.01);
-  font-weight: bold;
-}
-
-.active-window-widget {
-  padding-right: 0;
-}
-.active-window-widget .widget-container {
-  padding: auto;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-}
-
-/* MEDIA Settings */
 .media-widget {
   padding: 0;
   margin: 0;
-  border-radius: 0;
 }
-
 .media-widget .label {
-  color: var(--main);
-  font-weight: bold;
+  color: var(--foreground-color);
   padding: 0px;
-  padding-left: 16px;
-  max-width: 220px;
-  min-width: 220px;
+  padding-right: 4px;
+  font-size: 12px;
 }
 .media-widget .btn {
-  color: var(--main);
-  padding: 0 1px;
+  color: var(--foreground-color);
+  padding: 0 4px;
   margin: 0;
-  background: rgba(0, 0, 0, 0.01);
+  font-family: "Segoe Fluent Icons";
+  font-weight: 400;
 }
-.media-widget .btn:hover {
-  color: var(--mainLight);
-}
+
 .media-widget .btn.play {
-  font-size: 18px;
-  max-width: 22px;
-  min-width: 22px;
+  font-size: 16px;
 }
 .media-widget .btn.disabled:hover,
 .media-widget .btn.disabled {
-  color: #585b70;
+  color: var(--border-color);
+  font-size: 12px;
+  background-color: var(--background-color);
 }
 
 .media-menu {
-  min-width: 420px;
-  max-width: 420px;
-  background-color: rgba(31, 39, 49, 0.5);
+  min-width: 440px;
+  max-width: 440px;
+  background-color: var(--background-color);
 }
-
+.media-menu .title,
+.media-menu .artist,
 .media-menu .source {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   margin-left: 10px;
-}
-.media-menu .title {
-  margin-left: 10px;
-  font-size: 18px;
-  font-weight: bold;
 }
 .media-menu .artist {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--main);
+  font-size: 13px;
+  color: var(--foreground-color);
   margin-top: 0px;
-  margin-bottom: 8px;
-  margin-left: 12px;
 }
 .media-menu .source {
-  font-size: 16px;
+  font-size: 11px;
   color: #000;
-  font-weight: normal;
   border-radius: 3px;
-  background-color: var(--main);
+  background-color: var(--background-color);
   padding: 2px 4px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+/* The source class name is the same as what you see in the media widget; just replace spaces with dashes and convert it to lowercase. 
+Example: "Windows Media" becomes "windows-media" */
+.media-menu .source.aimp {
+  background-color: #6f42c1;
+  color: var(--foreground-color);
+}
+.media-menu .source.apple-music {
+  background-color: #fa2b56;
+  color: var(--foreground-color);
+}
+.media-menu .source.brave {
+  background-color: #fb542b;
+  color: var(--foreground-color);
+}
+.media-menu .source.chrome {
+  background-color: #4285f4;
+  color: var(--foreground-color);
+}
+.media-menu .source.edge {
+  background-color: #0078d4;
+  color: var(--foreground-color);
+}
+.media-menu .source.firefox {
+  background-color: #ff7139;
+  color: var(--foreground-color);
+}
+.media-menu .source.foobar2000 {
+  background-color: #444444;
+  color: var(--foreground-color);
+}
+.media-menu .source.media-player {
+  background-color: #0078d4;
+  color: var(--foreground-color);
+}
+.media-menu .source.murglar {
+  background-color: #8a8a8a;
+  color: var(--foreground-color);
+}
+.media-menu .source.musicbee {
+  background-color: #ffcc00;
+  color: var(--background-color);
+}
+.media-menu .source.nsmusics {
+  background-color: #e64a19;
+  color: var(--foreground-color);
+}
+.media-menu .source.opera {
+  background-color: #ff1b2d;
+  color: var(--foreground-color);
+}
+.media-menu .source.qobuz {
+  background-color: #003a6f;
+  color: var(--foreground-color);
+}
+.media-menu .source.spotify {
+  background-color: #1db954;
+  color: var(--foreground-color);
+}
+.media-menu .source.tidal {
+  background-color: #000000;
+  color: var(--foreground-color);
+}
+.media-menu .source.winamp {
+  background-color: #f1a11b;
+  color: var(--background-color);
+}
+.media-menu .source.youtube {
+  background-color: #ff0000;
+  color: var(--foreground-color);
+}
+.media-menu .source.youtube-music {
+  background-color: #c51f1f;
+  color: var(--foreground-color);
+}
+.media-menu .source.zen {
+  background-color: #2ecc71;
+  color: var(--background-color);
 }
 .media-menu .btn {
-  font-size: 16px;
+  font-family: "Segoe Fluent Icons";
+  font-size: 14px;
   font-weight: 400;
   margin: 10px 2px 0px 2px;
   min-width: 40px;
@@ -396,802 +410,155 @@
   margin-left: 10px;
 }
 .media-menu .btn:hover {
-  color: #babfd3;
-  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  background-color: var(--border-color);
 }
 .media-menu .btn.play {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--border-color);
   font-size: 20px;
 }
 .media-menu .btn.disabled:hover,
 .media-menu .btn.disabled {
-  color: #4e525c;
-  background-color: rgba(0, 0, 0, 0);
+  color: var(--border-color);
+  background-color: var(--background-color);
 }
 
 .media-menu .playback-time {
-  font-size: 16px;
-  color: #7f849c;
+  font-size: 13px;
+  font-family: "Segoe UI";
+  color: var(--border-color);
   margin-top: 20px;
   min-width: 100px;
 }
-
-/* NOTIFICATION Settings */
-.notification-widget .icon {
-  color: var(--main);
+.media-menu .progress-slider {
+  height: 10px;
+  margin: 5px 4px;
+  border-radius: 3px;
 }
-.notification-widget .icon.new-notification {
-  color: var(--main);
-}
-.notification-widget .label.new-notification {
-  color: var(--main);
-}
-
-.update-check-widget {
-  padding: 0 6px 0 6px;
-}
-.update-check-widget .icon {
-  color: var(--main);
-}
-.update-check-widget .widget-container.winget,
-.update-check-widget .widget-container.windows {
-  margin: 6px 2px 6px 2px;
-}
-
-.update-check-widget .widget-container.windows {
-  margin: 6px 2px 6px 2px;
-}
-.update-check-widget .widget-container.winget .icon,
-.update-check-widget .widget-container.windows .icon {
-  color: var(--main);
-  margin: 0 1px 0 6px;
-}
-.update-check-widget .widget-container.winget .label,
-.update-check-widget .widget-container.windows .label {
-  margin: 0 6px 0 1px;
-  color: var(--main);
-  font-weight: bold;
-  font-size: 16px;
-}
-
-/* Todo Widget Styles */
-.todo-widget {
-  padding: 0 6px 0 6px;
-}
-.todo-widget .icon {
-  color: var(--main);
-  padding: 0;
-}
-.todo-widget .label {
-  font-weight: bold;
-  padding: 0;
-}
-/* Todo Menu Styles */
-.todo-menu {
-  background-color: var(--transparent);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch; /* force children to fill width */
-  width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.todo-menu .header {
-  margin: 16px 10px;
-}
-.todo-menu .header .add-task-button,
-.todo-menu .header .tab-buttons {
-  border: none;
-  border-radius: 13px;
-  color: #ffffff;
-  padding: 4px 8px;
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0px;
-  font-family: "JetBrainsMono NFP";
-}
-.todo-menu .header .tab-buttons {
-  margin: 0;
-  font-size: 12px;
-}
-.todo-menu .header .add-task-button:hover {
-  background-color: var(--mainLight);
-}
-.todo-menu .header .tab-buttons.in-progress,
-.todo-menu .header .tab-buttons.completed {
-  background-color: transparent;
-}
-.todo-menu .header .tab-buttons.in-progress:checked {
-  color: var(--mainLight);
-}
-.todo-menu .header .tab-buttons.completed:checked {
-  color: var(--mainLight);
-}
-.todo-menu .header .tab-buttons.sort {
-  background-color: var(--main);
-  color: #ffffff;
-  border-radius: 10px;
-  min-height: 20px;
-  min-width: 20px;
-  max-width: 20px;
-  max-height: 20px;
-  padding: 0;
-  margin: 0 8px 0 0;
-  font-family: "JetBrainsMono NFP";
-}
-.todo-menu .header .tab-buttons.sort:pressed {
-  background-color: var(--transparent);
-}
-.todo-menu .no-tasks {
-  font-family: "JetBrainsMono NFP";
-  font-size: 18px;
-  color: var(--main);
-  font-weight: 400;
-  margin-top: 16px;
-}
-.todo-menu .no-tasks-icon {
-  font-size: 80px;
-  color: var(--main);
-  font-family: "JetBrainsMono NFP";
-  margin-top: 64px;
-  font-weight: 400;
-}
-
-/* Task item styles */
-.todo-menu .task-item {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin: 0px 12px 8px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px 0;
-}
-.todo-menu .task-item.expanded {
-  background-color: rgba(211, 214, 219, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-.todo-menu .task-item.drop-highlight,
-.todo-menu .task-item.drop-highlight:hover,
-.todo-menu .task-item.drop-highlight:focus {
-  background-color: rgba(0, 120, 212, 0.26);
-  border: 1px solid #007acc;
-}
-.todo-menu .task-item .title {
-  color: #ebebeb;
-  font-size: 13px;
-  font-weight: 600;
-  font-family: "JetBrainsMono NFP";
-  padding: 0 8px 8px 8px;
-  margin-top: 6px;
-}
-.todo-menu .task-item.completed .title,
-.todo-menu .task-item.completed .description {
-  text-decoration: line-through;
-  color: #7f8c8d;
-}
-.todo-menu .task-item .description {
-  color: #bdc3c7;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 0 8px 8px 8px;
-  font-family: "JetBrainsMono NFP";
-}
-.todo-menu .task-checkbox {
-  background-color: transparent;
-  border: none;
-  margin-left: 12px;
-  margin-top: 5px;
-  font-size: 18px;
-  color: #ebebeb;
-  font-family: "JetBrainsMono NFP";
-}
-.todo-menu .task-checkbox:checked {
-  color: #7f8c8d;
-}
-
-/* Todo Widget */
-.todo-widget {
-  padding: 0 6px;
-}
-.todo-widget .icon {
-  padding-right: 4px;
-  text-shadow: none;
-  color: var(--main);
-}
-.todo-widget .label {
-  text-shadow: none;
-  color: var(--main);
-  font-weight: bold;
-}
-.todo-widget .label.completed {
-  color: var(--mainLight);
-  font-weight: 600;
-}
-
-/* Header buttons */
-.todo-menu .header {
-  margin: 12px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.todo-menu .header .add-task-button,
-.todo-menu .header .tab-buttons {
-  background-color: var(--mainLight);
-  color: rgba(18, 19, 19, 0.949);
-  border: none;
-  border-radius: 4px;
-  padding: 6px 12px;
-  font-weight: 500;
-  font-family: "JetBrainsMono NFP";
-}
-
-.todo-menu .header .add-task-button:hover {
-  background-color: var(--main);
-}
-
-.todo-menu .header .tab-buttons:hover {
-  background-color: rgba(255, 255, 255, 0.15); /* subtle light overlay */
-  color: var(--mainLight); /* keep text readable */
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-/* Task items */
-.todo-menu .task-item {
-  background-color: rgba(17, 17, 27, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  margin: 8px 12px;
-  padding: 8px;
-}
-.todo-menu .task-item:hover {
-  background-color: rgba(17, 17, 27, 0.5);
-}
-.todo-menu .task-item .title {
-  color: var(--mainLight);
-  font-size: 14px;
-  font-weight: 600;
-}
-.todo-menu .task-item.completed .title {
-  color: rgba(148, 148, 148, 0.6);
-  text-decoration: line-through;
-}
-
-/* Task checkbox */
-.todo-menu .task-checkbox {
+.media-menu .progress-slider::groove {
   background: transparent;
-  border: none;
-  font-size: 18px;
-  color: var(--main);
-  margin-left: 12px;
+  height: 2px;
+  border-radius: 3px;
+  background: var(--border-color);
 }
-.todo-menu .task-checkbox:checked {
-  color: var(--mainLight);
-}
-
-/* Task info row */
-.todo-menu .task-info-row {
-  display: flex;
-  align-items: center;
-  margin-top: 4px;
-  margin-left: 8px;
-}
-
-.todo-menu .task-info-row .date-text,
-.todo-menu .task-info-row .category-text {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--overlay2);
-  margin-right: 10px;
-}
-
-/* Buttons inside dialog or list */
-.todo-menu .button {
-  background-color: var(--mainLight);
-  color: rgba(18, 19, 19, 0.949);
-  border: none;
-  border-radius: 4px;
-  padding: 6px 12px;
-  font-weight: 500;
-}
-
-.todo-menu .button:hover {
-  background-color: var(--main);
-}
-
-/* Dialog popup for adding/editing tasks */
-.todo-menu .app-dialog {
-  background-color: var(--transparent);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px); /* optional: adds nice frosted effect */
-  font-family: "JetBrainsMono NFP";
-  color: var(--mainLight);
-  transition: all 0.2s ease-in-out;
-  box-sizing: border-box;
-}
-
-.todo-menu .app-dialog .title-field,
-.todo-menu .app-dialog .desc-field {
-  background-color: rgba(17, 17, 27, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--mainLight);
-  border-radius: 6px;
-  font-family: "JetBrainsMono NFP";
-  font-size: 13px;
-  font-weight: 600;
-  padding: 6px 8px;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.todo-menu .app-dialog .title-field:focus,
-.todo-menu .app-dialog .desc-field:focus {
-  border-color: var(--main);
-}
-
-.todo-menu .app-dialog .category-button {
-  background-color: rgba(17, 17, 27, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  color: var(--mainLight);
-  font-family: "JetBrainsMono NFP";
-  font-size: 13px;
-  font-weight: 600;
-  padding: 4px 10px;
-  margin: 4px 6px;
-  transition: all 0.2s ease-in-out;
-  min-width: 90px;
-  text-align: center;
-}
-
-/* Hover and focus effects */
-.todo-menu .app-dialog .category-button:hover,
-.todo-menu .app-dialog .category-button:focus {
-  background-color: var(--main);
-  color: rgba(18, 19, 19, 0.949);
-  border: 1px solid var(--mainLight);
-  transform: translateY(-1px);
-}
-
-/* Active (checked) state */
-.todo-menu .app-dialog .category-button:checked {
-  background-color: var(--mainLight);
-  color: rgba(18, 19, 19, 0.949);
-  border: 1px solid var(--main);
-  box-shadow: 0 0 4px var(--main);
-  transform: translateY(-1px);
-}
-
-/* Base style for both buttons */
-.todo-menu .task-item .edit-task-button,
-.todo-menu .task-item .delete-task-button {
-  background-color: rgba(17, 17, 27, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  color: var(--mainLight);
-  font-family: "JetBrainsMono NFP";
-  font-weight: 600;
-  font-size: 13px;
-  padding: 4px 10px;
-  margin: 6px 4px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  text-align: center;
-}
-
-/* Hover and active states */
-.todo-menu .task-item .edit-task-button:hover {
-  background-color: var(--main);
-  color: rgba(18, 19, 19, 0.949);
-  border: 1px solid var(--mainLight);
-  transform: translateY(-1px);
-  box-shadow: 0 0 6px var(--main);
-}
-
-/* Improve tab visibility and active state */
-.todo-menu .header .tab-buttons {
+.media-menu .progress-slider::groove:hover {
   background: transparent;
-  color: var(--mainLight); /* ensure readable text */
-  font-weight: 600;
-  opacity: 0.8;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border-color);
+}
+.media-menu .progress-slider::sub-page {
+  background: var(--foreground-color);
+  border-radius: 3px;
+  height: 4px;
 }
 
-.todo-menu .header .tab-buttons:hover {
-  color: var(--main);
-  opacity: 1;
-}
-
-.pomodoro-widget {
-  padding: 0 6px 0 6px;
-}
-.pomodoro-widget .icon {
-  padding-right: 4px;
-  text-shadow: none;
-  color: var(--main);
-}
-
-.pomodoro-widget .label {
-  text-shadow: none;
-  color: var(--main);
-  font-weight: bold;
-}
-.pomodoro-widget .label.paused,
-.pomodoro-widget .icon.paused {
-  color: var(--mainLight);
-  font-weight: 600;
-}
-
-/* Pomodoro menu styling */
-.pomodoro-menu {
-  background-color: var(--transparent);
-  border-radius: 8px;
-}
-.pomodoro-menu .header {
-  font-size: 18px;
-  font-weight: 600;
-  max-height: 0px;
-  color: rgba(238, 248, 247, 0.949);
-}
-.pomodoro-menu .status {
-  font-size: 18px;
-  font-weight: 600;
-  color: rgba(238, 248, 247, 0.949);
-}
-.pomodoro-menu .session {
-  font-size: 16px;
-  color: rgba(238, 248, 247, 0.949);
-}
-.pomodoro-menu .button {
-  background-color: var(--mainLight);
-  color: rgba(18, 19, 19, 0.949);
-  border: none;
-  border-radius: 4px;
-  padding: 6px 12px;
-  font-weight: 500;
-}
-
-.pomodoro-menu .button:hover {
-  background-color: var(--main);
-}
-.pomodoro-menu .button.pause {
-  background-color: var(--mainLight);
-}
-.pomodoro-menu .button:pressed {
-  background-color: var(--main);
-}
-
-/* WHKD Settings — Same layout, lighter transparency */
-.whkd-widget {
-  padding: 0 6px 0 6px;
-}
-
-.whkd-widget .icon {
-  color: var(--mainLight);
-}
-
-.whkd-popup {
-  background-color: rgba(17, 17, 27, 0.1);
-}
-
-.whkd-popup .edit-config-button {
-  background-color: var(--main);
-  color: #000;
-  padding: 4px 8px 6px 8px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 4px;
-  font-family: "JetBrainsMono NFP", sans-serif;
-  opacity: 0.9;
-}
-
-.whkd-popup .keybind-buttons-container {
-  min-width: 240px;
-}
-
-.whkd-popup .keybind-button {
-  background-color: rgba(55, 57, 57, 0.6);
-  color: rgba(244, 253, 253, 0.9);
-  padding: 4px 8px 6px 8px;
-  font-size: 16px;
-  font-weight: 600;
-  border: 1px inset rgba(160, 244, 237, 0.25);
-  border-bottom: 2px inset rgba(160, 244, 237, 0.4);
-  border-radius: 4px;
-  font-family: "JetBrainsMono NFP";
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-}
-
-.whkd-popup .keybind-button:hover {
-  background-color: rgba(80, 82, 84, 0.65);
-  border-color: rgba(160, 244, 237, 0.5);
-}
-
-.whkd-popup .keybind-button.special {
-  background-color: rgba(55, 57, 57, 0.6);
-}
-
-.whkd-popup .keybind-row:hover {
-  background-color: rgba(188, 139, 247, 0.15);
-  border-radius: 8px;
-}
-
-.whkd-popup .plus-separator {
-  padding: 0 0px;
-  border: none;
-  font-size: 18px;
-  font-weight: bold;
-  background-color: transparent;
-  color: rgba(244, 253, 253, 0.8);
-}
-
-.whkd-popup .filter-input {
-  padding: 0 8px 2px 8px;
-  font-size: 16px;
-  font-family: "JetBrainsMono NFP", sans-serif;
-  border: 1px solid rgba(55, 57, 57, 0.5);
-  border-radius: 4px;
-  outline: none;
-  color: rgba(244, 253, 253, 0.9);
-  background-color: rgba(35, 37, 37, 0.5);
-  min-height: 32px;
-}
-
-.whkd-popup .filter-input:focus {
-  border: 1px solid var(--main);
-}
-
-.whkd-popup .keybind-command {
-  font-size: 16px;
-  color: rgba(244, 253, 253, 0.9);
-}
-
-.whkd-popup .keybind-header {
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(244, 253, 253, 0.9);
-  padding: 8px 0;
-  margin-top: 20px;
-  background-color: rgba(22, 23, 23, 0.5);
-  border: 1px solid rgba(35, 37, 37, 0.4);
-  border-radius: 8px;
-}
-
-/* Widget style */
-.launchpad-widget {
-  padding: 0 6px 0 6px;
-}
-.launchpad-widget .label {
-  color: var(--main);
-  font-weight: bold;
-}
-.launchpad-widget .icon {
-  color: var(--main);
-}
-
-/* Launchpad context menu style */
-.launchpad .context-menu {
-  background-color: var(--transparent);
-  border: none;
-  border-radius: 6px;
-  padding: 4px 0px;
-  font-family: "JetBrainsMono NFP";
-  font-size: 16px;
-  color: var(--mainLight);
-  font-weight: 600;
-}
-.launchpad .context-menu::item {
-  background-color: transparent;
-  padding: 6px 12px;
-  margin: 2px 6px;
-  border-radius: 4px;
-  min-width: 100px;
-  color: var(--mainLight);
-}
-.launchpad .context-menu::item:selected {
-  background-color: var(--main);
-  color: rgba(18, 19, 19, 0.949);
-}
-.launchpad .context-menu::item:pressed {
-  background-color: var(--mainLight);
-  color: rgba(18, 19, 19, 0.949);
-}
-.launchpad .context-menu::separator {
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin: 4px 8px;
-}
-.launchpad .context-menu::item:disabled {
-  color: rgba(148, 148, 148, 0.5);
-  background-color: transparent;
-}
-
-/* Launchpad App dialog style */
-.launchpad .app-dialog {
-  font-family: "JetBrainsMono NFP";
-  background-color: var(--transparent);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  color: var(--mainLight);
-}
-.launchpad .app-dialog .buttons-container {
-  background-color: rgba(17, 17, 27, 0.3);
-  margin-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  max-height: 80px;
-  min-height: 80px;
-  padding: 0 20px 0 20px;
-}
-.launchpad .app-dialog .message {
-  color: var(--mainLight);
-  font-size: 16px;
-  font-weight: 600;
-  padding: 10px 0;
-}
-.launchpad .app-dialog .title-field,
-.launchpad .app-dialog .path-field,
-.launchpad .app-dialog .icon-field {
-  background-color: rgba(17, 17, 27, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  padding: 0 6px;
-  font-family: "JetBrainsMono NFP";
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--mainLight);
-  margin: 10px 0px 5px 0;
-  min-height: 30px;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-.launchpad .app-dialog .title-field:focus,
-.launchpad .app-dialog .path-field:focus,
-.launchpad .app-dialog .icon-field:focus {
-  border-color: var(--main);
-}
-.launchpad .app-dialog .button {
-  background-color: rgba(17, 17, 27, 0.4);
-  border: none;
-  border-radius: 4px;
-  font-family: "JetBrainsMono NFP";
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--mainLight);
-  min-width: 80px;
-  padding: 0 6px;
-  margin: 10px 0 5px 6px;
-  min-height: 28px;
-  outline: none;
-  transition: all 0.2s ease-in-out;
-}
-.launchpad .app-dialog .buttons-container .button {
-  margin: 10px 0 5px 0px;
-  font-size: 16px;
-}
-.launchpad .app-dialog .button:focus,
-.launchpad .app-dialog .button:hover {
-  background-color: var(--main);
-  color: rgba(18, 19, 19, 0.949);
-}
-.launchpad .app-dialog .button:pressed {
-  background-color: var(--mainLight);
-  color: rgba(18, 19, 19, 0.949);
-}
-.launchpad .app-dialog .button.add,
-.launchpad .app-dialog .button.save {
-  background-color: var(--mainLight);
-  color: rgba(18, 19, 19, 0.949);
-}
-.launchpad .app-dialog .button.add:hover,
-.launchpad .app-dialog .button.save:hover {
-  background-color: var(--main);
-}
-.launchpad .app-dialog .button.delete {
-  background-color: rgba(189, 45, 20, 0.8);
-  color: #fff;
-}
-.launchpad .app-dialog .button.delete:hover {
-  background-color: rgba(179, 15, 0, 0.8);
-}
-.launchpad .app-dialog .warning-message {
-  background-color: rgba(39, 17, 17, 0.5);
-  border: 1px solid rgba(255, 100, 100, 0.2);
-  border-radius: 4px;
-  color: #ffb3b3;
-  font-family: "JetBrainsMono NFP";
-  font-size: 12px;
-  font-weight: 600;
-  padding: 8px 12px;
-  margin: 4px 0px;
-}
-
-/* Launchpad popup style */
-.launchpad .drop-overlay {
-  background-color: rgba(17, 17, 27, 0.8);
-  border: 4px dashed var(--main);
-}
-.launchpad .drop-overlay .text {
-  color: var(--mainLight);
-  font-family: "JetBrainsMono NFP";
-  font-size: 64px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.launchpad .launchpad-container {
-  background-color: var(--transparent);
-}
-.launchpad .search-container {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  background-color: rgba(17, 17, 27, 0.3);
-  min-height: 80px;
-  margin: 0;
-  padding: 0;
-}
-.launchpad .search-input {
-  max-width: 400px;
-  padding: 8px 12px;
-  font-size: 16px;
-  min-height: 24px;
-  max-height: 24px;
-  font-family: "JetBrainsMono NFP";
-  border-radius: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  background-color: rgba(17, 17, 27, 0.4);
-  color: var(--mainLight);
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-.launchpad .search-input:focus {
-  border: 2px solid var(--main);
+.media-menu .app-volume-container {
   background-color: rgba(255, 255, 255, 0.05);
+  padding: 8px 6px;
+  border-radius: 16px;
+  margin-left: 10px;
 }
-.launchpad .launchpad-scroll-area {
-  background-color: transparent;
+.media-menu .app-volume-container .volume-slider::groove {
+  background: rgba(255, 255, 255, 0.1);
+  width: 2px;
+  border-radius: 3px;
+}
+.media-menu .app-volume-container .volume-slider::add-page {
+  background: white;
+  border-radius: 3px;
+}
+.media-menu .app-volume-container .volume-slider::groove:hover {
+  background: rgba(255, 255, 255, 0.1);
+  width: 6px;
+  border-radius: 3px;
+}
+.media-menu .app-volume-container .volume-slider::sub-page {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+.media-menu .app-volume-container .mute-button,
+.media-menu .app-volume-container .unmute-button {
+  font-size: 16px;
+  color: var(--foreground-color);
+  font-family: "Segoe Fluent Icons";
+  margin-top: 4px;
+}
+.media-menu .app-volume-container .unmute-button {
+  color: var(--foreground-color);
+}
+
+/*  Sleek Systray   */
+.systray {
+  background: transparent;
+  border: none;
+  margin: 0;
+  font-family: var(--font-family);
+}
+
+/*  Unpinned Container  */
+.systray .unpinned-container {
+  background: rgba(1, 1, 54, 0.4);
+  border-radius: 8px;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  border: none; /* removed border */
+}
+
+/*  Pinned Container  */
+.systray .pinned-container {
+  background: transparent;
   border: none;
 }
-.launchpad .app-icon {
-  background-color: rgba(17, 17, 27, 0.3);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 10px;
-  margin: 24px 6px 6px 6px;
-  max-width: 110px;
-  min-width: 110px;
-  min-height: 110px;
-  height: 130px;
-  transition: all 0.2s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-bottom: 10px;
+
+.systray .pinned-container[forceshow="true"] {
+  background: rgba(80, 174, 236, 0.25);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(80, 174, 236, 0.4);
+  border: none;
 }
-.launchpad .app-icon:focus,
-.launchpad .app-icon:hover {
-  border: 2px solid var(--main);
-  background-color: rgba(17, 17, 27, 0.5);
-  transform: translateY(-1px);
-  box-shadow: 0 0 6px var(--main);
+
+/*  Buttons  */
+.systray .button {
+  border-radius: 6px;
+  padding: 4px 4px;
+  color: var(--foreground-color);
+  background: transparent;
+  border: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
 }
-.launchpad .app-icon .title {
-  color: var(--mainLight);
-  font-family: "JetBrainsMono NFP";
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 6px;
-  max-width: 100%;
-  white-space: normal;
-  text-align: center;
-  line-height: 1.2;
+
+.systray .button:hover {
+  background: rgba(80, 174, 236, 0.18);
+  box-shadow: 0 0 10px rgba(80, 174, 236, 0.5);
 }
-.launchpad .app-icon.url .title {
-  color: var(--main);
+
+.systray .button[dragging="true"] {
+  background: rgba(243, 234, 151, 0.35);
+  box-shadow: 0 0 10px rgba(243, 234, 151, 0.6);
 }
-.launchpad .app-icon .icon {
-  padding: 0;
-  margin: 0;
-  color: var(--main);
+
+/*  Visibility Button  */
+.systray .unpinned-visibility-btn {
+  border-radius: 4px;
+  height: 20px;
+  width: 18px;
+  background: transparent;
+  transition: all 0.2s ease;
+  border: none;
+  color: var(--purple-color);
+}
+
+.systray .unpinned-visibility-btn:checked {
+  background: transparent;
+  box-shadow: 0 0 8px rgba(80, 174, 236, 0.4);
+  border: none;
+}
+
+.systray .unpinned-visibility-btn:hover {
+  color: rgba(80, 236, 220, 0.733);
 }
 
 .taskbar-widget .app-container {
@@ -1200,15 +567,28 @@
   padding: 0 4px;
 }
 .taskbar-widget .app-container.foreground {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent;
 }
 .taskbar-widget .app-container.flashing {
-  background-color: var(--main);
+  background-color: transparent;
+}
+.taskbar-widget .app-container.running {
+  background-color: transparent;
+}
+.taskbar-widget .app-container:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 .taskbar-widget .app-container .app-title {
   padding-left: 4px;
 }
-
+/* Taskbar preview popup is very limited in styling options, do not use margins/paddings here */
+.taskbar-preview {
+  border-radius: 8px;
+  background-color: #2b2c2d;
+}
+.taskbar-preview.flashing {
+  background-color: #7f434a;
+}
 .taskbar-preview .header {
   padding-bottom: 12px;
   padding-top: 4px;
@@ -1217,293 +597,506 @@
   color: #d6d6d6;
   font-family: "Segoe UI";
   font-weight: 600;
+  font-size: 13px;
 }
 
-.systray {
-  background: transparent;
-  border: none;
-  margin: 0;
-}
-
-.systray .unpinned-container {
-  background: transparent;
-  border-radius: 8px;
-}
-
-.systray .pinned-container {
-  background: transparent;
-}
-
-.systray .pinned-container[forceshow="true"] {
-  background: transparent;
-}
-
-.systray .button {
-  border-radius: 4px;
-  padding: 2px 2px;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7))
-    drop-shadow(0 0 4px rgba(0, 255, 255, 0.25));
-}
-
-.systray .button:hover {
-  background: transparent;
-}
-
-.systray .unpinned-visibility-btn {
-  border-radius: 4px;
-  height: 20px;
-  width: 16px;
-}
-
-.systray .unpinned-visibility-btn:checked {
-  background: transparent;
-}
-
-/* Clean Bluetooth Widget */
-.bluetooth-widget {
+/* Todo Widget Styles */
+/*  Todo Widget (Themed)  */
+.todo-widget {
   padding: 0 6px;
-  background: none;
-  border: none;
 }
-
-.bluetooth-widget.your_class {
-  background: none;
-  border: none;
-}
-
-/* Widget Container */
-.bluetooth-widget .widget-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  background: none;
-  border: none;
-  box-shadow: none;
+.todo-widget .icon {
+  color: var(--blue-color);
   padding: 0;
 }
-
-/* Label Styling */
-.bluetooth-widget .label {
-  color: var(--main);
-  font-family: "JetBrainsMono NFP";
-}
-
-.bluetooth-widget .label.alt {
-  color: var(--mainLight);
-  opacity: 0.8;
-}
-
-/* Icon Styling */
-.bluetooth-widget .icon {
-  color: var(--main);
-  background: transparent;
-  margin: 0;
+.todo-widget .label {
   padding: 0;
-  transition: color 0.2s ease;
+  color: var(--blue-color);
+  font-family: var(--font-family);
 }
 
-.bluetooth-widget .icon:hover {
-  color: var(--mainLight);
-}
-
-/* Optional connection states */
-.bluetooth-widget.connected .icon {
-  color: var(--mainLight);
-}
-
-.bluetooth-widget.disconnected .icon,
-.bluetooth-widget.disconnected .label {
-  color: rgba(148, 148, 148, 0.5);
-}
-
-/* Wi-Fi Menu — Refined Launchpad Look */
-.wifi-menu {
-  font-family: "JetBrainsMono NFP";
-  background-color: var(--transparent);
-  backdrop-filter: blur(8px);
+/*  Todo Menu   */
+.todo-menu {
+  background-color: rgba(1, 1, 54, 0.5);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  min-width: 440px;
-  min-height: 440px;
-  max-height: 520px;
-  overflow: hidden;
-  color: var(--mainLight);
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 500px;
+  max-height: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* Header */
-.wifi-menu .header {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--main);
-  letter-spacing: 0.6px;
-  padding: 14px 16px;
-  background-color: rgba(17, 17, 27, 0.45);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/*  Header  */
+.todo-menu .header {
+  margin: 16px 10px;
 }
 
-/* Wi-Fi List */
-.wifi-menu .wifi-list {
-  background-color: transparent;
-  overflow-y: auto;
-  padding: 8px;
-  scrollbar-width: thin;
-}
-
-/* Wi-Fi Item */
-.wifi-menu .wifi-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 12px 16px;
-  margin: 8px 6px;
-  border-radius: 10px;
-  background-color: rgba(17, 17, 27, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.2s ease-in-out;
-}
-
-.wifi-menu .wifi-item:hover {
-  background-color: rgba(17, 17, 27, 0.5);
-  border-color: var(--main);
-  box-shadow: 0 0 6px var(--main);
-}
-
-.wifi-menu .wifi-item[active="true"] {
-  background-color: rgba(17, 17, 27, 0.6);
-  border: 1px solid var(--main);
-  box-shadow: 0 0 10px var(--main);
-}
-
-/* Row Layout */
-.wifi-menu .wifi-item-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-/* Icon + Name alignment */
-.wifi-menu .wifi-item .left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.wifi-menu .wifi-item .icon {
-  font-size: 18px;
-  color: var(--main);
-  flex-shrink: 0;
-  font-family: "JetBrainsMono NFP";
-}
-
-.wifi-menu .wifi-item .name {
-  padding-left: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--mainLight);
-}
-
-/* Status and Strength */
-.wifi-menu .wifi-item .status {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.wifi-menu .wifi-item .strength {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--main);
-}
-
-/* Action Button */
-.wifi-menu .wifi-item .connect,
-.wifi-menu .wifi-item .disconnect {
-  background-color: var(--main);
-  color: rgba(18, 19, 19, 0.949);
-  font-size: 14px;
-  font-weight: 700;
+.todo-menu .header .add-task-button,
+.todo-menu .header .tab-buttons {
   border: none;
-  border-radius: 6px;
-  padding: 4px 18px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.wifi-menu .wifi-item .connect:hover,
-.wifi-menu .wifi-item .disconnect:hover {
-  background-color: var(--mainLight);
-  box-shadow: 0 0 6px var(--main);
-}
-
-.wifi-menu .wifi-item .connect:active,
-.wifi-menu .wifi-item .disconnect:active {
-  transform: scale(0.97);
-  background-color: var(--main);
-  color: rgba(18, 19, 19, 0.949);
-}
-
-/* Footer */
-.wifi-menu .footer {
+  border-radius: 13px;
+  color: var(--foreground-color);
+  padding: 4px 8px;
   font-size: 14px;
   font-weight: 600;
-  padding: 12px 16px;
-  color: var(--main);
-  background-color: rgba(17, 17, 27, 0.45);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.wifi-menu .footer .settings-button,
-.wifi-menu .footer .refresh-icon {
-  background-color: transparent;
-  border: none;
-  color: var(--mainLight);
-  font-size: 16px;
-  padding: 4px;
-  border-radius: 6px;
+  margin: 0;
+  font-family: var(--font-family), "Segoe UI";
+  background: rgba(255, 255, 255, 0.06);
   transition: all 0.2s ease;
 }
 
-.wifi-menu .footer .settings-button:hover,
-.wifi-menu .footer .refresh-icon:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--main);
+.todo-menu .header .add-task-button:hover {
+  background-color: var(--blue-color);
+  color: var(--highlight-color);
 }
 
-/* Wi-Fi Password Field — Launchpad Style */
-.wifi-menu .wifi-item .password {
-  background-color: rgba(17, 17, 27, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
-  padding: 6px 10px;
-  font-family: "JetBrainsMono NFP";
+.todo-menu .header .tab-buttons {
+  margin: 0;
+  font-size: 12px;
+  background: transparent;
+}
+
+.todo-menu .header .tab-buttons.in-progress:checked {
+  color: var(--analogous-color);
+}
+.todo-menu .header .tab-buttons.completed:checked {
+  color: var(--yellow-color);
+}
+
+.todo-menu .header .tab-buttons.sort {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--foreground-color);
+  border-radius: 10px;
+  min-height: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  max-height: 20px;
+  padding: 0;
+  margin: 0 8px 0 0;
+  font-family: var(--font-family);
+}
+
+.todo-menu .header .tab-buttons.sort:pressed {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/*  Empty State  */
+.todo-menu .no-tasks {
+  font-family: var(--font-family);
+  font-size: 18px;
+  color: var(--other-analogous-color);
+  font-weight: 500;
+  margin-top: 16px;
+  text-align: center;
+}
+.todo-menu .no-tasks-icon {
+  font-size: 80px;
+  color: var(--other-analogous-color);
+  font-family: var(--font-family);
+  margin-top: 64px;
+  font-weight: 400;
+}
+
+/*  Task Item  */
+.todo-menu .task-item {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  margin: 0 12px 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 0;
+  transition: all 0.2s ease;
+}
+
+.todo-menu .task-item.expanded {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.todo-menu .task-item.drop-highlight,
+.todo-menu .task-item.drop-highlight:hover,
+.todo-menu .task-item.drop-highlight:focus {
+  background-color: rgba(80, 174, 236, 0.25);
+  border: 1px solid var(--blue-color);
+}
+
+.todo-menu .task-item .title {
+  color: var(--foreground-color);
   font-size: 13px;
   font-weight: 600;
-  color: var(--mainLight);
-  outline: none;
-  width: 100%;
-  margin-top: 8px;
-  transition: all 0.25s ease-in-out;
+  font-family: var(--font-family);
+  padding: 0 8px 8px 8px;
+  margin-top: 6px;
 }
 
-.wifi-menu .wifi-item .password::placeholder {
-  color: rgba(180, 220, 230, 0.4); /* softer cyan hint */
+.todo-menu .task-item.completed .title,
+.todo-menu .task-item.completed .description {
+  text-decoration: line-through;
+  color: rgba(229, 240, 248, 0.4);
+}
+
+.todo-menu .task-item .description {
+  color: var(--other-analogous-color);
+  font-size: 12px;
   font-weight: 500;
+  padding: 0 8px 8px 8px;
+  font-family: var(--font-family);
 }
 
-.wifi-menu .wifi-item .password:hover {
-  background-color: rgba(17, 17, 27, 0.35);
-  border-color: rgba(255, 255, 255, 0.15);
+.todo-menu .task-checkbox {
+  background: transparent;
+  border: none;
+  margin-left: 12px;
+  margin-top: 5px;
+  font-size: 18px;
+  color: var(--foreground-color);
+  font-family: var(--font-family);
+}
+.todo-menu .task-checkbox:checked {
+  color: rgba(229, 240, 248, 0.4);
 }
 
-.wifi-menu .wifi-item .password:focus {
-  border-color: var(--main);
-  background-color: rgba(17, 17, 27, 0.4);
-  box-shadow: 0 0 6px var(--main);
-  color: var(--mainLight);
+/*  Task Info Row  */
+.todo-menu .task-info-row {
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
+
+.todo-menu .task-info-row .date-text,
+.todo-menu .task-info-row .category-text {
+  font-family: var(--font-family);
+  font-weight: 600;
+  color: var(--other-analogous-color);
+  font-size: 13px;
+  padding-left: 0;
+  margin-right: 12px;
+}
+.todo-menu .task-info-row .date-icon,
+.todo-menu .task-info-row .category-icon {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-family: var(--font-family);
+  margin-top: 1px;
+}
+
+/*  Category Color Accents  */
+.todo-menu .task-info-row .category-text.important,
+.todo-menu .task-info-row .category-icon.important {
+  color: var(--pink-color);
+}
+.todo-menu .task-info-row .category-text.urgent,
+.todo-menu .task-info-row .category-icon.urgent {
+  color: var(--yellow-color);
+}
+.todo-menu .task-info-row .category-text.soon,
+.todo-menu .task-info-row .category-icon.soon {
+  color: var(--analogous-color);
+}
+.todo-menu .task-info-row .category-text.today,
+.todo-menu .task-info-row .category-icon.today {
+  color: var(--highlight-color);
+}
+
+.todo-menu .task-info-row .delete-task-button {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--foreground-color);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 12px;
+  padding: 0 8px;
+  border-radius: 10px;
+  min-height: 20px;
+  max-height: 20px;
+  margin-right: 8px;
+  transition: background 0.2s ease;
+}
+.todo-menu .task-info-row .delete-task-button:hover {
+  background-color: var(--pink-color);
+  color: #000;
+}
+
+/*  App Dialog  */
+.todo-menu .app-dialog {
+  font-family: var(--font-family);
+  background-color: rgba(1, 1, 54, 0.9);
+  border-radius: 8px;
+  color: var(--foreground-color);
+}
+
+.todo-menu .app-dialog .buttons-container {
+  background-color: rgba(20, 20, 35, 0.7);
+  margin-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 20px;
+}
+
+.todo-menu .app-dialog .title-field,
+.todo-menu .app-dialog .desc-field {
+  background-color: rgba(1, 1, 54, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 0 6px;
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--foreground-color);
+  margin: 10px 0 5px 0;
+  min-height: 30px;
+  outline: none;
+}
+.todo-menu .app-dialog .desc-field {
+  max-height: 60px;
+}
+.todo-menu .app-dialog .title-field:focus,
+.todo-menu .app-dialog .desc-field:focus {
+  border-bottom-color: var(--blue-color);
+}
+
+/*  Dialog Buttons  */
+.todo-menu .app-dialog .button {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--foreground-color);
+  min-width: 80px;
+  padding: 0 6px;
+  margin: 10px 0 5px 6px;
+  min-height: 28px;
+  transition: all 0.2s ease;
+}
+.todo-menu .app-dialog .button:hover {
+  background-color: rgba(80, 174, 236, 0.25);
+}
+.todo-menu .app-dialog .button.add {
+  background-color: var(--blue-color);
+  color: #000;
+}
+.todo-menu .app-dialog .button.add:hover {
+  background-color: var(--analogous-color);
+}
+
+/*  Warning  */
+.todo-menu .app-dialog .warning-message {
+  background-color: rgba(220, 80, 80, 0.15);
+  border: 1px solid rgba(220, 80, 80, 0.3);
+  border-radius: 4px;
+  color: #f1b8b8;
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 12px;
+  margin: 4px 0;
+}
+
+/*  Category Buttons  */
+.todo-menu .app-dialog .category-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-family);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--foreground-color);
+  padding: 0 6px;
+  margin-top: 8px;
+  min-height: 24px;
+  transition: all 0.2s ease;
+}
+.todo-menu .app-dialog .category-button:checked {
+  background-color: var(--blue-color);
+  color: #000;
+}
+
+/*  Pomodoro Widget  */
+.pomodoro-widget {
+  padding: 0 6px;
+  font-family: var(--font-family);
+}
+
+.pomodoro-widget .icon {
+  padding-right: 4px;
+  transition: color 0.2s ease;
+}
+
+.pomodoro-widget .label.paused,
+.pomodoro-widget .icon.paused {
+  color: rgba(198, 199, 248, 0.6); /* muted purple tone */
+}
+
+.pomodoro-widget .label.work,
+.pomodoro-widget .icon.work {
+  color: var(--analogous-color); /* teal-green for active work */
+}
+
+.pomodoro-widget .label.break,
+.pomodoro-widget .icon.break {
+  color: var(--blue-color); /* blue for rest mode */
+}
+
+/*  Pomodoro Menu (Glassy & Themed)  */
+.pomodoro-menu {
+  background-color: rgba(1, 1, 54, 0.45); /* matches theme background */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+/*  Header  */
+.pomodoro-menu .header {
+  font-size: 16px;
+  font-weight: 600;
+  max-height: 0px;
+  color: var(--foreground-color);
+  font-family: var(--font-family);
+}
+
+/*  Status  */
+.pomodoro-menu .status {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--highlight-color);
+  font-family: var(--font-family);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/*  Session Info  */
+.pomodoro-menu .session {
+  font-size: 12px;
+  color: var(--other-analogous-color);
+  font-family: var(--font-family);
+  text-align: center;
+  opacity: 0.85;
+}
+
+/*  Buttons  */
+.pomodoro-menu .button {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--foreground-color);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hover and Press States */
+.pomodoro-menu .button:hover {
+  background-color: rgba(80, 174, 236, 0.25); /* blue glow hover */
+  box-shadow: 0 0 10px rgba(80, 174, 236, 0.4);
+}
+
+.pomodoro-menu .button:pressed {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/*  Button Variants  */
+.pomodoro-menu .button.start {
+  background-color: var(--blue-color);
+  color: #000;
+}
+
+.pomodoro-menu .button.pause {
+  background-color: var(--analogous-color); /* teal pause tone */
+  color: #000;
+}
+
+.pomodoro-menu .button.reset {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--foreground-color);
+}
+
+/*  Button Hover Effects  */
+.pomodoro-menu .button.start:hover {
+  background-color: var(--analogous-color);
+  color: #000;
+}
+.pomodoro-menu .button.pause:hover {
+  background-color: var(--highlight-color);
+}
+.pomodoro-menu .button.reset:hover {
+  background-color: var(--highlight-color);
+  background-color: rgba(80, 174, 236, 0.25); /* blue glow hover */
+  box-shadow: 0 0 10px rgba(80, 174, 236, 0.4);
+}
+
+/* === Update Check Widget (Theme-Matched) === */
+.update-check-widget {
+  padding: 0 6px;
+  font-family: var(--font-family);
+}
+
+/* === Icon === */
+.update-check-widget .icon {
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+/* === Winget Container === */
+.update-check-widget .widget-container.winget {
+  background: rgba(238, 135, 198, 0.25); /* semi-transparent pink */
+  margin: 6px 2px;
+  border-radius: 8px;
+  border: 2px solid var(--pink-color);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  transition: all 0.2s ease;
+}
+
+.update-check-widget .widget-container.winget:hover {
+  background: rgba(238, 135, 198, 0.35);
+  box-shadow: 0 0 10px rgba(238, 135, 198, 0.5);
+  transform: translateY(-2px);
+}
+
+/* === Windows Container === */
+.update-check-widget .widget-container.windows {
+  background: rgba(80, 174, 236, 0.25); /* semi-transparent blue */
+  margin: 6px 2px;
+  border-radius: 8px;
+  border: 2px solid var(--blue-color);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  transition: all 0.2s ease;
+}
+
+.update-check-widget .widget-container.windows:hover {
+  background: rgba(80, 174, 236, 0.35);
+  box-shadow: 0 0 10px rgba(80, 174, 236, 0.5);
+  transform: translateY(-2px);
+}
+
+/* === Icon inside Containers === */
+.update-check-widget .widget-container.winget .icon,
+.update-check-widget .widget-container.windows .icon {
+  color: var(--background-color);
+  margin: 0 1px 0 6px;
+}
+
+/* === Label inside Containers === */
+.update-check-widget .widget-container.winget .label,
+.update-check-widget .widget-container.windows .label {
+  margin: 0 6px 0 1px;
+  color: var(--background-color);
+  font-weight: 900;
+  font-size: 14px;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+/* === Hover text highlight === */
+.update-check-widget .widget-container:hover .label,
+.update-check-widget .widget-container:hover .icon {
+  color: var(--highlight-color);
 }

@@ -41,7 +41,7 @@ $InformationPreference = "Continue"
 ########################################################################
 function Write-TitleBox {
     param (
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory = $true)]
         [string]$Title,
         [string]$BorderChar = "█", # Using a solid block character for a modern look
         [int]$HorizontalPadding = 5,
@@ -145,12 +145,13 @@ function Install-WinGetApp {
     Write-ColorText "{Gray}Running: winget list --exact --id $PackageID"
     $listProcess = Start-Process winget -ArgumentList "list", "--exact", "--id", $PackageID -Wait -PassThru -NoNewWindow -ErrorAction Stop
     if ($listProcess.ExitCode -ne 0) {
-    # It failed OR the package wasn't found (ExitCode 1 typically means not found)
+        # It failed OR the package wasn't found (ExitCode 1 typically means not found)
         Write-ColorText "{Yellow}Package '$PackageID' not found or 'winget list' failed. Proceeding with install attempt..."
         $_packageExists = $false
-    } else {
-         # Package exists
-         Write-ColorText "{Green}Package '$PackageID' found."
+    }
+    else {
+        # Package exists
+        Write-ColorText "{Green}Package '$PackageID' found."
         $_packageExists = $true
     }
 
@@ -168,23 +169,24 @@ function Install-WinGetApp {
 
         # Add source argument
         if ($Source -eq "msstore") {
-        # Keep the package agreement here as it's specific to msstore
-        $wingetProcessArgs += "--source", "msstore", "--accept-package-agreements" 
-        Write-Verbose "Adding --accept-package-agreements for $PackageID (MS Store)"
-        } else {
-        # Only add the source name for the winget repository
-        $wingetProcessArgs += "--source", "winget"     
+            # Keep the package agreement here as it's specific to msstore
+            $wingetProcessArgs += "--source", "msstore", "--accept-package-agreements" 
+            Write-Verbose "Adding --accept-package-agreements for $PackageID (MS Store)"
+        }
+        else {
+            # Only add the source name for the winget repository
+            $wingetProcessArgs += "--source", "winget"     
         }
 
         # Ensure required arguments for silent install are present
         if (!($wingetProcessArgs -contains "--accept-package-agreements")) {
-        $wingetProcessArgs += "--accept-package-agreements"
-        Write-Verbose "Adding --accept-package-agreements for $PackageID"
+            $wingetProcessArgs += "--accept-package-agreements"
+            Write-Verbose "Adding --accept-package-agreements for $PackageID"
         }
 
         if (!($wingetProcessArgs -contains "--accept-source-agreements")) {
-        $wingetProcessArgs += "--accept-source-agreements" 
-        Write-Verbose "Adding --accept-source-agreements for $PackageID"
+            $wingetProcessArgs += "--accept-source-agreements" 
+            Write-Verbose "Adding --accept-source-agreements for $PackageID"
         }
 
         $commandStringForDisplay = "winget $($wingetProcessArgs -join ' ')"
@@ -196,19 +198,22 @@ function Install-WinGetApp {
             # Check the Exit Code after waiting
             if ($process.ExitCode -eq 0) {
                 Write-ColorText "{Blue}[package] {Magenta}winget: {Green}(success) {Gray}$PackageID"
-           } else {
+            }
+            else {
                 Write-ColorText "{Blue}[package] {Magenta}winget: {Red}(FAILURE - Exit Code $($process.ExitCode)) {Gray}$PackageID"
                 Write-Error "Winget failed for $PackageID. Exit Code: $($process.ExitCode). Run the script again..."
                 exit 1 
             }
-        } catch {
+        }
+        catch {
             # Catch errors if Start-Process itself fails (e.g., winget not found)
             Write-Error "Failed to start winget process for $PackageID`: $_"
             Write-ColorText "{Blue}[package] {Magenta}winget: {Red}(failed - Exception executing winget) {Gray}$PackageID"
         }
 
-    } else {
-         # This block runs if the package was found by 'winget list'
+    }
+    else {
+        # This block runs if the package was found by 'winget list'
         Write-ColorText "{Blue}[package] {Magenta}winget: {Yellow}(exists) {Gray}$PackageID"
     }
 }
@@ -225,18 +230,18 @@ function Refresh ([int]$Time) {
 
     # Reload other environment variables (iterate through registry)
     Get-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Environment', 'Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment' |
-        ForEach-Object {
-            # Access the .PSObject member, then its .Properties collection
-            $_.PSObject.Properties
-        } |
-        ForEach-Object {
-            # $_ is now a PSPropertyInfo object with .Name and .Value
-            # Skip internal PS-prefixed properties AND the Path variable (handled above)
-            if ($_.Name -notlike 'PS*' -and $_.Name -ne 'Path') {
-                [System.Environment]::SetEnvironmentVariable($_.Name, $_.Value, "Process")
-                Write-Verbose "Refreshed variable '$($_.Name)' in current session."
-            }
+    ForEach-Object {
+        # Access the .PSObject member, then its .Properties collection
+        $_.PSObject.Properties
+    } |
+    ForEach-Object {
+        # $_ is now a PSPropertyInfo object with .Name and .Value
+        # Skip internal PS-prefixed properties AND the Path variable (handled above)
+        if ($_.Name -notlike 'PS*' -and $_.Name -ne 'Path') {
+            [System.Environment]::SetEnvironmentVariable($_.Name, $_.Value, "Process")
+            Write-Verbose "Refreshed variable '$($_.Name)' in current session."
         }
+    }
 
     Write-ColorText "{DarkGray}Environment variables refreshed for the current session."
 }
@@ -299,7 +304,8 @@ if ($wingetInstall -eq $True) {
         Write-ColorText "{Green}WinGet is already installed and available. Skipping update/install."
         # Exit the WinGet setup block entirely since it's already there
         # We still run Refresh later, but no installation is needed.
-    } else {
+    }
+    else {
         Write-ColorText "Installing WinGet..."
         Write-Host "WinGet not found. Proceeding with installation/update..."
         
@@ -338,7 +344,8 @@ if ($wingetInstall -eq $True) {
             
             Write-ColorText "{Green}WinGet (App Installer) installed successfully."
             
-        } catch {
+        }
+        catch {
             # Failure and Exit
             Write-Error "Failed to install App Installer (WinGet). Package installation cannot proceed."
             Write-Host "Error Details: $($_.Exception.Message)"
@@ -364,7 +371,8 @@ if ($wingetInstall -eq $True) {
         $pkgSource = $pkg.packageSource
         if ($null -ne $pkgSource) {
             Install-WinGetApp -PackageID $pkgId -AdditionalArgs $wingetArgs -Source $pkgSource
-        } else {
+        }
+        else {
             Install-WinGetApp -PackageID $pkgId -AdditionalArgs $wingetArgs
         }
     }
@@ -417,40 +425,45 @@ $EnableValue = 0 # 0 means ENABLED for the 'Disabled' registry key
 # In the Windhawk Setup section (around line 528 in your full script)
 $ModConfigurations = @(
     # UXTheme Hook Configuration
-    @{ Name = 'UXTheme Hook'; Key = 'uxtheme-hook'; Settings = @{} }
+    @{ Name = 'UXTheme Hook'; Key = 'uxtheme-hook'; Settings = @{} },
     
-    # Resource Redirect Configuration (Bonny Icon Theme)
+    # Control Panel Color Fix Configuration
+    @{ Name = 'Control Panel Color Fix'; Key = 'control-panel-color-fix'; Settings = @{} },
+
+    # Resource Redirect Configuration (Nord Papirus Icon Theme)
     @{ Name = 'Resource Redirect'; Key = 'icon-resource-redirect'; 
-       Settings = @{ 'iconTheme' = 'Bonny|themes/icons/niivu/bonny%20by%20niivu.zip';
-       'ClearCacheOnUpdate' = 0 
-    } 
-},
+        Settings = @{ 'iconTheme' = 'Nord Papirus|themes/icons/niivu/Nord%20Papirus.zip';
+            'ClearCacheOnUpdate'  = 0 
+        }
+    },
     
     # Windows 11 Taskbar Styler Configuration (Hide Taskbar)
     @{ 
-    Name = 'Windows 11 Taskbar Styler'; 
-    Key = 'windows-11-taskbar-styler'; 
-    Settings = @{ 
-        'theme' = 'SimplyTransparent';
-        'controlStyles[0].target' = 'Taskbar.TaskListButtonPanel';
-        'controlStyles[0].styles[0]' = 'Visibility=Collapsed';
-        'styleConstants[0]' = '';
-        'resourceVariables[0].variableKey' = '';
-        'resourceVariables[0].value' = '';
-        'controlStyles[1].target' = 'Taskbar.TaskListLabeledButtonPanel';
-        'controlStyles[1].styles[0]' = 'Visibility=Collapsed';
-        'controlStyles[2].target' = 'SystemTray.OmniButton';
-        'controlStyles[2].styles[0]' = 'Visibility=Collapsed';
-    } 
-},
+        Name     = 'Windows 11 Taskbar Styler'; 
+        Key      = 'windows-11-taskbar-styler'; 
+        Settings = @{ 
+            'theme'                            = 'SimplyTransparent';
+            'controlStyles[0].target'          = 'Taskbar.TaskListButtonPanel';
+            'controlStyles[0].styles[0]'       = 'Visibility=Collapsed';
+            'styleConstants[0]'                = '';
+            'resourceVariables[0].variableKey' = '';
+            'resourceVariables[0].value'       = '';
+            'controlStyles[1].target'          = 'Taskbar.TaskListLabeledButtonPanel';
+            'controlStyles[1].styles[0]'       = 'Visibility=Collapsed';
+            'controlStyles[2].target'          = 'SystemTray.OmniButton';
+            'controlStyles[2].styles[0]'       = 'Visibility=Collapsed';
+        } 
+    },
     
     # Windows 11 File Explorer Styler Configuration (Matter Theme)
     @{ Name = 'Windows 11 File Explorer Styler'; Key = 'windows-11-file-explorer-styler'; 
-       Settings = @{ 'Theme' = 'Matter' } },
+        Settings = @{ 'Theme' = 'Matter' } 
+    },
     
     # Windows 11 Notification Center Styler Configuration (WindowGlass Theme)
     @{ Name = 'Windows 11 Notification Center Styler'; Key = 'windows-11-notification-center-styler'; 
-       Settings = @{ 'Theme' = 'WindowGlass' } }
+        Settings = @{ 'Theme' = 'WindowGlass' } 
+    }
 )
 
 
@@ -468,7 +481,8 @@ foreach ($Mod in $ModConfigurations) {
     if (-not (Test-Path $ModRegistryPath)) {
         Write-ColorText "{Red}  [MISSING] '$ModName' ($ModKey)"
         $MissingMods += $ModName
-    } else {
+    }
+    else {
         Write-ColorText "{Green}  [OK] '$ModName' is installed."
     }
 }
@@ -568,7 +582,8 @@ if (Test-Path $sourceHome) {
     # The \* copies the *contents* of the source folder
     Copy-Item -Path "$sourceHome\*" -Destination $destinationHome -Recurse -Force -ErrorAction SilentlyContinue
     Write-ColorText "{Green}Dotfiles copied successfully."
-} else {
+}
+else {
     Write-ColorText "{Red}Warning: Source directory not found for dotfiles: {Gray}$sourceHome"
 }
 
@@ -583,7 +598,8 @@ if (Test-Path $sourceTheme) {
     # Copying theme files and supporting folders
     Copy-Item -Path "$sourceTheme\*" -Destination $destinationTheme -Recurse -Force -ErrorAction SilentlyContinue
     Write-ColorText "{Green}Theme files copied successfully."
-} else {
+}
+else {
     Write-ColorText "{Red}Warning: Source directory not found for themes: {Gray}$sourceTheme"
 }
 
@@ -599,8 +615,7 @@ Write-ColorText "{yellow}Applying Theme..."
 Start-Sleep -Seconds 2
 
 # Define Theme File Path. Ensure the file extension is exact.
-$themeFile = "C:\Windows\Resources\Themes\Andromeda - Night.theme"
-$ThemeName = "Andromeda - Night"
+$themeFile = "C:\Windows\Resources\Themes\Nord PAC - Polar Dark.theme"
 
 Write-Host "Unblocking theme file security tag..."
 # Unblock-File removes the 'Mark-of-the-Web' security tag
@@ -643,7 +658,8 @@ $clinkExe = "C:\Program Files (x86)\clink\clink_x64.exe"
 if (Test-Path $clinkExe) {
     & $clinkExe set clink.logo none
     Write-ColorText "{Green}Clink banner disabled."
-} else {
+}
+else {
     Write-ColorText "{Yellow}Clink executable not found at $clinkExe. Skipping banner disable."
 }
 
@@ -666,10 +682,12 @@ foreach ($env in $envVars) {
             try {
                 [System.Environment]::SetEnvironmentVariable("$envKey", "$envValue", "User")
                 Write-ColorText "{Blue}[environment] {Green}(added) {Magenta}$envKey {Yellow}--> {Gray}$envValue"
-            } catch {
+            }
+            catch {
                 Write-Error -ErrorAction Stop "An error occurred: $_"
             }
-        } else {
+        }
+        else {
             $value = [System.Environment]::GetEnvironmentVariable("$envKey")
             Write-ColorText "{Blue}[environment] {Yellow}(exists) {Magenta}$envKey {Yellow}--> {Gray}$value"
         }
@@ -703,7 +721,8 @@ if (!(Test-Path -Path $profilePath)) {
 if (-not (Select-String -Path $profilePath -Pattern 'starship init powershell' -Quiet)) {
     Add-Content -Path $profilePath -Value "`n# >>> Starship Initialization >>>`n$initLine`n# <<< Starship Initialization <<<`n"
     Write-ColorText "{Green}Starship initialization added to: $profilePath"
-} else {
+}
+else {
     Write-ColorText "{Yellow}Starship already configured in: $profilePath"
 }
 
@@ -747,10 +766,12 @@ if (Get-Command yasbc -ErrorAction SilentlyContinue) {
             -Trigger $Trigger `
             
         Write-ColorText "{Green}Scheduled Task '$TaskName' successfully created."
-    } catch {
+    }
+    catch {
         Write-Error "Failed to configure YASB autostart: $($_.Exception.Message)"
     }
-} else {
+}
+else {
     Write-Warning "komorebic command not found. Please install komorebi"
 }
 
@@ -763,10 +784,12 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
         Write-Host "Waiting 10 seconds for Komorebi..."
         Start-Sleep -Seconds 10
         Write-ColorText "{Green}Komorerbi autostart successfully started."
-    } catch {
+    }
+    catch {
         Write-Error "Failed to enable Komorebi autostart: $_"
     } 
-} else {
+}
+else {
     Write-Warning "komorebic command not found. Please install komorebi"
 } 
 

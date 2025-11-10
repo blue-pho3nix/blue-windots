@@ -1,9 +1,9 @@
 watch_stylesheet: true
 watch_config: true
-debug: true
+debug: false
 komorebi:
-  stop_command: "komorebic stop --whkd"
   start_command: "komorebic start --whkd"
+  stop_command: "komorebic stop --whkd"
   reload_command: "komorebic stop --whkd && komorebic start --whkd"
 bars:
   primary-bar:
@@ -13,211 +13,168 @@ bars:
     alignment:
       position: "top"
       center: false
-    animation:
-      enabled: true
-      duration: 1000
     blur_effect:
       enabled: true
-      acrylic: false
       dark_mode: true
-      round_corners: false
+      round_corners: true
       border_color: None
     window_flags:
-      auto_hide: false
-      hide_on_fullscreen: true
-      always_on_top: false
       windows_app_bar: true
     dimensions:
       width: "100%"
-      height: 34
+      height: 40
     padding:
-      top: 0
-      left: 0
+      top: 8
+      left: 8
       bottom: 0
-      right: 0
+      right: 8
     widgets:
-      left: ["launchpad", "whkd", "komorebi_workspaces", "media"]
-      center: ["pomodoro", "todo", "clock"]
-      right:
-        [
-          "systray",
-          "taskbar",
-          "bluetooth",
-          "wifi",
-          "notifications",
-          "update_check",
-          "power_menu",
-        ]
-    layouts:
       left:
-        alignment: "left"
-        stretch: true
+        - "home"
+        - "komorebi_workspaces"
+        - "taskbar"
       center:
-        alignment: "center"
-        stretch: false
+        - "clock"
       right:
-        alignment: "right"
-        stretch: true
+        - "todo"
+        - "pomodoro"
+        - "systray"
+        - "media"
+        - "notifications"
+        - "update_check"
+        - "power_menu"
 widgets:
-  notifications:
-    type: "yasb.notifications.NotificationsWidget"
+  home:
+    type: "yasb.home.HomeWidget"
     options:
-      label: "<span>\uf476</span> {count}"
-      label_alt: "{count} notifications"
-      hide_empty: true
-      tooltip: false
-      callbacks:
-        on_left: "toggle_notification"
-        on_right: "do_nothing"
-        on_middle: "toggle_label"
-      container_padding:
-        top: 0
-        left: 12
-        bottom: 0
-        right: 12
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
+      label: "<span></span>"
+      menu_list:
+        - { title: "User Home", path: "~" }
+        - { title: "Download", path: "~/Downloads" }
+        - { title: "Documents", path: "~/Documents" }
+        - { title: "Pictures", path: "~/Pictures" }
+      system_menu: true
+      power_menu: true
+      offset_left: -6
+      blur: true
+      round_corners: true
+      border_color: None
+      menu_labels:
+        shutdown: "Shutdown"
+        restart: "Restart"
+        logout: "Logout"
+        lock: "Lock"
+        sleep: "Sleep"
+        system: "System Settings"
+        about: "About This PC"
+        task_manager: "Task Manager"
   media:
     type: "yasb.media.MediaWidget"
     options:
-      label: "{title}"
-      label_alt: "| {title} - {artist}"
+      label_alt: "{title}"
+      hide_empty: true
+      callbacks:
+        on_left: "toggle_media_menu"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
       max_field_size:
-        label: 17
-        label_alt: 24
+        label: 20
+        label_alt: 30
       show_thumbnail: true
       controls_only: false
       controls_left: true
-      hide_empty: true
-      thumbnail_alpha: 255
-      thumbnail_padding: 0
-      thumbnail_edge_fade: true
+      controls_hide: false
+      thumbnail_alpha: 80
+      thumbnail_padding: 8
+      thumbnail_corner_radius: 16
       icons:
-        prev_track: "\uf048"
-        next_track: "\uf051"
-        play: "\uf04b"
-        pause: "\uf04c"
-      scrolling_label:
-        enabled: true
-        update_interval_ms: 30
-        style: "left" # can be "left", "right", "bounce", "bounce-ease"
-        separator: ""
-        label_padding: 1
-        # Easing curve params: https://www.desmos.com/calculator/j7eamemxzi
-        ease_slope: 20
-        ease_pos: 0.8
-        ease_min: 0.5
+        play: "\ue768" # Icon for the play button in the popup.
+        pause: "\ue769" # Icon for the pause button in the popup.
+        prev_track: "\ue892" # Icon for the previous track button in the popup.
+        next_track: "\ue893" # Icon for the next track button in the popup.
       media_menu:
-        blur: true
+        blur: false
         round_corners: true
         round_corners_type: "normal"
         border_color: "system"
         alignment: "right"
         direction: "down"
         offset_top: 6
-        offset_left: 60
+        offset_left: 0
         thumbnail_corner_radius: 8
         thumbnail_size: 120
-        max_title_size: 27
-        max_artist_size: 60
+        max_title_size: 60
+        max_artist_size: 20
         show_source: true
       media_menu_icons:
-        prev_track: "\uf048"
-        next_track: "\uf051"
-        play: "\uf04b"
-        pause: "\uf04c"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+      scrolling_label:
+        enabled: false
+        update_interval_ms: 33
+        style: "left" # can be "left", "right", "bounce", "bounce-ease"
+        separator: " | "
+        label_padding: 0
+        always_scroll: false
+        # Easing curve params: https://www.desmos.com/calculator/j7eamemxzi
+        ease_slope: 20
+        ease_pos: 0.8
+        ease_min: 0.5
       label_shadow:
         enabled: true
         color: "black"
         radius: 3
         offset: [1, 1]
-      callbacks:
-        on_left: "toggle_media_menu"
-        on_middle: "none"
-        on_right: "toggle_label"
   clock:
     type: "yasb.clock.ClockWidget"
     options:
-      label: "{%a, %b %d, %Y %I:%M %p}"
-      animation:
-        enabled: true
+      label: "<span>\ue0ba</span>{%a, %b %d, %Y %I:%M %p}<span>\ue0bc</span>"
       callbacks:
         on_left: "none"
+        on_right: "none"
+        on_middle: "none"
       calendar:
         blur: True
         round_corners: True
-        round_corners_type: "small"
-        border_color: "None"
+        round_corners_type: "normal"
+        border_color: None
         alignment: "center"
         direction: "down"
-        distance: 6
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
-      tooltip: false
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
+        offset_left: 0
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
-      label_offline: "\u23fc Offline"
-      label_workspace_btn: "\uf444"
-      label_workspace_active_btn: "\uf192"
-      label_workspace_populated_btn: "\uf444"
+      label_offline: "Komorebi Offline"
+      label_workspace_btn: ""
+      label_workspace_active_btn: ""
+      label_workspace_populated_btn: ""
       label_default_name: "{index}"
-      label_zero_index: true
+      label_zero_index: false
       hide_empty_workspaces: false
-      hide_if_offline: false
+      hide_if_offline: true
+      toggle_workspace_layer:
+        enabled: false
+        tiling_label: "\udb81\ude40 Tiling"
+        floating_label: "\udb80\udd37 Floating"
       animation: true
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
   power_menu:
     type: "yasb.power_menu.PowerMenuWidget"
     options:
-      label: "\u23fc"
+      label: "<span>\uf011</span>"
       uptime: True
       blur: False
       blur_background: True
-      animation_duration: 200
-      button_row: 5
+      animation_duration: 200 # Milisecond
+      button_row: 3
       buttons:
         shutdown: ["\uf011", "Shut Down"]
         restart: ["\uead2", "Restart"]
+        signout: ["\udb80\udf43", "Sign out"]
         hibernate: ["\uf28e", "Hibernate"]
         sleep: ["\u23fe", "Sleep"]
-        signout: ["\udb80\udf43", "Sign out"]
-        cancel: ["", "Cancel"]
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
+        cancel: ["\udb81\udf3a", "Cancel"]
   systray:
     type: "yasb.systray.SystrayWidget"
     options:
@@ -229,37 +186,45 @@ widgets:
       pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
       show_unpinned: false
       show_unpinned_button: true
-      show_battery: false
-      show_volume: false
-      show_network: false
+      show_battery: true
+      show_volume: true
+      show_network: true
       tooltip: false
       btn_shadow:
         enabled: true
         color: "black"
         radius: 3
         offset: [1, 1]
-  update_check:
-    type: "yasb.update_check.UpdateCheckWidget"
+  taskbar:
+    type: "yasb.taskbar.TaskbarWidget"
     options:
-      windows_update:
+      icon_size: 14
+      tooltip: false
+      show_only_visible: false
+      strict_filtering: true
+      monitor_exclusive: false
+      animation:
         enabled: true
-        label: "<span>\uf0ab</span> {count}"
-        interval: 240
-        exclude: []
-      winget_update:
-        enabled: true
-        label: "<span>\uf0ab</span> {count}"
-        interval: 60
-        exclude: ["Windhawk"]
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
+      preview:
+        enabled: false
+        width: 240
+        delay: 400
+        padding: 8
+        margin: 8
+      title_label:
+        enabled: false
+        show: "always"
+        min_length: 10
+        max_length: 30
+      ignore_apps:
+        processes: []
+        titles: []
+        classes: []
   todo:
     type: "yasb.todo.TodoWidget"
     options:
-      label: " {count}/{completed}"
+      label: "\uf0ae {count}/{completed}"
+      label_alt: "\uf0ae Tasks: {count}"
       menu:
         blur: true
         round_corners: true
@@ -294,15 +259,11 @@ widgets:
         on_left: "toggle_menu"
         on_middle: "do_nothing"
         on_right: "toggle_label"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
   pomodoro:
     type: "yasb.pomodoro.PomodoroWidget"
     options:
       label: "<span>{icon}</span> {remaining}"
+      label_alt: "<span>{icon}</span> {session}/{total_sessions} - {status}"
       work_duration: 25
       break_duration: 5
       long_break_duration: 15
@@ -333,167 +294,42 @@ widgets:
         circle_size: 160
       callbacks:
         on_left: "toggle_menu"
-        on_middle: "none"
-        on_right: "none"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-  whkd:
-    type: "yasb.whkd.WhkdWidget"
-    options:
-      label: "<span>\uf11c</span>"
-      special_keys:
-        - key: "win"
-          key_replace: "\ue70f"
-        - key: "ctrl"
-          key_replace: "Ctrl"
-        - key: "alt"
-          key_replace: "Alt"
-        - key: "shift"
-          key_replace: "Shift"
-        - key: "left"
-          key_replace: "\u2190"
-        - key: "right"
-          key_replace: "\u2192"
-        - key: "up"
-          key_replace: "\u2191"
-        - key: "down"
-          key_replace: "\u2193"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-  launchpad:
-    type: "yasb.launchpad.LaunchpadWidget"
-    options:
-      shortcuts:
-        add_app: "Ctrl+N"
-        edit_app: "Ctrl+E"
-        show_context_menu: "Alt+L"
-        delete_app: "Delete"
-      label: ""
-      search_placeholder: "Search apps..."
-      app_icon_size: 48
-      window:
-        fullscreen: false
-        width: 800
-        height: 600
-        overlay_block: true
-      window_style:
-        enable_blur: true
-        round_corners: true
-        round_corners_type: "normal"
-        border_color: "system"
-      window_animation:
-        fade_in_duration: 200
-        fade_out_duration: 200
-      callbacks:
-        on_left: "toggle_launchpad"
-      app_title_shadow:
-        enabled: true
-        color: "#00000090"
-        offset: [1, 1]
-        radius: 2
-      app_icon_shadow:
-        enabled: true
-        color: "#00000090"
-        offset: [0, 2]
-        radius: 8
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-  bluetooth:
-    type: "yasb.bluetooth.BluetoothWidget"
-    options:
-      label: "<span>{icon}</span> {device_count}"
-      label_no_device: "No devices connected"
-      label_device_separator: ", "
-      max_length: 10
-      max_length_ellipsis: "..."
-      icons:
-        bluetooth_on: "\udb80\udcaf"
-        bluetooth_off: "\udb80\udcb2"
-        bluetooth_connected: "\udb80\udcb1"
-      device_aliases:
-        - name: "T5.0"
-          alias: "\uf025"
-      callbacks:
-        on_left: "exec cmd.exe /c start ms-settings:bluetooth"
-        on_right: "none"
-        on_middle: "none"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-  wifi:
-    type: "yasb.wifi.WifiWidget"
-    options:
-      label: "<span>{wifi_icon}</span>"
-      label_alt: "{wifi_name} {wifi_strength}%"
-      update_interval: 5000
-      callbacks:
-        on_left: "toggle_menu"
-        on_middle: "exec cmd.exe /c start ms-settings:network"
+        on_middle: "reset_timer"
         on_right: "toggle_label"
-      ethernet_label: "<span>{wifi_icon}</span>"
-      ethernet_label_alt: "<span>{wifi_icon}</span>{ip_addr}"
-      ethernet_icon: "\ueba9"
-      get_exact_wifi_strength: false # Optional. Will require location access permission if true.
-      wifi_icons: [
-          "\udb82\udd2e", # Icon for 0% strength
-          "\udb82\udd1f", # Icon for 1-24% strength
-          "\udb82\udd22", # Icon for 25-49% strength
-          "\udb82\udd25", # Icon for 50-74% strength
-          "\udb82\udd28", # Icon for 75-100% strength
-        ]
       label_shadow:
         enabled: true
         color: "black"
         radius: 3
         offset: [1, 1]
-      menu_config:
-        blur: true
-        round_corners: true
-        round_corners_type: "normal"
-        border_color: "System"
-        alignment: "right"
-        direction: "down"
-        offset_top: 6
-        offset_left: 0
-        wifi_icons_secured: ["\ue670", "\ue671", "\ue672", "\ue673"]
-        wifi_icons_unsecured: ["\uec3c", "\uec3d", "\uec3e", "\uec3f"]
-  taskbar:
-    type: "yasb.taskbar.TaskbarWidget"
+  notifications:
+    type: "yasb.notifications.NotificationsWidget"
     options:
-      icon_size: 14
-      tooltip: true
-      show_only_visible: true
-      strict_filtering: true
-      monitor_exclusive: false
+      label: "<span>\uf476</span> {count}"
+      label_alt: "{count} notifications"
+      hide_empty: true
       tooltip: false
-      animation:
+      callbacks:
+        on_left: "toggle_notification"
+        on_right: "do_nothing"
+        on_middle: "toggle_label"
+      label_shadow:
         enabled: true
-      preview:
-        enabled: false
-        width: 240
-        delay: 400
-        padding: 8
-        margin: 8
-      title_label:
-        enabled: false
-        show: "always"
-        min_length: 10
-        max_length: 30
-      ignore_apps:
-        processes: []
-        titles: ["Mattermost Desktop App", "yasb - File Explorer", "TIDAL"]
-        classes: []
+        color: "black"
+        radius: 3
+        offset: [1, 1]
+  update_check:
+    type: "yasb.update_check.UpdateCheckWidget"
+    options:
+      windows_update:
+        enabled: true
+        label: "<span>\uf0ab</span> {count}"
+        interval: 240
+        exclude: []
+      winget_update:
+        enabled: true
+        label: "<span>\uf0ab</span> {count}"
+        interval: 60
+        exclude: ["Windhawk"]
       label_shadow:
         enabled: true
         color: "black"

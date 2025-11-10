@@ -14,21 +14,25 @@
   "default_container_padding": 10,
   "border": true,
   "border_implementation": "Komorebi",
-  "border_width": 4,
+  "border_width": 3,
   "border_offset": -1,
   "border_style": "Rounded",
-  "theme": {
-    "name": "Vice",
-    "palette": "Base16",
-    "unfocused_border": "Base02",
-    "single_border": "Base0D",
-    "monocle_border": "Base0D",
-    "floating_border": "Base0D",
-    "stack_border": "Base01",
-    "stackbar_background": "Base01",
-    "stackbar_unfocused_text": "Base04",
-    "stackbar_focused_text": "Base0D"
+  "border_colours": {
+    "single": "#2138da",
+    "stack": "#2138da",
+    "monocle": "#2138da",
+    "unfocused": "#616161"
   },
+  "layout_colours": {
+    "focus": "#007fda",
+    "background": "#010136"
+  },
+   "wallpapers": [
+    {
+      "type": "colour",
+      "colour": "#007fda"
+    }
+  ],
   "stackbar": {
     "height": 35,
     "mode": "OnStack",
@@ -37,7 +41,7 @@
       "font_family": "JetBrainsMono NFP",
       "font_size": 30
     }
-  },
+  },  
   "transparency": true,
   "ignore_rules": [
     {
