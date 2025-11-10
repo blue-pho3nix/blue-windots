@@ -13,11 +13,12 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ### Pomodoro
 
-![](https://github.com/user-attachments/assets/d3ca9eb1-12c5-4728-a8d9-d5d0455f95ed)
+![](https://github.com/user-attachments/assets/c53c9e5e-646a-437c-af96-b18631fc77d1)
 
 ### To Do List
 
-![](https://github.com/user-attachments/assets/30db3cc7-946c-4779-b0ba-8ec015593cb9)
+![](https://github.com/user-attachments/assets/f2d7329f-19ec-4358-a849-dbd41fb3186f)
+
 
 ### Launchpad
 
