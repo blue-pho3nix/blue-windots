@@ -12,19 +12,20 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ![](https://github.com/user-attachments/assets/7ed348bd-3b2e-4f7b-9724-4f57e2678f35)
 
-### Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
+## Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
 
-#### Pomodoro
+### Pomodoro
 
-![](https://github.com/user-attachments/assets/d3ca9eb1-12c5-4728-a8d9-d5d0455f95ed)
+![](https://github.com/user-attachments/assets/c53c9e5e-646a-437c-af96-b18631fc77d1)
 
-#### To Do List
+### To Do List
 
-![](https://github.com/user-attachments/assets/30db3cc7-946c-4779-b0ba-8ec015593cb9)
+![](https://github.com/user-attachments/assets/f2d7329f-19ec-4358-a849-dbd41fb3186f)
 
-#### Launchpad
 
-![](https://github.com/user-attachments/assets/8a908110-c07b-4d5c-8700-ed2578c3133f)
+### Launchpad
+
+![](https://github.com/user-attachments/assets/7e349a28-5d72-4ef5-bde3-8996ce87ca46)
 
 
 ### Windots and Installation script: [Here <3](https://github.com/blue-pho3nix/blue-windots/tree/Andromeda#optional-pre-install)
