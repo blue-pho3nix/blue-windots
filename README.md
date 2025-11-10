@@ -237,6 +237,10 @@ git clone -b Nordish  https://github.com/blue-pho3nix/blue-windots.git
 
 ![](https://github.com/user-attachments/assets/80abbafa-091f-4fdc-ae1c-d185a322bc5c)
 
+- Turn off "Hide icon menu"
+
+![](https://github.com/user-attachments/assets/8b64d0cb-83c9-4f56-822c-3e65f8fe43aa)
+
 ---
 
 ## Post Install Fun
