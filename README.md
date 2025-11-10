@@ -155,13 +155,14 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 > The theme doesn't really have settings for the login/lock screen.
 
 #### Install the following mods under `Explore`
+- Control Panel Color Fix
 - Resource Redirect
 - Windows 11 File Explorer Styler
 - Windows 11 Notification Center Styler
 - Windows 11 Taskbar Styler
 - UXTheme hook
 
-![](https://github.com/user-attachments/assets/3445ab9d-db6a-4ef8-a90f-0e5818025f3d)
+<image>
 
 
 ### 2. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
