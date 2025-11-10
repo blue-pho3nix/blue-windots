@@ -263,6 +263,10 @@ QToolTip {
   color: var(--other-analogous-color);
 }
 
+/* ================================
+   Media Widget - Themed Dark Card
+   ================================ */
+
 .media-widget {
   padding: 0;
   margin: 0;
@@ -274,13 +278,15 @@ QToolTip {
   font-size: 12px;
 }
 .media-widget .btn {
-  color: var(--foreground-color);
+  color: var(--other-analogous-color);
   padding: 0 4px;
   margin: 0;
   font-family: "Segoe Fluent Icons";
   font-weight: 400;
 }
-
+.media-widget .btn:hover {
+  color: var(--foreground-color);
+}
 .media-widget .btn.play {
   font-size: 16px;
 }
@@ -288,13 +294,16 @@ QToolTip {
 .media-widget .btn.disabled {
   color: var(--border-color);
   font-size: 12px;
-  background-color: var(--background-color);
+  background-color: rgba(0, 0, 0, 0);
 }
-
 .media-menu {
   min-width: 440px;
   max-width: 440px;
   background-color: var(--background-color);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .media-menu .title,
 .media-menu .artist,
@@ -302,98 +311,100 @@ QToolTip {
   font-size: 14px;
   font-weight: 600;
   margin-left: 10px;
+  font-family: "Segoe UI";
 }
 .media-menu .artist {
   font-size: 13px;
-  color: var(--foreground-color);
+  color: var(--border-color);
   margin-top: 0px;
 }
 .media-menu .source {
   font-size: 11px;
   color: #000;
   border-radius: 3px;
-  background-color: var(--background-color);
+  background-color: #bac2de;
   padding: 2px 4px;
   font-weight: 600;
+  font-family: "Segoe UI";
   margin-top: 10px;
 }
 /* The source class name is the same as what you see in the media widget; just replace spaces with dashes and convert it to lowercase. 
 Example: "Windows Media" becomes "windows-media" */
 .media-menu .source.aimp {
   background-color: #6f42c1;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.apple-music {
   background-color: #fa2b56;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.brave {
   background-color: #fb542b;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.chrome {
   background-color: #4285f4;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.edge {
   background-color: #0078d4;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.firefox {
   background-color: #ff7139;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.foobar2000 {
   background-color: #444444;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.media-player {
   background-color: #0078d4;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.murglar {
   background-color: #8a8a8a;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.musicbee {
   background-color: #ffcc00;
-  color: var(--background-color);
+  color: #000000;
 }
 .media-menu .source.nsmusics {
   background-color: #e64a19;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.opera {
   background-color: #ff1b2d;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.qobuz {
   background-color: #003a6f;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.spotify {
   background-color: #1db954;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.tidal {
   background-color: #000000;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.winamp {
   background-color: #f1a11b;
-  color: var(--background-color);
+  color: #000000;
 }
 .media-menu .source.youtube {
   background-color: #ff0000;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.youtube-music {
   background-color: #c51f1f;
-  color: var(--foreground-color);
+  color: #ffffff;
 }
 .media-menu .source.zen {
   background-color: #2ecc71;
-  color: var(--background-color);
+  color: #000000;
 }
 .media-menu .btn {
   font-family: "Segoe Fluent Icons";
@@ -410,17 +421,18 @@ Example: "Windows Media" becomes "windows-media" */
   margin-left: 10px;
 }
 .media-menu .btn:hover {
-  color: white;
-  background-color: var(--border-color);
+  color: var(--foreground-color);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .media-menu .btn.play {
-  background-color: var(--border-color);
+  background-color: rgba(255, 255, 255, 0.1);
   font-size: 20px;
+  color: var(--other-analogous-color);
 }
 .media-menu .btn.disabled:hover,
 .media-menu .btn.disabled {
   color: var(--border-color);
-  background-color: var(--background-color);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .media-menu .playback-time {
@@ -439,13 +451,13 @@ Example: "Windows Media" becomes "windows-media" */
   background: transparent;
   height: 2px;
   border-radius: 3px;
-  background: var(--border-color);
+  background: rgba(255, 255, 255, 0.1);
 }
 .media-menu .progress-slider::groove:hover {
   background: transparent;
   height: 6px;
   border-radius: 3px;
-  background: var(--border-color);
+  background: rgba(255, 255, 255, 0.2);
 }
 .media-menu .progress-slider::sub-page {
   background: var(--foreground-color);
@@ -465,7 +477,7 @@ Example: "Windows Media" becomes "windows-media" */
   border-radius: 3px;
 }
 .media-menu .app-volume-container .volume-slider::add-page {
-  background: white;
+  background: var(--foreground-color);
   border-radius: 3px;
 }
 .media-menu .app-volume-container .volume-slider::groove:hover {
@@ -480,14 +492,13 @@ Example: "Windows Media" becomes "windows-media" */
 .media-menu .app-volume-container .mute-button,
 .media-menu .app-volume-container .unmute-button {
   font-size: 16px;
-  color: var(--foreground-color);
+  color: #ffffff;
   font-family: "Segoe Fluent Icons";
   margin-top: 4px;
 }
 .media-menu .app-volume-container .unmute-button {
-  color: var(--foreground-color);
+  color: #a0a0a0;
 }
-
 /*  Sleek Systray   */
 .systray {
   background: transparent;
@@ -601,7 +612,6 @@ Example: "Windows Media" becomes "windows-media" */
 }
 
 /* Todo Widget Styles */
-/*  Todo Widget (Themed)  */
 .todo-widget {
   padding: 0 6px;
 }
@@ -650,7 +660,7 @@ Example: "Windows Media" becomes "windows-media" */
 
 .todo-menu .header .add-task-button:hover {
   background-color: var(--blue-color);
-  color: var(--highlight-color);
+  color: var(--background-color);
 }
 
 .todo-menu .header .tab-buttons {
@@ -800,10 +810,10 @@ Example: "Windows Media" becomes "windows-media" */
   color: var(--highlight-color);
 }
 
+.todo-menu .task-info-row .edit-task-button,
 .todo-menu .task-info-row .delete-task-button {
   background-color: rgba(255, 255, 255, 0.15);
   color: var(--foreground-color);
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 12px;
   padding: 0 8px;
@@ -815,6 +825,11 @@ Example: "Windows Media" becomes "windows-media" */
 }
 .todo-menu .task-info-row .delete-task-button:hover {
   background-color: var(--pink-color);
+  color: #000;
+}
+
+.todo-menu .task-info-row .edit-task-button:hover {
+  background-color: var(--blue-color);
   color: #000;
 }
 

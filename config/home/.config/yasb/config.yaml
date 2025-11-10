@@ -33,13 +33,13 @@ bars:
         - "home"
         - "komorebi_workspaces"
         - "taskbar"
+        - "media"
       center:
         - "clock"
       right:
         - "todo"
         - "pomodoro"
         - "systray"
-        - "media"
         - "notifications"
         - "update_check"
         - "power_menu"
@@ -80,13 +80,13 @@ widgets:
       max_field_size:
         label: 20
         label_alt: 30
-      show_thumbnail: true
+      show_thumbnail: false
       controls_only: false
-      controls_left: true
+      controls_left: false
       controls_hide: false
-      thumbnail_alpha: 80
+      thumbnail_alpha: 40
       thumbnail_padding: 8
-      thumbnail_corner_radius: 16
+      thumbnail_corner_radius: 0
       icons:
         play: "\ue768" # Icon for the play button in the popup.
         pause: "\ue769" # Icon for the pause button in the popup.
@@ -112,7 +112,7 @@ widgets:
         prev_track: "\ue892"
         next_track: "\ue893"
       scrolling_label:
-        enabled: false
+        enabled: true
         update_interval_ms: 33
         style: "left" # can be "left", "right", "bounce", "bounce-ease"
         separator: " | "
@@ -135,6 +135,11 @@ widgets:
         on_left: "none"
         on_right: "none"
         on_middle: "none"
+      update_interval: 1000
+      locale: ""
+      timezones:
+        - "America/Argentina/Buenos_Aires" # UTC−3
+        - "Europe/Berlin" # UTC+1
       calendar:
         blur: True
         round_corners: True
@@ -143,6 +148,10 @@ widgets:
         alignment: "center"
         direction: "down"
         offset_left: 0
+      callbacks:
+        on_left: "next_timezone"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
