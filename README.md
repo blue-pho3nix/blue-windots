@@ -1,11 +1,18 @@
 # Nordish Windots for Windows 11 😊
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
-`[images]`
+![](https://github.com/user-attachments/assets/d52dfad4-da3a-4ad9-8dd6-cdf0485c62f5)
+![](https://github.com/user-attachments/assets/276af1fd-000a-4ae9-ac4d-1897cd2df3aa)
+![](https://github.com/user-attachments/assets/b9b7776f-5a5f-4f16-a17e-b98cc43de0d3)
 
 ## Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
 
-`[images]`
+### To Do
+<img width="501" alt="image" src="https://github.com/user-attachments/assets/2a2b49af-69eb-4b58-a444-c5ae07a0cc78" />
+
+### Pomodoro
+<img width="501" height="427" alt="image" src="https://github.com/user-attachments/assets/14eb282a-ce3c-4135-8220-be4243b01efd" />
+
 
 ---
 
@@ -157,13 +164,13 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 #### Install the following mods under `Explore`
 - Control Panel Color Fix
 - Resource Redirect
+- UXTheme hook
 - Windows 11 File Explorer Styler
 - Windows 11 Notification Center Styler
 - Windows 11 Taskbar Styler
-- UXTheme hook
+- Windows 11 Start Menu Styler
 
-`[image]`
-
+![](https://github.com/user-attachments/assets/192f883b-3c5b-439e-b27b-0dd001c32256)
 
 ### 2. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
 
@@ -207,7 +214,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 ## Install Instructions
 
 #### 1. Open Powershell 7 as `Administrator`.
-#### 2. Clone the repo **BRANCH: Andromeda** using GitHub Desktop or `git`.
+#### 2. Clone the repo **BRANCH: Nordish** using GitHub Desktop or `git`.
 **Using `git`**
 ```
 git clone -b Nordish  https://github.com/blue-pho3nix/blue-windots.git
