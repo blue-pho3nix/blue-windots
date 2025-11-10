@@ -1,11 +1,11 @@
 # Nordish Windots for Windows 11 😊
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
-<pics>
+`[images]`
 
 ## Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
 
-<pics>
+`[images]`
 
 ---
 
@@ -162,7 +162,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 - Windows 11 Taskbar Styler
 - UXTheme hook
 
-<image>
+`[image]`
 
 
 ### 2. Install [Windows Terminal](https://apps.microsoft.com/detail/9N0DX20HK701?hl=en-us&gl=US&ocid=pdpshare)
