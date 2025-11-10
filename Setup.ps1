@@ -463,7 +463,11 @@ $ModConfigurations = @(
     # Windows 11 Notification Center Styler Configuration (WindowGlass Theme)
     @{ Name = 'Windows 11 Notification Center Styler'; Key = 'windows-11-notification-center-styler'; 
         Settings = @{ 'Theme' = 'WindowGlass' } 
-    }
+    },
+
+        # Windows 11 Start Menu Styler Configuration (Oversimplified$Accentuated Theme)
+    @{ Name = 'Windows 11 Start Menu Styler'; Key = 'windows-11-start-menu-styler'; 
+       Settings = @{ 'Theme' = 'WindowGlass (for the redesigned Start menu)' } }
 )
 
 
