@@ -551,6 +551,31 @@ Write-ColorText "{Green}`n Hiding the taskbar search bar..."
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 0
 
 
+########################################################################
+###            Toggle OFF Time and Date in System Tray               ###
+########################################################################
+
+Write-TitleBox -Title "Toggle OFF Time/Date in System Tray"
+
+# Path to the Advanced Explorer key
+$regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" 
+$regValueName = "ShowSystrayDateTimeValueName"
+
+Write-ColorText "{Cyan}Setting registry key to hide clock in system tray..."
+
+try {
+    # Setting the value to 0 (False) hides the clock.
+    # Note: If this key does not exist, the system might default to showing the clock.
+    # We use -Force to create it if it doesn't exist.
+    Set-ItemProperty -Path $regPath -Name $regValueName -Value 0 -Type DWord -Force -ErrorAction Stop
+    Write-ColorText "{Green}Clock is now hidden in the System Tray."
+
+} catch {
+    Write-Error "Failed to hide system tray clock: $($_.Exception.Message)"
+}
+
+Refresh ($i++)
+
 
 ########################################################################
 ###                          Copy Files                              ###
