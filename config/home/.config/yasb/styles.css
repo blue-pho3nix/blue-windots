@@ -57,14 +57,14 @@
 .tooltip {
   padding: 6px;
   color: var(--mainLight);
-  font-size: 14px;
+  font-size: 12px;
   background-color: var(--transparent);
   border: 0px solid #313244;
   border-radius: 9px;
 }
 
 * {
-  font-size: 16px;
+  font-size: 12px;
   color: var(--main);
   font-weight: 600;
   font-family: "JetBrainsMono NFP";
@@ -84,7 +84,7 @@
   margin: 0;
 }
 .icon {
-  font-size: 18px;
+  font-size: 12px;
 }
 .widget .label {
   padding: 0px 2px;
@@ -165,7 +165,7 @@
 .calendar .month-label,
 .calendar .date-label {
   font-family: "JetBrainsMono NFP";
-  font-size: 16px;
+  font-size: 12px;
   color: var(--mainLight);
   font-weight: 700;
   min-width: 180px;
@@ -253,7 +253,7 @@
 .power-menu-popup .button.cancel .icon,
 .power-menu-popup .button.cancel .label {
   color: var(--mainLight);
-  font-size: 16px;
+  font-size: 12px;
 }
 .power-menu-popup .button.cancel:hover {
   background-color: rgba(189, 45, 20, 0.5);
@@ -263,7 +263,7 @@
 
 /* Uptime label */
 .uptime {
-  font-size: 16px;
+  font-size: 12px;
   margin-top: 12px;
   color: var(--overlay2);
   font-weight: 600;
@@ -341,7 +341,7 @@
   color: var(--mainLight);
 }
 .media-widget .btn.play {
-  font-size: 18px;
+  font-size: 12px;
   max-width: 22px;
   min-width: 22px;
 }
@@ -357,17 +357,17 @@
 }
 
 .media-menu .source {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   margin-left: 10px;
 }
 .media-menu .title {
   margin-left: 10px;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: bold;
 }
 .media-menu .artist {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--main);
   margin-top: 0px;
@@ -375,7 +375,7 @@
   margin-left: 12px;
 }
 .media-menu .source {
-  font-size: 16px;
+  font-size: 12px;
   color: #000;
   font-weight: normal;
   border-radius: 3px;
@@ -383,7 +383,7 @@
   padding: 2px 4px;
 }
 .media-menu .btn {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
   margin: 10px 2px 0px 2px;
   min-width: 40px;
@@ -410,7 +410,7 @@
 }
 
 .media-menu .playback-time {
-  font-size: 16px;
+  font-size: 12px;
   color: #7f849c;
   margin-top: 20px;
   min-width: 100px;
@@ -451,7 +451,7 @@
   margin: 0 6px 0 1px;
   color: var(--main);
   font-weight: bold;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 /* Todo Widget Styles */
@@ -486,7 +486,7 @@
   border-radius: 13px;
   color: #ffffff;
   padding: 4px 8px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   margin: 0px;
   font-family: "JetBrainsMono NFP";
@@ -525,7 +525,7 @@
 }
 .todo-menu .no-tasks {
   font-family: "JetBrainsMono NFP";
-  font-size: 18px;
+  font-size: 12px;
   color: var(--main);
   font-weight: 400;
   margin-top: 16px;
@@ -581,7 +581,7 @@
   border: none;
   margin-left: 12px;
   margin-top: 5px;
-  font-size: 18px;
+  font-size: 12px;
   color: #ebebeb;
   font-family: "JetBrainsMono NFP";
 }
@@ -649,7 +649,7 @@
 }
 .todo-menu .task-item .title {
   color: var(--mainLight);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
 }
 .todo-menu .task-item.completed .title {
@@ -661,7 +661,7 @@
 .todo-menu .task-checkbox {
   background: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 12px;
   color: var(--main);
   margin-left: 12px;
 }
@@ -828,18 +828,18 @@
   border-radius: 8px;
 }
 .pomodoro-menu .header {
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 600;
   max-height: 0px;
   color: rgba(238, 248, 247, 0.949);
 }
 .pomodoro-menu .status {
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 600;
   color: rgba(238, 248, 247, 0.949);
 }
 .pomodoro-menu .session {
-  font-size: 16px;
+  font-size: 12px;
   color: rgba(238, 248, 247, 0.949);
 }
 .pomodoro-menu .button {
@@ -878,7 +878,7 @@
   background-color: var(--main);
   color: #000;
   padding: 4px 8px 6px 8px;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   border-radius: 4px;
   font-family: "JetBrainsMono NFP", sans-serif;
@@ -893,7 +893,7 @@
   background-color: rgba(55, 57, 57, 0.6);
   color: rgba(244, 253, 253, 0.9);
   padding: 4px 8px 6px 8px;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   border: 1px inset rgba(160, 244, 237, 0.25);
   border-bottom: 2px inset rgba(160, 244, 237, 0.4);
@@ -919,7 +919,7 @@
 .whkd-popup .plus-separator {
   padding: 0 0px;
   border: none;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: bold;
   background-color: transparent;
   color: rgba(244, 253, 253, 0.8);
@@ -927,7 +927,7 @@
 
 .whkd-popup .filter-input {
   padding: 0 8px 2px 8px;
-  font-size: 16px;
+  font-size: 12px;
   font-family: "JetBrainsMono NFP", sans-serif;
   border: 1px solid rgba(55, 57, 57, 0.5);
   border-radius: 4px;
@@ -942,12 +942,12 @@
 }
 
 .whkd-popup .keybind-command {
-  font-size: 16px;
+  font-size: 12px;
   color: rgba(244, 253, 253, 0.9);
 }
 
 .whkd-popup .keybind-header {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   color: rgba(244, 253, 253, 0.9);
   padding: 8px 0;
@@ -976,7 +976,7 @@
   border-radius: 6px;
   padding: 4px 0px;
   font-family: "JetBrainsMono NFP";
-  font-size: 16px;
+  font-size: 12px;
   color: var(--mainLight);
   font-weight: 600;
 }
@@ -1025,7 +1025,7 @@
 }
 .launchpad .app-dialog .message {
   color: var(--mainLight);
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   padding: 10px 0;
 }
@@ -1037,7 +1037,7 @@
   border-radius: 4px;
   padding: 0 6px;
   font-family: "JetBrainsMono NFP";
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--mainLight);
   margin: 10px 0px 5px 0;
@@ -1055,7 +1055,7 @@
   border: none;
   border-radius: 4px;
   font-family: "JetBrainsMono NFP";
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--mainLight);
   min-width: 80px;
@@ -1067,7 +1067,7 @@
 }
 .launchpad .app-dialog .buttons-container .button {
   margin: 10px 0 5px 0px;
-  font-size: 16px;
+  font-size: 12px;
 }
 .launchpad .app-dialog .button:focus,
 .launchpad .app-dialog .button:hover {
@@ -1131,7 +1131,7 @@
 .launchpad .search-input {
   max-width: 400px;
   padding: 8px 12px;
-  font-size: 16px;
+  font-size: 12px;
   min-height: 24px;
   max-height: 24px;
   font-family: "JetBrainsMono NFP";
@@ -1177,7 +1177,7 @@
 .launchpad .app-icon .title {
   color: var(--mainLight);
   font-family: "JetBrainsMono NFP";
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   margin-top: 6px;
   max-width: 100%;
@@ -1333,7 +1333,7 @@
 
 /* Header */
 .wifi-menu .header {
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--main);
   letter-spacing: 0.6px;
@@ -1391,7 +1391,7 @@
 }
 
 .wifi-menu .wifi-item .icon {
-  font-size: 18px;
+  font-size: 12px;
   color: var(--main);
   flex-shrink: 0;
   font-family: "JetBrainsMono NFP";
@@ -1399,19 +1399,19 @@
 
 .wifi-menu .wifi-item .name {
   padding-left: 8px;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--mainLight);
 }
 
 /* Status and Strength */
 .wifi-menu .wifi-item .status {
-  font-size: 14px;
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .wifi-menu .wifi-item .strength {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--main);
 }
@@ -1421,7 +1421,7 @@
 .wifi-menu .wifi-item .disconnect {
   background-color: var(--main);
   color: rgba(18, 19, 19, 0.949);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   border: none;
   border-radius: 6px;
@@ -1445,7 +1445,7 @@
 
 /* Footer */
 .wifi-menu .footer {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   padding: 12px 16px;
   color: var(--main);
@@ -1463,7 +1463,7 @@
   background-color: transparent;
   border: none;
   color: var(--mainLight);
-  font-size: 16px;
+  font-size: 12px;
   padding: 4px;
   border-radius: 6px;
   transition: all 0.2s ease;
