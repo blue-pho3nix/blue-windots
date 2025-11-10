@@ -216,7 +216,7 @@ git clone -b Nordish  https://github.com/blue-pho3nix/blue-windots.git
 - File > clone repo > URL `https://github.com/blue-pho3nix/blue-windots.git`
 - Change branch to Nordish
 
-<image>
+![](https://github.com/user-attachments/assets/106e1687-1a4c-40f8-a39f-b287ff4413ed)
 
 #### 3. `cd` into the `blue-dots` directory.
 #### 4. Run `Setup.ps1`.
