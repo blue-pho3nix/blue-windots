@@ -833,4 +833,4 @@ else {
 ########################################################################
 
 Set-Location $currentLocation
-Write-TitleBox -Title "SETUP COMPLETE! RESTART REQUIRED."
+Write-TitleBox -Title "SCRIPT COMPLETE! NOW, FINISH THE INSTALL INSTRUCTIONS. :)"
