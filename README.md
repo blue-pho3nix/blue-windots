@@ -56,6 +56,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 ![](https://github.com/user-attachments/assets/d52dfad4-da3a-4ad9-8dd6-cdf0485c62f5)
 ![](https://github.com/user-attachments/assets/276af1fd-000a-4ae9-ac4d-1897cd2df3aa)
 ![](https://github.com/user-attachments/assets/b9b7776f-5a5f-4f16-a17e-b98cc43de0d3)
+![](https://github.com/user-attachments/assets/b7854795-a66e-439c-b243-f47a52cd17cb)
 
 ## Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
 
