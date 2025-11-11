@@ -4,7 +4,10 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 ![](https://github.com/user-attachments/assets/d52dfad4-da3a-4ad9-8dd6-cdf0485c62f5)
 ![](https://github.com/user-attachments/assets/276af1fd-000a-4ae9-ac4d-1897cd2df3aa)
 ![](https://github.com/user-attachments/assets/b9b7776f-5a5f-4f16-a17e-b98cc43de0d3)
+![](https://github.com/user-attachments/assets/78155e42-4535-488e-8fb8-27063364d441)
 ![](https://github.com/user-attachments/assets/b7854795-a66e-439c-b243-f47a52cd17cb)
+
+
 
 ## Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
 
@@ -248,6 +251,10 @@ git clone -b Nordish  https://github.com/blue-pho3nix/blue-windots.git
 - Turn off "Hide icon menu"
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/8b64d0cb-83c9-4f56-822c-3e65f8fe43aa" />
+
+#### 7. Turn off all tray icons
+<img width="1000" height="706" alt="image" src="https://github.com/user-attachments/assets/fa2cc858-7d5f-45e2-98d8-4ec13b5ee041" />
+
 
 #### 6. Restart computer from powershell
 > [!NOTE]
