@@ -465,9 +465,10 @@ $ModConfigurations = @(
         Settings = @{ 'Theme' = 'WindowGlass' } 
     },
 
-        # Windows 11 Start Menu Styler Configuration (Oversimplified$Accentuated Theme)
+    # Windows 11 Start Menu Styler Configuration (WindowGlass Theme)
     @{ Name = 'Windows 11 Start Menu Styler'; Key = 'windows-11-start-menu-styler'; 
-       Settings = @{ 'Theme' = 'WindowGlass (for the redesigned Start menu)' } }
+        Settings = @{ 'Theme' = 'WindowGlass' } 
+    }
 )
 
 
@@ -588,7 +589,8 @@ try {
     Set-ItemProperty -Path $regPath -Name $regValueName -Value 0 -Type DWord -Force -ErrorAction Stop
     Write-ColorText "{Green}Clock is now hidden in the System Tray."
 
-} catch {
+}
+catch {
     Write-Error "Failed to hide system tray clock: $($_.Exception.Message)"
 }
 
