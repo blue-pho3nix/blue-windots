@@ -137,9 +137,7 @@ widgets:
         on_middle: "none"
       update_interval: 1000
       locale: ""
-      timezones:
-        - "America/Argentina/Buenos_Aires" # UTC−3
-        - "Europe/Berlin" # UTC+1
+      timezones: []
       calendar:
         blur: True
         round_corners: True
@@ -149,7 +147,7 @@ widgets:
         direction: "down"
         offset_left: 0
       callbacks:
-        on_left: "next_timezone"
+        on_left: "do_nothing"
         on_middle: "do_nothing"
         on_right: "do_nothing"
   komorebi_workspaces:
