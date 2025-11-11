@@ -245,18 +245,31 @@ git clone -b Andromeda  https://github.com/blue-pho3nix/blue-windots.git
 .\Setup.ps1
 ```
 
-### 5. Automatically Hide the Taskbar
+#### 5. Automatically Hide the Taskbar
 - `win` + `r` and run `ms-settings:taskbar`
 
 ![](https://github.com/user-attachments/assets/ffd39e42-348b-451d-8811-2f7dad6672c8)
 
 - Turn on "Automatically hide the taskbar"
 
-![](https://github.com/user-attachments/assets/80abbafa-091f-4fdc-ae1c-d185a322bc5c)
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/80abbafa-091f-4fdc-ae1c-d185a322bc5c" />
 
 - Turn off "Hide icon menu"
 
-![](https://github.com/user-attachments/assets/8b64d0cb-83c9-4f56-822c-3e65f8fe43aa)
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/8b64d0cb-83c9-4f56-822c-3e65f8fe43aa" />
+
+- Turn off all tray icons
+<img width="1000" height="706" alt="image" src="https://github.com/user-attachments/assets/fa2cc858-7d5f-45e2-98d8-4ec13b5ee041" />
+
+
+#### 6. Restart computer from powershell
+> [!NOTE]
+> Your taskbar will be hidden, but you'll have yasb taskbar once you restart.
+> If you ever want to have your Windows taskbar back, just edit "Windows 11 Taskbar Styler" in Windhawk.
+```
+Restart-Computer
+```
+
 
 ---
 
