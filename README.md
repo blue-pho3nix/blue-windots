@@ -252,7 +252,7 @@ git clone -b Nordish  https://github.com/blue-pho3nix/blue-windots.git
 
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/8b64d0cb-83c9-4f56-822c-3e65f8fe43aa" />
 
-#### 7. Turn off all tray icons
+- Turn off all tray icons
 <img width="1000" height="706" alt="image" src="https://github.com/user-attachments/assets/fa2cc858-7d5f-45e2-98d8-4ec13b5ee041" />
 
 
