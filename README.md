@@ -167,8 +167,8 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 - UXTheme hook
 - Windows 11 File Explorer Styler
 - Windows 11 Notification Center Styler
-- Windows 11 Taskbar Styler
 - Windows 11 Start Menu Styler
+- Windows 11 Taskbar Styler
 
 ![](https://github.com/user-attachments/assets/192f883b-3c5b-439e-b27b-0dd001c32256)
 
