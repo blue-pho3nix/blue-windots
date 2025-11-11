@@ -802,4 +802,4 @@ if (Get-Command komorebic -ErrorAction SilentlyContinue) {
 ########################################################################
 
 Set-Location $currentLocation
-Write-TitleBox -Title "SETUP COMPLETE! RESTART REQUIRED."
+Write-TitleBox -Title "SETUP COMPLETE! NOW, FINISH THE INSTALL INSTRUCTIONS. :)"
