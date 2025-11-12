@@ -1,15 +1,13 @@
 # Nordish Windots for Windows 11 😊
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
+
 ![](https://github.com/user-attachments/assets/d52dfad4-da3a-4ad9-8dd6-cdf0485c62f5)
-![](https://github.com/user-attachments/assets/276af1fd-000a-4ae9-ac4d-1897cd2df3aa)
-![](https://github.com/user-attachments/assets/b9b7776f-5a5f-4f16-a17e-b98cc43de0d3)
-![](https://github.com/user-attachments/assets/78155e42-4535-488e-8fb8-27063364d441)
 ![](https://github.com/user-attachments/assets/b7854795-a66e-439c-b243-f47a52cd17cb)
+![](https://github.com/user-attachments/assets/0ea76aa8-e7ed-474d-bda3-e46a0a7b0559)
+![](https://github.com/user-attachments/assets/f7da3151-f1c4-4f4d-b810-a6717b60f846)
 
-
-
-## Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
+## Interesting yasb Widgets
 
 ### To Do
 <img width="501" alt="image" src="https://github.com/user-attachments/assets/2a2b49af-69eb-4b58-a444-c5ae07a0cc78" />
