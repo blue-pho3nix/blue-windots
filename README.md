@@ -9,7 +9,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ![](https://github.com/user-attachments/assets/7ed348bd-3b2e-4f7b-9724-4f57e2678f35)
 
-## Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
+## Interesting yasb Widgets
 
 ### Pomodoro
 
