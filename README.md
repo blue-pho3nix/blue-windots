@@ -8,7 +8,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 ![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
 
 
-### Interesting [yasb Widgets](https://github.com/amnweb/yasb/wiki/(Widget)-Whkd)
+### Interesting yasb Widgets
 
 #### To Do
 ![](https://github.com/user-attachments/assets/538eeeb4-8bc7-428d-9b77-390423a9a29c)
