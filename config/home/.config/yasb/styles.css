@@ -1,3 +1,16 @@
+:root {
+  --todo-bg: #b8f5d0;
+  --cpu-bg: #f8bcd6;
+  --memory-bg: #c3a4f9;
+  --komorebi-workspace-bg: #f7f2ec;
+  --clock-bg: #ffdca3;
+  --media-bg: #f79ac0;
+  --winget-update-bg: #a4daf9;
+  --windows-update-bg: #a4f9ee;
+  --notification-bg: #c6e3ff;
+  --pomodoro-bg: #d7b7ff;
+}
+
 /* GLOBAL CONFIGURATIONS */
 * {
   background-color: transparent;
@@ -26,7 +39,7 @@
 
 /* CPU */
 .cpu-widget {
-  background-color: #f8bcd6;
+  background-color: var(--cpu-bg);
   border: 1px solid #0c0a1a;
   border-radius: 4px;
   margin-left: 1px;
@@ -55,7 +68,7 @@
 
 /* MEMORY */
 .memory-widget {
-  background-color: #c3a4f9;
+  background-color: var(--memory-bg);
   border: 1px solid #0c0a1a;
   border-radius: 4px;
   margin-left: 1px;
@@ -95,7 +108,7 @@
   color: #f7f2ec;
 }
 .komorebi-workspaces .ws-btn.active {
-  background-color: #f7f2ec;
+  background-color: var(--komorebi-workspace-bg);
   border: 1px solid #0c0a1a;
   color: #0c0a1a;
 }
@@ -106,7 +119,7 @@
   min-width: 80px;
   max-width: 80px;
   outline: none;
-  background-color: #b8f5d0;
+  background-color: var(--todo-bg);
   border: 1px solid #0c0a1a;
   border-radius: 4px;
   padding-top: 2px;
@@ -138,7 +151,7 @@
 
 /* Todo Menu Styles */
 .todo-menu {
-  background-color: #b8f5d0; /* mint base */
+  background-color: var(--todo-bg); /* mint base */
   min-width: 400px;
   max-width: 400px;
   min-height: 500px;
@@ -435,7 +448,7 @@
 
 /* CLOCK */
 .clock-widget {
-  background-color: #ffdca3;
+  background-color: var(--clock-bg);
   border: 1px solid #0c0a1a;
   border-radius: 4px;
   padding-top: 2px;
@@ -479,7 +492,7 @@
 
 /* MEDIA */
 .media-widget {
-  background-color: #f79ac0;
+  background-color: var(--media-bg);
   border: 1px solid #0c0a1a;
   border-radius: 4px;
   padding: 0 12px 0 12px;
@@ -510,7 +523,7 @@
 .media-menu {
   min-width: 440px;
   max-width: 440px;
-  background-color: #f79ac0;
+  background-color: var(--media-bg);
   border: 1px solid #2e2a3f;
   border-radius: 4px;
   outline: none;
@@ -733,12 +746,12 @@ Example: "Windows Media" becomes "windows-media" */
 
 /* WinGet */
 .update-check-widget .widget-container.winget {
-  background-color: #a4daf9;
+  background-color: var(--winget-update-bg);
 }
 
 /* Windows */
 .update-check-widget .widget-container.windows {
-  background-color: #a4f9ee;
+  background-color: var(--windows-update-bg);
 }
 
 /* Icon style */
@@ -761,7 +774,7 @@ Example: "Windows Media" becomes "windows-media" */
 
 /* NOTIFICATIONS */
 .notification-widget {
-  background-color: #c6e3ff;
+  background-color: var(--notification-bg);
   border: 1px solid #0c0a1a;
   border-radius: 4px;
   margin-left: 1px;
@@ -787,7 +800,7 @@ Example: "Windows Media" becomes "windows-media" */
 /* POMODORO WIDGET */
 .pomodoro-widget {
   padding: 0 6px;
-  background-color: #d7b7ff; /* soft lavender pastel */
+  background-color: var(--pomodoro-bg); /* soft lavender pastel */
   border: 1px solid #0c0a1a;
   border-radius: 4px;
   margin-left: 1px;
@@ -826,7 +839,7 @@ Example: "Windows Media" becomes "windows-media" */
 
 /* POMODORO MENU */
 .pomodoro-menu {
-  background-color: #d7b7ff; /* solid lavender pastel */
+  background-color: var(--pomodoro-bg); /* solid lavender pastel */
   border: 1px solid rgba(12, 10, 26, 0.2);
   border-radius: 8px;
   backdrop-filter: none; /* no blur since it's no longer translucent */

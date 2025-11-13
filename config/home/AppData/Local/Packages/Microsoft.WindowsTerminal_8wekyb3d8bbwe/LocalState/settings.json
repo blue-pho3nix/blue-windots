@@ -58,15 +58,15 @@
   "profiles": {
     "defaults": {
       "antialiasingMode": "cleartype",
-      "colorScheme": "KomorebiNight",
+      "colorScheme": "KomorebiPastel",
       "font": {
         "face": "Cascadia Mono",
         "size": 12
       },
-      "opacity": 70,
+      "opacity": 90,
       "padding": "10",
       "scrollbarState": "hidden",
-      "useAcrylic": true
+      "useAcrylic": false
     },
     "list": [
       {
@@ -102,26 +102,26 @@
   },
   "schemes": [
     {
-      "name": "KomorebiNight",
-      "background": "#1e1e2e",
-      "foreground": "#cdd6f4",
-      "cursorColor": "#f5c2e7",
-      "selectionBackground": "#313244",
-      "black": "#11111b",
-      "red": "#f38ba8",
-      "green": "#a6e3a1",
-      "yellow": "#f9e2af",
-      "blue": "#89b4fa",
-      "purple": "#cba6f7",
-      "cyan": "#89dceb",
-      "white": "#cdd6f4",
-      "brightBlack": "#313244",
-      "brightRed": "#f28fad",
-      "brightGreen": "#b5efb1",
-      "brightYellow": "#ffedb0",
-      "brightBlue": "#b4befe",
-      "brightPurple": "#d0b3ff",
-      "brightCyan": "#94e2d5",
+      "name": "KomorebiPastel",
+      "background": "#1c1535",
+      "foreground": "#f7f2ec",
+      "cursorColor": "#c3a4f9",
+      "selectionBackground": "#c6e3ff",
+      "black": "#1c1535",
+      "red": "#f79ac0",
+      "green": "#b8f5d0",
+      "yellow": "#ffdca3",
+      "blue": "#4a6f86",
+      "purple": "#c3a4f9",
+      "cyan": "#a4f9ee",
+      "white": "#f7f2ec",
+      "brightBlack": "#3a2a60",
+      "brightRed": "#f8bcd6",
+      "brightGreen": "#b8f5d0",
+      "brightYellow": "#ffdca3",
+      "brightBlue": "#c6e3ff",
+      "brightPurple": "#d7b7ff",
+      "brightCyan": "#a4f9ee",
       "brightWhite": "#ffffff"
     }
   ],

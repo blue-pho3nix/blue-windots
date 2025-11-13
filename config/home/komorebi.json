@@ -14,20 +14,18 @@
   "default_container_padding": 10,
   "border": true,
   "border_implementation": "Komorebi",
-  "border_width": 3,
+  "border_width": 4,
   "border_offset": -1,
   "border_style": "Rounded",
-  "theme": {
-    "name": "Chalk",
-    "palette": "Base16",
-    "unfocused_border": "Base02",
-    "single_border": "Base0E",
-    "monocle_border": "Base0E",
-    "floating_border": "Base0E",
-    "stack_border": "Base01",
-    "stackbar_background": "Base01",
-    "stackbar_unfocused_text": "Base04",
-    "stackbar_focused_text": "Base0D"
+  "border_colours": {
+    "single": "#f5b8dd",
+    "stack": "#f5b8dd",
+    "monocle": "#f5b8dd",
+    "unfocused": "#1c1535"
+  },
+  "layout_colours": {
+    "focus": "#f5b8dd",
+    "background": "#1c1535"
   },
   "stackbar": {
     "height": 35,
