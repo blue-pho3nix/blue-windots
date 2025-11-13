@@ -269,9 +269,8 @@ git clone -b Pastels https://github.com/blue-pho3nix/blue-windots.git
 ```
 Restart-Computer
 ```
+OR
 - `win key` + Power
-
-![](https://github.com/user-attachments/assets/f48cedf0-a4f2-4328-bb31-cbe4764f972e)
 
 ---
 
