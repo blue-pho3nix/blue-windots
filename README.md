@@ -2,8 +2,10 @@
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
 ![](https://github.com/user-attachments/assets/ae43eb17-8565-4408-af8f-817dc8150f62)
-![](https://github.com/user-attachments/assets/24134a2e-5462-40fe-b2e2-26f6f3ed7352)
-![](https://github.com/user-attachments/assets/1643181b-d12b-4ad1-9ba2-c22a23968cca)
+![](https://github.com/user-attachments/assets/620e7ef2-c31a-472b-82a4-04fb7deb2dc6)
+
+![](https://github.com/user-attachments/assets/d8a5e3ab-2d9a-4dff-8f09-8b461bba765c)
+
 ![](https://github.com/user-attachments/assets/23662d7f-ec4a-4a8a-b65d-564578d23e93)
 ![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
 
@@ -261,37 +263,30 @@ git clone -b Pastels https://github.com/blue-pho3nix/blue-windots.git
 
 ![](https://github.com/user-attachments/assets/5f669a9c-658b-4713-8e60-74a4092628b6)
 
+#### 6. Restart Your Computer
+
+- Powershell
+```
+Restart-Computer
+```
+OR
+- `win key` + Power
 
 ---
 
 ## Post Install Fun
 
-### Let's say you want to edit you Komorebi config file after install.
+### Let's say you want to edit you Komorebi or WHKD after install.
+
 <details closed>
   <summary>Here's how you can do it. 🎉</summary>
 
-1. Edit and save `C:\Users\<your_username>\Komorebi.json`   
-2. Open a regular powershell window (`win + enter`).
-3. Stop and start Komorebi or reload the configuration.
-> Make sure to always use `--whkd` to keep the autohotkeys working. <br>
-
-```
-Komorebic stop --whkd
-```
-```
-Komorebic start --whkd
-```
-or
-```
-Komorebic reload-configuration
-```
-4. Reload scripts in AutoHotKey (right click AutoHotKey and click `Reload Scripts`).
-
-![](https://github.com/user-attachments/assets/62340ca3-c9a4-4d4b-b6ad-102978f32fa5)
-
+1. Edit and save `C:\Users\<your_username>\Komorebi.json` or `C:\Users\<your_username\.config\whkdrc` 
+2. Run `alt` + `r` to restart Komorebi
 </details>
 
 ### Let's say you want to edit your yasb status bar after install
+
 <details closed>
   <summary>Here's how you can do it. 🎉</summary>
 
