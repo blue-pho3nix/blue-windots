@@ -36,7 +36,6 @@ bars:
       left: []
       center:
         - "systray"
-        - "komorebi_active_layout"
         - "komorebi_workspaces"
         - "cpu"
         - "memory"
@@ -65,57 +64,6 @@ widgets:
         bottom: 0
         right: 0
       container_shadow:
-        enabled: false
-        color: "black"
-        radius: 5
-        offset: [0, 0]
-  komorebi_active_layout:
-    type: "komorebi.active_layout.ActiveLayoutWidget"
-    options:
-      hide_if_offline: true
-      label: "{icon}"
-      layouts:
-        - "bsp"
-        - "columns"
-        - "rows"
-        - "grid"
-        - "scrolling"
-        - "vertical_stack"
-        - "horizontal_stack"
-        - "ultrawide_vertical_stack"
-        - "right_main_vertical_stack"
-      layout_icons:
-        bsp: "\uebeb"
-        columns: "\uebf7"
-        rows: "\uec01"
-        grid: "\udb81\udf58"
-        scrolling: "\uebf7"
-        vertical_stack: "\uebee"
-        horizontal_stack: "\uebf0"
-        ultrawide_vertical_stack: "\uebee"
-        right_main_vertical_stack: "\uebf1"
-        monocle: "\uf50c"
-        maximized: "\uf06f"
-        floating: "\uf2d2"
-        paused: "\udb83\udf89"
-        tiling: "\udb81\ude40"
-      callbacks:
-        on_left: "toggle_layout_menu"
-        on_middle: "toggle_tiling"
-        on_right: "next_layout"
-      layout_menu:
-        blur: true
-        round_corners: false
-        alignment: "left"
-        direction: "down"
-        offset_top: true
-        show_layout_icons: true
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-      label_shadow:
         enabled: false
         color: "black"
         radius: 5

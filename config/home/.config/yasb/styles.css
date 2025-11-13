@@ -77,55 +77,6 @@
   padding-left: 12px;
 }
 
-/* KOMOREBI LAYOUT */
-.komorebi-active-layout {
-  background-color: #1c1535;
-  border: 1px solid #2e2a3f;
-  border-radius: 4px;
-  margin-left: 1px;
-  width: 30px;
-  min-width: 30px;
-  max-width: 30px;
-}
-.komorebi-active-layout .label {
-  color: #f7f2ec;
-  font-family: "0xProto Nerd Font";
-  font-size: 16px;
-  font-weight: bold;
-  padding: 0 4px 0 0;
-  outline: none;
-}
-.komorebi-layout-menu {
-  background-color: #1c1535;
-  border: 1px solid #2e2a3f;
-  border-radius: 4px;
-  font-family: "0xProto Nerd Font";
-  font-size: 12px;
-}
-.komorebi-layout-menu .menu-item {
-  padding: 4px 16px;
-  font-size: 12px;
-}
-.komorebi-layout-menu .menu-item-icon {
-  font-size: 16px;
-  font-weight: bold;
-  color: #f7f2ec;
-}
-.komorebi-layout-menu .menu-item-text {
-  font-family: "0xProto Nerd Font";
-  padding-left: 4px;
-  color: #f7f2ec;
-  font-size: 12px;
-  font-weight: bold;
-}
-.komorebi-layout-menu .menu-item:hover {
-  background-color: #2e2a3f;
-}
-.komorebi-layout-menu .separator {
-  max-height: 1px;
-  background-color: #2e2a3f;
-}
-
 /* KOMOREBI WORKSPACES */
 .komorebi-workspaces .ws-btn {
   background-color: #1c1535;
