@@ -143,9 +143,8 @@
   max-width: 400px;
   min-height: 500px;
   max-height: 500px;
-  border-radius: 8px;
-  border: none;
 }
+
 .todo-menu .header {
   margin: 16px 10px;
 }

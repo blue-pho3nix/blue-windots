@@ -141,7 +141,7 @@ widgets:
     options:
       label: "\uf0ae {count}/{completed}"
       menu:
-        round_corners: false
+        round_corners: true
         alignment: "center"
         direction: "down"
         offset_top: true
