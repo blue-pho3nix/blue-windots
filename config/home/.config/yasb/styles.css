@@ -170,7 +170,7 @@
   font-size: 14px;
   font-weight: 600;
   margin: 0px;
-  font-family: "Segoe UI", "JetBrainsMono NFP";
+  font-family: "Segoe UI", "0xProto Nerd Font";
 }
 .todo-menu .header .tab-buttons {
   margin: 0;
@@ -203,7 +203,7 @@
   max-height: 20px;
   padding: 0;
   margin: 0 8px 0 0;
-  font-family: "JetBrainsMono NFP";
+  font-family: "0xProto Nerd Font";
 }
 .todo-menu .header .tab-buttons.sort:pressed {
   background-color: rgba(255, 255, 255, 0.6);
@@ -218,7 +218,7 @@
 .todo-menu .no-tasks-icon {
   font-size: 80px;
   color: #9fa0b2;
-  font-family: "JetBrainsMono NFP";
+  font-family: "0xProto Nerd Font";
   margin-top: 64px;
   font-weight: 400;
 }
@@ -268,7 +268,7 @@
   margin-top: 5px;
   font-size: 18px;
   color: #0c0a1a;
-  font-family: "JetBrainsMono NFP";
+  font-family: "0xProto Nerd Font";
 }
 .todo-menu .task-checkbox:checked {
   color: #a8a8b3;
@@ -293,7 +293,7 @@
   font-weight: 400;
   color: #7e7f91;
   font-size: 14px;
-  font-family: "JetBrainsMono NFP";
+  font-family: "0xProto Nerd Font";
   margin-top: 1px;
 }
 .todo-menu .task-info-row .category-text.important,
