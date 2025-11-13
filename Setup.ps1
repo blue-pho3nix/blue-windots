@@ -788,7 +788,7 @@ else {
 if (Get-Command komorebic -ErrorAction SilentlyContinue) {
     Write-Host "Creating autostart task for Komorebi..."
     try {
-        komorebic enable-autostart --ahk
+        komorebic enable-autostart --whkd
         Write-Host "Waiting 10 seconds for Komorebi..."
         Start-Sleep -Seconds 10
         Write-ColorText "{Green}Komorerbi autostart successfully started."
