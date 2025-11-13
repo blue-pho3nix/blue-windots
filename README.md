@@ -32,6 +32,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 <details closed>
   <summary>View the cool hotkeys 🔥</summary>
+  
 ### Reload Komorebi Configuration
 | Keys | Command |
 |------|----------|
