@@ -187,13 +187,6 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ### 3. Install [Powershell 7](https://apps.microsoft.com/detail/9MZ1SNWT0N5D?hl=en-us&gl=US&ocid=pdpshare)
 
-### 4. Install [Scoop](https://scoop.sh/) in a PowerShell terminal 
-> [!NOTE]
-> This is just done manually because you shouldn't install `scoop` in an elevated termin.
-```
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
-```
 ---
 
 ## What Does the Setup.ps1 Do?
