@@ -3,9 +3,9 @@ watch_config: true
 debug: false
 update_check: true
 komorebi:
-  stop_command: "komorebic stop --ahk"
-  start_command: "komorebic start --ahk"
-  reload_command: "komorebi reload-configuration"
+  stop_command: "komorebic stop --whkd"
+  start_command: "komorebic start --whkd"
+  reload_command: "komorebic stop --whkd && komorebic start --whkd"
 bars:
   primary-bar:
     enabled: true
@@ -41,6 +41,7 @@ bars:
         - "cpu"
         - "memory"
         - "todo"
+        - "pomodoro"
         - "clock"
         - "media"
         - "notifications"
@@ -353,4 +354,46 @@ widgets:
         enabled: false
         color: "black"
         radius: 3
+        offset: [1, 1]
+  pomodoro:
+    type: "yasb.pomodoro.PomodoroWidget"
+    options:
+      label: "<span>{icon}</span> {remaining}"
+      label_alt: "<span>{icon}</span> {session}/{total_sessions} - {status}"
+      work_duration: 25
+      break_duration: 5
+      long_break_duration: 15
+      long_break_interval: 4
+      auto_start_breaks: true
+      auto_start_work: true
+      sound_notification: true
+      show_notification: true
+      hide_on_break: false
+      session_target: 8
+      icons:
+        work: "\uf252"
+        break: "\uf253"
+        paused: "\uf254"
+      menu:
+        blur: false
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "System"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        circle_background_color: "#d9c4ff" # the ring background (pale lavender)
+        circle_work_progress_color: "#9effcc" # color when working (bright mint)
+        circle_break_progress_color: "#a3be8c" # color when on break
+        circle_thickness: 8
+        circle_size: 160
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "reset_timer"
+        on_right: "toggle_label"
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 1
         offset: [1, 1]

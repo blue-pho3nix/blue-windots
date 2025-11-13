@@ -192,6 +192,8 @@
   max-width: 400px;
   min-height: 500px;
   max-height: 500px;
+  border-radius: 8px;
+  border: none;
 }
 .todo-menu .header {
   margin: 16px 10px;
@@ -690,10 +692,10 @@ Example: "Windows Media" becomes "windows-media" */
 }
 .media-menu .btn:hover {
   color: #0c0a1a;
-  background-color: #ffdca3;
+  background-color: #a4f9ee;
 }
 .media-menu .btn.play {
-  background-color: #ffdca3;
+  background-color: #a4f9ee;
   font-size: 20px;
 }
 .media-menu .btn.disabled:hover,
@@ -727,7 +729,7 @@ Example: "Windows Media" becomes "windows-media" */
   background: #2e2a3f;
 }
 .media-menu .progress-slider::sub-page {
-  background: #4ef1e0;
+  background: #a4f9ee;
   border-radius: 3px;
   height: 4px;
 }
@@ -830,4 +832,135 @@ Example: "Windows Media" becomes "windows-media" */
   font-weight: bold;
   padding-right: 4px;
   padding-top: 2px;
+}
+
+/* POMODORO WIDGET */
+.pomodoro-widget {
+  padding: 0 6px;
+  background-color: #d7b7ff; /* soft lavender pastel */
+  border: 1px solid #0c0a1a;
+  border-radius: 4px;
+  margin-left: 1px;
+  outline: none;
+}
+
+/* Icon */
+.pomodoro-widget .icon {
+  font-family: "0xProto Nerd Font";
+  font-size: 14px;
+  padding-right: 4px;
+}
+
+/* Label */
+.pomodoro-widget .label {
+  font-family: "0xProto Nerd Font";
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* States */
+.pomodoro-widget .label.paused,
+.pomodoro-widget .icon.paused {
+  color: #202125;
+}
+
+.pomodoro-widget .label.work,
+.pomodoro-widget .icon.work {
+  color: #0c0a1a;
+}
+
+.pomodoro-widget .label.break,
+.pomodoro-widget .icon.break {
+  color: #141922;
+}
+
+/* POMODORO MENU */
+.pomodoro-menu {
+  background-color: #d7b7ff; /* solid lavender pastel */
+  border: 1px solid rgba(12, 10, 26, 0.2);
+  border-radius: 8px;
+  backdrop-filter: none; /* no blur since it's no longer translucent */
+}
+
+/* Header */
+.pomodoro-menu .header {
+  font-family: "Segoe UI";
+  font-size: 16px;
+  font-weight: 600;
+  color: #0c0a1a;
+}
+
+/* Status text */
+.pomodoro-menu .status {
+  font-family: "0xProto Nerd Font";
+  font-size: 18px;
+  font-weight: 700;
+  color: #0c0a1a;
+}
+
+/* Session text */
+.pomodoro-menu .session {
+  font-family: "Segoe UI";
+  font-size: 14px;
+  font-weight: 600;
+  color: #0d0d0f;
+}
+
+/* Buttons */
+.pomodoro-menu .button {
+  border: none;
+  border-radius: 6px;
+  font-family: "Segoe UI";
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  transition: all 0.2s ease;
+}
+
+/* Start button */
+.pomodoro-menu .button.start {
+  background-color: #a3f7c1; /* pastel mint */
+  color: #0c0a1a;
+}
+.pomodoro-menu .button.start:hover {
+  background-color: #bff4ef;
+}
+
+/* Pause button */
+.pomodoro-menu .button.pause {
+  background-color: #ffe7b6; /* pastel yellow */
+  color: #0c0a1a;
+}
+.pomodoro-menu .button.pause:hover {
+  background-color: #ffebb8;
+}
+
+/* Reset button */
+.pomodoro-menu .button.reset {
+  background-color: #f9c9d0; /* pastel pink */
+  color: #0c0a1a;
+}
+.pomodoro-menu .button.reset:hover {
+  background-color: #f8bcd6;
+}
+
+/* Pressed effect */
+.pomodoro-menu .button:active {
+  transform: translateY(1px);
+  filter: brightness(0.95);
+}
+
+.pomodoro-menu .button.skip {
+  background-color: #c9e4ff; /* soft baby blue for contrast */
+  color: #0c0a1a; /* dark text for readability */
+  border-radius: 6px;
+  font-weight: 600;
+  font-family: "Segoe UI";
+  font-size: 12px;
+  padding: 6px 12px;
+  transition: all 0.2s ease;
+}
+
+.pomodoro-menu .button.skip:hover {
+  background-color: #b9dcff; /* slightly brighter hover tone */
 }
