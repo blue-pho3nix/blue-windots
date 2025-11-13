@@ -131,8 +131,6 @@ function Write-ColorText {
 }
 
 
-
-
 function Install-WinGetApp {
     param ([string]$PackageID, [array]$AdditionalArgs, [string]$Source)
 
@@ -375,52 +373,6 @@ Refresh ($i++)
 
 
 ########################################################################
-###                   SCOOP PACKAGES INSTALLATION                    ###
-########################################################################
-
-Write-TitleBox -Title "Scoop Packages Installation"
-
-#  Check for if scoop is installed
-if (!(Get-Command scoop -ErrorAction SilentlyContinue)) {
-    Write-ColorText "{Red}The 'scoop' command was not found."
-    Write-Host "Please install Scoop manually by running the following command in a NON-ADMIN PowerShell terminal:"
-    Write-ColorText "{Yellow}Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser; Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression"
-    Write-Host ""
-    Write-Host "Exiting script. Please install Scoop and re-run."
-    exit 1
-} else {
-    Write-ColorText "{Green}Scoop is already installed."
-}
-
-
-# Add Scoop shims to PATH
-$ScoopShims = "$env:USERPROFILE\scoop\shims"
-if (-not ($env:PATH -like "*$ScoopShims*")) {
-    $env:PATH += ";$ScoopShims"
-}
-
-# Make sure extras bucket is added
-if (-not (scoop bucket list | Select-String "extras")) {
-    Write-ColorText "{Cyan}Adding 'extras' bucket..."
-    # Show all output
-    scoop bucket add extras | Write-Host
-}
-
-
-# Install AutoHotkey (only if not already installed)
-if (-not (scoop list | Select-String "autohotkey")) {
-    Write-ColorText "{Cyan}Installing AutoHotkey..."
-    scoop install autohotkey
-} else {
-    Write-ColorText "{Green}AutoHotkey is already installed."
-}
-
-Write-ColorText "{Green}Scoop + AutoHotkey installation complete."
-
-Refresh ($i++)
-
-
-########################################################################
 ###                     Nerd Fonts                                   ###
 ########################################################################
 
@@ -655,8 +607,7 @@ Write-ColorText "{yellow}Applying Theme..."
 Start-Sleep -Seconds 2
 
 # Define Theme File Path. Ensure the file extension is exact.
-$themeFile = "C:\Windows\Resources\Themes\One Dark Pro (Night) - PAC.theme"
-$ThemeName = "One Dark Pro (Night) - PAC"
+$themeFile = "C:\Windows\Resources\Themes\Andromeda - Night.theme"
 
 Write-Host "Unblocking theme file security tag..."
 # Unblock-File removes the 'Mark-of-the-Web' security tag

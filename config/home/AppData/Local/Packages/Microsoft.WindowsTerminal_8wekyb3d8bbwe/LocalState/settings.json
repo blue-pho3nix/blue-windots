@@ -58,15 +58,15 @@
   "profiles": {
     "defaults": {
       "antialiasingMode": "cleartype",
-      "colorScheme": "CyberPunk2077",
+      "colorScheme": "KomorebiNight",
       "font": {
-        "face": "0xProto Nerd Font",
+        "face": "Cascadia Mono",
         "size": 12
       },
-      "opacity": 80,
+      "opacity": 70,
       "padding": "10",
       "scrollbarState": "hidden",
-      "useAcrylic": false
+      "useAcrylic": true
     },
     "list": [
       {
@@ -102,27 +102,27 @@
   },
   "schemes": [
     {
-      "background": "#272932",
-      "black": "#272932",
-      "blue": "#9381FF",
-      "brightBlack": "#7B8097",
-      "brightBlue": "#37EBF3",
-      "brightCyan": "#37EBF3",
-      "brightGreen": "#40FFE9",
-      "brightPurple": "#CB1DCD",
-      "brightRed": "#C71515",
-      "brightWhite": "#C1DEFF",
-      "brightYellow": "#FFF955",
-      "cursorColor": "#FDF500",
-      "cyan": "#00D0DB",
-      "foreground": "#E455AE",
-      "green": "#1AC5B0",
-      "name": "CyberPunk2077",
-      "purple": "#742D8B",
-      "red": "#710000",
-      "selectionBackground": "#742D8B",
-      "white": "#D1C5C0",
-      "yellow": "#FDF500"
+      "name": "KomorebiNight",
+      "background": "#1e1e2e",
+      "foreground": "#cdd6f4",
+      "cursorColor": "#f5c2e7",
+      "selectionBackground": "#313244",
+      "black": "#11111b",
+      "red": "#f38ba8",
+      "green": "#a6e3a1",
+      "yellow": "#f9e2af",
+      "blue": "#89b4fa",
+      "purple": "#cba6f7",
+      "cyan": "#89dceb",
+      "white": "#cdd6f4",
+      "brightBlack": "#313244",
+      "brightRed": "#f28fad",
+      "brightGreen": "#b5efb1",
+      "brightYellow": "#ffedb0",
+      "brightBlue": "#b4befe",
+      "brightPurple": "#d0b3ff",
+      "brightCyan": "#94e2d5",
+      "brightWhite": "#ffffff"
     }
   ],
   "themes": [],

@@ -44,6 +44,7 @@ bars:
         - "clock"
         - "media"
         - "notifications"
+        - "update_check"
       right: []
 widgets:
   systray:
@@ -190,7 +191,6 @@ widgets:
     type: "yasb.todo.TodoWidget"
     options:
       label: "\uf0ae {count}/{completed}"
-      label_alt: "\uf0ae Tasks: {count}"
       menu:
         round_corners: false
         alignment: "center"
@@ -220,7 +220,7 @@ widgets:
       callbacks:
         on_left: "toggle_menu"
         on_middle: "do_nothing"
-        on_right: "toggle_label"
+        on_right: "toggle_nothing"
       container_padding:
         top: 0
         left: 0
@@ -260,51 +260,61 @@ widgets:
     type: "yasb.media.MediaWidget"
     options:
       label: "{title}"
+      separator: " - "
       hide_empty: true
       callbacks:
         on_left: "toggle_media_menu"
-        on_middle: "toggle_play_pause"
-        on_right: "none"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
       max_field_size:
         label: 30
-        label_alt: 30
-      hide_empty: true
-      show_thumbnail: false
-      scrolling_label:
-        enabled: false
-        update_interval_ms: 33
-        ease_slope: 20
-        ease_pos: 0.8
-        ease_min: 0.5
+      show_thumbnail: true
+      controls_only: false
+      controls_left: true
+      controls_hide: false
+      thumbnail_alpha: 80
+      thumbnail_padding: 8
+      thumbnail_corner_radius: 16
       icons:
         prev_track: "\ue892"
         next_track: "\ue893"
         play: "\ue768"
         pause: "\ue769"
       media_menu:
-        blur: true
-        round_corners: false
+        blur: false
+        round_corners: true
         round_corners_type: "normal"
         border_color: "system"
-        alignment: "center"
+        alignment: "right"
         direction: "down"
-        offset_top: true
+        offset_top: 6
+        offset_left: 0
         thumbnail_corner_radius: 8
-        thumbnail_size: 100
-        max_title_size: 40
+        thumbnail_size: 120
+        max_title_size: 60
         max_artist_size: 20
         show_source: true
-        show_volume_slider: true
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
+      media_menu_icons:
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+      scrolling_label:
+        enabled: true
+        update_interval_ms: 33
+        style: "left" # can be "left", "right", "bounce", "bounce-ease"
+        separator: " | "
+        label_padding: 0
+        always_scroll: false
+        # Easing curve params: https://www.desmos.com/calculator/j7eamemxzi
+        ease_slope: 20
+        ease_pos: 0.8
+        ease_min: 0.5
       label_shadow:
         enabled: false
         color: "black"
-        radius: 5
-        offset: [0, 0]
+        radius: 3
+        offset: [1, 1]
   notifications:
     type: "yasb.notifications.NotificationsWidget"
     options:
@@ -326,3 +336,21 @@ widgets:
         color: "black"
         radius: 5
         offset: [0, 0]
+  update_check:
+    type: "yasb.update_check.UpdateCheckWidget"
+    options:
+      windows_update:
+        enabled: true
+        label: "<span></span> {count}"
+        interval: 240
+        exclude: []
+      winget_update:
+        enabled: true
+        label: "<span></span> {count}"
+        interval: 60
+        exclude: ["Windhawk"]
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [1, 1]

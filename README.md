@@ -26,35 +26,115 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 <details closed>
   <summary>View the cool hotkeys 🔥</summary>
+### Reload Komorebi Configuration
+| Keys | Command |
+|------|----------|
+| `Alt + R` | `komorebic stop --whkd && komorebic start --whkd` |
 
-| Hotkey | Action |
-|--------|--------|
-| `win` + `Left` | Focus window to the left |
-| `win` + `Right` | Focus window to the right |
-| `win` + `Up` | Focus window upward |
-| `win` + `Down` | Focus window downward |
-| `win` + `=` | Increase window width (horizontal) |
-| `win` + `-` | Decrease window width (horizontal) |
-| `win` + `shift` + `=` | Increase window height (vertical) |
-| `win` + `shift` + `-` | Decrease window height (vertical) |
-| `win` + `Space` | Promote focused window |
-| `win` + `1` | Focus workspace 1 |
-| `win` + `2` | Focus workspace 2 |
-| `win` + `3` | Focus workspace 3 |
-| `win` + `4` | Focus workspace 4 |
-| `win` + `shift` + `1` | Move window to workspace 1 |
-| `win` + `shift` + `2` | Move window to workspace 2 |
-| `win` + `shift` + `3` | Move window to workspace 3 |
-| `win` + `shift` + `4` | Move window to workspace 4 |
-| `win` + `shift` + `Left` | Move window left (includes monitors) |
-| `win` + `shift` + `Right` | Move window right (includes monitors) |
-| `win` + `w` | Open default browser (Google) |
-| `win` + `Enter` | Open PowerShell |
-| `win` + `shift` + `Enter` | Open PowerShell as Administrator |
-| `win` + `c` | Open Command Prompt |
-| `win` + `shift` + `c` | Open Command Prompt as Administrator |
-| `win` + `f` | Open File Explorer |
-| `win` + `q` | Close focused window |
+---
+
+### Close and Minimize Windows
+| Keys | Command |
+|------|----------|
+| `Alt + Q` | `komorebic close` |
+| `Alt + M` | `komorebic minimize` |
+
+---
+
+### Focus on Windows
+| Keys | Command |
+|------|----------|
+| `Alt + ←` | `komorebic focus left` |
+| `Alt + →` | `komorebic focus right` |
+| `Alt + ↓` | `komorebic focus down` |
+| `Alt + ↑` | `komorebic focus up` |
+
+---
+
+### Resize Windows
+| Keys | Command |
+|------|----------|
+| `Alt + =` | `komorebic resize-axis horizontal increase` |
+| `Alt + -` | `komorebic resize-axis horizontal decrease` |
+| `Alt + Shift + =` | `komorebic resize-axis vertical increase` |
+| `Alt + Shift + -` | `komorebic resize-axis vertical decrease` |
+
+---
+
+### Manipulate Windows
+| Keys | Command |
+|------|----------|
+| `Alt + T` | `komorebic toggle-float` |
+| `Alt + Shift + F` | `komorebic toggle-monocle` |
+
+---
+
+### Move Windows
+| Keys | Command |
+|------|----------|
+| `Alt + Shift + ←` | `komorebic move left` |
+| `Alt + Shift + →` | `komorebic move right` |
+| `Alt + Shift + ↓` | `komorebic move down` |
+| `Alt + Shift + ↑` | `komorebic move up` |
+| `Alt + Space` | `komorebic promote` |
+
+---
+
+### Focus on Workspaces
+| Keys | Command |
+|------|----------|
+| `Alt + 1` | `komorebic focus-workspace 0` |
+| `Alt + 2` | `komorebic focus-workspace 1` |
+| `Alt + 3` | `komorebic focus-workspace 2` |
+
+---
+
+## Move Windows Across Workspaces
+| Keys | Command |
+|------|----------|
+| `Alt + Shift + 1` | `komorebic move-to-workspace 0` |
+| `Alt + Shift + 2` | `komorebic move-to-workspace 1` |
+| `Alt + Shift + 3` | `komorebic move-to-workspace 2` |
+
+---
+
+### Open Chrome
+| Keys | Command |
+|------|----------|
+| `Alt + W` | `start chrome` |
+
+---
+
+### Open Terminals as User and Administrator
+| Keys | Command |
+|------|----------|
+| `Alt + Return` | `start wt.exe` |
+| `Alt + Shift + Return` | `start wt.exe -Verb RunAs` |
+| `Alt + C` | `start cmd.exe` |
+| `Alt + Shift + C` | `start cmd.exe -Verb RunAs` |
+
+---
+
+### Open File Explorer
+| `Alt + F` | `start explorer.exe` |
+
+---
+
+### Open VMWare
+| `Alt + V` | `start vmware.exe` |
+
+---
+
+### Open Obsidian
+| `Alt + N` | `cmd /c start "" "%LOCALAPPDATA%\Programs\Obsidian\Obsidian.exe"` |
+
+---
+
+### Restart Computer
+| Keys | Command |
+|------|----------|
+| `Alt + 0` | `shutdown /r /t 0` |
+
 </details>
 
 
@@ -121,11 +201,11 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
   - **[yasb](https://github.com/amnweb/yasb)** (Status bar at the top of the screen).
   - **[OhMyPosh](https://ohmyposh.dev/)** (Just installed to make nerd font installation easier).  
   - **[0xProto Nerd Font](https://www.programmingfonts.org/#oxproto)** (Used in the terminal and yasb).
-  - **[Git](https://git-scm.com/install/windows)** (Used by Scoop)
-  - **[Scoop](https://scoop.sh/)** (Puts AutoHotKey on PATH)
   - **[AutoHotkey](https://www.autohotkey.com/)** (Makes it possible to use the window key in hotkeys).
   - **[Clink](https://chrisant996.github.io/clink/clink.html)** (Makes it easy to use Starship in Command Prompt)
   - **[Starship](https://starship.rs/)** (Makes your terminal pretty)
+  - **[whkd](https://github.com/LGUG2Z/whkd)** (Makes hot keys work)
+
  
 
   **Sets up:**
@@ -149,7 +229,7 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ## Install Instructions
 
 #### 1. Open Powershell 7 as `Administrator`.
-#### 2. Clone the repo **BRANCH: Neon** using GitHub Desktop or `git`.
+#### 2. Clone the repo **BRANCH: Pastels** using GitHub Desktop or `git`.
 **Using `git`**
 ```
 git clone -b Pastels https://github.com/blue-pho3nix/blue-windots.git
@@ -175,27 +255,6 @@ git clone -b Pastels https://github.com/blue-pho3nix/blue-windots.git
 
 ## Post Install Fun
 
-### Change Your Mouse Pointer
-<details closed>
-  <summary> Install <a href="https://www.deviantart.com/niivu/art/Catppuccin-Cursors-921387705" target="_blank">Catppuccin Cursors - Lavender</a> 🖱️ </summary>
-  
-   1. Right click blue-windots\cursors\install.inf.
-    
-  ![](https://github.com/user-attachments/assets/79e13efe-01f0-45af-b615-c8fbf168e863)
-  
-  2. Press `win + R` and enter `main.cpl`.
-  
-  ![](https://github.com/user-attachments/assets/ed2557e9-1a03-4d9e-b675-e4d2875be066)
-  
-  3. Go to `Pointers`.
-  4. Select `Catppuccin-Mocha-Lavender-Cursors`
-  
-  ![](https://github.com/user-attachments/assets/51b9f211-2d3c-461c-a871-d5038fecc247)
-  
-  5. Click `Apply` and `OK`.
-
-</details>
-
 ### Let's say you want to edit you Komorebi config file after install.
 <details closed>
   <summary>Here's how you can do it. 🎉</summary>
@@ -203,13 +262,13 @@ git clone -b Pastels https://github.com/blue-pho3nix/blue-windots.git
 1. Edit and save `C:\Users\<your_username>\Komorebi.json`   
 2. Open a regular powershell window (`win + enter`).
 3. Stop and start Komorebi or reload the configuration.
-> Make sure to always use `--ahk` to keep the autohotkeys working. <br>
+> Make sure to always use `--whkd` to keep the autohotkeys working. <br>
 
 ```
-Komorebic stop --ahk
+Komorebic stop --whkd
 ```
 ```
-Komorebic start --ahk
+Komorebic start --whkd
 ```
 or
 ```
@@ -219,6 +278,13 @@ Komorebic reload-configuration
 
 ![](https://github.com/user-attachments/assets/62340ca3-c9a4-4d4b-b6ad-102978f32fa5)
 
+</details>
+
+### Let's say you want to edit your yasb status bar after install
+<details closed>
+  <summary>Here's how you can do it. 🎉</summary>
+
+1. Edit and save  `C:\Users\<your_username\.config\yasb\config.yaml` and/or `C:\Users\<your_username\.config\yasb\styles.css` 
 </details>
 
 ---
