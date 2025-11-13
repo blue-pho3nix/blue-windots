@@ -28,7 +28,7 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ## Hotkeys
 > [!NOTE]
-> Feel free to add more [AutoHotKeys](https://www.autohotkey.com/) to `C:\Users\<your_username>\Komorebi.ahk`. 
+> Feel free to add more hotkeys to `C:\Users\your_username\.config\whkdrc`. 
 
 <details closed>
   <summary>View the cool hotkeys 🔥</summary>
