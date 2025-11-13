@@ -277,32 +277,17 @@ Restart-Computer
 
 ## Post Install Fun
 
-### Let's say you want to edit you Komorebi config file after install.
+### Let's say you want to edit you Komorebi or WHKD after install.
+
 <details closed>
   <summary>Here's how you can do it. 🎉</summary>
 
-1. Edit and save `C:\Users\<your_username>\Komorebi.json`   
-2. Open a regular powershell window (`win + enter`).
-3. Stop and start Komorebi or reload the configuration.
-> Make sure to always use `--whkd` to keep the hotkeys working. <br>
-
-```
-Komorebic stop --whkd
-```
-```
-Komorebic start --whkd
-```
-or
-```
-Komorebic reload-configuration
-```
-4. Reload scripts in AutoHotKey (right click AutoHotKey and click `Reload Scripts`).
-
-![](https://github.com/user-attachments/assets/62340ca3-c9a4-4d4b-b6ad-102978f32fa5)
-
+1. Edit and save `C:\Users\<your_username>\Komorebi.json` or `C:\Users\<your_username\.config\whkdrc` 
+2. Run `alt` + `r` to restart Komorebi
 </details>
 
 ### Let's say you want to edit your yasb status bar after install
+
 <details closed>
   <summary>Here's how you can do it. 🎉</summary>
 
