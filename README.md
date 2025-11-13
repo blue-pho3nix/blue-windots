@@ -1,9 +1,9 @@
 # Pastels Windots for Windows 11 😊
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
-![](https://github.com/user-attachments/assets/e066d4de-a5d7-4814-a120-0d6c89ef5ea3)
-![](https://github.com/user-attachments/assets/e84b909d-a3e5-4a1a-9e1c-77ac08140aa7)
-![](https://github.com/user-attachments/assets/f226badf-40bc-48bc-93b9-101909dabddd)
+![](https://github.com/user-attachments/assets/ae43eb17-8565-4408-af8f-817dc8150f62)
+![](https://github.com/user-attachments/assets/24134a2e-5462-40fe-b2e2-26f6f3ed7352)
+![](https://github.com/user-attachments/assets/1643181b-d12b-4ad1-9ba2-c22a23968cca)
 ![](https://github.com/user-attachments/assets/23662d7f-ec4a-4a8a-b65d-564578d23e93)
 ![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
 
@@ -11,21 +11,28 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 ### Interesting yasb Widgets
 
 #### To Do
-![](https://github.com/user-attachments/assets/538eeeb4-8bc7-428d-9b77-390423a9a29c)
-![](https://github.com/user-attachments/assets/29a57724-c0f4-4e63-8de5-503c2f3175e6)
+
+![](https://github.com/user-attachments/assets/f1f348a3-e946-45d6-a27d-253c2d36f374)
+
 
 #### Media
-![](https://github.com/user-attachments/assets/9dfb0651-10c4-44cb-9695-ece71834e40d)
+
+![](https://github.com/user-attachments/assets/2e19181d-8297-4a43-88ef-404dd25ab1d4)
+
+#### Pomodoro Timer
+
+![](https://github.com/user-attachments/assets/661544e1-bf97-496e-b04c-3f9c6077d0cf)
 
 
 --- 
 
 ## Hotkeys
 > [!NOTE]
-> Feel free to add more [AutoHotKeys](https://www.autohotkey.com/) to `C:\Users\<your_username>\Komorebi.ahk`. 
+> Feel free to add more hotkeys to `C:\Users\your_username\.config\whkdrc`. 
 
 <details closed>
   <summary>View the cool hotkeys 🔥</summary>
+  
 ### Reload Komorebi Configuration
 | Keys | Command |
 |------|----------|
@@ -181,13 +188,6 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ### 3. Install [Powershell 7](https://apps.microsoft.com/detail/9MZ1SNWT0N5D?hl=en-us&gl=US&ocid=pdpshare)
 
-### 4. Install [Scoop](https://scoop.sh/) in a PowerShell terminal 
-> [!NOTE]
-> This is just done manually because you shouldn't install `scoop` in an elevated termin.
-```
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
-```
 ---
 
 ## What Does the Setup.ps1 Do?
@@ -250,6 +250,17 @@ git clone -b Pastels https://github.com/blue-pho3nix/blue-windots.git
 ```
 .\Setup.ps1
 ```
+
+#### 5. Turn off "Show my taskbar on all displays"
+
+- `win` + `r` and run `ms-settings:taskbar`
+
+![](https://github.com/user-attachments/assets/ffd39e42-348b-451d-8811-2f7dad6672c8)
+
+- Turn off "Show my taskbar on all displays"
+
+![](https://github.com/user-attachments/assets/5f669a9c-658b-4713-8e60-74a4092628b6)
+
 
 ---
 
