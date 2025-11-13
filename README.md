@@ -284,7 +284,7 @@ Restart-Computer
 1. Edit and save `C:\Users\<your_username>\Komorebi.json`   
 2. Open a regular powershell window (`win + enter`).
 3. Stop and start Komorebi or reload the configuration.
-> Make sure to always use `--whkd` to keep the autohotkeys working. <br>
+> Make sure to always use `--whkd` to keep the hotkeys working. <br>
 
 ```
 Komorebic stop --whkd
