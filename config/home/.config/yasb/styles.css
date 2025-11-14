@@ -1,14 +1,17 @@
 :root {
-  --todo-bg: #b8f5d0;
-  --cpu-bg: #f8bcd6;
-  --memory-bg: #c3a4f9;
-  --komorebi-workspace-bg: #f7f2ec;
-  --clock-bg: #ffdca3;
+  --todo-bg: #bef5b8;
+  --cpu-bg: #b8f5ef;
+  --memory-bg: #b8f5d0;
+  --komorebi-workspace-bg: #e2f1fa;
+  --clock-bg: #f5b8dd;
   --media-bg: #f79ac0;
   --winget-update-bg: #a4daf9;
   --windows-update-bg: #a4f9ee;
   --notification-bg: #c6e3ff;
   --pomodoro-bg: #d7b7ff;
+  --systray-bg: #191a1b;
+  --whkd-bg: #b8ddf5;
+  --font-family: var(--font-family);
 }
 
 /* GLOBAL CONFIGURATIONS */
@@ -19,7 +22,7 @@
 
 /* SYSTRAY */
 .systray {
-  background-color: #1b132a;
+  background-color: var(--systray-bg);
   border: 1px solid #2e2a3f;
   border-radius: 4px;
   margin-left: 1px;
@@ -31,7 +34,7 @@
 }
 .systray .unpinned-visibility-btn {
   color: #f7f2ec;
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   font-weight: bold;
   font-size: 16px;
   outline: none;
@@ -40,7 +43,7 @@
 /* CPU */
 .cpu-widget {
   background-color: var(--cpu-bg);
-  border: 1px solid #0c0a1a;
+  border: 1px solid #191a1b;
   border-radius: 4px;
   margin-left: 1px;
   outline: none;
@@ -49,41 +52,41 @@
   max-width: 80px;
 }
 .cpu-widget .label {
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   font-size: 12px;
   font-weight: bold;
-  color: #0c0a1a;
+  color: #191a1b;
   padding: 2px 0 0 0;
   width: 50px;
   min-width: 50px;
   max-width: 50px;
 }
 .cpu-widget .icon {
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   font-weight: bold;
   font-size: 16px;
   padding: 0 4px 0 0;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 
 /* MEMORY */
 .memory-widget {
   background-color: var(--memory-bg);
-  border: 1px solid #0c0a1a;
+  border: 1px solid #191a1b;
   border-radius: 4px;
   margin-left: 1px;
   outline: none;
 }
 .memory-widget .label {
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   font-size: 12px;
   font-weight: bold;
-  color: #0c0a1a;
+  color: #191a1b;
   padding: 2px 12px 0 2px;
 }
 .memory-widget .icon {
-  font-family: "0xProto Nerd Font";
-  color: #0c0a1a;
+  font-family: var(--font-family);
+  color: #191a1b;
   font-size: 16px;
   font-weight: bold;
   padding-right: 12px;
@@ -96,7 +99,7 @@
   border: 1px solid #2e2a3f;
   border-radius: 4px;
   margin-left: 1px;
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   font-size: 12px;
   font-weight: bold;
   padding: 8px 10px 6px 10px;
@@ -109,8 +112,8 @@
 }
 .komorebi-workspaces .ws-btn.active {
   background-color: var(--komorebi-workspace-bg);
-  border: 1px solid #0c0a1a;
-  color: #0c0a1a;
+  border: 1px solid #191a1b;
+  color: #191a1b;
 }
 
 /* TODO */
@@ -120,7 +123,7 @@
   max-width: 80px;
   outline: none;
   background-color: var(--todo-bg);
-  border: 1px solid #0c0a1a;
+  border: 1px solid #191a1b;
   border-radius: 4px;
   padding-top: 2px;
   margin-left: 1px;
@@ -130,10 +133,10 @@
   padding: 0;
 }
 .todo-widget .label {
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   font-weight: bold;
   font-size: 12px;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 
 /* Todo Widget Styles */
@@ -141,7 +144,7 @@
   padding: 0 6px 0 6px;
 }
 .todo-widget .icon {
-  color: #a3f7c1; /* pastel mint */
+  color: #a3f7c1;
   padding: 0;
 }
 .todo-widget .label {
@@ -151,7 +154,7 @@
 
 /* Todo Menu Styles */
 .todo-menu {
-  background-color: var(--todo-bg); /* mint base */
+  background-color: var(--todo-bg);
   min-width: 400px;
   max-width: 400px;
   min-height: 500px;
@@ -165,19 +168,20 @@
 .todo-menu .header .tab-buttons {
   border: none;
   border-radius: 13px;
-  color: #0c0a1a;
+  color: #191a1b;
   padding: 4px 8px;
   font-size: 14px;
   font-weight: 600;
   margin: 0px;
   font-family: "Segoe UI", "0xProto Nerd Font";
 }
+
 .todo-menu .header .tab-buttons {
   margin: 0;
   font-size: 14px;
 }
 .todo-menu .header .add-task-button:hover {
-  background-color: rgba(249, 201, 208, 0.616); /* pastel pink hover */
+  background-color: rgba(249, 201, 208, 0.616);
 }
 .todo-menu .header .tab-buttons.in-progress,
 .todo-menu .header .tab-buttons.completed {
@@ -195,7 +199,7 @@
 }
 .todo-menu .header .tab-buttons.sort {
   background-color: rgba(255, 255, 255, 0.4);
-  color: #0c0a1a;
+  color: #191a1b;
   border-radius: 10px;
   min-height: 20px;
   min-width: 20px;
@@ -203,7 +207,7 @@
   max-height: 20px;
   padding: 0;
   margin: 0 8px 0 0;
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
 }
 .todo-menu .header .tab-buttons.sort:pressed {
   background-color: rgba(255, 255, 255, 0.6);
@@ -218,7 +222,7 @@
 .todo-menu .no-tasks-icon {
   font-size: 80px;
   color: #9fa0b2;
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   margin-top: 64px;
   font-weight: 400;
 }
@@ -242,7 +246,7 @@
   border: 1px solid #4ef1e0;
 }
 .todo-menu .task-item .title {
-  color: #0c0a1a;
+  color: #191a1b;
   font-size: 13px;
   font-weight: 600;
   font-family: "Segoe UI";
@@ -267,8 +271,9 @@
   margin-left: 12px;
   margin-top: 5px;
   font-size: 18px;
-  color: #0c0a1a;
-  font-family: "0xProto Nerd Font";
+  color: #191a1b;
+  font-family: var(--font-family);
+  margin-right: 10px;
 }
 .todo-menu .task-checkbox:checked {
   color: #a8a8b3;
@@ -293,28 +298,28 @@
   font-weight: 400;
   color: #7e7f91;
   font-size: 14px;
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   margin-top: 1px;
 }
 .todo-menu .task-info-row .category-text.important,
 .todo-menu .task-info-row .category-icon.important {
-  color: #ff6f6f; /* soft red */
+  color: #ff6f6f;
 }
 .todo-menu .task-info-row .category-text.urgent,
 .todo-menu .task-info-row .category-icon.urgent {
-  color: #f79ac0; /* soft pink */
+  color: #f79ac0;
 }
 .todo-menu .task-info-row .category-text.soon,
 .todo-menu .task-info-row .category-icon.soon {
-  color: #a3f7c1; /* mint */
+  color: #a3f7c1;
 }
 .todo-menu .task-info-row .category-text.today,
 .todo-menu .task-info-row .category-icon.today {
-  color: #ffe7b6; /* pastel yellow */
+  color: #ffe7b6;
 }
 .todo-menu .task-info-row .delete-task-button {
   background-color: #ffe7b6;
-  color: #0c0a1a;
+  color: #191a1b;
   font-family: "Segoe UI";
   font-weight: 600;
   font-size: 12px;
@@ -331,7 +336,7 @@
 }
 .todo-menu .task-info-row .edit-task-button {
   background-color: #c9f5eb;
-  color: #0c0a1a;
+  color: #191a1b;
   font-family: "Segoe UI";
   font-weight: 600;
   font-size: 12px;
@@ -342,7 +347,7 @@
   margin-right: 8px;
 }
 .todo-menu .task-info-row .edit-task-button:hover {
-  background-color: #b8f5d0; /* mint highlight */
+  background-color: #b8f5d0;
   border-color: rgba(12, 10, 26, 0.25);
   transform: translateY(-1px);
 }
@@ -368,7 +373,7 @@
   font-family: "Segoe UI";
   font-size: 12px;
   font-weight: 600;
-  color: #0c0a1a;
+  color: #191a1b;
   margin: 10px 0px 5px 0;
   min-height: 30px;
 }
@@ -377,16 +382,16 @@
 }
 .todo-menu .app-dialog .title-field:focus,
 .todo-menu .app-dialog .desc-field:focus {
-  border-bottom-color: #b894f6; /* pastel violet */
+  border-bottom-color: #b894f6;
 }
 .todo-menu .app-dialog .button {
-  background-color: #f9c9d0; /* rose */
+  background-color: #f9c9d0;
   border: none;
   border-radius: 4px;
   font-family: "Segoe UI";
   font-size: 12px;
   font-weight: 600;
-  color: #0c0a1a;
+  color: #191a1b;
   min-width: 80px;
   padding: 0 6px;
   margin: 10px 0 5px 6px;
@@ -397,9 +402,7 @@
   margin: 10px 0 5px 0px;
   font-size: 13px;
 }
-.todo-menu .app-dialog .button:focus {
-  border: 2px solid #b894f6;
-}
+
 .todo-menu .app-dialog .button:focus,
 .todo-menu .app-dialog .button:hover {
   background-color: #e6c1ff;
@@ -408,7 +411,7 @@
   background-color: #d5b8ff;
 }
 .todo-menu .app-dialog .button.add {
-  background-color: #a3f7c1; /* mint add */
+  background-color: #a3f7c1;
 }
 .todo-menu .app-dialog .button.add:focus,
 .todo-menu .app-dialog .button.add:hover {
@@ -421,7 +424,7 @@
   background-color: #ffe7b6;
   border: 1px solid #f9c9d0;
   border-radius: 4px;
-  color: #0c0a1a;
+  color: #191a1b;
   font-family: "Segoe UI";
   font-size: 12px;
   font-weight: 600;
@@ -435,7 +438,7 @@
   font-family: "Segoe UI";
   font-size: 11px;
   font-weight: 700;
-  color: #0c0a1a;
+  color: #191a1b;
   padding: 0 6px;
   margin-top: 8px;
   min-height: 24px;
@@ -443,24 +446,24 @@
 }
 .todo-menu .app-dialog .category-button:checked {
   background-color: #e6c1ff;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 
 /* CLOCK */
 .clock-widget {
   background-color: var(--clock-bg);
-  border: 1px solid #0c0a1a;
+  border: 1px solid #191a1b;
   border-radius: 4px;
   padding-top: 2px;
   padding-left: 5px;
   padding-right: 5px;
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   font-weight: bold;
   font-size: 12px;
 }
 .clock-widget .label {
-  color: #0c0a1a;
-  font-family: "0xProto Nerd Font";
+  color: #191a1b;
+  font-family: var(--font-family);
   font-size: 12px;
   font-weight: bold;
   padding: 0 5px 0 4px;
@@ -469,14 +472,14 @@
 /* CALENDAR */
 .calendar {
   background-color: #bff4ef;
-  border: 1px solid #0c0a1a;
+  border: 1px solid #191a1b;
   border-radius: 4px;
 }
 .calendar .calendar-table,
 .calendar .calendar-table::item {
   background-color: transparent;
-  color: #0c0a1a;
-  font-family: "0xProto Nerd Font";
+  color: #191a1b;
+  font-family: var(--font-family);
   font-weight: bold;
   font-size: 12px;
   margin: 0;
@@ -486,22 +489,22 @@
 .calendar .calendar-table::item:selected {
   background-color: #f8bcd6;
   border-radius: 4px;
-  color: #0c0a1a;
+  color: #191a1b;
   outline: none;
 }
 
 /* MEDIA */
 .media-widget {
   background-color: var(--media-bg);
-  border: 1px solid #0c0a1a;
+  border: 1px solid #191a1b;
   border-radius: 4px;
   padding: 0 12px 0 12px;
   outline: none;
 }
 .media-widget .label {
-  color: #0c0a1a;
+  color: #191a1b;
   background: transparent;
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   font-size: 12px;
   font-weight: bold;
   padding-left: 10px;
@@ -510,7 +513,7 @@
 .media-widget .btn {
   background: transparent;
   font-family: "Segoe Fluent Icons";
-  color: #0c0a1a;
+  color: #191a1b;
   font-weight: bold;
   font-size: 12px;
   padding: 3px 6px 2px 3px;
@@ -529,15 +532,15 @@
   outline: none;
 }
 .media-menu .thumbnail {
-  border: 2px solid #0c0a1a;
+  border: 2px solid #191a1b;
   border-radius: 4px;
 }
 .media-menu .title,
 .media-menu .artist,
 .media-menu .source {
   font-weight: bold;
-  font-family: "0xProto Nerd Font";
-  color: #0c0a1a;
+  font-family: var(--font-family);
+  color: #191a1b;
   margin-left: 10px;
 }
 .media-menu .title {
@@ -552,7 +555,7 @@
 }
 .media-menu .source {
   font-size: 11px;
-  color: #0c0a1a;
+  color: #191a1b;
   border-radius: 3px;
   background-color: #a3f7c1;
   padding: 2px 4px;
@@ -576,11 +579,11 @@ Example: "Windows Media" becomes "windows-media" */
 }
 .media-menu .source.chrome {
   background-color: #4ef1e0;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 .media-menu .source.edge {
   background-color: #4ef1e0;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 .media-menu .source.firefox {
   background-color: #ff6f6f;
@@ -592,7 +595,7 @@ Example: "Windows Media" becomes "windows-media" */
 }
 .media-menu .source.media-player {
   background-color: #4ef1e0;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 .media-menu .source.murglar {
   background-color: #2e2a3f;
@@ -600,7 +603,7 @@ Example: "Windows Media" becomes "windows-media" */
 }
 .media-menu .source.musicbee {
   background-color: #ffdca3;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 .media-menu .source.nsmusics {
   background-color: #ff6f6f;
@@ -616,15 +619,15 @@ Example: "Windows Media" becomes "windows-media" */
 }
 .media-menu .source.spotify {
   background-color: #a3f7c1;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 .media-menu .source.tidal {
-  background-color: #0c0a1a;
+  background-color: #191a1b;
   color: #f7f2ec;
 }
 .media-menu .source.winamp {
   background-color: #ffdca3;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 .media-menu .source.youtube {
   background-color: #ff6f6f;
@@ -636,7 +639,7 @@ Example: "Windows Media" becomes "windows-media" */
 }
 .media-menu .source.zen {
   background-color: #a3f7c1;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 .media-menu .btn {
   font-family: "Segoe Fluent Icons";
@@ -648,13 +651,13 @@ Example: "Windows Media" becomes "windows-media" */
   min-height: 40px;
   max-height: 40px;
   border-radius: 20px;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 .media-menu .btn.prev {
   margin-left: 10px;
 }
 .media-menu .btn:hover {
-  color: #0c0a1a;
+  color: #191a1b;
   background-color: #a4f9ee;
 }
 .media-menu .btn.play {
@@ -663,14 +666,14 @@ Example: "Windows Media" becomes "windows-media" */
 }
 .media-menu .btn.disabled:hover,
 .media-menu .btn.disabled {
-  color: #0c0a1a;
+  color: #191a1b;
   background-color: transparent;
 }
 
 .media-menu .playback-time {
   font-size: 13px;
   font-family: "Segoe UI";
-  color: #0c0a1a;
+  color: #191a1b;
   margin-top: 20px;
   min-width: 100px;
 }
@@ -709,7 +712,7 @@ Example: "Windows Media" becomes "windows-media" */
   border-radius: 3px;
 }
 .media-menu .app-volume-container .volume-slider::add-page {
-  background: #0c0a1a;
+  background: #191a1b;
   border-radius: 3px;
 }
 .media-menu .app-volume-container .volume-slider::groove:hover {
@@ -724,19 +727,19 @@ Example: "Windows Media" becomes "windows-media" */
 .media-menu .app-volume-container .mute-button,
 .media-menu .app-volume-container .unmute-button {
   font-size: 16px;
-  color: #0c0a1a;
+  color: #191a1b;
   font-family: "Segoe Fluent Icons";
   margin-top: 4px;
 }
 .media-menu .app-volume-container .unmute-button {
-  color: #0c0a1a;
+  color: #191a1b;
 }
 
 /* UPDATE CHECK */
 
 /* Shared container base */
 .update-check-widget .widget-container {
-  border: 1px solid #0c0a1a;
+  border: 1px solid #191a1b;
   border-radius: 4px;
   margin-left: 1px;
   padding: 2px 6px;
@@ -756,8 +759,8 @@ Example: "Windows Media" becomes "windows-media" */
 
 /* Icon style */
 .update-check-widget .icon {
-  font-family: "0xProto Nerd Font";
-  color: #0c0a1a;
+  font-family: var(--font-family);
+  color: #191a1b;
   padding-right: 10px;
   padding-top: 1px;
   font-size: 14px;
@@ -765,8 +768,8 @@ Example: "Windows Media" becomes "windows-media" */
 
 /* Label style */
 .update-check-widget .label {
-  font-family: "0xProto Nerd Font";
-  color: #0c0a1a;
+  font-family: var(--font-family);
+  color: #191a1b;
   font-size: 12px;
   padding-right: 4px;
   padding-top: 2px;
@@ -775,22 +778,22 @@ Example: "Windows Media" becomes "windows-media" */
 /* NOTIFICATIONS */
 .notification-widget {
   background-color: var(--notification-bg);
-  border: 1px solid #0c0a1a;
+  border: 1px solid #191a1b;
   border-radius: 4px;
   margin-left: 1px;
   outline: none;
 }
 .notification-widget .icon {
-  font-family: "0xProto Nerd Font";
-  color: #0c0a1a;
+  font-family: var(--font-family);
+  color: #191a1b;
   padding-right: 10px;
   padding-top: 1px;
   font-size: 14px;
   font-weight: bold;
 }
 .notification-widget .label {
-  font-family: "0xProto Nerd Font";
-  color: #0c0a1a;
+  font-family: var(--font-family);
+  color: #191a1b;
   font-size: 12px;
   font-weight: bold;
   padding-right: 4px;
@@ -800,8 +803,8 @@ Example: "Windows Media" becomes "windows-media" */
 /* POMODORO WIDGET */
 .pomodoro-widget {
   padding: 0 6px;
-  background-color: var(--pomodoro-bg); /* soft lavender pastel */
-  border: 1px solid #0c0a1a;
+  background-color: var(--pomodoro-bg);
+  border: 1px solid #191a1b;
   border-radius: 4px;
   margin-left: 1px;
   outline: none;
@@ -809,14 +812,14 @@ Example: "Windows Media" becomes "windows-media" */
 
 /* Icon */
 .pomodoro-widget .icon {
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   font-size: 14px;
   padding-right: 4px;
 }
 
 /* Label */
 .pomodoro-widget .label {
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   font-size: 12px;
   font-weight: bold;
 }
@@ -829,7 +832,7 @@ Example: "Windows Media" becomes "windows-media" */
 
 .pomodoro-widget .label.work,
 .pomodoro-widget .icon.work {
-  color: #0c0a1a;
+  color: #191a1b;
 }
 
 .pomodoro-widget .label.break,
@@ -839,10 +842,10 @@ Example: "Windows Media" becomes "windows-media" */
 
 /* POMODORO MENU */
 .pomodoro-menu {
-  background-color: var(--pomodoro-bg); /* solid lavender pastel */
+  background-color: var(--pomodoro-bg);
   border: 1px solid rgba(12, 10, 26, 0.2);
   border-radius: 8px;
-  backdrop-filter: none; /* no blur since it's no longer translucent */
+  backdrop-filter: none;
 }
 
 /* Header */
@@ -850,15 +853,15 @@ Example: "Windows Media" becomes "windows-media" */
   font-family: "Segoe UI";
   font-size: 16px;
   font-weight: 600;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 
 /* Status text */
 .pomodoro-menu .status {
-  font-family: "0xProto Nerd Font";
+  font-family: var(--font-family);
   font-size: 18px;
   font-weight: 700;
-  color: #0c0a1a;
+  color: #191a1b;
 }
 
 /* Session text */
@@ -882,8 +885,8 @@ Example: "Windows Media" becomes "windows-media" */
 
 /* Start button */
 .pomodoro-menu .button.start {
-  background-color: #a3f7c1; /* pastel mint */
-  color: #0c0a1a;
+  background-color: #a3f7c1;
+  color: #191a1b;
 }
 .pomodoro-menu .button.start:hover {
   background-color: #bff4ef;
@@ -891,8 +894,8 @@ Example: "Windows Media" becomes "windows-media" */
 
 /* Pause button */
 .pomodoro-menu .button.pause {
-  background-color: #ffe7b6; /* pastel yellow */
-  color: #0c0a1a;
+  background-color: #ffe7b6;
+  color: #191a1b;
 }
 .pomodoro-menu .button.pause:hover {
   background-color: #ffebb8;
@@ -900,8 +903,8 @@ Example: "Windows Media" becomes "windows-media" */
 
 /* Reset button */
 .pomodoro-menu .button.reset {
-  background-color: #f9c9d0; /* pastel pink */
-  color: #0c0a1a;
+  background-color: #f9c9d0;
+  color: #191a1b;
 }
 .pomodoro-menu .button.reset:hover {
   background-color: #f8bcd6;
@@ -914,8 +917,8 @@ Example: "Windows Media" becomes "windows-media" */
 }
 
 .pomodoro-menu .button.skip {
-  background-color: #c9e4ff; /* soft baby blue for contrast */
-  color: #0c0a1a; /* dark text for readability */
+  background-color: #c9e4ff;
+  color: #191a1b;
   border-radius: 6px;
   font-weight: 600;
   font-family: "Segoe UI";
@@ -925,5 +928,97 @@ Example: "Windows Media" becomes "windows-media" */
 }
 
 .pomodoro-menu .button.skip:hover {
-  background-color: #b9dcff; /* slightly brighter hover tone */
+  background-color: #b9dcff;
+}
+
+/* whkd WIDGET */
+.whkd-widget {
+  background-color: var(--whkd-bg);
+  border: 1px solid #2e2a3f;
+  border-radius: 4px;
+  margin-left: 1px;
+  padding: 1px 8px 1 4px;
+}
+.whkd-widget .icon {
+  outline: none;
+  padding: 0 2px 0 2px;
+  font-size: 16px;
+  color: #191a1b;
+  font-weight: bold;
+  font-family: var(--font-family);
+}
+.whkd-popup {
+  background-color: var(--whkd-bg);
+}
+
+.whkd-popup .edit-config-button {
+  background-color: #5d54bd67;
+  color: #191a1b;
+  padding: 4px 8px 6px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.whkd-popup .edit-config-button:hover {
+  background-color: rgba(245, 208, 184, 0.696);
+}
+
+.whkd-popup .keybind-buttons-container {
+  min-width: 240px;
+}
+.whkd-popup .keybind-button {
+  background-color: #89c8f0;
+  color: #191a1b;
+  padding: 4px 8px 6px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px inset #5c54bd;
+  border-bottom: 2px inset #5c54bd;
+  border-radius: 4px;
+  font-family: var(--font-family);
+}
+.whkd-popup .keybind-button.special {
+  background-color: #89c8f0;
+}
+.whkd-popup .keybind-row:hover {
+  background-color: rgba(245, 208, 184, 0.263);
+  border-radius: 8px;
+}
+.whkd-popup .plus-separator {
+  padding: 0 0px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: transparent;
+}
+.whkd-popup .filter-input {
+  padding: 0 8px 2px 8px;
+  font-size: 14px;
+  font-family: "Segoe UI", sans-serif;
+  border: 1px solid #b8bef5;
+  border-radius: 4px;
+  outline: none;
+  color: #191a1b;
+  background-color: rgba(116, 116, 226, 0.182);
+  min-height: 32px;
+}
+.whkd-popup .filter-input:focus {
+  border: 2px solid rgba(245, 208, 184, 0.696);
+}
+.whkd-popup .keybind-command {
+  font-weight: 500;
+  font-size: 14px;
+  color: #191a1b;
+}
+.whkd-popup .keybind-header {
+  font-size: 16px;
+  font-weight: 600;
+  color: #191a1b;
+  padding: 8px 0;
+  margin-top: 20px;
+  background-color: rgba(116, 116, 226, 0.182);
+  border: 1px solid rgba(190, 245, 184, 0.38);
+  border-radius: 8px;
 }

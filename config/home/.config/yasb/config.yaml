@@ -37,6 +37,7 @@ bars:
       center:
         - "systray"
         - "komorebi_workspaces"
+        - "whkd"
         - "cpu"
         - "memory"
         - "todo"
@@ -51,13 +52,13 @@ widgets:
     type: "yasb.systray.SystrayWidget"
     options:
       class_name: "systray"
-      label_collapsed: "\ue893"
-      label_expanded: "\udb80\udd56"
+      label_collapsed: "󰮯"
+      label_expanded: ""
       show_unpinned: false
       show_unpinned_button: true
       show_battery: false
       show_volume: false
-      show_network: false
+      show_network: true
       container_padding:
         top: 0
         left: 0
@@ -146,7 +147,7 @@ widgets:
         direction: "down"
         offset_top: true
       icons:
-        add: "\uf501 New Task"
+        add: "\uf501   New Task" # Keep spaces for seperation
         edit: "Edit"
         delete: "Delete"
         date: "\ue641"
@@ -169,7 +170,7 @@ widgets:
       callbacks:
         on_left: "toggle_menu"
         on_middle: "do_nothing"
-        on_right: "toggle_nothing"
+        on_right: "do_nothing"
       container_padding:
         top: 0
         left: 0
@@ -267,7 +268,7 @@ widgets:
   notifications:
     type: "yasb.notifications.NotificationsWidget"
     options:
-      label: "<span>\uf421</span>{count}"
+      label: "<span>󰮭</span>{count}"
       label_alt: "{count} Notification(s)"
       hide_empty: true
       tooltip: false
@@ -344,4 +345,30 @@ widgets:
         enabled: false
         color: "black"
         radius: 1
+        offset: [1, 1]
+  whkd:
+    type: "yasb.whkd.WhkdWidget"
+    options:
+      label: "<span>󰧹</span>"
+      special_keys:
+        - key: "win"
+          key_replace: "\ue70f"
+        - key: "ctrl"
+          key_replace: "Ctrl"
+        - key: "alt"
+          key_replace: "Alt"
+        - key: "shift"
+          key_replace: "Shift"
+        - key: "left"
+          key_replace: "\u2190"
+        - key: "right"
+          key_replace: "\u2192"
+        - key: "up"
+          key_replace: "\u2191"
+        - key: "down"
+          key_replace: "\u2193"
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
         offset: [1, 1]
