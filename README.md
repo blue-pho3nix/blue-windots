@@ -1,30 +1,38 @@
 # Pastels Windots for Windows 11 😊
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
-![](https://github.com/user-attachments/assets/ae43eb17-8565-4408-af8f-817dc8150f62)
-![](https://github.com/user-attachments/assets/620e7ef2-c31a-472b-82a4-04fb7deb2dc6)
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/7befd27e-75fd-4cfe-b4bf-8bde8f33828c" />
 
-![](https://github.com/user-attachments/assets/d8a5e3ab-2d9a-4dff-8f09-8b461bba765c)
+<img width="1000" height="1432" alt="image" src="https://github.com/user-attachments/assets/27e0a45e-a9c7-46fc-bc4c-e75dd16fda71" />
 
-![](https://github.com/user-attachments/assets/23662d7f-ec4a-4a8a-b65d-564578d23e93)
-![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
+<img width="1000" height="1080" alt="image" src="https://github.com/user-attachments/assets/1b44cfab-f847-4785-8a8d-a44b17988c22" />
 
 
 ### Interesting yasb Widgets
 
 #### To Do
 
-![](https://github.com/user-attachments/assets/f1f348a3-e946-45d6-a27d-253c2d36f374)
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/3a5145d0-75c2-4eb2-b134-3b2e0e87b513" />
 
 
 #### Media
 
-![](https://github.com/user-attachments/assets/2e19181d-8297-4a43-88ef-404dd25ab1d4)
+<img width="1000"  alt="image" src="https://github.com/user-attachments/assets/f5a51f0b-fdca-4e8b-85d4-8221dfcbee55" />
+
 
 #### Pomodoro Timer
 
-![](https://github.com/user-attachments/assets/661544e1-bf97-496e-b04c-3f9c6077d0cf)
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/6dc0bce8-18eb-4a25-8412-28783e962788" />
 
+#### WHKD Keybinds
+
+<img width="1000" height="1136" alt="image" src="https://github.com/user-attachments/assets/fbfd8d7d-9a1f-4436-8393-ea0fa4b34306" />
+
+#### Systray
+
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/fb20fa00-4333-492e-a866-d05ecedf9ed4" />
+
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/e5518405-f04b-4dfa-8f04-599e9080de9a" />
 
 --- 
 
