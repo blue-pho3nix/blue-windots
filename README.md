@@ -2,7 +2,7 @@
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
 # Themes
-## Andromeda
+## [Install Andromeda](https://github.com/blue-pho3nix/blue-windots/tree/Andromeda#optional-pre-install)
 
 ![](https://github.com/user-attachments/assets/d3e1d331-d9a6-4a48-bf85-ff665b8704f7)
 
@@ -34,20 +34,20 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 </details>
 
-### [Install Andromeda](https://github.com/blue-pho3nix/blue-windots/tree/Andromeda#optional-pre-install)
-
 ---
 
-## Pastels
+## [Install Pastels](https://github.com/blue-pho3nix/blue-windots/blob/Pastels/README.md#optional-pre-install)
 
-![](https://github.com/user-attachments/assets/7befd27e-75fd-4cfe-b4bf-8bde8f33828c)
+
+<img width="1000" height="1432" alt="image" src="https://github.com/user-attachments/assets/27e0a45e-a9c7-46fc-bc4c-e75dd16fda71" />
+
 
 
 <details closed>
   <summary>View more images 🖼️</summary>
   
 
-<img width="1000" height="1432" alt="image" src="https://github.com/user-attachments/assets/27e0a45e-a9c7-46fc-bc4c-e75dd16fda71" />
+<img width="1000" height="1080" alt="image" src="https://github.com/user-attachments/assets/7befd27e-75fd-4cfe-b4bf-8bde8f33828c" />
 
 <img width="1000" height="1080" alt="image" src="https://github.com/user-attachments/assets/1b44cfab-f847-4785-8a8d-a44b17988c22" />
 
@@ -80,19 +80,18 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 </details>
 
-### [Install Pastels](https://github.com/blue-pho3nix/blue-windots/blob/Pastels/README.md#optional-pre-install)
-
 ---
 
-## Nordish
+## [Install Nordish](https://github.com/blue-pho3nix/blue-windots/blob/Nordish/README.md#optional-pre-install)
 
-![](https://github.com/user-attachments/assets/b7854795-a66e-439c-b243-f47a52cd17cb)
+
+![](https://github.com/user-attachments/assets/0ea76aa8-e7ed-474d-bda3-e46a0a7b0559)
 
 <details closed>
   <summary>View more images 🖼️</summary>
   
 ![](https://github.com/user-attachments/assets/d52dfad4-da3a-4ad9-8dd6-cdf0485c62f5)
-![](https://github.com/user-attachments/assets/0ea76aa8-e7ed-474d-bda3-e46a0a7b0559)
+![](https://github.com/user-attachments/assets/b7854795-a66e-439c-b243-f47a52cd17cb)
 ![](https://github.com/user-attachments/assets/f7da3151-f1c4-4f4d-b810-a6717b60f846)
 
 
@@ -106,5 +105,4 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 </details>
 
-### [Install Nordish](https://github.com/blue-pho3nix/blue-windots/blob/Nordish/README.md#optional-pre-install)
 
