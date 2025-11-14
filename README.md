@@ -39,25 +39,43 @@ My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https:
 
 ## Pastels
 
-![](https://github.com/user-attachments/assets/e066d4de-a5d7-4814-a120-0d6c89ef5ea3)
+![](https://github.com/user-attachments/assets/7befd27e-75fd-4cfe-b4bf-8bde8f33828c)
 
 
 <details closed>
   <summary>View more images 🖼️</summary>
   
-![](https://github.com/user-attachments/assets/e84b909d-a3e5-4a1a-9e1c-77ac08140aa7)
-![](https://github.com/user-attachments/assets/f226badf-40bc-48bc-93b9-101909dabddd)
-![](https://github.com/user-attachments/assets/23662d7f-ec4a-4a8a-b65d-564578d23e93)
-![](https://github.com/user-attachments/assets/f9a9d884-3fb9-454b-8396-052f36ae746d)
 
-## Interesting yasb Widgets
+<img width="1000" height="1432" alt="image" src="https://github.com/user-attachments/assets/27e0a45e-a9c7-46fc-bc4c-e75dd16fda71" />
+
+<img width="1000" height="1080" alt="image" src="https://github.com/user-attachments/assets/1b44cfab-f847-4785-8a8d-a44b17988c22" />
+
+
+### Interesting yasb Widgets
 
 #### To Do
-![](https://github.com/user-attachments/assets/538eeeb4-8bc7-428d-9b77-390423a9a29c)
-![](https://github.com/user-attachments/assets/29a57724-c0f4-4e63-8de5-503c2f3175e6)
+
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/3a5145d0-75c2-4eb2-b134-3b2e0e87b513" />
+
 
 #### Media
-![](https://github.com/user-attachments/assets/9dfb0651-10c4-44cb-9695-ece71834e40d)
+
+<img width="1000"  alt="image" src="https://github.com/user-attachments/assets/f5a51f0b-fdca-4e8b-85d4-8221dfcbee55" />
+
+
+#### Pomodoro Timer
+
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/6dc0bce8-18eb-4a25-8412-28783e962788" />
+
+#### WHKD Keybinds
+
+<img width="1000" height="1136" alt="image" src="https://github.com/user-attachments/assets/fbfd8d7d-9a1f-4436-8393-ea0fa4b34306" />
+
+#### Systray
+
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/fb20fa00-4333-492e-a866-d05ecedf9ed4" />
+
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/e5518405-f04b-4dfa-8f04-599e9080de9a" />
 
 </details>
 
