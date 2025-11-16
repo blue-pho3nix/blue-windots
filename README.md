@@ -1,38 +1,38 @@
 # Pastels Windots for Windows 11 😊
 My semi-automated [Komorebi](https://github.com/LGUG2Z/Komorebi) + [yasb](https://github.com/amnweb/yasb) setup.
 
-<img width="1000" height="1440" alt="image" src="https://github.com/user-attachments/assets/cb59e6f4-be5c-44d8-bcfe-23235704319a" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/cb59e6f4-be5c-44d8-bcfe-23235704319a" />
 
-<img width="1000" height="1439" alt="image" src="https://github.com/user-attachments/assets/ed8ca6bf-f313-49e3-9006-ed1f63464f04" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/ed8ca6bf-f313-49e3-9006-ed1f63464f04" />
 
-<img width="1000" height="1078" alt="image" src="https://github.com/user-attachments/assets/67d511c0-10d3-4ad7-b6e2-ff65f9b5674d" />
+<img width="1000"  alt="image" src="https://github.com/user-attachments/assets/7710ace3-3078-40ea-8875-20f1480e64f4" />
 
 
 ### Interesting yasb Widgets
 
 #### Systray
 
-<img width="1000" height="409" alt="image" src="https://github.com/user-attachments/assets/ca43215e-e21b-460d-aee2-24ebd04c2aaa" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/ca43215e-e21b-460d-aee2-24ebd04c2aaa" />
 
-<img width="1000" height="348" alt="image" src="https://github.com/user-attachments/assets/ecd19749-bc51-4497-8dd5-a48b01219110" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/ecd19749-bc51-4497-8dd5-a48b01219110" />
 
 #### WHKD Keybinds
 
-<img width="1000" height="1076" alt="image" src="https://github.com/user-attachments/assets/f6d1689e-5f20-465e-b401-d2f26e7b8b02" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/f6d1689e-5f20-465e-b401-d2f26e7b8b02" />
 
 #### To Do
 
-<img width="1000" height="676" alt="image" src="https://github.com/user-attachments/assets/d1dc66fa-e729-42fd-9a68-658aafa64111" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/d1dc66fa-e729-42fd-9a68-658aafa64111" />
 
 
 #### Media
 
-<img width="1000" height="518" alt="image" src="https://github.com/user-attachments/assets/64cf15ed-1a44-408d-a8ef-888335797f09" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/64cf15ed-1a44-408d-a8ef-888335797f09" />
 
 
 #### Pomodoro Timer
 
-<img width="1000" height="641" alt="image" src="https://github.com/user-attachments/assets/837bc32a-9ce4-4995-adba-75779536d6ce" />
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/837bc32a-9ce4-4995-adba-75779536d6ce" />
 
 
 --- 
