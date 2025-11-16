@@ -36,12 +36,11 @@ bars:
       bottom: 0
       right: 0
     widgets:
-      left: ["launchpad", "whkd", "komorebi_workspaces", "media"]
+      left: ["launchpad", "whkd", "komorebi_workspaces", "media","taskbar"]
       center: ["pomodoro", "todo", "clock"]
       right:
         [
           "systray",
-          "taskbar",
           "bluetooth",
           "wifi",
           "notifications",
