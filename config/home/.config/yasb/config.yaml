@@ -37,10 +37,10 @@ bars:
       center:
         - "systray"
         - "komorebi_workspaces"
-        - "whkd"
         - "cpu"
         - "memory"
         - "todo"
+        - "whkd"
         - "pomodoro"
         - "clock"
         - "media"
@@ -145,7 +145,8 @@ widgets:
         round_corners: true
         alignment: "center"
         direction: "down"
-        offset_top: true
+        blur: true
+        border_color: system
       icons:
         add: "\uf501   New Task" # Keep spaces for seperation
         edit: "Edit"

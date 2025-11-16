@@ -1,13 +1,13 @@
 :root {
-  --todo-bg: #bef5b8;
-  --cpu-bg: #b8f5ef;
+  --todo-bg: #b8f5ef;
+  --cpu-bg: #bef5b8;
   --memory-bg: #b8f5d0;
   --komorebi-workspace-bg: #e2f1fa;
   --clock-bg: #f5b8dd;
   --media-bg: #f79ac0;
   --winget-update-bg: #a4daf9;
   --windows-update-bg: #a4f9ee;
-  --notification-bg: #c6e3ff;
+  --notification-bg: #e2f1fa;
   --pomodoro-bg: #d7b7ff;
   --systray-bg: #191a1b;
   --whkd-bg: #b8ddf5;
@@ -29,6 +29,7 @@
   padding: 1px 8px 0 8px;
 }
 .systray .button {
+  border: none;
   outline: none;
   padding: 0 2px 0 2px;
 }
@@ -38,6 +39,7 @@
   font-weight: bold;
   font-size: 16px;
   outline: none;
+  border: none;
 }
 
 /* CPU */
@@ -123,7 +125,7 @@
   max-width: 80px;
   outline: none;
   background-color: var(--todo-bg);
-  border: 1px solid #191a1b;
+  border: 1px solid #1a0031;
   border-radius: 4px;
   padding-top: 2px;
   margin-left: 1px;
@@ -144,7 +146,7 @@
   padding: 0 6px 0 6px;
 }
 .todo-widget .icon {
-  color: #a3f7c1;
+  color: #191a1b;
   padding: 0;
 }
 .todo-widget .label {
@@ -168,12 +170,11 @@
 .todo-menu .header .tab-buttons {
   border: none;
   border-radius: 13px;
-  color: #191a1b;
+  color: #1a0031;
   padding: 4px 8px;
   font-size: 14px;
   font-weight: 600;
-  margin: 0px;
-  font-family: "Segoe UI", "0xProto Nerd Font";
+  font-family: var(--font-family);
 }
 
 .todo-menu .header .tab-buttons {
@@ -181,7 +182,7 @@
   font-size: 14px;
 }
 .todo-menu .header .add-task-button:hover {
-  background-color: rgba(249, 201, 208, 0.616);
+  color: #5d0184;
 }
 .todo-menu .header .tab-buttons.in-progress,
 .todo-menu .header .tab-buttons.completed {
@@ -189,17 +190,14 @@
 }
 .todo-menu .header .tab-buttons.in-progress:checked {
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: #5d0184;
 }
 .todo-menu .header .tab-buttons.completed:checked {
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: #5d0184;
 }
 .todo-menu .header .tab-buttons.sort {
-  background-color: rgba(255, 255, 255, 0.4);
-  color: #191a1b;
+  color: #1a0031;
   border-radius: 10px;
   min-height: 20px;
   min-width: 20px;
@@ -207,21 +205,22 @@
   max-height: 20px;
   padding: 0;
   margin: 0 8px 0 0;
-  font-family: var(--font-family);
+  font-family: "Segoe UI";
 }
 .todo-menu .header .tab-buttons.sort:pressed {
-  background-color: rgba(255, 255, 255, 0.6);
+  color: #5d0184;
+  font-weight: 500;
 }
 .todo-menu .no-tasks {
   font-family: "Segoe UI";
   font-size: 18px;
-  color: #6a6a75;
+  color: rgba(59, 54, 63, 0.7);
   font-weight: 400;
   margin-top: 16px;
 }
 .todo-menu .no-tasks-icon {
   font-size: 80px;
-  color: #9fa0b2;
+  color: rgba(59, 54, 63, 0.5);
   font-family: var(--font-family);
   margin-top: 64px;
   font-weight: 400;
@@ -229,25 +228,28 @@
 
 /* Task item styles */
 .todo-menu .task-item {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(227, 251, 249, 0.529);
   border-radius: 8px;
   margin: 0px 12px 8px 12px;
-  border: 1px solid rgba(12, 10, 26, 0.15);
+  border: 2px solid rgba(239, 184, 245, 0.25);
   padding: 8px 0;
+  box-shadow: 0 1px 2px rgba(26, 0, 49, 0.05);
 }
 .todo-menu .task-item.expanded {
-  background-color: rgba(255, 240, 250, 0.6);
-  border: 1px solid rgba(255, 182, 232, 0.3);
+  background-color: rgba(227, 251, 249, 0.529);
+  border: 3px solid rgba(239, 184, 245, 0.25);
+  padding: 8px 0;
+  box-shadow: 0 1px 2px rgba(26, 0, 49, 0.05);
 }
 .todo-menu .task-item.drop-highlight,
 .todo-menu .task-item.drop-highlight:hover,
 .todo-menu .task-item.drop-highlight:focus {
-  background-color: rgba(180, 255, 240, 0.5);
-  border: 1px solid #4ef1e0;
+  background-color: rgba(184, 190, 245, 0.3);
+  border: 2px solid rgba(239, 184, 245, 0.5);
 }
 .todo-menu .task-item .title {
-  color: #191a1b;
-  font-size: 13px;
+  color: #1a0031;
+  font-size: 14px;
   font-weight: 600;
   font-family: "Segoe UI";
   padding: 0 8px 8px 8px;
@@ -256,27 +258,31 @@
 .todo-menu .task-item.completed .title,
 .todo-menu .task-item.completed .description {
   text-decoration: line-through;
-  color: #a8a8b3;
+  color: rgba(57, 44, 67, 0.7);
 }
 .todo-menu .task-item .description {
-  color: #323240;
+  color: rgba(25, 26, 27, 0.85);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 0 8px 8px 8px;
   font-family: "Segoe UI";
 }
 .todo-menu .task-checkbox {
   background-color: transparent;
   border: none;
-  margin-left: 12px;
+  margin-left: 10px;
   margin-top: 5px;
   font-size: 18px;
-  color: #191a1b;
+  color: #1a0031;
   font-family: var(--font-family);
-  margin-right: 10px;
+  margin-right: 2px;
+}
+.todo-menu .task-checkbox:hover {
+  color: #5d0184;
+  transition: 0.15s ease;
 }
 .todo-menu .task-checkbox:checked {
-  color: #a8a8b3;
+  color: rgba(57, 44, 67, 0.7);
 }
 
 /* Task info row styles */
@@ -288,115 +294,96 @@
 .todo-menu .task-info-row .category-text {
   font-family: "Segoe UI";
   font-weight: 600;
-  color: #555568;
-  font-size: 13px;
+  color: rgba(75, 77, 80, 0.7);
+  font-size: 12px;
   padding-left: 0px;
   margin-right: 12px;
 }
 .todo-menu .task-info-row .date-icon,
 .todo-menu .task-info-row .category-icon {
   font-weight: 400;
-  color: #7e7f91;
-  font-size: 14px;
+  color: rgba(75, 77, 80, 0.7);
+  font-size: 12px;
   font-family: var(--font-family);
   margin-top: 1px;
 }
 .todo-menu .task-info-row .category-text.important,
 .todo-menu .task-info-row .category-icon.important {
-  color: #ff6f6f;
+  color: rgba(75, 77, 80, 0.7);
 }
 .todo-menu .task-info-row .category-text.urgent,
 .todo-menu .task-info-row .category-icon.urgent {
-  color: #f79ac0;
+  color: rgba(75, 77, 80, 0.7);
 }
 .todo-menu .task-info-row .category-text.soon,
 .todo-menu .task-info-row .category-icon.soon {
-  color: #a3f7c1;
+  color: rgba(75, 77, 80, 0.7);
 }
 .todo-menu .task-info-row .category-text.today,
 .todo-menu .task-info-row .category-icon.today {
-  color: #ffe7b6;
+  color: rgba(75, 77, 80, 0.7);
 }
-.todo-menu .task-info-row .delete-task-button {
-  background-color: #ffe7b6;
-  color: #191a1b;
-  font-family: "Segoe UI";
-  font-weight: 600;
-  font-size: 12px;
-  padding: 0 8px;
-  border-radius: 10px;
-  min-height: 20px;
-  max-height: 20px;
-  margin-right: 8px;
-}
-.todo-menu .task-info-row .delete-task-button:hover {
-  background-color: #e7d0a4;
-  border-color: rgba(12, 10, 26, 0.25);
-  transform: translateY(-1px);
-}
+.todo-menu .task-info-row .delete-task-button,
 .todo-menu .task-info-row .edit-task-button {
-  background-color: #c9f5eb;
-  color: #191a1b;
+  color: rgba(26, 0, 49, 0.878);
   font-family: "Segoe UI";
   font-weight: 600;
   font-size: 12px;
   padding: 0 8px;
-  border-radius: 10px;
   min-height: 20px;
   max-height: 20px;
-  margin-right: 8px;
+  margin-right: 10px;
 }
+.todo-menu .task-info-row .delete-task-button:hover,
 .todo-menu .task-info-row .edit-task-button:hover {
-  background-color: #b8f5d0;
-  border-color: rgba(12, 10, 26, 0.25);
-  transform: translateY(-1px);
+  font-weight: 600;
+  color: #5d0184;
 }
+
 /* App dialog style */
 .todo-menu .app-dialog {
   font-family: "Segoe UI";
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #8defe5;
 }
 .todo-menu .app-dialog .buttons-container {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: #65e6d7;
   margin-top: 16px;
-  border-top: 1px solid rgba(12, 10, 26, 0.2);
   max-height: 80px;
   min-height: 80px;
   padding: 0 20px 0 20px;
+  border: 2px solid rgba(239, 184, 245, 0.25);
 }
+
 .todo-menu .app-dialog .title-field,
 .todo-menu .app-dialog .desc-field {
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(12, 10, 26, 0.2);
+  background-color: #100d21;
   border-radius: 4px;
   padding: 0 6px;
   font-family: "Segoe UI";
   font-size: 12px;
   font-weight: 600;
-  color: #191a1b;
+  color: #fbf8fb;
   margin: 10px 0px 5px 0;
   min-height: 30px;
 }
 .todo-menu .app-dialog .desc-field {
   max-height: 60px;
 }
-.todo-menu .app-dialog .title-field:focus,
-.todo-menu .app-dialog .desc-field:focus {
-  border-bottom-color: #b894f6;
-}
+
 .todo-menu .app-dialog .button {
-  background-color: #f9c9d0;
+  background-color: #5d0184;
   border: none;
   border-radius: 4px;
   font-family: "Segoe UI";
   font-size: 12px;
   font-weight: 600;
-  color: #191a1b;
+  color: #f2fefd;
   min-width: 80px;
   padding: 0 6px;
   margin: 10px 0 5px 6px;
   min-height: 28px;
   outline: none;
+  border: 2px solid rgba(239, 184, 245, 0.25);
 }
 .todo-menu .app-dialog .buttons-container .button {
   margin: 10px 0 5px 0px;
@@ -405,26 +392,14 @@
 
 .todo-menu .app-dialog .button:focus,
 .todo-menu .app-dialog .button:hover {
-  background-color: #e6c1ff;
+  background-color: #7700ab;
 }
-.todo-menu .app-dialog .button:pressed {
-  background-color: #d5b8ff;
-}
-.todo-menu .app-dialog .button.add {
-  background-color: #a3f7c1;
-}
-.todo-menu .app-dialog .button.add:focus,
-.todo-menu .app-dialog .button.add:hover {
-  background-color: #bff4ef;
-}
-.todo-menu .app-dialog .button.add:pressed {
-  background-color: #f8bcd6;
-}
+
 .todo-menu .app-dialog .warning-message {
-  background-color: #ffe7b6;
-  border: 1px solid #f9c9d0;
+  background-color: #2b0b0e;
+  border: 1px solid #5a303c;
   border-radius: 4px;
-  color: #191a1b;
+  color: #cc9b9f;
   font-family: "Segoe UI";
   font-size: 12px;
   font-weight: 600;
@@ -432,21 +407,22 @@
   margin: 4px 0px;
 }
 .todo-menu .app-dialog .category-button {
-  background-color: rgba(255, 255, 255, 0.5);
   border: none;
   border-radius: 4px;
   font-family: "Segoe UI";
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
-  color: #191a1b;
+  color: #2d0058;
   padding: 0 6px;
   margin-top: 8px;
   min-height: 24px;
   outline: none;
 }
 .todo-menu .app-dialog .category-button:checked {
-  background-color: #e6c1ff;
-  color: #191a1b;
+  color: #5d0184;
+}
+.todo-menu .app-dialog .category-button:hover {
+  color: #4f0071;
 }
 
 /* CLOCK */
