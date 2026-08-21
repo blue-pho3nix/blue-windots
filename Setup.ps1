@@ -451,9 +451,9 @@ $ModConfigurations = @(
         Settings = @{ 'Theme' = 'Matter' } 
     },
     
-    # Windows 11 Start Menu Styler Configuration (Oversimplified$Accentuated Theme)
+    # Windows 11 Start Menu Styler Configuration (Oversimplified&Accentuated Theme)
     @{ Name = 'Windows 11 Start Menu Styler'; Key = 'windows-11-start-menu-styler'; 
-        Settings = @{ 'Theme' = 'Oversimplified$Accentuated'; 'DisableNewLayout' = 1 } 
+        Settings = @{ 'Theme' = 'Oversimplified&Accentuated'; 'DisableNewLayout' = 1 } 
     }
 )
 
